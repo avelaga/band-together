@@ -1,3 +1,3 @@
 # Band Together
 
-Creating the most amazing concert info site the world has ever seen.
+THE most amazing concert information portal site web thing the whole wide world has ever seen ever.
