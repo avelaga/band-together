@@ -1,13 +1,12 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import AboutPage from './components/pages/AboutPage';
 
 function App() {
   return (
     <Switch>
-      <Route path='/about'>
-        <AboutPage/>
-      </Route>
+      <Route exact path='/'><h1>Band Together</h1></Route>
+      <Route path='/about'><AboutPage/></Route>
     </Switch>
   );
 }
