@@ -1,9 +1,14 @@
 import React from 'react';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import AboutPage from './components/pages/AboutPage';
 
 function App() {
   return (
-    <h1>Band Together</h1>
+    <Switch>
+      <Route path='/about'>
+        <AboutPage/>
+      </Route>
+    </Switch>
   );
 }
 
