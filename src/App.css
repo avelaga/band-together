@@ -1,0 +1,41 @@
+.navbar-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.band-navbar {
+    background-color: #185879;
+}
+
+.navbar-link {
+    color: #ffffff;
+    font-size: 2em;
+    padding: 1em;
+}
+
+.splash-logo-container {
+    text-align: center;
+}
+
+.splash-logo {
+    height: 35em;
+    width: 50%;
+    padding-top: 1%;
+    float: left;
+}
+
+.splash-logo-text-container {
+    float: left;
+}
+
+.right-side-text {
+    height: 35em;
+    width: 50%;
+    padding-top: 1%;
+    float: left;
+    margin: auto;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    padding-left: 10%;
+    font-size: 2em;
+}

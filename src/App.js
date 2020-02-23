@@ -21,7 +21,6 @@ function App() {
       <Route exact path='/artists/:id' exact component={ArtistDetailPage} />
       <Route exact path='/concerts' exact component={ConcertListPage} />
       <Route exact path='/concerts/:id' exact component={ConcertDetailPage} />
-
     </Switch>
   );
 }
