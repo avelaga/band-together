@@ -1,0 +1,17 @@
+.navbar-logo {
+    width: 75px;
+    height: 100%;
+}
+
+.band-navbar {
+    /* background-color: #185879; */
+    background-color: black;
+    height: 75px;
+    width: 100%;
+}
+
+.navbar-link {
+    color: #ffffff;
+    font-size: 2em;
+    padding: 1em;
+}
