@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Logo from '../../../dist/images/Logo.png';
-import "../../App.css";
+import Logo from '../../../dist/images/dark-logo.png';
+import "./layout.css";
 
 export class Navbar extends Component {
   render() {
