@@ -16,57 +16,59 @@ export class Slide extends Component {
   render() {
     const settings = {
       dots: true,
+      arrows: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1,
+      slidesToScroll: 1
     };
+
     return (
       <div className="slider-container">
-      <Slider className="slideshow" {...settings}>
-        <div className="slideshow" sytle={{width: 100}}>
-          <div className="slider-text-container">
-            <p className="slider-text">Some text will go here</p>
+        <Slider className="slideshow" {...settings}>
+          <div className="slideshow" sytle={{ width: 100 }}>
+            <div className="slider-text-container">
+              <p className="slider-text">Some text will go here</p>
+            </div>
+            <img className="slider-image" src={JohnMayerImg} />
+            <div className="slider-text-container">
+              <p className="slider-text">Some text will go here</p>
+            </div>
+            <img className="slider-image" src={FunImg} />
+            <div className="slider-text-container">
+              <p className="slider-text">Some text will go here</p>
+            </div>
+            <img className="slider-image" src={SirPaulImg} />
           </div>
-          <img className="slider-image" src={JohnMayerImg} />
-          <div className="slider-text-container">
-            <p className="slider-text">Some text will go here</p>
+          <div className="slideshow">
+            <img className="slider-image" src={AustinImg} />
+            <div className="slider-text-container">
+              <p className="slider-text">Some text will go here</p>
+            </div>
+            <img className="slider-image" src={NewYorkImg} />
+            <div className="slider-text-container">
+              <p className="slider-text">Some text will go here</p>
+            </div>
+            <img className="slider-image" src={SanFranciscoImg} />
+            <div className="slider-text-container">
+              <p className="slider-text">Some text will go here</p>
+            </div>
           </div>
-          <img className="slider-image" src={FunImg} />
-          <div className="slider-text-container">
-            <p className="slider-text">Some text will go here</p>
+          <div className="slideshow">
+            <div className="slider-text-container">
+              <p className="slider-text">Some text will go here</p>
+            </div>
+            <img className="slider-image" src={FrankErwinImg} />
+            <div className="slider-text-container">
+              <p className="slider-text">Some text will go here</p>
+            </div>
+            <img className="slider-image" src={MadisonGardenImg} />
+            <div className="slider-text-container">
+              <p className="slider-text">Some text will go here</p>
+            </div>
+            <img className="slider-image" src={ApolloImg} />
           </div>
-          <img className="slider-image" src={SirPaulImg} />
-        </div>
-        <div className="slideshow">
-        <img className="slider-image" src={AustinImg} />
-          <div className="slider-text-container">
-            <p className="slider-text">Some text will go here</p>
-          </div>
-          <img className="slider-image" src={NewYorkImg} />
-          <div className="slider-text-container">
-            <p className="slider-text">Some text will go here</p>
-          </div>
-          <img className="slider-image" src={SanFranciscoImg} />
-          <div className="slider-text-container">
-            <p className="slider-text">Some text will go here</p>
-          </div>
-        </div>
-        <div className="slideshow">
-          <div className="slider-text-container">
-            <p className="slider-text">Some text will go here</p>
-          </div>
-          <img className="slider-image" src={FrankErwinImg} />
-          <div className="slider-text-container">
-            <p className="slider-text">Some text will go here</p>
-          </div>
-          <img className="slider-image" src={MadisonGardenImg} />
-          <div className="slider-text-container">
-            <p className="slider-text">Some text will go here</p>
-          </div>
-          <img className="slider-image" src={ApolloImg} />
-        </div>
-      </Slider>
+        </Slider>
       </div>
     );
   }
