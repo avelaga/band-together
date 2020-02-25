@@ -1,0 +1,48 @@
+.navbar-logo {
+    width: 75px;
+    height: 100%;
+}
+
+.band-navbar {
+    /* background-color: #185879; */
+    background-color: black;
+    height: 5%;
+    width: 100%;
+}
+
+.navbar-link {
+    color: #ffffff;
+    font-size: 2em;
+    padding: 1em;
+}
+
+.slider {
+    height: 500px;
+    width: 100%;
+    background-color: black;
+}
+
+.slider-image {
+    height: 50%;
+    width: 33.33%;
+    float: left;
+    margin-left: none;
+    margin-bottom: none;
+    margin-right: none;
+    margin-top: none;
+    padding: .1%
+}
+
+.slider-text-container {
+    height: 50%;
+    width: 33.33%;
+    padding: .1%;
+    float: left;
+    margin: 0;
+}
+
+.slider-text {
+    color: white;
+    margin: 0;
+    padding: 25%;
+}
