@@ -19,11 +19,12 @@ export class Slide extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
     };
     return (
-      <Slider className="slider" {...settings}>
-        <div className="slider">
+      <div className="slider-container">
+      <Slider className="slideshow" {...settings}>
+        <div className="slideshow" sytle={{width: 100}}>
           <div className="slider-text-container">
             <p className="slider-text">Some text will go here</p>
           </div>
@@ -37,7 +38,7 @@ export class Slide extends Component {
           </div>
           <img className="slider-image" src={SirPaulImg} />
         </div>
-        <div className="slider">
+        <div className="slideshow">
         <img className="slider-image" src={AustinImg} />
           <div className="slider-text-container">
             <p className="slider-text">Some text will go here</p>
@@ -51,7 +52,7 @@ export class Slide extends Component {
             <p className="slider-text">Some text will go here</p>
           </div>
         </div>
-        <div className="slider">
+        <div className="slideshow">
           <div className="slider-text-container">
             <p className="slider-text">Some text will go here</p>
           </div>
@@ -66,6 +67,7 @@ export class Slide extends Component {
           <img className="slider-image" src={ApolloImg} />
         </div>
       </Slider>
+      </div>
     );
   }
 }
