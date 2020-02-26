@@ -32,3 +32,29 @@
     width: 100%;
     background-color: black;
 }
+
+.left-half {
+    height: 400px;
+    width: 50%;
+    margin-top: 1%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    float: left;
+}
+
+.right-half {
+    height: 400px;
+    width: 50%;
+    margin-top: 1%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    float: left;
+}
+
+.cool-shit {
+    height: 400px;
+    width: 50%;
+    background-color: blue;
+}
