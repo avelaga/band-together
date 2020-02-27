@@ -4,8 +4,8 @@ import ChicagoImg from "../../../dist/images/chicago.jpg";
 import LosAngelesImg from "../../../dist/images/losangeles.jpeg";
 import "./pages.css";
 
-export class ArtistDetailPage extends Component {
-  artists = [
+export class LocationDetailPage extends Component {
+  locations = [
     {
       name: "Austin",
       upcoming_concerts: [],
@@ -43,19 +43,19 @@ export class ArtistDetailPage extends Component {
         <div className="artist-detail">
           <div className="artist-detail-left">
             <img
-              src={this.artists[id - 1].image}
+              src={this.locations[id - 1].image}
               className="artist-detail-image"
             />
           </div>
           <div className="artist-detail-right">
-            <h1>{this.artists[id - 1].name}</h1>
-            <p>Population: {this.artists[id - 1].population}</p>
-            <p>Founded: {this.artists[id - 1].year_founded}</p>
+            <h1>{this.locations[id - 1].name}</h1>
+            <p>Population: {this.locations[id - 1].population}</p>
+            <p>Founded: {this.locations[id - 1].year_founded}</p>
           </div>
           <div className="clear" />
           <div className="artist-detail-bottom">
             <p>Bio:</p>
-            <p>{this.artists[id - 1].info}</p>
+            <p>{this.locations[id - 1].info}</p>
           </div>
         </div>
       </div>
@@ -63,4 +63,4 @@ export class ArtistDetailPage extends Component {
   }
 }
 
-export default ArtistDetailPage;
+export default LocationDetailPage;
