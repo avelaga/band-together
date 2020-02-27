@@ -9,6 +9,10 @@
     width: 100%;
 }
 
+.navbar-links-container {
+    float: right;
+}
+
 .navbar-link {
     color: #ffffff;
     font-size: 2em;

@@ -1,87 +1,12 @@
-.splash-logo-container {
-    text-align: center;
-    height: 400px;
-    width: 50%;
-    float: left;
-    padding-top: 2%;
-    padding-left: 1%;
-    padding-right: 1%
-}
-
-.splash-logo-side-text-container {
-    height: 400px;
-    width: 50%;
-    float: left;
-    padding: 2%
-}
-
-.splash-logo-side-text {
-    font-size: 2em;
-    padding-top: 29%;
-    padding-left: 1%;
-}
-
-.splash-logo {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.slider {
-    height: 400px;
-    width: 100%;
-    background-color: black;
-}
-
-.left-half {
-    height: 400px;
-    width: 50%;
-    margin-top: 1%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    float: left;
-}
-
-.right-half {
-    height: 400px;
-    width: 50%;
-    margin-top: 1%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    float: left;
-}
-
-.cool-shit {
-    display: grid;
-    grid-template-columns: 200px 200px 200px;
-    grid-gap: 2px;
-    background-color: #fff;
-    color: #444;
-}
-
-.box {
-    border-radius: 5px;
-    padding: 2px;
-    height: 100%;
-    width: 100%;
-  }
-
-.box-image {
-    height: 100%;
-    width: 100%;
-}
-
-.wrapper {
-    display: grid;
-    grid-template-columns: 100px 100px 100px;
-    grid-gap: 10px;
-    background-color: #fff;
-    color: #444;
-}
-
 .splash-page {
-    background: url('../../../dist/images/splash-background.jpg') no-repeat center center fixed; 
+    background: url('../../../dist/images/mic.jpeg') no-repeat center center fixed; 
     height: 95vh;
+    font: white;
+    text-align: center;
+}
+
+.splash-text {
+    padding: 1%;
+    color: white;
+    
 }

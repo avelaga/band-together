@@ -14,7 +14,10 @@ import "./pages.css";
 export class SplashPage extends Component {
   render() {
     return (
-      <div className="splash-page"></div>
+      <div className="splash-page">
+        <h1 className="splash-text">Band Together</h1>
+        <p className="splash-text">Find the music you love</p>
+      </div>
     );
   }
 }
