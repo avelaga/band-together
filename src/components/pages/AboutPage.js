@@ -29,7 +29,7 @@ export class AboutPage extends Component {
     // commit api
     axios
       .get(
-        "https://gitlab.com/api/v4/projects/17041074/repository/commits?all=true",
+        "https://gitlab.com/api/v4/projects/17041074/repository/commits?per_page=100&all=true",
         headers
       )
       .then(res => {
