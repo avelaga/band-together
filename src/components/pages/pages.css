@@ -43,5 +43,6 @@
 }
 
 .location-image {
-    position: sticky;
+    width: 300px;
+    height: 200px
 }
