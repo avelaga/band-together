@@ -26,7 +26,7 @@ export class LocationListPage extends Component {
 
   render(){
     return(  
-      <div className="location-list">
+      <div className="body">
         <Table bordered striped hover variant="dark">
           <thead>
             <tr>
