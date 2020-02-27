@@ -5,8 +5,8 @@ import chicago from '../../../dist/images/chicago.jpg';
 import losangeles from '../../../dist/images/losangeles.jpeg';
 import "./pages.css";
 
-const concerts = "https://bandtogether.events/concerts"
-const artists = "https://bandtogether.events/artists"
+const concerts = "/concerts"
+const artists = "/artists"
 
 export class LocationListPage extends Component {
 
@@ -35,11 +35,11 @@ export class LocationListPage extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.renderTableRow(austin, "https://bandtogether.events/locations/1/",
+            {this.renderTableRow(austin, "/locations/1",
              "Austin, TX", "Population: 950,715 ", concerts, artists)}
-            {this.renderTableRow(chicago, "https://bandtogether.events/locations/1/",
+            {this.renderTableRow(chicago, "/locations/1",
              "Chicago, IL","Population: 2,716,000", concerts, artists)}
-            {this.renderTableRow(losangeles, "https://bandtogether.events/locations/3/",
+            {this.renderTableRow(losangeles, "/locations/3",
              "Los Angeles, CA", "Population: 4,000,000", concerts, artists)}
           </tbody>
         </Table>
