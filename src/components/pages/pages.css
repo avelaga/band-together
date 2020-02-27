@@ -21,18 +21,42 @@ Artist Detail Styling
 
 .artist-detail-page {
     background-color: black;
-    height: 95vh;
     background-size: 100%;
     margin: 0;
     padding-left: 10vh;
     padding-top: 10vh;
+    min-height: 100vh;
 }
 
 .artist-detail {
     background-color: #202020;
-    width: 750px;
-    border-radius: 25px;
+    background-size: 100%;
+    width: 1000px;
+    color: white;
+    /* border-radius: 25px; */
+}
+.artist-detail-left {
+    background-color: #202020;
+    width: 250px;
     padding: 10px;
+    float: left;
+    height: 250px;
+}
+
+.artist-detail-right {
+    background-color: #202020;
+    width: 500px;
+    padding: 10px;
+    float: left;
+    height: 250px;
+}
+
+.artist-detail-bottom {
+    height: 300px;
+    width: 1000px;
+    padding: 10px;
+    background-color: #202020;
+    float: left;
 }
 
 .artist-detail-image {
@@ -42,11 +66,11 @@ Artist Detail Styling
     border-radius: 10px;
 }
 
-.artist-name {
-    color: white;
-}
-
 .concert-list {
     background-color: black;
     height: 95vh;
+}
+
+.clear {
+    clear: both;
 }
