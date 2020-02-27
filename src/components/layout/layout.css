@@ -64,7 +64,7 @@
 }
 
 .card-img {
-    height: 450px;
+    height: 446px;
     width: 446px;
     margin: auto;
     border-radius: 3px;
@@ -84,6 +84,7 @@
     margin: 30px;
     /* padding: 10px; */
     border-radius: 3px;
+    max-height: 565px;
 }
 
 .card-stats {
