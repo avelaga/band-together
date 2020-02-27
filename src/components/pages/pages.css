@@ -66,6 +66,10 @@ Artist Detail Styling
     border-radius: 10px;
 }
 
+.body {
+    background-color: black;
+}
+
 .concert-list {
     background-color: black;
 }
