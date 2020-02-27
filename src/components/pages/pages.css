@@ -112,3 +112,9 @@ tr, td, th {
 .clear {
     clear: both;
 }
+
+.flex {
+display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
