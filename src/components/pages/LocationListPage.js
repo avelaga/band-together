@@ -36,7 +36,7 @@ export class LocationListPage extends Component {
           <tbody>
             {this.renderTableRow(austin, "/locations/1",
              "Austin, TX", "Population: 950,715 ", concerts, artists)}
-            {this.renderTableRow(chicago, "/locations/1",
+            {this.renderTableRow(chicago, "/locations/2",
              "Chicago, IL","Population: 2,716,000", concerts, artists)}
             {this.renderTableRow(losangeles, "/locations/3",
              "Los Angeles, CA", "Population: 4,000,000", concerts, artists)}
