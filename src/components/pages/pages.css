@@ -5,8 +5,8 @@
     text-align: center;
 }
 
-.splash-text {
-    padding: 1%;
+.splash-text-container {
+    padding-top: 25%;
+    padding-left: 75%;
     color: white;
-    
 }
