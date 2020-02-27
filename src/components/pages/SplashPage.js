@@ -14,8 +14,7 @@ import "./pages.css";
 export class SplashPage extends Component {
   render() {
     return (
-      <div className="splash-page">
-        </div>
+      <div className="splash-page"></div>
     );
   }
 }
