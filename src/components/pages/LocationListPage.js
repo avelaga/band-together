@@ -10,37 +10,36 @@ const artists = "https://bandtogether.events/artists"
 
 export class LocationListPage extends Component {
 
-  renderTableRow(img, city_url, city, pop, concert_url, artist_url){
+  renderTableRow(img, city_url, city, pop, concert_url, artist_url) {
     return (<tr>
-              <td width = "300">
-              <img className = "location-image" src={img}></img><br></br>
-              </td>
-              <a className="location-table-links " href={city_url}><h5>{city}</h5></a>
-              <td><h4>{pop}</h4> 
-              <a className="location-table-links " href={concert_url}>Concerts</a>&nbsp;&#183;&nbsp;
-              <a className="location-table-links " href={artist_url}>Artists</a>&nbsp;&#183;&nbsp;
-              </td>
-            </tr>);
+      <td>
+        <a className="location-table-links " href={city_url}><h2>{city}</h2></a>
+        <img className="location-image" src={img}></img>
+      </td>
+      <td><h4>{pop}</h4>
+        <a className="location-table-links " href={concert_url}>Concerts</a>&nbsp;&#183;&nbsp;
+        <a className="location-table-links " href={artist_url}>Artists</a>&nbsp;&#183;&nbsp;
+      </td>
+    </tr>);
   }
 
-  render(){
-    return( 
+  render() {
+    return (
       <div className="body">
         <Table bordered striped hover variant="dark">
           <thead>
             <tr>
               <th><h2>Location</h2></th>
-              <th><h2>City</h2></th>
               <th><h2>Information</h2></th>
             </tr>
           </thead>
           <tbody>
             {this.renderTableRow(austin, "https://bandtogether.events/locations/1/",
-             "Austin, TX", "Population: 950,715 ", concerts, artists)}
+              "Austin, TX", "Population: 950,715 ", concerts, artists)}
             {this.renderTableRow(chicago, "https://bandtogether.events/locations/1/",
-             "Chicago, IL","Population: 2,716,000", concerts, artists)}
+              "Chicago, IL", "Population: 2,716,000", concerts, artists)}
             {this.renderTableRow(losangeles, "https://bandtogether.events/locations/3/",
-             "Los Angeles, CA", "Population: 4,000,000", concerts, artists)}
+              "Los Angeles, CA", "Population: 4,000,000", concerts, artists)}
           </tbody>
         </Table>
       </div>
