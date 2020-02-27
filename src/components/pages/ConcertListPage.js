@@ -18,7 +18,7 @@ export class ConcertListPage extends Component {
 
   render(){
     return(  
-      <div className="ConcertList">
+      <div className="concert-list">
         <Table bordered striped hover variant="dark">
           <thead>
             <tr>

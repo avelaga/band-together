@@ -11,3 +11,8 @@
     padding-left: 85vh;
     color: white;
 }
+
+.concert-list {
+    background-color: black;
+    height: 95vh;
+}
