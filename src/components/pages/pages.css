@@ -33,7 +33,6 @@ Artist Detail Styling
     background-size: 100%;
     width: 1000px;
     color: white;
-    /* border-radius: 25px; */
 }
 .artist-detail-left {
     background-color: #202020;
@@ -66,27 +65,22 @@ Artist Detail Styling
     border-radius: 10px;
 }
 
-.body {
-    background-color: black;
-}
-
 .concert-list {
     background-color: black;
 }
 
 .body{
     background-color: black;
-    background-size: auto;
+    background-size: 100%;
+    min-height: 100vh;
 }
 
 table {
-    padding: 20px;
     width: 100%;
 }
 
 tr, td, th {
     font-size: large;
-    padding: 5px;
     color: white;
 }
 
@@ -101,12 +95,12 @@ tr, td, th {
 
 .location-table-links {
     color: white;
-    text-align-last: right;
 }
 
 .location-image {
     width: 300px;
     height: 200px;
+    float: left;
 }
 
 .clear {

@@ -10,27 +10,26 @@ const artists = "/artists"
 
 export class LocationListPage extends Component {
 
-  renderTableRow(img, city_url, city, pop, concert_url, artist_url){
+  renderTableRow(img, city_url, city, pop, concert_url, artist_url) {
     return (<tr>
-              <td width = "300">
-              <img className = "location-image" src={img}></img><br></br>
-              </td>
-              <a className="location-table-links " href={city_url}><h5>{city}</h5></a>
-              <td><h4>{pop}</h4> 
-              <a className="location-table-links " href={concert_url}>Concerts</a> / 
-              <a className="location-table-links " href={artist_url}> Artists</a>
-              </td>
-            </tr>);
+      <td>
+        <a className="location-table-links " href={city_url}><h2>{city}</h2></a>
+        <img className="location-image" src={img}></img>
+      </td>
+      <td><h4>{pop}</h4>
+        <a className="location-table-links " href={concert_url}>Concerts</a> /
+        <a className="location-table-links " href={artist_url}> Artists</a>
+      </td>
+    </tr>);
   }
 
-  render(){
-    return( 
+  render() {
+    return (
       <div className="body">
         <Table bordered striped hover variant="dark">
           <thead>
             <tr>
               <th><h2>Location</h2></th>
-              <th><h2>City</h2></th>
               <th><h2>Information</h2></th>
             </tr>
           </thead>
