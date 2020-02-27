@@ -12,6 +12,9 @@ import "./pages.css";
 const axios = require("axios").default;
 
 export class AboutPage extends Component {
+  constructor(props){
+    super(props);
+  }
   state = {
     commits: null,
     abhi: 0,
@@ -136,37 +139,14 @@ export class AboutPage extends Component {
       });
   }
 
-  renderTableRow(name, img, commits, issues, bio){
-    return (<tr>
-              <td><b><h3>{name}</h3></b></td>
-              <td><img className="list-img" src={img}></img></td>
-              <td><h3>{bio}</h3></td>
-              <td><h3>{commits}</h3></td>
-              <td><h3>{issues}</h3></td>
-            </tr>);
-  }
-
   render() {
     return (
-      <div className="body">
-        <Table striped variant="dark" className="list-table">
-          <thead>
-            <tr>
-              <th><h2>Name</h2></th>
-              <th></th>
-              <th><h2>Bio</h2></th>
-              <th><h2>Commits</h2></th>
-              <th><h2>Issues</h2></th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.renderTableRow("Abhi", AbhiImg, this.state.abhi, this.state.abhiIssues, "Man with the minivan")}
-            {this.renderTableRow("Adam", AdamImg, this.state.adam, this.state.adamIssues, "I am the kangaroo whisperer")}
-            {this.renderTableRow("Jason", JasonImg, this.state.jason, this.state.jasonIssues, "I love snow")}
-            {this.renderTableRow("Faezah", FaezahImg, this.state.faezah, this.state.faezahIssues, "Wrote my page with the flu. The best players play hurt.")}
-            {this.renderTableRow("Gavin", GavinImg, this.state.gavin, this.state.gavinIssues, "The mustache speaks for itself")}
-          </tbody>
-        </Table>
+      <div className="body flex">
+        <Card name={"Adam Martin"} img={AdamImg} commits={this.state.adam} issues={this.state.adamIssues} bio={"I am the kangaroo whisperer"}/>
+        <Card name={"Abhi Velaga"} img={AbhiImg} commits={this.state.abhi} issues={this.state.abhiIssues} bio={"Man with the minivan"}/>
+        <Card name={"Jason Moy"} img={JasonImg} commits={this.state.jason} issues={this.statejasonIssues} bio={"I love snow"}/>
+        <Card name={"Faezah Ali"} img={FaezahImg} commits={this.state.faezah} issues={this.state.faezahIssues} bio={"Wrote my page with the flu. The best players play hurt."}/>
+        <Card name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} bio={"The mustache speaks for itself"}/>
       </div>
     );
   }
