@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import Table from 'react-bootstrap/Table';
+import Card from '../layout/Card';
 import AbhiImg from '../../../dist/images/abhi.jpeg';
 import AdamImg from '../../../dist/images/adam.png';
 import JasonImg from '../../../dist/images/jason.jpg';
@@ -147,6 +148,7 @@ export class AboutPage extends Component {
   render() {
     return (
       <div className="body">
+        <Card />
         {/* <table>
           <tbody>
             <tr>
@@ -181,7 +183,7 @@ export class AboutPage extends Component {
             </tr>
           </tbody>
         </table> */}
-        <Table    variant="dark" className="list-table">
+        <Table striped variant="dark" className="list-table">
           <thead>
             <tr>
               <th><h2>Name</h2></th>
