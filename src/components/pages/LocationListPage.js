@@ -17,8 +17,8 @@ export class LocationListPage extends Component {
               </td>
               <a className="location-table-links " href={city_url}><h5>{city}</h5></a>
               <td><h4>{pop}</h4> 
-              <a className="location-table-links " href={concert_url}>Concerts</a>&nbsp;&#183;&nbsp;
-              <a className="location-table-links " href={artist_url}>Artists</a>&nbsp;&#183;&nbsp;
+              <a className="location-table-links " href={concert_url}>Concerts</a> / 
+              <a className="location-table-links " href={artist_url}> Artists</a>
               </td>
             </tr>);
   }
