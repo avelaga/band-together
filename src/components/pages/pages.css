@@ -71,18 +71,16 @@ Artist Detail Styling
 
 .body{
     background-color: black;
-    background-size: auto;
-    min-height: 95vh;
+    background-size: 100%;
+    min-height: 100vh;
 }
 
 table {
-    padding: 20px;
     width: 100%;
 }
 
 tr, td, th {
     font-size: large;
-    padding: 5px;
     color: white;
 }
 
