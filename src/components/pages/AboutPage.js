@@ -3,34 +3,58 @@ const axios = require("axios").default;
 
 export class AboutPage extends Component {
   state = {
-    commits: null
+    commits: null,
+    abhi: 0,
+    adam: 0,
+    faezah: 0,
+    jason: 0,
+    gavin: 0,
   };
 
   componentDidMount() {
+
     const headers = {
       headers: {
         "PRIVATE-TOKEN": "7pfMsQdxg_6z_8PEMssw"
       }
     };
 
-    const commits = axios
+    axios
       .get(
         "https://gitlab.com/api/v4/projects/17041074/repository/commits",
         headers
       )
       .then(res => {
-        console.log(res);
         this.setState({ commits: res.data });
+        // this.commits.map(a => {
+        //   if(a.author_name === "Abhi Velaga"){
+        //     abhi++;
+        //   }
+        // })
+        var abhiCount = 0;
+        for (const property in res.data) {
+          // for (const property2 in property) {
+          
+          //   console.log(`${property2}: ${property[property2]}`);
+          // } 
+          console.log(`${property}: ${res.data[property].author_name}`);
+          if(res.data[property].author_name === "Abhi Velaga"){
+            // abhi = this.state.abhi;
+            abhiCount++;
+            this.setState({ abhi: abhi });
+          }
+        }
+
       })
       .catch(err => {
         console.log(err);
       });
   }
+
   render() {
     console.log(this.state.commits);
     return (
       <div>
-        {/* <h1>{commits}</h1> */}
         <table>
           <tbody>
             <tr>
@@ -66,7 +90,8 @@ export class AboutPage extends Component {
             </tr>
           </tbody>
         </table>
-        <ul>{this.state.commits && this.state.commits.map(x => <h1>{x.author_name}</h1>)}</ul>
+        <ul>{this.state.commits && this.state.commits.map(x => <h1>{x.title}</h1>)}</ul>
+        <ul>{this.state.commits && this.state.abhi}</ul>
       </div>
     );
   }
