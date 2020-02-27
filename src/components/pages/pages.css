@@ -112,3 +112,16 @@ tr, td, th {
 .clear {
     clear: both;
 }
+
+.error-text {
+    display: block;
+     margin: auto;
+     text-align: center;
+     color: white;
+}
+
+.error-gif {
+    display: block;
+     margin: auto;
+     height: 90vh;
+}

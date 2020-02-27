@@ -8,13 +8,16 @@ import ArtistListPage from './components/pages/ArtistListPage';
 import ArtistDetailPage from './components/pages/ArtistDetailPage';
 import ConcertListPage from './components/pages/ConcertListPage';
 import ConcertDetailPage from './components/pages/ConcertDetailPage';
+import ErrorGif from '../dist/images/error.gif';
 
 const ErrorPage = () => {
   return (
-    <h1>404: Page Not Found
-           (ᵟຶ︵ ᵟຶ)
-    </h1>
-
+    <div className="body">
+      <div className="error-text" >
+        <h1> 404: Page Not Found :(</h1>
+      </div>
+      <img src={ErrorGif} className="error-gif" />
+    </div>
   );
 };
 
