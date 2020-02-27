@@ -9,16 +9,16 @@ export class ConcertListPage extends Component {
     return (<tr>
               <td>
                 <b><h3>{name}</h3></b><img style={{height:'150px', float: 'right'}} src={img}></img><br></br>
-                <a className="concert-link" href={name_url}>Concert Info</a>&nbsp;&#183;&nbsp;<a className="artist-link" href={artist_url}>Artist Info</a>
+                <a className="concert-link" href={name_url}>Concert Info</a> / <a className="artist-link" href={artist_url}>Artist Info</a>
               </td>
               <td><h3>{city}</h3></td>
-              <td><h3>{venue}</h3><br></br>{date}&#183;{time}</td>
+              <td><h3>{venue}</h3><br></br>{date}, {time}</td>
             </tr>);
   }
 
   render(){
     return(  
-      <div className="concert-list">
+      <div className="body">
         <Table bordered striped hover variant="dark">
           <thead>
             <tr>

@@ -66,13 +66,37 @@ Artist Detail Styling
     border-radius: 10px;
 }
 
+.body {
+    background-color: black;
+}
+
 .concert-list {
     background-color: black;
 }
 
-.body {
-    background-color: black;
+.body{
     height: 95vh;
+    background-color: black;
+}
+
+table {
+    padding: 20px;
+    width: 100%;
+}
+
+tr, td, th {
+    font-size: large;
+    padding: 5px;
+    color: white;
+}
+
+.list-table {
+    width: 99vw;
+}
+
+.list-img {
+    height: 125px;
+    float: left;
 }
 
 .location-table-links {
