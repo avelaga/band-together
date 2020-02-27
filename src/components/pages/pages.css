@@ -45,3 +45,8 @@ Artist Detail Styling
 .artist-name {
     color: white;
 }
+
+.concert-list {
+    background-color: black;
+    height: 95vh;
+}
