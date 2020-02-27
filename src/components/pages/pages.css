@@ -33,10 +33,9 @@
     background-color: black;
 }
 
-.about-page {
+.body{
     height: 95vh;
     background-color: black;
-    
 }
 
 table {
@@ -50,4 +49,8 @@ tr, td, th {
     font-size: large;
     padding: 5px;
     color: white;
+}
+
+.list-table {
+    width: 98vw;
 }

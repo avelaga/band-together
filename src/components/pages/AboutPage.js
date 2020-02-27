@@ -1,4 +1,9 @@
 import React, { Component, useState } from "react";
+import Table from 'react-bootstrap/Table';
+import AbhiImg from '../../../dist/images/abhi.jpeg';
+import AdamImg from '../../../dist/images/adam.png';
+import JasonImg from '../../../dist/images/jason.jpg';
+
 import "./pages.css";
 
 const axios = require("axios").default;
@@ -128,10 +133,23 @@ export class AboutPage extends Component {
       });
   }
 
+  renderTableRow(name, img, commits, issues, bio){
+    return (<tr>
+              <td>
+                <b><h3>{name}</h3></b><img style={{height:'150px', float: 'right'}} src={img}></img><br></br>
+                {/* <a className="concert-link" href={name_url}>Concert Info</a>&nbsp;&#183;&nbsp;<a className="artist-link" href={artist_url}>Artist Info</a> */}
+              </td>
+              <td><h3>{bio}</h3></td>
+              <td><h3>{commits}</h3></td>
+              <td><h3>{issues}</h3></td>
+              {/* <td><h3>{issues}</h3><br></br>{date}&#183;{time}</td> */}
+            </tr>);
+  }
+
   render() {
     return (
-      <div className="about-page">
-        <table>
+      <div className="body">
+        {/* <table>
           <tbody>
             <tr>
               <th>Name</th>
@@ -164,8 +182,24 @@ export class AboutPage extends Component {
               <td>{this.state.commits && this.state.jasonIssues}</td>
             </tr>
           </tbody>
-        </table>
-        {/* <ul>{this.state.commits && this.state.commits.map(x => <h1>{x.title}</h1>)}</ul> */}
+        </table> */}
+        <Table bordered striped hover variant="dark" className="list-table">
+          <thead>
+            <tr>
+              <th><h2>Name</h2></th>
+              <th><h2>Bio</h2></th>
+              <th><h2>Commits</h2></th>
+              <th><h2>Issues</h2></th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.renderTableRow("Abhi", AbhiImg, this.state.abhi, this.state.abhiIssues, "man with the minivan")}
+            {this.renderTableRow("Adam", AdamImg, this.state.adam, this.state.adamIssues, "im the most badass skateboarder ever")}
+            {this.renderTableRow("Jason", JasonImg, this.state.jason, this.state.jasonIssues, "i love snow")}
+            {this.renderTableRow("Faezah", JasonImg, this.state.faezah, this.state.faezahIssues, "i want a profile pic")}
+            {this.renderTableRow("Gavin", JasonImg, this.state.gavin, this.state.gavinIssues, "me 2")}
+          </tbody>
+        </Table>
       </div>
     );
   }
