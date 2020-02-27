@@ -1,8 +1,8 @@
 import React, { Component, useState } from "react";
 import Table from 'react-bootstrap/Table';
 import Card from '../layout/Card';
-import AbhiImg from '../../../dist/images/abhi.jpeg';
-import AdamImg from '../../../dist/images/adam.png';
+import AbhiImg from '../../../dist/images/abhi.jpg';
+import AdamImg from '../../../dist/images/adam.jpg';
 import JasonImg from '../../../dist/images/jason.jpg';
 import GavinImg from '../../../dist/images/gavin.jpg';
 import FaezahImg from '../../../dist/images/faezah.jpg';
@@ -162,7 +162,7 @@ export class AboutPage extends Component {
           <tbody>
             {this.renderTableRow("Abhi", AbhiImg, this.state.abhi, this.state.abhiIssues, "Man with the minivan")}
             {this.renderTableRow("Adam", AdamImg, this.state.adam, this.state.adamIssues, "I am the kangaroo whisperer")}
-            {this.renderTableRow("Jason", JasonImg, this.state.jason, this.state.jasonIssues, "i love snow")}
+            {this.renderTableRow("Jason", JasonImg, this.state.jason, this.state.jasonIssues, "I love snow")}
             {this.renderTableRow("Faezah", FaezahImg, this.state.faezah, this.state.faezahIssues, "Wrote my page with the flu. The best players play hurt.")}
             {this.renderTableRow("Gavin", GavinImg, this.state.gavin, this.state.gavinIssues, "The mustache speaks for itself")}
           </tbody>
