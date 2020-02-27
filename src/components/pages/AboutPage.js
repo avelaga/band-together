@@ -135,10 +135,8 @@ export class AboutPage extends Component {
 
   renderTableRow(name, img, commits, issues, bio){
     return (<tr>
-              <td>
-                <b><h3>{name}</h3></b><img style={{height:'150px', float: 'right'}} src={img}></img><br></br>
-                {/* <a className="concert-link" href={name_url}>Concert Info</a>&nbsp;&#183;&nbsp;<a className="artist-link" href={artist_url}>Artist Info</a> */}
-              </td>
+              <td><b><h3>{name}</h3></b></td>
+              <td><img className="list-img" src={img}></img></td>
               <td><h3>{bio}</h3></td>
               <td><h3>{commits}</h3></td>
               <td><h3>{issues}</h3></td>
@@ -183,10 +181,11 @@ export class AboutPage extends Component {
             </tr>
           </tbody>
         </table> */}
-        <Table bordered striped hover variant="dark" className="list-table">
+        <Table    variant="dark" className="list-table">
           <thead>
             <tr>
               <th><h2>Name</h2></th>
+              <th><h2> </h2></th>
               <th><h2>Bio</h2></th>
               <th><h2>Commits</h2></th>
               <th><h2>Issues</h2></th>
