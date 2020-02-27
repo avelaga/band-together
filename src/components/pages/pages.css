@@ -33,7 +33,21 @@
     background-color: black;
 }
 
+.about-page {
+    height: 95vh;
+    background-color: black;
+    
+}
+
 table {
-    margin: 10px;
-    border: 1px solid black;
+    padding: 20px;
+    width: 100%;
+    margin-left: 20px;
+    /* height: 100%; */
+}
+
+tr, td, th {
+    font-size: large;
+    padding: 5px;
+    color: white;
 }
