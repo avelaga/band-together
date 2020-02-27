@@ -1,56 +1,111 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import austin from '../../../dist/images/austin.jpg';
+import chicago from '../../../dist/images/chicago.jpg';
+import losangeles from '../../../dist/images/losangeles.jpeg';
+import sandiego from '../../../dist/images/sandiego.jpg';
+import newyork from '../../../dist/images/newyork.jpg';
+
 
 export class LocationListPage extends Component {
 
   locationOne = (
+    <div class="locationCont">
      <Link to = "/locations/:id = 1">
        <image style = {
          {width: '150px'}, 
          {height: '150px'}
         }
-       src = 'https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/625b0c80-d52e-33fe-4294-826781c6abec/630x355.jpg'
+       src = {austin}
        alt = "Austin, Texas"
        >
        </image>
+       <div class="bottom-left">Austin, TX</div>
       </Link>
+      </div>
   );
 
   locationTwo = (
+    <div class="locationCont">
      <Link to = "/locations/:id = 2">
        <image style = {
-         {width: '250px'}, 
+         {width: '150px'}, 
          {height: '150px'}
         }
-       src = 'https://www.sandiego.org/-/media/images/sdta-site/articles/about-sd/1233x860/sdta-articles-11917-1230x860-0000s-0000-about-sd.jpg?bc=white&h=500&w=700&c=1'
+       src = {chicago}
        alt = "Austin, Texas"
        >
        </image>
+       <div class="bottom-left">Chicago, IL</div>
       </Link>
+    </div>
   );
 
   locationThree = (
+    <div class="locationCont">
      <Link to = "/locations/:id = 3">
        <image style = {
          {width: '150px'}, 
          {height: '150px'}
         }
-       src = 'https://media.architecturaldigest.com/photos/5da74823d599ec0008227ea8/16:9/w_2560%2Cc_limit/GettyImages-946087016.jpg'
-       alt = "Austin, Texas"
+       src = {losangeles}
+       alt = "Los Angeles, CA"
        >
        </image>
+       <div class="bottom-left">Los Angeles, CA</div>
       </Link>
+      </div>
+  );
+
+  locationFour = (
+    <div class="locationCont">
+     <Link to = "/locations/:id = 4">
+       <image style = {
+         {width: '150px'}, 
+         {height: '150px'}
+        }
+       src = {newyork}
+       alt = "New York, NY"
+       >
+       </image>
+       <div class="bottom-left">New York, NY</div>
+      </Link>
+      </div>
+  );
+
+  locationFive = (
+    <div class="locationCont">
+     <Link to = "/locations/:id = 5">
+       <image style = {
+         {width: '150px'}, 
+         {height: '150px'}
+        }
+       src = {sandiego}
+       alt = "San Diego, CA"
+       >
+       </image>
+       <div class="bottom-left">San Diego, CA</div>
+      </Link>
+      </div>
   );
 
   render() {
     return (
-      <div>      
-      {this.locationOne}
-      {this.locationTwo}
-      {this.locationThree}
-      </div>
+      <body id = "container" style = {{background: 'black'}}>
+        <table id="location table">
+          <tbody>
+            <tr id="row0">
+              <td id="Austin">{this.locationOne}</td>
+              <td id="Chicago">{this.locationTwo}</td>
+              <td id="Los Angeles">{this.locationThree}</td>
+              <td id="San diego">{this.locationFive}</td>
+              <td id="New York">{this.locationFour}</td>
+            </tr>
+          </tbody>
+       </table>
+       </body>
     );
   }
 }
 
-export default LocationListPage;
+export default LocationListPage
