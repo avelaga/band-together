@@ -36,14 +36,11 @@
 .body{
     height: 95vh;
     background-color: black;
-    /* position: fixed; */
 }
 
 table {
     padding: 20px;
     width: 100%;
-    margin-left: 20px;
-    /* height: 100%; */
 }
 
 tr, td, th {
@@ -53,10 +50,9 @@ tr, td, th {
 }
 
 .list-table {
-    width: 98vw;
+    width: 99vw;
 }
 .list-img {
     height: 125px;
     float: left;
-    
 }

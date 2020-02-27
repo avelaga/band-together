@@ -141,53 +141,17 @@ export class AboutPage extends Component {
               <td><h3>{bio}</h3></td>
               <td><h3>{commits}</h3></td>
               <td><h3>{issues}</h3></td>
-              {/* <td><h3>{issues}</h3><br></br>{date}&#183;{time}</td> */}
             </tr>);
   }
 
   render() {
     return (
       <div className="body">
-        <Card />
-        {/* <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th>Commits</th>
-              <th>Issues</th>
-            </tr>
-            <tr>
-              <td>Adam</td>
-              <td>{this.state.commits && this.state.adam}</td>
-              <td>{this.state.commits && this.state.adamIssues}</td>
-            </tr>
-            <tr>
-              <td>Abhi</td> 
-              <td>{this.state.commits && this.state.abhi}</td>
-              <td>{this.state.commits && this.state.abhiIssues}</td>
-            </tr>
-            <tr>
-              <td>Faezah</td>
-              <td>{this.state.commits && this.state.faezah}</td>
-              <td>{this.state.commits && this.state.faezahIssues}</td>
-            </tr>
-            <tr>
-              <td>Gavin</td>
-              <td>{this.state.commits && this.state.gavin}</td>
-              <td>{this.state.commits && this.state.gavinIssues}</td>
-            </tr>
-            <tr>
-              <td>Jason</td>
-              <td>{this.state.commits && this.state.jason}</td>
-              <td>{this.state.commits && this.state.jasonIssues}</td>
-            </tr>
-          </tbody>
-        </table> */}
         <Table striped variant="dark" className="list-table">
           <thead>
             <tr>
               <th><h2>Name</h2></th>
-              <th><h2> </h2></th>
+              <th></th>
               <th><h2>Bio</h2></th>
               <th><h2>Commits</h2></th>
               <th><h2>Issues</h2></th>
