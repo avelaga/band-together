@@ -1,17 +1,64 @@
 .navbar-logo {
-    width: 75px;
-    height: 100%;
+    width: 5vh;
+    height: 50px;
+    float: left;
 }
 
 .band-navbar {
-    /* background-color: #185879; */
     background-color: black;
-    height: 75px;
+    height: 50px;
+    width: 100%;
+}
+
+.navbar-links-container {
+    float: right;
     width: 100%;
 }
 
 .navbar-link {
     color: #ffffff;
     font-size: 2em;
-    padding: 1em;
+    padding-left: 1em;
+    float: right;
+}
+
+.slideshow {
+    height: 500px;
+    max-width: 100%;
+    background-color: black;
+    float: left;
+    margin-top: 1%;
+}
+
+.slider-image {
+    height: 50%;
+    width: 33.33%;
+    float: left;
+    margin-left: none;
+    margin-bottom: none;
+    margin-right: none;
+    margin-top: none;
+    padding: .1%
+}
+
+.slider-text-container {
+    height: 50%;
+    width: 33.33%;
+    float: left;
+    margin: 0;
+}
+
+.slider-text {
+    color: white;
+    margin: 0;
+    padding: 25%;
+}
+
+.slider-container {
+    margin-top: 2%;
+    padding: 2%;
+}
+
+.slick-list {
+    width: 100%;
 }
