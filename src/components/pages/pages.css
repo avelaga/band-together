@@ -32,3 +32,8 @@
     width: 100%;
     background-color: black;
 }
+
+table {
+    margin: 10px;
+    border: 1px solid black;
+}

@@ -51,7 +51,7 @@ export class AboutPage extends Component {
     console.log(this.state.commits);
     return (
       <div>
-        <table>
+        <table >
           <tbody>
             <tr>
               <th>Name</th>
@@ -65,7 +65,7 @@ export class AboutPage extends Component {
               <td>0</td>
             </tr>
             <tr>
-              <td>Abhi</td>
+              <td>Abhi</td> 
               <td>{this.state.commits && this.state.abhi}</td>
               <td>0</td>
             </tr>
