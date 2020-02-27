@@ -65,17 +65,14 @@ Artist Detail Styling
     border-radius: 10px;
 }
 
-.body {
-    background-color: black;
-}
-
 .concert-list {
     background-color: black;
 }
 
 .body{
-    height: 95vh;
     background-color: black;
+    background-size: auto;
+    min-height: 95vh;
 }
 
 table {
