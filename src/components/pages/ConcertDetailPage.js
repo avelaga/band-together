@@ -3,27 +3,10 @@ import Table from 'react-bootstrap/Table';
 import KISSImg from "../../../dist/images/kiss.jpeg"
 import BillieImg from "../../../dist/images/billie_eilish.jpg"
 import PostImg from "../../../dist/images/post_malone.png"
-//import Image from 'react-native';
 
 export class ConcertDetailPage extends Component {
   constructor(){
     super();
-    /*
-    const artists = ??? Fetch from database ???;
-    const img_src = ???;
-    const genres = ???;
-    const venue = ???;
-    const address = ???;
-    const in_or_out = ???;
-    const ticket_price = ???;
-    const num_tickets_left = ???; // Not sure we can find this data
-    const capacity = ???;
-    const date = "";
-    const start_time = ???;
-    const alcohol = ???;
-    const forecast = ???;
-    */
-
     // TEMPORARY UNTIL WE CAN PULL THESE VALUES FROM API'S
     this.artists = "";
     this.img_src = "";
