@@ -1,5 +1,5 @@
 .navbar-logo {
-    width: 50px;
+    width: 5vh;
     height: 100%;
     float: left;
 }
@@ -17,7 +17,7 @@
 
 .navbar-link {
     color: #ffffff;
-    font-size: 2em;
+    font-size: 3vh;
     padding-left: 1em;
     float: right;
 }

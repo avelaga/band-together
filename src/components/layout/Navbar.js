@@ -13,8 +13,6 @@ export class Navbar extends Component {
           <a href="/">
             <img className="navbar-logo" src={Logo} />
           </a>
-
-          {/* <ul className="navbar-nav mr-auto mt-2 mt-lg-0"> */}
             <div className="navbar-links-container">
               <a className="navbar-link" href="/about">
                 About
@@ -29,8 +27,6 @@ export class Navbar extends Component {
                 Locations
               </a>
             </div>
-          {/* </ul> */}
-
         </div>
       </nav>
     );
