@@ -28,11 +28,11 @@ export class ConcertListPage extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.renderTableRow("Post Malone", "https://bandtogether.events/concerts/000001/", "https://bandtogether.events/artists/000001/",
+            {this.renderTableRow("Post Malone", "https://bandtogether.events/concerts/1/", "https://bandtogether.events/artists/1/",
              PostImg, "Austin, TX", "Frank C. Erwin, Jr. Special Events Center", "Tuesday, March 10th", "8:00 PM")}
-            {this.renderTableRow("Billie Eilish", "https://bandtogether.events/concerts/000002/", "https://bandtogether.events/artists/000002",
+            {this.renderTableRow("Billie Eilish", "https://bandtogether.events/concerts/2/", "https://bandtogether.events/artists/2",
              BillieImg, "Chicago, IL", "United Center", "Tuesday, March 24th", "7:30 PM")}
-            {this.renderTableRow("KISS", "https://bandtogether.events/concerts/000003/", "https://bandtogether.events/artists/000003",
+            {this.renderTableRow("KISS", "https://bandtogether.events/concerts/3/", "https://bandtogether.events/artists/3",
              KISSImg, "Los Angeles, CA", "STAPLES Center", "Wednesday, March 4th", "7:30 PM")}
           </tbody>
         </Table>
@@ -40,10 +40,5 @@ export class ConcertListPage extends Component {
     );
   }
 }
-
-// class Concert extends Component {
-  
-//   }
-// }
 
 export default ConcertListPage;
