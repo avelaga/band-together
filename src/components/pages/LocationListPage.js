@@ -5,7 +5,7 @@ import chicago from '../../../dist/images/chicago.jpg';
 import losangeles from '../../../dist/images/losangeles.jpeg';
 import sandiego from '../../../dist/images/sandiego.jpg';
 import newyork from '../../../dist/images/newyork.jpg';
-
+import "./pages.css";
 
 export class LocationListPage extends Component {
 
@@ -91,7 +91,7 @@ export class LocationListPage extends Component {
 
   render() {
     return (
-      <body id = "container" style = {{background: 'black'}}>
+      <div className="body">
         <table id="location table">
           <tbody>
             <tr id="row0">
@@ -103,7 +103,7 @@ export class LocationListPage extends Component {
             </tr>
           </tbody>
        </table>
-       </body>
+      </div>
     );
   }
 }
