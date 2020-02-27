@@ -26,25 +26,21 @@ export class AboutPage extends Component {
       )
       .then(res => {
         this.setState({ commits: res.data });
-        // this.commits.map(a => {
-        //   if(a.author_name === "Abhi Velaga"){
-        //     abhi++;
-        //   }
-        // })
+
         var abhiCount = 0;
+        var adamCount = 0;
+        var faezahCount = 0;
+        var gavinCount = 0;
+        var jasonCount = 0;
         for (const property in res.data) {
-          // for (const property2 in property) {
-          
-          //   console.log(`${property2}: ${property[property2]}`);
-          // } 
-          console.log(`${property}: ${res.data[property].author_name}`);
           if(res.data[property].author_name === "Abhi Velaga"){
-            // abhi = this.state.abhi;
             abhiCount++;
-            this.setState({ abhi: abhi });
+            this.setState({ abhi: abhiCount });
+          }else if(res.data[property].author_name === "Adam Martin"){
+            adamCount++;
+            this.setState({ adam: adamCount });
           }
         }
-
       })
       .catch(err => {
         console.log(err);
@@ -65,33 +61,32 @@ export class AboutPage extends Component {
             </tr>
             <tr>
               <td>Adam</td>
-              <td>0</td>
+              <td>{this.state.commits && this.state.adam}</td>
               <td>0</td>
             </tr>
             <tr>
               <td>Abhi</td>
-              <td>0</td>
+              <td>{this.state.commits && this.state.abhi}</td>
               <td>0</td>
             </tr>
             <tr>
               <td>Faezah</td>
-              <td>0</td>
+              <td>{this.state.commits && this.state.faezah}</td>
               <td>0</td>
             </tr>
             <tr>
               <td>Gavin</td>
-              <td>0</td>
+              <td>{this.state.commits && this.state.gavin}</td>
               <td>0</td>
             </tr>
             <tr>
               <td>Jason</td>
-              <td>0</td>
+              <td>{this.state.commits && this.state.jason}</td>
               <td>0</td>
             </tr>
           </tbody>
         </table>
-        <ul>{this.state.commits && this.state.commits.map(x => <h1>{x.title}</h1>)}</ul>
-        <ul>{this.state.commits && this.state.abhi}</ul>
+        {/* <ul>{this.state.commits && this.state.commits.map(x => <h1>{x.title}</h1>)}</ul> */}
       </div>
     );
   }
