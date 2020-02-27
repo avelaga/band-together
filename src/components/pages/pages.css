@@ -1,8 +1,11 @@
+/*
+Splash Page Styling
+*/
+
 .splash-page {
     background: url('../../../dist/images/mic.jpeg') no-repeat center center fixed; 
     background-size: 100%;
     height: 95vh;
-    font: white;
     text-align: center;
 }
 
@@ -12,7 +15,100 @@
     color: white;
 }
 
+/*
+Artist Detail Styling
+*/
+
+.artist-detail-page {
+    background-color: black;
+    background-size: 100%;
+    margin: 0;
+    padding-left: 10vh;
+    padding-top: 10vh;
+    min-height: 100vh;
+}
+
+.artist-detail {
+    background-color: #202020;
+    background-size: 100%;
+    width: 1000px;
+    color: white;
+    /* border-radius: 25px; */
+}
+.artist-detail-left {
+    background-color: #202020;
+    width: 250px;
+    padding: 10px;
+    float: left;
+    height: 250px;
+}
+
+.artist-detail-right {
+    background-color: #202020;
+    width: 500px;
+    padding: 10px;
+    float: left;
+    height: 250px;
+}
+
+.artist-detail-bottom {
+    height: 300px;
+    width: 1000px;
+    padding: 10px;
+    background-color: #202020;
+    float: left;
+}
+
+.artist-detail-image {
+    height: 230px;
+    width: 230px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
 .body {
     background-color: black;
+}
+
+.concert-list {
+    background-color: black;
+}
+
+.body{
     height: 95vh;
+    background-color: black;
+}
+
+table {
+    padding: 20px;
+    width: 100%;
+}
+
+tr, td, th {
+    font-size: large;
+    padding: 5px;
+    color: white;
+}
+
+.list-table {
+    width: 99vw;
+}
+
+.list-img {
+    height: 125px;
+    float: left;
+}
+
+.location-table-links {
+    color: white;
+    text-align-last: right;
+}
+
+.location-image {
+    width: 300px;
+    height: 200px;
+}
+
+.clear {
+    clear: both;
 }
