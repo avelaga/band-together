@@ -12,6 +12,9 @@ import "./pages.css";
 const axios = require("axios").default;
 
 export class AboutPage extends Component {
+  constructor(props){
+    super(props);
+  }
   state = {
     commits: null,
     abhi: 0,
@@ -149,6 +152,8 @@ export class AboutPage extends Component {
   render() {
     return (
       <div className="body">
+        <Card name={"Abhi"} img={AbhiImg} commits={this.state.abhi} issues={this.state.abhiIssues} bio={"Man with the minivan"}/>
+
         <Table striped variant="dark" className="list-table">
           <thead>
             <tr>
