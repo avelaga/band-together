@@ -54,7 +54,39 @@
 }
 
 .cool-shit {
-    height: 400px;
-    width: 50%;
-    background-color: blue;
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 2px;
+    background-color: #fff;
+    color: #444;
+}
+
+.box {
+    border-radius: 5px;
+    padding: 2px;
+    height: 100%;
+    width: 100%;
+  }
+
+.box-image {
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 10px;
+    background-color: #fff;
+    color: #444;
+  }
+
+html {
+    background: url('../../../dist/images/splash-background.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
 }
