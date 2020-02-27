@@ -33,7 +33,6 @@ Artist Detail Styling
     background-size: 100%;
     width: 1000px;
     color: white;
-    /* border-radius: 25px; */
 }
 .artist-detail-left {
     background-color: #202020;
@@ -101,7 +100,6 @@ tr, td, th {
 
 .location-table-links {
     color: white;
-    /* text-align: right; */
 }
 
 .location-image {
