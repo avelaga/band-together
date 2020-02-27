@@ -18,8 +18,6 @@ export class AboutPage extends Component {
     jasonIssues: 0,
   };
 
-  // https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=avelaga
-
   componentDidMount() {
 
     const headers = {
@@ -31,7 +29,7 @@ export class AboutPage extends Component {
     // commit api
     axios
       .get(
-        "https://gitlab.com/api/v4/projects/17041074/repository/commits",
+        "https://gitlab.com/api/v4/projects/17041074/repository/commits?all=true",
         headers
       )
       .then(res => {
@@ -49,6 +47,18 @@ export class AboutPage extends Component {
           }else if(res.data[property].author_name === "Adam Martin"){
             adamCount++;
             this.setState({ adam: adamCount });
+          }
+          else if(res.data[property].author_name === "Gavin Rodrigue"){
+            gavinCount++;
+            this.setState({ gavin: gavinCount });
+          }
+          else if(res.data[property].author_name === "Jason Moy"){
+            jasonCount++;
+            this.setState({ jason: jasonCount });
+          }
+          else if(res.data[property].author_name === "Faezah Ali"){
+            faezahCount++;
+            this.setState({ faezah: faezahCount });
           }
         }
       })
