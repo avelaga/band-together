@@ -75,8 +75,8 @@ Artist Detail Styling
 }
 
 .body{
-    height: 95vh;
     background-color: black;
+    background-size: auto;
 }
 
 table {
