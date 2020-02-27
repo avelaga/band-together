@@ -1,5 +1,4 @@
 import React, { Component, useState } from "react";
-import Table from 'react-bootstrap/Table';
 import Card from '../layout/Card';
 import AbhiImg from '../../../dist/images/abhi.jpg';
 import AdamImg from '../../../dist/images/adam.jpg';
@@ -16,7 +15,6 @@ export class AboutPage extends Component {
     super(props);
   }
   state = {
-    commits: null,
     abhi: 0,
     adam: 0,
     faezah: 0,
@@ -30,7 +28,6 @@ export class AboutPage extends Component {
   };
 
   componentDidMount() {
-
     const headers = {
       headers: {
         "PRIVATE-TOKEN": "7pfMsQdxg_6z_8PEMssw"
@@ -44,32 +41,21 @@ export class AboutPage extends Component {
         headers
       )
       .then(res => {
-        this.setState({ commits: res.data });
 
-        var abhiCount = 0;
-        var adamCount = 0;
-        var faezahCount = 0;
-        var gavinCount = 0;
-        var jasonCount = 0;
         for (const property in res.data) {
           if(res.data[property].author_name === "Abhi Velaga"){
-            abhiCount++;
-            this.setState({ abhi: abhiCount });
+            this.setState({ abhi: this.state.abhi + 1 });
           }else if(res.data[property].author_name === "Adam Martin"){
-            adamCount++;
-            this.setState({ adam: adamCount });
+            this.setState({ adam: this.state.adam + 1 });
           }
           else if(res.data[property].author_name === "Gavin Rodrigue"){
-            gavinCount++;
-            this.setState({ gavin: gavinCount });
+            this.setState({ gavin: this.state.gavin + 1 });
           }
           else if(res.data[property].author_name === "Jason Moy"){
-            jasonCount++;
-            this.setState({ jason: jasonCount });
+            this.setState({ jason: this.state.jason + 1 });
           }
           else if(res.data[property].author_name === "Faezah Ali"){
-            faezahCount++;
-            this.setState({ faezah: faezahCount });
+            this.setState({ faezah: this.state.faezah + 1 });
           }
         }
       })
