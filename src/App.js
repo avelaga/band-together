@@ -9,6 +9,15 @@ import ArtistDetailPage from './components/pages/ArtistDetailPage';
 import ConcertListPage from './components/pages/ConcertListPage';
 import ConcertDetailPage from './components/pages/ConcertDetailPage';
 
+const ErrorPage = () => {
+  return (
+    <h1>404: Page Not Found
+           (ᵟຶ︵ ᵟຶ)
+    </h1>
+
+  );
+};
+
 function App() {
 
   return (
@@ -21,6 +30,7 @@ function App() {
       <Route exact path='/artists/:id' exact component={ArtistDetailPage} />
       <Route exact path='/concerts' exact component={ConcertListPage} />
       <Route exact path='/concerts/:id' exact component={ConcertDetailPage} />
+      <Route component={ErrorPage} />
     </Switch>
   );
 }
