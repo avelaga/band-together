@@ -4,6 +4,8 @@ import Card from '../layout/Card';
 import AbhiImg from '../../../dist/images/abhi.jpeg';
 import AdamImg from '../../../dist/images/adam.png';
 import JasonImg from '../../../dist/images/jason.jpg';
+import GavinImg from '../../../dist/images/gavin.jpg';
+import FaezahImg from '../../../dist/images/faezah.jpg';
 
 import "./pages.css";
 
@@ -158,11 +160,11 @@ export class AboutPage extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.renderTableRow("Abhi", AbhiImg, this.state.abhi, this.state.abhiIssues, "man with the minivan")}
-            {this.renderTableRow("Adam", AdamImg, this.state.adam, this.state.adamIssues, "im the most badass skateboarder ever")}
+            {this.renderTableRow("Abhi", AbhiImg, this.state.abhi, this.state.abhiIssues, "Man with the minivan")}
+            {this.renderTableRow("Adam", AdamImg, this.state.adam, this.state.adamIssues, "I am the kangaroo whisperer")}
             {this.renderTableRow("Jason", JasonImg, this.state.jason, this.state.jasonIssues, "i love snow")}
-            {this.renderTableRow("Faezah", JasonImg, this.state.faezah, this.state.faezahIssues, "i want a profile pic")}
-            {this.renderTableRow("Gavin", JasonImg, this.state.gavin, this.state.gavinIssues, "me 2")}
+            {this.renderTableRow("Faezah", FaezahImg, this.state.faezah, this.state.faezahIssues, "Wrote my page with the flu. The best players play hurt.")}
+            {this.renderTableRow("Gavin", GavinImg, this.state.gavin, this.state.gavinIssues, "The mustache speaks for itself")}
           </tbody>
         </Table>
       </div>
