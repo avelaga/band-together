@@ -12,14 +12,14 @@ export class LocationListPage extends Component {
   locationOne = (
     <div class="locationCont">
      <Link to = "/locations/:id = 1">
-       <image style = {
+       <img style = {
          {width: '150px'}, 
          {height: '150px'}
         }
        src = {austin}
        alt = "Austin, Texas"
        >
-       </image>
+       </img>
        <div class="bottom-left">Austin, TX</div>
       </Link>
       </div>
@@ -28,14 +28,14 @@ export class LocationListPage extends Component {
   locationTwo = (
     <div class="locationCont">
      <Link to = "/locations/:id = 2">
-       <image style = {
+       <img style = {
          {width: '150px'}, 
          {height: '150px'}
         }
        src = {chicago}
        alt = "Austin, Texas"
        >
-       </image>
+       </img>
        <div class="bottom-left">Chicago, IL</div>
       </Link>
     </div>
@@ -44,14 +44,14 @@ export class LocationListPage extends Component {
   locationThree = (
     <div class="locationCont">
      <Link to = "/locations/:id = 3">
-       <image style = {
+       <img style = {
          {width: '150px'}, 
          {height: '150px'}
         }
        src = {losangeles}
        alt = "Los Angeles, CA"
        >
-       </image>
+       </img>
        <div class="bottom-left">Los Angeles, CA</div>
       </Link>
       </div>
@@ -60,14 +60,14 @@ export class LocationListPage extends Component {
   locationFour = (
     <div class="locationCont">
      <Link to = "/locations/:id = 4">
-       <image style = {
+       <img style = {
          {width: '150px'}, 
          {height: '150px'}
         }
        src = {newyork}
        alt = "New York, NY"
        >
-       </image>
+       </img>
        <div class="bottom-left">New York, NY</div>
       </Link>
       </div>
@@ -76,14 +76,14 @@ export class LocationListPage extends Component {
   locationFive = (
     <div class="locationCont">
      <Link to = "/locations/:id = 5">
-       <image style = {
+       <img style = {
          {width: '150px'}, 
          {height: '150px'}
         }
        src = {sandiego}
        alt = "San Diego, CA"
        >
-       </image>
+       </img>
        <div class="bottom-left">San Diego, CA</div>
       </Link>
       </div>
