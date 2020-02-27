@@ -37,3 +37,11 @@
     background-color: black;
     height: 95vh;
 }
+.location-table-links {
+    color: white;
+    text-align-last: right;
+}
+
+.location-image {
+    position: sticky;
+}
