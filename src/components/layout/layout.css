@@ -6,7 +6,7 @@
 
 .band-navbar {
     background-color: black;
-    height: 5vh;
+    height: 50px;
     width: 100%;
 }
 
@@ -17,7 +17,7 @@
 
 .navbar-link {
     color: #ffffff;
-    font-size: 3vh;
+    font-size: 2em;
     padding-left: 1em;
     float: right;
 }
