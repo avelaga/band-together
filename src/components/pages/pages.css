@@ -128,6 +128,13 @@ th {
   justify-content: center;
 }
 
+.about-text {
+  color: white;
+  width: 950px;
+  margin: auto;
+  justify-content: center;
+}
+
 .location-image-right {
     background-color: #202020;
     width: 250px;
