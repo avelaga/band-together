@@ -92,6 +92,11 @@
 .location-card {
     max-height: 625px;
 }
+
+.artist-card {
+    max-height: 675px;
+}
+
 .card-stats {
  color: rgb(170, 170, 170);
 }
