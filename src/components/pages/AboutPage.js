@@ -1,19 +1,10 @@
 import React, { Component, useState } from "react";
-<<<<<<< HEAD
-import Card from "../layout/Card";
-import AbhiImg from "../../../dist/images/abhi.jpg";
-import AdamImg from "../../../dist/images/adam.jpg";
-import JasonImg from "../../../dist/images/jason.jpg";
-import GavinImg from "../../../dist/images/gavin.jpg";
-import FaezahImg from "../../../dist/images/faezah.jpg";
-=======
 import AboutCard from '../layout/AboutCard.js';
 import AbhiImg from '../../../dist/images/abhi.jpg';
 import AdamImg from '../../../dist/images/adam.jpg';
 import JasonImg from '../../../dist/images/jason.jpg';
 import GavinImg from '../../../dist/images/gavin.jpg';
 import FaezahImg from '../../../dist/images/faezah.jpg';
->>>>>>> ba47aaad64cbb9bc5351d0d234ac55781b7dea25
 
 import "./pages.css";
 
