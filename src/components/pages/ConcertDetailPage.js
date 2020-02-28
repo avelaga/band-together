@@ -27,7 +27,7 @@ export class ConcertDetailPage extends Component {
       ticket_price: 241,
       date: "Tuesday, March 24th",
       start_time: "7:30 PM",
-      image = BillieImg,
+      image: BillieImg,
     },
     {
       name: "KISS",
@@ -54,12 +54,12 @@ export class ConcertDetailPage extends Component {
             <h1>{this.concerts[id - 1].name}</h1>
             <p>Genre: {this.concerts[id - 1].genre}</p>
             <p>Venue: {this.concerts[id-1].venue}</p>
+            <p>Address: {this.concerts[id-1].address}</p>
+            <p>Date: {this.concerts[id-1].date}</p>
+            <p>Start Time: {this.concerts[id-1].start_time}</p>
+            <p>Ticket Price: {this.concerts[id-1].ticket_price}</p>
           </div>
           <div className="clear" />
-          <div className="concert-detail-bottom">
-            <p>Bio:</p>
-            <p>{this.concerts[id - 1].bio}</p>
-          </div>
         </div>
       </div>
     );
