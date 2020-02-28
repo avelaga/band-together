@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Table from 'react-bootstrap/Table';
-import KISSImg from "../../../dist/images/kiss.jpeg"
+import KISSImg from "../../../dist/images/kiss.jpg"
 import BillieImg from "../../../dist/images/billie_eilish.jpg"
 import PostImg from "../../../dist/images/post_malone.jpg"
 

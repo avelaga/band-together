@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BillieImg from "../../../dist/images/billie.jpg";
+import BillieImg from "../../../dist/images/billie_eilish.jpg";
 import PostImg from "../../../dist/images/post_malone.jpg"
 import KissImg from "../../../dist/images/kiss.jpg"
 import "./pages.css";
