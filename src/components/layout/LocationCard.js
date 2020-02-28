@@ -8,9 +8,11 @@ export class LocationCard extends Component {
         <div className="card-text">
           <h1>{this.props.city}</h1>
           <h5>Population of {this.props.pop}</h5>
-          <h5>{this.props.crime_rate} crimes per 1000 people</h5>
+          <font class='longtext'>Concert Venues: {this.props.venues}</font><br />
+          <font class='longtext'>Main Airport: {this.props.airport}</font><br />
+          <font size='3'>{this.props.crime_rate} crimes per 1000 people</font><br />
           <div className="card-stats">
-            <h5><a href={this.props.city_url}>Location Info</a> / <a href={this.props.concert_url}>Concert Info</a> / <a href={this.props.artist_url}>Artist Info</a></h5>
+            <h5><a href={this.props.city_url}>Location Info</a></h5>
           </div>
         </div>
       </div>
