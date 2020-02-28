@@ -11,11 +11,10 @@ import "./pages.css";
 const axios = require("axios").default;
 
 export class AboutPage extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
   state = {
-    commits: null,
     abhi: 0,
     adam: 0,
     faezah: 0,
@@ -25,62 +24,47 @@ export class AboutPage extends Component {
     adamIssues: 0,
     faezahIssues: 0,
     gavinIssues: 0,
-    jasonIssues: 0,
+    jasonIssues: 0
   };
 
   componentDidMount() {
-
-    const headers = {
+    const request_headers = {
       headers: {
         "PRIVATE-TOKEN": "7pfMsQdxg_6z_8PEMssw"
       }
     };
 
     // commit api
-    axios
-      .get(
-        "https://gitlab.com/api/v4/projects/17041074/repository/commits?per_page=100&all=true",
-        headers
-      )
-      .then(res => {
-        this.setState({ commits: res.data });
-
-        var abhiCount = 0;
-        var adamCount = 0;
-        var faezahCount = 0;
-        var gavinCount = 0;
-        var jasonCount = 0;
-        for (const property in res.data) {
-          if(res.data[property].author_name === "Abhi Velaga"){
-            abhiCount++;
-            this.setState({ abhi: abhiCount });
-          }else if(res.data[property].author_name === "Adam Martin"){
-            adamCount++;
-            this.setState({ adam: adamCount });
+      axios
+        .get(
+          "https://gitlab.com/api/v4/projects/17041074/repository/contributors",
+          request_headers
+        )
+        .then(res => {
+          for (const property in res.data) {
+            const current = res.data[property];
+            if (current.name === "Abhi Velaga") {
+              this.setState({ abhi: this.state.abhi + current.commits });
+            } else if (current.name === "Adam Martin") {
+              this.setState({ adam: this.state.adam + current.commits });
+            } else if (current.name === "Gavin Rodrigue") {
+              this.setState({ gavin: this.state.gavin + current.commits });
+            } else if (current.name === "Jason Moy") {
+              this.setState({ jason: this.state.jason + current.commits });
+            } else if (current.name === "Faezah Ali") {
+              this.setState({ faezah: this.state.faezah + current.commits });
+            }
           }
-          else if(res.data[property].author_name === "Gavin Rodrigue"){
-            gavinCount++;
-            this.setState({ gavin: gavinCount });
-          }
-          else if(res.data[property].author_name === "Jason Moy"){
-            jasonCount++;
-            this.setState({ jason: jasonCount });
-          }
-          else if(res.data[property].author_name === "Faezah Ali"){
-            faezahCount++;
-            this.setState({ faezah: faezahCount });
-          }
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+        })
+        .catch(err => {
+          console.log(err);
+        });
 
     // issue api
     axios
       .get(
         "https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=avelaga",
-        headers
+        request_headers
       )
       .then(res => {
         this.setState({ abhiIssues: res.data.statistics.counts.closed });
@@ -89,10 +73,10 @@ export class AboutPage extends Component {
         console.log(err);
       });
 
-      axios
+    axios
       .get(
         "https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=Adam-Bomb",
-        headers
+        request_headers
       )
       .then(res => {
         this.setState({ adamIssues: res.data.statistics.counts.closed });
@@ -101,10 +85,10 @@ export class AboutPage extends Component {
         console.log(err);
       });
 
-      axios
+    axios
       .get(
         "https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=faezahali",
-        headers
+        request_headers
       )
       .then(res => {
         this.setState({ faezahIssues: res.data.statistics.counts.closed });
@@ -113,10 +97,10 @@ export class AboutPage extends Component {
         console.log(err);
       });
 
-      axios
+    axios
       .get(
         "https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=gavinhr",
-        headers
+        request_headers
       )
       .then(res => {
         this.setState({ gavinIssues: res.data.statistics.counts.closed });
@@ -125,10 +109,10 @@ export class AboutPage extends Component {
         console.log(err);
       });
 
-      axios
+    axios
       .get(
         "https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=jason.moy42",
-        headers
+        request_headers
       )
       .then(res => {
         this.setState({ jasonIssues: res.data.statistics.counts.closed });
