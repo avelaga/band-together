@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import BillieImg from "../../../dist/images/billie.jpg";
-import PostImg from "../../../dist/images/post_malone.png"
+import PostImg from "../../../dist/images/post_malone.jpg"
 import KissImg from "../../../dist/images/kiss.jpg"
 import "./pages.css";
 
