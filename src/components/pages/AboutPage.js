@@ -128,16 +128,33 @@ export class AboutPage extends Component {
   }
 
   render() {
+    const repo_commits = this.state.adam + this.state.abhi + this.state.jason + this.state.faezah + this.state.gavin;
+    const repo_issues = this.state.adamIssues + this.state.abhiIssues + this.state.jasonIssues + this.state.faezahIssues + this.state.gavinIssues;
+    const repo_unit_tests = this.state.adamTests + this.state.abhiTests + this.state.jasonTests + this.state.faezahTests + this.state.gavinTests;
     return (
       <div className="body flex">
         <div>
-          <center><h1></h1></center>
+          <center><h1 class="about-text"><b>Our Purpose</b></h1></center>
+          <p class="about-text"><center>
+            Concerts are huge these days, but finding concerts from bands or artists you like can be a real headache. We're aiming to make the process as simple
+            and pain-free as possible so you can spend more time planning and enjoying the live music, and less time trying to scour the internet for all the
+            information you need.
+          </center></p>
         </div>
         <AboutCard name={"Adam Martin"} img={AdamImg} commits={this.state.adam} issues={this.state.adamIssues} unit_tests={this.state.adamTests} bio={"I am the kangaroo whisperer"}/>
         <AboutCard name={"Abhi Velaga"} img={AbhiImg} commits={this.state.abhi} issues={this.state.abhiIssues} unit_tests={this.state.abhiTests} bio={"Man with the minivan"}/>
         <AboutCard name={"Jason Moy"} img={JasonImg} commits={this.state.jason} issues={this.state.jasonIssues} unit_tests={this.state.jasonTests}bio={"Secret asian man"}/>
         <AboutCard name={"Faezah Ali"} img={FaezahImg} commits={this.state.faezah} issues={this.state.faezahIssues} unit_tests={this.state.faezahTests} bio={"Wrote my page with the flu. The best players play hurt."}/>
         <AboutCard name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} unit_tests={this.state.gavinTests} bio={"The mustache speaks for itself"}/>
+        <div class='about-text'>
+          <center><h1>Repository Stats</h1></center>
+          <center><h3>{repo_commits} Commits</h3></center>
+          <center><h3>{repo_issues} Issues</h3></center>
+          <center><h3>{repo_unit_tests} Unit Tests</h3></center>
+        </div>
+        <div>
+
+        </div>
       </div>
     );
   }
