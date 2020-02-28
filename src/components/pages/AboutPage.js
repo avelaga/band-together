@@ -162,7 +162,7 @@ export class AboutPage extends Component {
         </div>
         <div class='about-text'>
           <center><a href="https://gitlab.com/Adam-Bomb/band-together">GitLab Repo</a></center>
-          <center><a href="">Postman API</a></center>
+          <center><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR">Postman API</a></center>
         </div>
       </div>
     );
