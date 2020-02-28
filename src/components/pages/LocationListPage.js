@@ -16,9 +16,9 @@ export class LocationListPage extends Component {
   render() {
     return (
       <div className="body flex">
-        <LocationCard city={"Austin, TX"} img={AustinImg} city_url={"/locations/1"} pop={"950,715"} concert_url={concerts} artist_url={artists} />
-        <LocationCard city={"Chicago, IL"} img={ChicagoImg} city_url={"/locations/2"} pop={"2,716,000"} concert_url={concerts} artist_url={artists} />
-        <LocationCard city={"Los Angeles, CA"} img={LAImg} city_url={"/locations/3"} pop={"4,000,000"} concert_url={concerts} artist_url={artists} />
+        <LocationCard city={"Austin, TX"} crime_rate={39} img={AustinImg} city_url={"/locations/1"} pop={"950,715"} venues={"Frank Erwin Center, ACL Live, etc."} airport={"Austin-Bergstrom International Airport (AUS)"}/>
+        <LocationCard city={"Chicago, IL"} crime_rate={43} img={ChicagoImg} city_url={"/locations/2"} pop={"2,716,000"} venues={"House of Blues, United Center, etc."} airport={"O'Hare International Airport (ORD)"} />
+        <LocationCard city={"Los Angeles, CA"} crime_rate={33} img={LAImg} city_url={"/locations/3"} pop={"4,000,000"} venues={"STAPLES Center, Microsoft Theater, etc."} airport={"Los Angeles International Airport (LAX)"} />
       </div>
     );
   }

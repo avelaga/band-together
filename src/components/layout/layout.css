@@ -90,8 +90,20 @@
 }
 
 .location-card {
-    max-height: 565px;
+    max-height: 625px;
 }
+
+.artist-card {
+    max-height: 675px;
+}
+
 .card-stats {
  color: rgb(170, 170, 170);
+}
+
+.longtext {
+    width: 430px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
