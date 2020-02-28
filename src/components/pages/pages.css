@@ -127,3 +127,19 @@ th {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.location-image-right {
+    background-color: #202020;
+    width: 250px;
+    padding: 10px;
+    float: right;
+    height: 200px;
+}
+
+.location-map {
+    height: 230px;
+    width: 250px;
+    float: right;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
