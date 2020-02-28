@@ -127,3 +127,10 @@ th {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.about-text {
+  color: white;
+  width: 950px;
+  margin: auto;
+  justify-content: center;
+}
