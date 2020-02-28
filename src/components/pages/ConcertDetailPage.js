@@ -45,6 +45,7 @@ export class ConcertDetailPage extends Component {
     const id = this.props.match.params.id;
 
     return (
+<<<<<<< HEAD
       <div className="concert-detail-page">
         <div className="concert-detail">
           <div className="concert-detail-left">
@@ -63,6 +64,41 @@ export class ConcertDetailPage extends Component {
         </div>
       </div>
     );
+=======
+      <body id='container' class="body">
+        <div>
+          <h1 style={hStyle}><center><b>{this.artists}</b></center></h1>
+          <h3 style={hStyle}><center>at <b>{this.venue}</b></center></h3>
+          <h3 style={hStyle}><center>{this.genres}</center></h3>
+        </div>
+        <Table striped bordered responsive variant="dark" size='sm'>
+          <tbody>
+            <tr>
+            <td rowSpan='4' width='400'><img style={{height:'400px'}} src={this.img_src}></img></td>
+              <th>Who:</th>
+              <td>{this.artists}</td>
+            </tr>
+            <tr>
+              <th>Where:</th>
+              <td>{this.venue}<br />
+              {this.address}<br />
+              Capacity: {this.capacity}<br />
+              {in_out}
+              </td>
+            </tr>
+            <tr>
+              <th>When:</th>
+              <td>{this.date} at {this.start_time}</td>
+            </tr>
+            <tr>
+              <th>Tickets?</th>
+              <td>${this.ticket_price} each</td>
+            </tr>
+          </tbody>
+        </Table>
+      </body>
+      );
+>>>>>>> ccccf32ed9c943c835ea9eab8553fd565d35ba03
   }
 }
 
