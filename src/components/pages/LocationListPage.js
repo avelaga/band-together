@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Table from 'react-bootstrap/Table';
 import AustinImg from '../../../dist/images/austin.jpg';
 import ChicagoImg from '../../../dist/images/chicago.jpg';
 import LAImg from '../../../dist/images/losangeles.jpeg';

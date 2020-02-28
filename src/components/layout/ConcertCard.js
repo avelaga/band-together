@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class LocationCard extends Component {
+export class ConcertCard extends Component {
   render() {
     return (
       <div className="card">
@@ -17,4 +17,17 @@ export class LocationCard extends Component {
   }
 }
 
-export default LocationCard;
+export default ConcertCard;
+
+/*
+
+<tr>
+              <td>
+                <b><h3>{name}</h3></b><img style={{height:'150px', float: 'right'}} src={img}></img><br></br>
+                <a className="concert-link" href={name_url}>Concert Info</a> / <a className="artist-link" href={artist_url}>Artist Info</a>
+              </td>
+              <td><h3>{city}</h3></td>
+              <td><h3>{venue}</h3><br></br>{date}, {time}</td>
+            </tr>
+
+*/
