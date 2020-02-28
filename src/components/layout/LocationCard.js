@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class LocationCard extends Component {
   render() {
     return (
-      <div className="card">
+      <div className="card location-card">
         <a href={this.props.city_url}><img src={this.props.img} className="card-img"></img></a>
         <div className="card-text">
           <h1>{this.props.city}</h1>

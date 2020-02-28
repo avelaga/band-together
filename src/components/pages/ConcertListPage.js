@@ -1,4 +1,5 @@
 import React, { Component, Children } from "react";
+import ConcertCard from '../layout/ConcertCard.js';
 import PostImg from '../../../dist/images/post_malone.png';
 import BillieImg from '../../../dist/images/billie_eilish.jpg';
 import KISSImg from '../../../dist/images/kiss.jpg';

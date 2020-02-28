@@ -82,11 +82,16 @@
     text-align: center;
     width: 450px;
     margin: 30px;
-    /* padding: 10px; */
     border-radius: 3px;
-    max-height: 565px;
 }
 
+.concert-card {
+    max-height: 590px;
+}
+
+.location-card {
+    max-height: 565px;
+}
 .card-stats {
  color: rgb(170, 170, 170);
 }
