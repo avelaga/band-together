@@ -84,7 +84,7 @@ export class ConcertDetailPage extends Component {
     }
 
     return (
-      <body id='container' style={{background: 'black'}}>
+      <body id='container' class="body">
         <div>
           <h1 style={hStyle}><center><b>{this.artists}</b></center></h1>
           <h3 style={hStyle}><center>at <b>{this.venue}</b></center></h3>
@@ -93,7 +93,7 @@ export class ConcertDetailPage extends Component {
         <Table striped bordered responsive variant="dark" size='sm'>
           <tbody>
             <tr>
-            <td rowSpan='4'><img style={{height:'400px'}} src={this.img_src}></img></td>
+            <td rowSpan='4' width='400'><img style={{height:'400px'}} src={this.img_src}></img></td>
               <th>Who:</th>
               <td>{this.artists}</td>
             </tr>
