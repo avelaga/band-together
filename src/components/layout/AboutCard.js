@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class Card extends Component {
+export class AboutCard extends Component {
   render() {
     return <div className="card">
       <img src={this.props.img} className="card-img"></img>
@@ -15,4 +15,4 @@ export class Card extends Component {
   }
 }
 
-export default Card;
+export default AboutCard;
