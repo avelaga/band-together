@@ -152,8 +152,17 @@ export class AboutPage extends Component {
           <center><h3>{repo_issues} Issues</h3></center>
           <center><h3>{repo_unit_tests} Unit Tests</h3></center>
         </div>
-        <div>
-
+        <div class='about-text'>
+          <center><h1>Data Sources</h1></center>
+          <center><h3>Data was collected from <a href='www.songkick.com'>Songkick</a>, <a href="www.ticketmaster.com">Ticketmaster</a>, and <a href="www.en.wikipedia.com">Wikipedia.</a></h3></center>
+        </div>
+        <div class='about-text'>
+          <center><h1>Tools</h1></center>
+          <center><h3>Amazon Web Services (AWS) is our server host, React Bootstrap is our frontend tool, and Postman is being used to generate our API</h3></center>
+        </div>
+        <div class='about-text'>
+          <center><a href="https://gitlab.com/Adam-Bomb/band-together">GitLab Repo</a></center>
+          <center><a href="">Postman API</a></center>
         </div>
       </div>
     );
