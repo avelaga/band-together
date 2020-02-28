@@ -5,85 +5,66 @@ import BillieImg from "../../../dist/images/billie_eilish.jpg"
 import PostImg from "../../../dist/images/post_malone.jpg"
 
 export class ConcertDetailPage extends Component {
-  constructor(){
-    super();
-    // TEMPORARY UNTIL WE CAN PULL THESE VALUES FROM API'S
-    this.artists = "";
-    this.img_src = "";
-    this.genres = "";
-    this.venue = "";
-    this.address = "";
-    this.indoors = true;
-    this.ticket_price = -1;
-    this.capacity = -1; 
-    this.date = "";
-    this.start_time = "";
-    this.has_alcohol = true;
-    this.forecast = null; // Only use if event is outdoors, using null if indoors
-  }
-  
-  setInfo(id){
-    /* THIS SECTION IS TEMPORARY FOR THE PROJECT DEADLINE */
-    switch(id){
-      case 1:
-        this.artists = "Post Malone";
-        this.img_src = PostImg;
-        this.genres = "Pop/Hip hop";
-        this.venue = "Frank C. Erwin, Jr. Special Events Center";
-        this.address = "1701 Red River St, Austin, TX";
-        this.capacity = 16734;
-        this.ticket_price = 53.50;
-        this.date = "Tuesday, March 10th";
-        this.start_time = "8:00 PM";
-        break;
-      case 2:
-        this.artists = "Billie Eilish";
-        this.img_src = BillieImg;
-        this.genres = "Alt rock, Pop";
-        this.venue = "United Center";
-        this.address = "1901 W Madison St, Chicago, IL";
-        this.capacity = 23500;
-        this.ticket_price = 241;
-        this.date = "Tuesday, March 24th";
-        this.start_time = "7:30 PM";
-        break;
-      case 3:
-        this.artists = "KISS";
-        this.img_src = KISSImg;
-        this.genres = "Rock";
-        this.venue = "STAPLES Center";
-        this.address = "1111 S Figueroa St, Los Angeles, CA";
-        this.capacity = 20000;
-        this.ticket_price = 39.50;
-        this.date = "Wednesday, March 4th";
-        this.start_time = "7:30 PM";
-        break;
-      default:
-        break;
+  concerts = [
+    {
+      name: "Post Malone",
+      genre: "Pop/Hip hop",
+      venue: "Frank C. Erwin, Jr. Special Events Center",
+      address: "1701 Red River St, Austin, TX",
+      capacity: 16734,
+      ticket_price: 53.50,
+      date: "Tuesday, March 10th",
+      start_time: "8:00 PM",
+      image: PostImg
+    },
+
+    {
+      name: "Billie Eilish",
+      genre: "Alt rock, Pop",
+      venue: "United Center",
+      address: "1901 W Madison St, Chicago, IL",
+      capacity: 23500,
+      ticket_price: 241,
+      date: "Tuesday, March 24th",
+      start_time: "7:30 PM",
+      image = BillieImg,
+    },
+    {
+      name: "KISS",
+      image: KISSImg,
+      genre: "Rock",
+      venue: "STAPLES Center",
+      address: "1111 S Figueroa St, Los Angeles, CA",
+      capacity: 20000,
+      ticket_price: 39.50,
+      date: "Wednesday, March 4th",
+      start_time: "7:30 PM",
     }
-    /* ABOVE SECTION IS TEMPORARY HARDCODING */
-  }
-
-  Indoors(props){
-    return <div>Venue is indoors</div>
-  }
-
-  Outdoors(props){
-    return <div>Venue is outdoors</div>
-  }
-
+  ];
   render() {
     const id = this.props.match.params.id;
-    const hStyle = { color: '#676767'}
-    this.setInfo(parseInt(id, 10));
-    let in_out;
-    if(this.indoors){
-      in_out = <this.Indoors />
-    } else {
-      in_out = <Outdoors />
-    }
 
     return (
+<<<<<<< HEAD
+      <div className="concert-detail-page">
+        <div className="concert-detail">
+          <div className="concert-detail-left">
+            <img src={this.concerts[id-1].image} className="concert-detail-image"/>
+          </div>
+          <div className="concert-detail-right">
+            <h1>{this.concerts[id - 1].name}</h1>
+            <p>Genre: {this.concerts[id - 1].genre}</p>
+            <p>Venue: {this.concerts[id-1].venue}</p>
+          </div>
+          <div className="clear" />
+          <div className="concert-detail-bottom">
+            <p>Bio:</p>
+            <p>{this.concerts[id - 1].bio}</p>
+          </div>
+        </div>
+      </div>
+    );
+=======
       <body id='container' class="body">
         <div>
           <h1 style={hStyle}><center><b>{this.artists}</b></center></h1>
@@ -117,6 +98,7 @@ export class ConcertDetailPage extends Component {
         </Table>
       </body>
       );
+>>>>>>> ccccf32ed9c943c835ea9eab8553fd565d35ba03
   }
 }
 
