@@ -8,7 +8,7 @@ export class AboutCard extends Component {
         <h1>{this.props.name}</h1>
         <h5>{this.props.bio}</h5>
         <div className="card-stats">
-          <h5>{this.props.commits} commits / {this.props.issues} issues</h5>  
+          <h5>{this.props.commits} commits / {this.props.issues} issues / {this.props.unit_tests}</h5>  
         </div>
       </div>
     </div>;

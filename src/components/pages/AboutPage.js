@@ -24,7 +24,12 @@ export class AboutPage extends Component {
     adamIssues: 0,
     faezahIssues: 0,
     gavinIssues: 0,
-    jasonIssues: 0
+    jasonIssues: 0,
+    abhiTests: 0,
+    adamTests: 0,
+    faezahTests: 0,
+    jasonTests: 0,
+    gavinTests: 0,
   };
 
   componentDidMount() {
@@ -125,11 +130,14 @@ export class AboutPage extends Component {
   render() {
     return (
       <div className="body flex">
-        <AboutCard name={"Adam Martin"} img={AdamImg} commits={this.state.adam} issues={this.state.adamIssues} bio={"I am the kangaroo whisperer"}/>
-        <AboutCard name={"Abhi Velaga"} img={AbhiImg} commits={this.state.abhi} issues={this.state.abhiIssues} bio={"Man with the minivan"}/>
-        <AboutCard name={"Jason Moy"} img={JasonImg} commits={this.state.jason} issues={this.state.jasonIssues} bio={"I love snow"}/>
-        <AboutCard name={"Faezah Ali"} img={FaezahImg} commits={this.state.faezah} issues={this.state.faezahIssues} bio={"Wrote my page with the flu. The best players play hurt."}/>
-        <AboutCard name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} bio={"The mustache speaks for itself"}/>
+        <div>
+          <center><h1></h1></center>
+        </div>
+        <AboutCard name={"Adam Martin"} img={AdamImg} commits={this.state.adam} issues={this.state.adamIssues} unit_tests={this.state.adamTests} bio={"I am the kangaroo whisperer"}/>
+        <AboutCard name={"Abhi Velaga"} img={AbhiImg} commits={this.state.abhi} issues={this.state.abhiIssues} unit_tests={this.state.abhiTests} bio={"Man with the minivan"}/>
+        <AboutCard name={"Jason Moy"} img={JasonImg} commits={this.state.jason} issues={this.state.jasonIssues} unit_tests={this.state.jasonTests}bio={"Secret asian man"}/>
+        <AboutCard name={"Faezah Ali"} img={FaezahImg} commits={this.state.faezah} issues={this.state.faezahIssues} unit_tests={this.state.faezahTests} bio={"Wrote my page with the flu. The best players play hurt."}/>
+        <AboutCard name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} unit_tests={this.state.gavinTests} bio={"The mustache speaks for itself"}/>
       </div>
     );
   }
