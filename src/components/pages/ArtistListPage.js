@@ -1,6 +1,6 @@
 import React, { Component, Children } from "react";
 import Table from 'react-bootstrap/Table';
-import PostImg from '../../../dist/images/post_malone.png';
+import PostImg from '../../../dist/images/post_malone.jpg';
 import BillieImg from '../../../dist/images/billie_eilish.jpg';
 import KissImg from '../../../dist/images/kiss.jpg';
 
@@ -36,15 +36,15 @@ render() {
           </tr>
         </thead>
         <tbody>
-          {this.renderTableRow(BillieImg, "Billie Eilish" ,"https://bandtogether.events/artists/1/", "Alternative Pop", 
-                                          "Frank C. Erwin, Jr. Special Events Center", "https://bandtogether.events/concerts/1/" ,
-                                          "Los Angeles, CA", "https://bandtogether.events/locations/3/")}
-          {this.renderTableRow(KissImg, "Kiss" ,"https://bandtogether.events/artists/2/",  "Hard Rock",
-                                        "United Center", "https://bandtogether.events/concerts/2/", 
-                                        "Chicago, IL", "https://bandtogether.events/locations/2/")}
-          {this.renderTableRow(PostImg, "Post Malone" ,"https://bandtogether.events/artists/3/", "Hip Hop",
-                                        "STAPLES Center","https://bandtogether.events/concerts/3/",
-                                        "Austin, TX", "https://bandtogether.events/locations/1/")}
+          {this.renderTableRow(BillieImg, "Billie Eilish" ,"/artists/2/", "Alternative Pop", 
+                                          "Frank C. Erwin, Jr. Special Events Center", "/concerts/1/" ,
+                                          "Los Angeles, CA", "/locations/3/")}
+          {this.renderTableRow(KissImg, "Kiss" ,"/artists/3/", "Hard Rock",
+                                        "United Center", "/concerts/2/", 
+                                        "Chicago, IL", "/locations/2/")}
+          {this.renderTableRow(PostImg, "Post Malone" ,"/artists/1/", "Hip Hop",
+                                        "STAPLES Center","/concerts/3/",
+                                        "Austin, TX", "/locations/1/")}
         </tbody>
       </Table>
     </div>
