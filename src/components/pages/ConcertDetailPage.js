@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Table from 'react-bootstrap/Table';
+import DetailsCard from "../layout/DetailsCard.js"
 import KISSImg from "../../../dist/images/kiss.jpg"
 import BillieImg from "../../../dist/images/billie_eilish.jpg"
 import PostImg from "../../../dist/images/post_malone.jpg"
@@ -84,38 +84,9 @@ export class ConcertDetailPage extends Component {
     }
 
     return (
-      <body id='container' class="body">
-        <div>
-          <h1 style={hStyle}><center><b>{this.artists}</b></center></h1>
-          <h3 style={hStyle}><center>at <b>{this.venue}</b></center></h3>
-          <h3 style={hStyle}><center>{this.genres}</center></h3>
+        <div className="body flex">
+          <DetailsCard name={this.artists} img={this.img_src} genre={this.genres} venue={this.venue} address={this.address} capacity={this.capacity} ticket_price={this.ticket_price} date={this.date} time={this.start_time} city_url={"/locations/1"} artist_url={"artists/1"} />
         </div>
-        <Table striped bordered responsive variant="dark" size='sm'>
-          <tbody>
-            <tr>
-            <td rowSpan='4' width='400'><img style={{height:'400px'}} src={this.img_src}></img></td>
-              <th>Who:</th>
-              <td>{this.artists}</td>
-            </tr>
-            <tr>
-              <th>Where:</th>
-              <td>{this.venue}<br />
-              {this.address}<br />
-              Capacity: {this.capacity}<br />
-              {in_out}
-              </td>
-            </tr>
-            <tr>
-              <th>When:</th>
-              <td>{this.date} at {this.start_time}</td>
-            </tr>
-            <tr>
-              <th>Tickets?</th>
-              <td>${this.ticket_price} each</td>
-            </tr>
-          </tbody>
-        </Table>
-      </body>
       );
   }
 }
