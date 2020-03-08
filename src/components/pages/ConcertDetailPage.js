@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DetailsCard from "../layout/DetailsCard.js"
+import ConcertDetailsCard from "../layout/ConcertDetailsCard.js"
 import KISSImg from "../../../dist/images/kiss.jpg"
 import BillieImg from "../../../dist/images/billie_eilish.jpg"
 import PostImg from "../../../dist/images/post_malone.jpg"
@@ -85,7 +85,7 @@ export class ConcertDetailPage extends Component {
 
     return (
         <div className="body flex">
-          <DetailsCard name={this.artists} img={this.img_src} genre={this.genres} venue={this.venue} address={this.address} capacity={this.capacity} ticket_price={this.ticket_price} date={this.date} time={this.start_time} city_url={"/locations/1"} artist_url={"artists/1"} />
+          <ConcertDetailsCard name={this.artists} img={this.img_src} genre={this.genres} venue={this.venue} address={this.address} capacity={this.capacity} ticket_price={this.ticket_price} date={this.date} time={this.start_time} city_url={"/locations/1"} artist_url={"artists/1"} />
         </div>
       );
   }
