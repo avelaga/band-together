@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import LocationDetailsCard from "../layout/LocationDetailsCard.js";
 import AustinImg from "../../../dist/images/austin.jpg";
 import ChicagoImg from "../../../dist/images/chicago.jpg";
 import LosAngelesImg from "../../../dist/images/losangeles.jpeg";
@@ -63,38 +64,8 @@ export class LocationDetailPage extends Component {
     const id = this.props.match.params.id;
 
     return (
-      <div className="artist-detail-page">
-        <div className="artist-detail">
-          <div className="artist-detail-left">
-            <img
-              src={this.locations[id - 1].image}
-              className="artist-detail-image"
-            />
-          </div>
-          <div className="artist-detail-right">
-            <h1>{this.locations[id - 1].name}</h1>
-            <p>Population: {this.locations[id - 1].population}</p>
-            <p>Founded: {this.locations[id - 1].year_founded}</p>
-            <p>Crime Rate: {this.locations[id - 1].crime_rating}</p>
-            <a href={this.locations[id - 1].food}>Food</a>
-            
-            <a href={this.locations[id - 1].hotels}> Hotels</a>
-
-            <a href={this.locations[id - 1].airports}> Airports</a>
-          </div>
-          <div className = "location-image-right">
-            <img src = {this.locations[id - 1].map}
-            className = "location-map"
-            />
-          </div>
-          <div className="clear" />
-          <div className="artist-detail-bottom">
-            <p>Bio:</p>
-            <p>{this.locations[id - 1].info}</p>
-            <p>Forecast: </p>
-            <p>{this.locations[id - 1].weather}</p>
-          </div>
-        </div>
+      <div className="body flex">
+        <LocationDetailsCard name={this.locations[id - 1].name} img={this.locations[id - 1].image} population={this.locations[id - 1].population} founded={this.locations[id - 1].year_founded} crime_rating={this.locations[id - 1].crime_rating} food_url={this.locations[id - 1].food} hotel_url={this.locations[id - 1].hotels} airport_url={this.locations[id - 1].airports} map={this.locations[id - 1].map} bio={this.locations[id - 1].info} weather={this.locations[id - 1].weather}/>
       </div>
     );
   }

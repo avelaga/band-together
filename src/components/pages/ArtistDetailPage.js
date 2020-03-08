@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ArtistDetailsCard from "../layout/ArtistDetailsCard.js";
 import BillieImg from "../../../dist/images/billie_eilish.jpg";
 import PostImg from "../../../dist/images/post_malone.jpg"
 import KissImg from "../../../dist/images/kiss.jpg"
@@ -42,22 +43,8 @@ export class ArtistDetailPage extends Component {
     const id = this.props.match.params.id;
 
     return (
-      <div className="artist-detail-page">
-        <div className="artist-detail">
-          <div className="artist-detail-left">
-            <img src={this.artists[id-1].image} className="artist-detail-image"/>
-          </div>
-          <div className="artist-detail-right">
-            <h1>{this.artists[id - 1].name}</h1>
-            <p>Genre: {this.artists[id - 1].genre}</p>
-            <p>Started: {this.artists[id-1].year_started}</p>
-          </div>
-          <div className="clear" />
-          <div className="artist-detail-bottom">
-            <p>Bio:</p>
-            <p>{this.artists[id - 1].bio}</p>
-          </div>
-        </div>
+      <div className="body flex">
+          <ArtistDetailsCard name={this.artists[id - 1].name} img={this.artists[id-1].image} genre={this.artists[id - 1].genre} started={this.artists[id-1].year_started} bio={this.artists[id - 1].bio} />
       </div>
     );
   }

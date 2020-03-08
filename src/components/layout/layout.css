@@ -98,7 +98,7 @@
 }
 
 .card-stats {
- color: rgb(170, 170, 170);
+    color: rgb(170, 170, 170);
 }
 
 .longtext {
@@ -106,4 +106,91 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.details {
+    min-width: 1000px;
+    height: 303px;
+    background-color: black;
+    border: rgb(53, 53, 53);
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    width: 450px;
+    margin: 60px;
+    border-radius: 3px;
+}
+
+.details-card-text {
+    color: white;
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.details-img {
+    float: left;
+    height: 300px;
+    width: 300px;
+}
+
+.details-card-img {
+    height: 300px;
+    width: 300px;
+    border-radius: 3px;
+}
+
+
+.location-details-text {
+    color: white;
+    /* float: left; */
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;;
+    height: 300px;
+    width: 680px;
+}
+
+.location-details-bio {
+    color: rgb(170, 170, 170);
+    margin: 10px;
+    width: 670px;
+    text-align: left;
+}
+
+.wrap {
+    display: flex;   
+  flex-wrap: wrap;
+}
+
+.location-details {
+    min-width: 1000px;
+    height: 612px;
+    background-color: black;
+    border: rgb(53, 53, 53);
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    width: 450px;
+    margin: 60px;
+    border-radius: 3px;
+}
+
+.artist-bio {
+    font-size: 2px; 
+    color: white;
+    /* float: left; */
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 300px;
+    width: 990px;
+    margin-right: 10px;
+}
+
+.artist-img {
+    float: left;
+    height: 300px;
+    width: 300px;
+    margin-right: 10px;
 }

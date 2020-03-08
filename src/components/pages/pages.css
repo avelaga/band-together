@@ -35,7 +35,7 @@ Artist Detail Styling
   color: white;
 }
 .artist-detail-left {
-  background-color: #202020;
+  /* background-color: #202020; */
   width: 250px;
   padding: 10px;
   float: left;
@@ -43,7 +43,7 @@ Artist Detail Styling
 }
 
 .artist-detail-right {
-  background-color: #202020;
+  /* background-color: #202020; */
   width: 500px;
   padding: 10px;
   float: left;
@@ -54,7 +54,7 @@ Artist Detail Styling
   height: 300px;
   width: 1000px;
   padding: 10px;
-  background-color: #202020;
+  /* background-color: #202020;e */
   float: left;
 }
 
