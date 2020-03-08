@@ -151,3 +151,46 @@ th {
     border-radius: 10px;
 }
 
+.line {
+  background-color: rgb(53, 53, 53);
+  height: .1;
+  margin: 40px;
+}
+
+.about-stats {
+  color: white;
+  display: inline-block;
+  border: rgb(53, 53, 53);
+  border-width: 1px;
+  border-style: solid;
+  margin: 30px;
+  border-radius: 3px;
+
+}
+
+.about-top {
+  text-align: center;
+  border: rgb(53, 53, 53);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.about-down {
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.src-img {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.about-links {
+  color: white;
+  text-align: center;
+  padding-bottom: 30px;
+}
