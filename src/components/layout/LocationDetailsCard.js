@@ -27,5 +27,3 @@ export class LocationDetailsCard extends Component {
 }
 
 export default LocationDetailsCard;
-
-// <LocationDetailsCard name={this.locations[id - 1].name} img={this.locations[id - 1].image} population={this.locations[id - 1].population} founded={this.locations[id - 1].year_founded} crime_rating={this.locations[id - 1].crime_rating} food_url={this.locations[id - 1].food} hotel_url={this.locations[id - 1].hotels} airport_url={this.locations[id - 1].airports} map={this.locations[id - 1].map} bio={this.locations[id - 1].info} weather={this.locations[id - 1].weather}/>

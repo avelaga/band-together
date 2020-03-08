@@ -140,9 +140,6 @@
     border-radius: 3px;
 }
 
-.map-img {
-    /* float: left; */
-}
 
 .location-details-text {
     color: white;
@@ -177,4 +174,23 @@
     width: 450px;
     margin: 60px;
     border-radius: 3px;
+}
+
+.artist-bio {
+    font-size: 2px; 
+    color: white;
+    /* float: left; */
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 300px;
+    width: 990px;
+    margin-right: 10px;
+}
+
+.artist-img {
+    float: left;
+    height: 300px;
+    width: 300px;
+    margin-right: 10px;
 }
