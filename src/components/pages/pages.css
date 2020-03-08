@@ -158,23 +158,29 @@ th {
 }
 
 .about-stats {
-  width: 100vw;
-  height: 200px;
   color: white;
+  display: inline-block;
+  border: rgb(53, 53, 53);
+  border-width: 1px;
+  border-style: solid;
+  margin: 30px;
+  border-radius: 3px;
+
 }
 
-.about-left {
-  float: left;
-  margin: 10px;
-  text-align: right;
-  width: 48vw;
+.about-top {
+  text-align: center;
+  border: rgb(53, 53, 53);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 10px;
 }
 
-.about-right {
-  float: right;
+.about-down {
   margin: 10px;
-  text-align: left;
-  width: 48vw;
+  text-align: center;
+  padding: 10px;
 }
 
 .src-img {

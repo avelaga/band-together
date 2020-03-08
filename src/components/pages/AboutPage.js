@@ -157,12 +157,13 @@ return (
 
   <hr className="line"/>
 
+  <div className="flex">
+
   <div className="about-stats">
-    <div className="about-left">
-      <h1>Repository</h1>
-      <h1>Stats</h1>
+    <div className="about-top">
+      <h1>Repository Stats</h1>
     </div>
-    <div class="about-right">
+    <div class="about-down">
       <h3>{repo_commits} Commits</h3>
       <h3>{repo_issues} Issues</h3>
     < h3>{repo_unit_tests} Unit Tests</h3>
@@ -170,11 +171,10 @@ return (
   </div>
 
   <div className="about-stats">
-    <div className="about-left">
-      <h1>Data</h1>
-      <h1>Sources</h1>
+    <div className="about-top">
+      <h1>Data Sources</h1>
     </div>
-    <div class="about-right">
+    <div class="about-down">
     <a href="https://www.songkick.com"><img src={SongkickImg} className="src-img"></img></a>
     <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} className="src-img"></img></a>
     <a href="https://www.en.wikipedia.com"><img src={WikiImg} className="src-img"></img></a>
@@ -182,21 +182,20 @@ return (
   </div>
 
   <div className="about-stats">
-    <div className="about-left">
+    <div className="about-top">
       <h1>Tools</h1>
     </div>
-    <div class="about-right">
+    <div class="about-down">
       <img src={ReactImg} className="src-img"></img>
       <img src={AWSImg} className="src-img"></img>
       <img src={PostmanImg} className="src-img"></img>
     </div>
   </div>
-
+  </div>
   <div className="about-links">
     <h1><a href="https://gitlab.com/Adam-Bomb/band-together">GitLab Repo</a></h1>
     <h1><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR">Postman API</a></h1>
   </div>
-
 </div>
 );
 }
