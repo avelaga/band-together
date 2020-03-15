@@ -192,13 +192,22 @@ return (
     </div>
   </div>
   </div>
-  <div className="about-links">
-    <h1><a href="https://gitlab.com/Adam-Bomb/band-together">GitLab Repo</a></h1>
-    <h1><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR">Postman API</a></h1>
+  
+  <div className="about-links" >
+    <div><h1><a href="https://gitlab.com/Adam-Bomb/band-together" style = {buttonStyle}>GitLab Repo</a></h1></div>
+
+    <div><h1><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style = {buttonStyle}>Postman API</a></h1></div>
   </div>
 </div>
 );
 }
+}
+
+const buttonStyle = {
+  backgroundColor: 'rgb(0, 119, 255)',
+  width: '300px',
+  borderRadius: '5px',
+  padding: '10px'
 }
 
 export default AboutPage;
