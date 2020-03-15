@@ -13,13 +13,26 @@ import ErrorGif from '../dist/images/error.gif';
 const ErrorPage = () => {
   return (
     <div className="body">
-      <div className="error-text" >
+      <div style={errorText} >
         <h1> 404: Page Not Found :(</h1>
       </div>
-      <img src={ErrorGif} className="error-gif" />
+      <img src={ErrorGif} style={errorGif} />
     </div>
   );
 };
+
+const errorText = {
+  display: 'block',
+  margin: 'auto',
+  textAlign: 'center',
+  color: 'white'
+}
+
+const errorGif = {
+  display: 'block',
+  margin: 'auto',
+  height: '50vh'
+}
 
 function App() {
 

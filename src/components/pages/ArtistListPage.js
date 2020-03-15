@@ -4,7 +4,6 @@ import PostImg from '../../../dist/images/post_malone.jpg';
 import BillieImg from '../../../dist/images/billie_eilish.jpg';
 import KISSImg from '../../../dist/images/kiss.jpg';
 
-
 export class ArtistListPage extends Component {
   constructor(props) {
     super(props);

@@ -12,7 +12,7 @@ import ReactImg from '../../../dist/images/react.png';
 import PostmanImg from '../../../dist/images/postman.png';
 import AWSImg from '../../../dist/images/aws.png';
 
-import "./pages.css";
+// import "./pages.css";
 
 const axios = require("axios").default;
 
@@ -175,9 +175,9 @@ return (
       <h1>Data Sources</h1>
     </div>
     <div style={aboutDown}>
-    <a href="https://www.songkick.com"><img src={SongkickImg} className="src-img"></img></a>
-    <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} className="src-img"></img></a>
-    <a href="https://www.en.wikipedia.com"><img src={WikiImg} className="src-img"></img></a>
+    <a href="https://www.songkick.com"><img src={SongkickImg} style={srcImg}></img></a>
+    <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} style={srcImg}></img></a>
+    <a href="https://www.en.wikipedia.com"><img src={WikiImg} style={srcImg}></img></a>
     </div>
   </div>
 
@@ -186,9 +186,9 @@ return (
       <h1>Tools</h1>
     </div>
     <div style={aboutDown}>
-      <img src={ReactImg} className="src-img"></img>
-      <img src={AWSImg} className="src-img"></img>
-      <img src={PostmanImg} className="src-img"></img>
+      <img src={ReactImg} style={srcImg}></img>
+      <img src={AWSImg} style={srcImg}></img>
+      <img src={PostmanImg} style={srcImg}></img>
     </div>
   </div>
   </div>
@@ -204,6 +204,11 @@ return (
 }
 
 // local styles
+const srcImg = {
+  width: '100px',
+  height: '100px',
+  margin: '10px'
+}
 
 const aboutText = {
   color: 'white',
