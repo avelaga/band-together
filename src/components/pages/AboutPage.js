@@ -140,8 +140,8 @@ const repo_unit_tests = this.state.adamTests + this.state.abhiTests + this.state
 return (
 <div className="body center">
   <div>
-    <center><h1 class="about-text"><b>Our Purpose</b></h1></center>
-    <p class="about-text"><center>
+    <center><h1 style={aboutText}><b>Our Purpose</b></h1></center>
+    <p style={aboutText}><center>
       Concerts are huge these days, but finding concerts from bands or artists you like can be a real headache. We're aiming to make the process as simple
       and pain-free as possible so you can spend more time planning and enjoying the live music, and less time trying to scour the internet for all the
       information you need.
@@ -155,37 +155,37 @@ return (
     <AboutCard name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} unit_tests={this.state.gavinTests} bio={"The mustache speaks for itself"} role={"Front-End Developer"}/>
   </div>
 
-  <hr className="line"/>
+  <hr style={line}/>
 
   <div className="flex">
 
-  <div className="about-stats">
-    <div className="about-top">
+  <div style={aboutStats}>
+    <div style={aboutTop}>
       <h1>Repository Stats</h1>
     </div>
-    <div class="about-down">
+    <div style={aboutDown}>
       <h3>{repo_commits} Commits</h3>
       <h3>{repo_issues} Issues</h3>
     < h3>{repo_unit_tests} Unit Tests</h3>
     </div>
   </div>
 
-  <div className="about-stats">
-    <div className="about-top">
+  <div style={aboutStats}>
+    <div style={aboutTop}>
       <h1>Data Sources</h1>
     </div>
-    <div class="about-down">
+    <div style={aboutDown}>
     <a href="https://www.songkick.com"><img src={SongkickImg} className="src-img"></img></a>
     <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} className="src-img"></img></a>
     <a href="https://www.en.wikipedia.com"><img src={WikiImg} className="src-img"></img></a>
     </div>
   </div>
 
-  <div className="about-stats">
-    <div className="about-top">
+  <div style={aboutStats}>
+    <div style={aboutTop}>
       <h1>Tools</h1>
     </div>
-    <div class="about-down">
+    <div style={aboutDown}>
       <img src={ReactImg} className="src-img"></img>
       <img src={AWSImg} className="src-img"></img>
       <img src={PostmanImg} className="src-img"></img>
@@ -193,7 +193,7 @@ return (
   </div>
   </div>
   
-  <div className="about-links" >
+  <div style={aboutLinks} >
     <div><h1><a href="https://gitlab.com/Adam-Bomb/band-together" style = {buttonStyle}>GitLab Repo</a></h1></div>
 
     <div><h1><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style = {buttonStyle}>Postman API</a></h1></div>
@@ -203,10 +203,55 @@ return (
 }
 }
 
+// local styles
+
+const aboutText = {
+  color: 'white',
+  width: '950px',
+  margin: 'auto',
+  justifyContent: 'center'
+}
+
+const aboutLinks = {
+  display: 'flex',
+  paddingBottom: '30px',
+  justifyContent: 'space-between',
+  width: '450px',
+  margin: 'auto'
+}
+
 const buttonStyle = {
   backgroundColor: 'rgb(0, 119, 255)',
   width: '300px',
   borderRadius: '5px',
+  padding: '7px'
+}
+
+const line = {
+  backgroundColor: 'rgb(53, 53, 53)',
+  height: '.1',
+  margin: '40px'
+}
+
+const aboutStats = {
+  color: 'white',
+  display: 'inline-block',
+  margin: '30px',
+  borderRadius: '3px'
+
+}
+
+const aboutTop = {
+  textAlign: 'center',
+  borderBottom: 'solid rgb(53, 53, 53)',
+  borderWidth: '1px',
+  borderRadius: '3px',
+  padding: '10px'
+}
+
+ const aboutDown = {
+  margin: '10px',
+  textAlign: 'center',
   padding: '10px'
 }
 

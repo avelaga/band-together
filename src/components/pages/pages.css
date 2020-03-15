@@ -86,29 +86,6 @@ th {
   color: white;
 }
 
-.list-table {
-  width: 99vw;
-}
-
-.list-img {
-  height: 125px;
-  float: left;
-}
-
-.location-table-links {
-  color: white;
-}
-
-.location-image {
-  width: 300px;
-  height: 200px;
-  float: left;
-}
-
-.clear {
-  clear: both;
-}
-
 .error-text {
   display: block;
   margin: auto;
@@ -128,72 +105,10 @@ th {
   justify-content: center;
 }
 
-.about-text {
-  color: white;
-  width: 950px;
-  margin: auto;
-  justify-content: center;
-}
-
-.location-image-right {
-    background-color: #202020;
-    width: 250px;
-    padding: 10px;
-    float: right;
-    height: 200px;
-}
-
-.location-map {
-    height: 230px;
-    width: 250px;
-    float: right;
-    margin-bottom: 20px;
-    border-radius: 10px;
-}
-
-.line {
-  background-color: rgb(53, 53, 53);
-  height: .1;
-  margin: 40px;
-}
-
-.about-stats {
-  color: white;
-  display: inline-block;
-  /* border: rgb(53, 53, 53);
-  border-width: 1px;
-  border-style: solid; */
-  margin: 30px;
-  border-radius: 3px;
-
-}
-
-.about-top {
-  text-align: center;
-  border-bottom: solid rgb(53, 53, 53);
-  border-width: 1px;
-  border-radius: 3px;
-  padding: 10px;
-}
-
-.about-down {
-  margin: 10px;
-  text-align: center;
-  padding: 10px;
-}
-
 .src-img {
   width: 100px;
   height: 100px;
   margin: 10px;
-}
-
-.about-links {
-  display: flex;
-  padding-bottom: 30px;
-  justify-content: space-between;
-  width: 450px;
-  margin: auto;
 }
 
 /* unvisited link */
