@@ -1,4 +1,9 @@
-
+/* wasnt able to remove this, caused errors */
+.band-navbar {
+    background-color: black;
+    height: 50px;
+    width: 100%;
+}
 
 .slideshow {
     height: 500px;

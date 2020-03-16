@@ -6,10 +6,12 @@ export class Navbar extends Component {
   render() {
     return (
       <nav 
-      // className="navbar navbar-expand-sm navbar-light band-navbar"
-      style={bandNavbar}
+      className="navbar navbar-expand-sm navbar-light band-navbar"
       >
-       
+        <div
+          className="collapse navbar-collapse band-navbar"
+          // id="navbarTogglerDemo01"
+        >
           <a href="/">
             <img style={navbarLogo} src={Logo} />
           </a>
@@ -27,7 +29,7 @@ export class Navbar extends Component {
                 Locations
               </a>
             </div>
-     
+        </div>
       </nav>
     );
   }
@@ -39,11 +41,11 @@ const navbarLogo = {
   float: 'left'
 }
 
-const bandNavbar = {
-  backgroundColor: 'black',
-  height: '50px',
-  width: '100%'
-}
+// const bandNavbar = {
+//   backgroundColor: 'black',
+//   height: '50px',
+//   width: '100%'
+// }
 
 const linksContainer = {
   float: 'right',
@@ -58,3 +60,6 @@ const navbarLink = {
 }
 
 export default Navbar;
+
+
+
