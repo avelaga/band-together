@@ -5,47 +5,7 @@
     width: 100%;
 }
 
-.slideshow {
-    height: 500px;
-    max-width: 100%;
-    background-color: black;
-    float: left;
-    margin-top: 1%;
-}
-
-.slider-image {
-    height: 50%;
-    width: 33.33%;
-    float: left;
-    margin-left: none;
-    margin-bottom: none;
-    margin-right: none;
-    margin-top: none;
-    padding: .1%
-}
-
-.slider-text-container {
-    height: 50%;
-    width: 33.33%;
-    float: left;
-    margin: 0;
-}
-
-.slider-text {
-    color: white;
-    margin: 0;
-    padding: 25%;
-}
-
-.slider-container {
-    margin-top: 2%;
-    padding: 2%;
-}
-
-.slick-list {
-    width: 100%;
-}
-
+/* keep */
 .card-img {
     height: 446px;
     width: 446px;
@@ -53,10 +13,12 @@
     border-radius: 3px;
 }
 
+/* keep */
 .card-text {
     color: white;
 }
 
+/* only in about card  */
 .card {
     background-color: black;
     border: rgb(53, 53, 53);
@@ -68,22 +30,27 @@
     border-radius: 3px;
 }
 
+/* remove */
 .concert-card {
     max-height: 590px;
 }
 
+/* remove */
 .location-card {
     max-height: 625px;
 }
 
+/* remove */
 .artist-card {
     max-height: 675px;
 }
 
+/* keeep */
 .card-stats {
     color: rgb(170, 170, 170);
 }
 
+/* remove */
 .longtext {
     width: 430px;
     white-space: nowrap;
@@ -91,6 +58,7 @@
     text-overflow: ellipsis;
 }
 
+/* keep */
 .details {
     min-width: 1000px;
     height: 303px;
@@ -104,6 +72,7 @@
     border-radius: 3px;
 }
 
+/* conc details only  */
 .details-card-text {
     color: white;
     float: left;
@@ -111,13 +80,15 @@
     margin-left: 10px;
 }
 
+/* keep */
 .details-img {
     float: left;
     height: 300px;
     width: 300px;
 }
 
-.details-card-img {
+/* keep */
+.details-card-img { 
     height: 300px;
     width: 300px;
     border-radius: 3px;
