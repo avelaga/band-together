@@ -10,7 +10,6 @@ export class Navbar extends Component {
       >
         <div
           className="collapse navbar-collapse band-navbar"
-          // id="navbarTogglerDemo01"
         >
           <a href="/">
             <img style={navbarLogo} src={Logo} />
@@ -36,11 +35,12 @@ export class Navbar extends Component {
 }
 
 const navbarLogo = {
-  width: '5vh',
+  width: '5vw',
   height: '6vh',
   float: 'left'
 }
 
+// couldnt get this to work here, had to leave it in the css for now
 // const bandNavbar = {
 //   backgroundColor: 'black',
 //   height: '50px',
