@@ -14,6 +14,7 @@ import PostmanImg from '../../../dist/images/postman.png';
 import AWSImg from '../../../dist/images/aws.png';
 import DjangoImg from '../../../dist/images/django.png';
 import MochaImg from '../../../dist/images/mocha.png';
+import SeleniumImg from '../../../dist/images/selenium.png';
 
 // import "./pages.css";
 
@@ -161,6 +162,7 @@ return (
       <img src={PostmanImg} style={srcImg}></img>
       <img src={DjangoImg} style={srcImg}></img>
       <img src={MochaImg} style={srcImg}></img>
+      <img src={SeleniumImg} style={srcImg}></img>
     </div>
   </div>
   </div>
