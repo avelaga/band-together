@@ -16,6 +16,7 @@ import DjangoImg from '../../../dist/images/django.png';
 import MochaImg from '../../../dist/images/mocha.png';
 import SeleniumImg from '../../../dist/images/selenium.png';
 import DjRestImg from '../../../dist/images/djrest.png';
+import PostgresImg from '../../../dist/images/postgres.png';
 
 // import "./pages.css";
 
@@ -165,6 +166,7 @@ return (
       <img src={MochaImg} style={srcImg}></img>
       <img src={SeleniumImg} style={srcImg}></img>
       <img src={DjRestImg} style={DjRestImgStyle}></img>
+      <img src={PostgresImg} style={srcImg}></img>
     </div>
   </div>
   </div>
