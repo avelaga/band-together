@@ -15,6 +15,7 @@ import AWSImg from '../../../dist/images/aws.png';
 import DjangoImg from '../../../dist/images/django.png';
 import MochaImg from '../../../dist/images/mocha.png';
 import SeleniumImg from '../../../dist/images/selenium.png';
+import DjRestImg from '../../../dist/images/djrest.png';
 
 // import "./pages.css";
 
@@ -163,6 +164,7 @@ return (
       <img src={DjangoImg} style={srcImg}></img>
       <img src={MochaImg} style={srcImg}></img>
       <img src={SeleniumImg} style={srcImg}></img>
+      <img src={DjRestImg} style={DjRestImgStyle}></img>
     </div>
   </div>
   </div>
@@ -180,6 +182,14 @@ return (
 // local styles
 const srcImg = {
   width: '100px',
+  height: '100px',
+  margin: '10px'
+}
+
+//Logo is wonky non-square size, needed custom style.
+const DjRestImgStyle = {
+  backgroundColor: 'rgb(255,255,255)',
+  width: '226px',
   height: '100px',
   margin: '10px'
 }
