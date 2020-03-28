@@ -44,11 +44,12 @@ headers: {
 "PRIVATE-TOKEN": "7pfMsQdxg_6z_8PEMssw"
 }
 };
-var repos = ["https://gitlab.com/api/v4/projects/17041074/repository/contributors", 
-"https://gitlab.com/api/v4/projects/17240838/repository/contributors"];
+var repos = ["https://gitlab.com/api/v4/projects/17041074/", 
+"https://gitlab.com/api/v4/projects/17240838/"];
 
+//commit api
 for(let repo of repos){
-  window.alert(repo);
+  repo += "repository/contributors"
   axios.get(repo, request_headers)
   .then(res => {
   for (const property in res.data) {
@@ -71,8 +72,32 @@ for(let repo of repos){
   });
 }
 
+var contributors = ["avelaga", "Adam-Bomb", "faezahali", "gavinhr", "jason.moy42"];
+for(let repo of repos){
+  repo += 'issues_statistics?assignee_username=';
+  for(let contributor of contributors){
+    let api_link = repo + contributor;
+    axios.get(api_link, request_headers)
+    .then(res => {
+      if (contributor == 'avelaga'){
+        this.setState((state) => {return {abhiIssues: state.abhiIssues + res.data.statistics.counts.closed}});
+      } else if (contributor == 'Adam-Bomb'){
+        this.setState((state) => {return {adamIssues: state.adamIssues + res.data.statistics.counts.closed}});
+      } else if (contributor == 'faezahali'){
+        this.setState((state) => {return {faezahIssues: state.faezahIssues + res.data.statistics.counts.closed}});
+      } else if (contributor == 'gavinhr'){
+        this.setState((state) => {return {gavinIssues: state.gavinIssues + res.data.statistics.counts.closed}});
+      } else if (contributor == 'jason.moy42'){
+        this.setState((state) => {return {jasonIssues: state.jasonIssues + res.data.statistics.counts.closed}});
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+}
 // issue api
-axios
+/*axios
 .get(
 "https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=avelaga",
 request_headers
@@ -131,7 +156,7 @@ this.setState({ jasonIssues: res.data.statistics.counts.closed });
 })
 .catch(err => {
 console.log(err);
-});
+});*/
 }
 
 render() {
