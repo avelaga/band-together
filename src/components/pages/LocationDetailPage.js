@@ -6,6 +6,7 @@ import LosAngelesImg from "../../../dist/images/losangeles.jpeg";
 import austin_map from "../../../dist/images/austin_map.jpg";
 import LA_map from "../../../dist/images/LA_map.jpg";
 import chicago_map from "../../../dist/images/chicago_map.jpg";
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 import "./pages.css";
 
 export class LocationDetailPage extends Component {
@@ -56,7 +57,12 @@ export class LocationDetailPage extends Component {
       info:
       "Los Angeles (Spanish for The Angels), officially the City of Los Angeles and often known by its initials L.A., is the most populous city in California; the second most populous city in the United States, after New York City; and the third most populous city in North America, after Mexico City and New York City. With an estimated population of nearly four million people,[11] Los Angeles is the cultural, financial, and commercial center of Southern California. The city is known for its Mediterranean climate, ethnic diversity, the entertainment industry, and its sprawling metropolis.",
       image: LosAngelesImg,
-      map: LA_map
+      map: <Map
+      google={this.props.google}
+      zoom={8}
+      style={mapStyles}
+      initialCenter={{ lat: 47.444, lng: -122.176}}
+      />
     }
   ];
 
