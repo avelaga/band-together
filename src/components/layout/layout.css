@@ -1,66 +1,8 @@
-.navbar-logo {
-    width: 5vh;
-    height: 50px;
-    float: left;
-}
-
+/* wasnt able to remove this, caused errors */
 .band-navbar {
     background-color: black;
-    height: 50px;
-    width: 100%;
-}
-
-.navbar-links-container {
-    float: right;
-    width: 100%;
-}
-
-.navbar-link {
-    color: #ffffff;
-    font-size: 2em;
-    padding-left: 1em;
-    float: right;
-}
-
-.slideshow {
-    height: 500px;
-    max-width: 100%;
-    background-color: black;
-    float: left;
-    margin-top: 1%;
-}
-
-.slider-image {
-    height: 50%;
-    width: 33.33%;
-    float: left;
-    margin-left: none;
-    margin-bottom: none;
-    margin-right: none;
-    margin-top: none;
-    padding: .1%
-}
-
-.slider-text-container {
-    height: 50%;
-    width: 33.33%;
-    float: left;
-    margin: 0;
-}
-
-.slider-text {
-    color: white;
-    margin: 0;
-    padding: 25%;
-}
-
-.slider-container {
-    margin-top: 2%;
-    padding: 2%;
-}
-
-.slick-list {
-    width: 100%;
+    height: 6vh;
+    width: 100vw;
 }
 
 .card-img {
@@ -85,27 +27,8 @@
     border-radius: 3px;
 }
 
-.concert-card {
-    max-height: 590px;
-}
-
-.location-card {
-    max-height: 625px;
-}
-
-.artist-card {
-    max-height: 675px;
-}
-
 .card-stats {
     color: rgb(170, 170, 170);
-}
-
-.longtext {
-    width: 430px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .details {
@@ -121,12 +44,6 @@
     border-radius: 3px;
 }
 
-.details-card-text {
-    color: white;
-    float: left;
-    text-align: left;
-    margin-left: 10px;
-}
 
 .details-img {
     float: left;
@@ -134,63 +51,8 @@
     width: 300px;
 }
 
-.details-card-img {
+.details-card-img { 
     height: 300px;
     width: 300px;
     border-radius: 3px;
-}
-
-
-.location-details-text {
-    color: white;
-    /* float: left; */
-    text-align: left;
-    margin-left: 10px;
-    margin-top: 10px;;
-    height: 300px;
-    width: 680px;
-}
-
-.location-details-bio {
-    color: rgb(170, 170, 170);
-    margin: 10px;
-    width: 670px;
-    text-align: left;
-}
-
-.wrap {
-    display: flex;   
-  flex-wrap: wrap;
-}
-
-.location-details {
-    min-width: 1000px;
-    height: 612px;
-    background-color: black;
-    border: rgb(53, 53, 53);
-    border-width: 1px;
-    border-style: solid;
-    text-align: center;
-    width: 450px;
-    margin: 60px;
-    border-radius: 3px;
-}
-
-.artist-bio {
-    font-size: 2px; 
-    color: white;
-    /* float: left; */
-    text-align: left;
-    margin-left: 10px;
-    margin-top: 10px;
-    height: 300px;
-    width: 990px;
-    margin-right: 10px;
-}
-
-.artist-img {
-    float: left;
-    height: 300px;
-    width: 300px;
-    margin-right: 10px;
 }

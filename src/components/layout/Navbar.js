@@ -5,25 +5,26 @@ import "./layout.css";
 export class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-sm navbar-light band-navbar">
+      <nav 
+      className="navbar navbar-expand-sm navbar-light band-navbar"
+      >
         <div
           className="collapse navbar-collapse band-navbar"
-          id="navbarTogglerDemo01"
         >
           <a href="/">
-            <img className="navbar-logo" src={Logo} />
+            <img style={navbarLogo} src={Logo} />
           </a>
-            <div className="navbar-links-container">
-              <a className="navbar-link" href="/about">
+            <div style={linksContainer}>
+              <a style={navbarLink} href="/about">
                 About
               </a>
-              <a className="navbar-link" href="/concerts">
+              <a style={navbarLink} href="/concerts">
                 Concerts
               </a>
-              <a className="navbar-link" href="/artists">
+              <a style={navbarLink} href="/artists">
                 Artists
               </a>
-              <a className="navbar-link" href="/locations">
+              <a style={navbarLink} href="/locations">
                 Locations
               </a>
             </div>
@@ -33,4 +34,32 @@ export class Navbar extends Component {
   }
 }
 
+const navbarLogo = {
+  width: '5vw',
+  height: '6vh',
+  float: 'left'
+}
+
+// couldnt get this to work here, had to leave it in the css for now
+// const bandNavbar = {
+//   backgroundColor: 'black',
+//   height: '50px',
+//   width: '100%'
+// }
+
+const linksContainer = {
+  float: 'right',
+  width: '100%',
+}
+
+const navbarLink = {
+  color: '#ffffff',
+  fontSize: '2em',
+  paddingLeft: '1em',
+  float: 'right'
+}
+
 export default Navbar;
+
+
+

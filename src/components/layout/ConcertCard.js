@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class ConcertCard extends Component {
   render() {
     return (
-      <div className="card concert-card">
+      <div className="card" style={height}>
         <a href={this.props.concert_url}><img src={this.props.img} className="card-img"></img></a>
         <div className="card-text">
           <h1>{this.props.name}</h1>
@@ -19,3 +19,8 @@ export class ConcertCard extends Component {
 }
 
 export default ConcertCard;
+
+
+const height = {
+  maxHeight: '590px'
+}
