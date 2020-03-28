@@ -5,7 +5,6 @@
     width: 100%;
 }
 
-/* keep */
 .card-img {
     height: 446px;
     width: 446px;
@@ -13,12 +12,10 @@
     border-radius: 3px;
 }
 
-/* keep */
 .card-text {
     color: white;
 }
 
-/* only in about card  */
 .card {
     background-color: black;
     border: rgb(53, 53, 53);
@@ -30,35 +27,10 @@
     border-radius: 3px;
 }
 
-/* remove */
-.concert-card {
-    max-height: 590px;
-}
-
-/* remove */
-.location-card {
-    max-height: 625px;
-}
-
-/* remove */
-.artist-card {
-    max-height: 675px;
-}
-
-/* keeep */
 .card-stats {
     color: rgb(170, 170, 170);
 }
 
-/* remove */
-.longtext {
-    width: 430px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* keep */
 .details {
     min-width: 1000px;
     height: 303px;
@@ -72,79 +44,15 @@
     border-radius: 3px;
 }
 
-/* conc details only  */
-.details-card-text {
-    color: white;
-    float: left;
-    text-align: left;
-    margin-left: 10px;
-}
 
-/* keep */
 .details-img {
     float: left;
     height: 300px;
     width: 300px;
 }
 
-/* keep */
 .details-card-img { 
     height: 300px;
     width: 300px;
     border-radius: 3px;
-}
-
-
-.location-details-text {
-    color: white;
-    /* float: left; */
-    text-align: left;
-    margin-left: 10px;
-    margin-top: 10px;;
-    height: 300px;
-    width: 680px;
-}
-
-.location-details-bio {
-    color: rgb(170, 170, 170);
-    margin: 10px;
-    width: 670px;
-    text-align: left;
-}
-
-.wrap {
-    display: flex;   
-  flex-wrap: wrap;
-}
-
-.location-details {
-    min-width: 1000px;
-    height: 612px;
-    background-color: black;
-    border: rgb(53, 53, 53);
-    border-width: 1px;
-    border-style: solid;
-    text-align: center;
-    width: 450px;
-    margin: 60px;
-    border-radius: 3px;
-}
-
-.artist-bio {
-    font-size: 2px; 
-    color: white;
-    /* float: left; */
-    text-align: left;
-    margin-left: 10px;
-    margin-top: 10px;
-    height: 300px;
-    width: 990px;
-    margin-right: 10px;
-}
-
-.artist-img {
-    float: left;
-    height: 300px;
-    width: 300px;
-    margin-right: 10px;
 }

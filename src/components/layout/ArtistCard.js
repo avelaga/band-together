@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class ArtistCard extends Component {
   render() {
     return (
-      <div className="card artist-card">
+      <div className="card" style={height}>
         <a href={this.props.artist_url}><img src={this.props.img} className="card-img"></img></a>
         <div className="card-text">
           <h1>{this.props.name}</h1>
@@ -22,3 +22,7 @@ export class ArtistCard extends Component {
 }
 
 export default ArtistCard;
+
+const height = {
+  maxHeight: '675px'
+}

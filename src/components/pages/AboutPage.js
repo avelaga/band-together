@@ -254,7 +254,7 @@ const aboutTop = {
   padding: '10px'
 }
 
- const aboutDown = {
+const aboutDown = {
   margin: '10px',
   textAlign: 'center',
   padding: '10px'
