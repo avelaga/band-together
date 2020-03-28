@@ -44,32 +44,32 @@ headers: {
 "PRIVATE-TOKEN": "7pfMsQdxg_6z_8PEMssw"
 }
 };
+var repos = ["https://gitlab.com/api/v4/projects/17041074/repository/contributors", 
+"https://gitlab.com/api/v4/projects/17240838/repository/contributors"];
 
-// commit api
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/repository/contributors",
-request_headers
-)
-.then(res => {
-for (const property in res.data) {
-const current = res.data[property];
-if (current.name === "Abhi Velaga") {
-this.setState({ abhi: this.state.abhi + current.commits });
-} else if (current.name === "Adam Martin") {
-this.setState({ adam: this.state.adam + current.commits });
-} else if (current.name === "Gavin Rodrigue") {
-this.setState({ gavin: this.state.gavin + current.commits });
-} else if (current.name === "Jason Moy") {
-this.setState({ jason: this.state.jason + current.commits });
-} else if (current.name === "Faezah Ali") {
-this.setState({ faezah: this.state.faezah + current.commits });
+for(let repo of repos){
+  window.alert(repo);
+  axios.get(repo, request_headers)
+  .then(res => {
+  for (const property in res.data) {
+  const current = res.data[property];
+  if (current.name === "Abhi Velaga") {
+  this.setState({ abhi: this.state.abhi + current.commits });
+  } else if (current.name === "Adam Martin") {
+  this.setState({ adam: this.state.adam + current.commits });
+  } else if (current.name === "Gavin Rodrigue") {
+  this.setState({ gavin: this.state.gavin + current.commits });
+  } else if (current.name === "Jason Moy") {
+  this.setState({ jason: this.state.jason + current.commits });
+  } else if (current.name === "Faezah Ali") {
+  this.setState({ faezah: this.state.faezah + current.commits });
+  }
+  }
+  })
+  .catch(err => {
+  console.log(err);
+  });
 }
-}
-})
-.catch(err => {
-console.log(err);
-});
 
 // issue api
 axios
@@ -83,6 +83,7 @@ this.setState({ abhiIssues: res.data.statistics.counts.closed });
 .catch(err => {
 console.log(err);
 });
+
 
 axios
 .get(
