@@ -25,13 +25,3 @@ export default LocationCard;
 const height = {
   maxHeight: '625px'
 }
-
-// doesnt appear to have been in use but saving here incase
-
-// /* remove */
-// .longtext {
-//   width: 430px;
-//   white-space: nowrap;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-// }
