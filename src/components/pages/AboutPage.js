@@ -7,7 +7,8 @@ import GavinImg from '../../../dist/images/gavin.jpg';
 import FaezahImg from '../../../dist/images/faezah.jpg';
 import WikiImg from '../../../dist/images/wikipedia.png';
 import TicketmasterImg from '../../../dist/images/ticketmaster.jpg';
-import SongkickImg from '../../../dist/images/songkick.png';
+import SpotifyImg from '../../../dist/images/spotify.png';
+import GeodbImg from '../../../dist/images/geodb.png';
 import ReactImg from '../../../dist/images/react.png';
 import PostmanImg from '../../../dist/images/postman.png';
 import AWSImg from '../../../dist/images/aws.png';
@@ -141,9 +142,10 @@ return (
       <h1>Data Sources</h1>
     </div>
     <div style={aboutDown}>
-    <a href="https://www.songkick.com"><img src={SongkickImg} style={srcImg}></img></a>
+    <a href="https://www.songkick.com"><img src={SpotifyImg} style={srcImg}></img></a>
     <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} style={srcImg}></img></a>
     <a href="https://www.en.wikipedia.com"><img src={WikiImg} style={srcImg}></img></a>
+    <a href="https://geodb.com"><img src={GeodbImg} style={srcImg}></img></a>
     </div>
   </div>
 
