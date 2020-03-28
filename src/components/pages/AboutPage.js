@@ -13,6 +13,7 @@ import ReactImg from '../../../dist/images/react.png';
 import PostmanImg from '../../../dist/images/postman.png';
 import AWSImg from '../../../dist/images/aws.png';
 import DjangoImg from '../../../dist/images/django.png';
+import MochaImg from '../../../dist/images/mocha.png';
 
 // import "./pages.css";
 
@@ -159,6 +160,7 @@ return (
       <img src={AWSImg} style={srcImg}></img>
       <img src={PostmanImg} style={srcImg}></img>
       <img src={DjangoImg} style={srcImg}></img>
+      <img src={MochaImg} style={srcImg}></img>
     </div>
   </div>
   </div>
