@@ -72,6 +72,7 @@ for(let repo of repos){
   });
 }
 
+//issue api
 var contributors = ["avelaga", "Adam-Bomb", "faezahali", "gavinhr", "jason.moy42"];
 for(let repo of repos){
   repo += 'issues_statistics?assignee_username=';
@@ -96,67 +97,6 @@ for(let repo of repos){
     });
   }
 }
-// issue api
-/*axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=avelaga",
-request_headers
-)
-.then(res => {
-this.setState({ abhiIssues: res.data.statistics.counts.closed });
-})
-.catch(err => {
-console.log(err);
-});
-
-
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=Adam-Bomb",
-request_headers
-)
-.then(res => {
-this.setState({ adamIssues: res.data.statistics.counts.closed });
-})
-.catch(err => {
-console.log(err);
-});
-
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=faezahali",
-request_headers
-)
-.then(res => {
-this.setState({ faezahIssues: res.data.statistics.counts.closed });
-})
-.catch(err => {
-console.log(err);
-});
-
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=gavinhr",
-request_headers
-)
-.then(res => {
-this.setState({ gavinIssues: res.data.statistics.counts.closed });
-})
-.catch(err => {
-console.log(err);
-});
-
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=jason.moy42",
-request_headers
-)
-.then(res => {
-this.setState({ jasonIssues: res.data.statistics.counts.closed });
-})
-.catch(err => {
-console.log(err);
-});*/
 }
 
 render() {
