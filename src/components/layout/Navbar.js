@@ -37,7 +37,7 @@ export class Navbar extends Component {
 
 const navbarLogo = {
   width: '5vh',
-  height: '50px',
+  height: '6vh',
   float: 'left'
 }
 

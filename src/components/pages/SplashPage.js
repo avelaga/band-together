@@ -16,7 +16,7 @@ export class SplashPage extends Component {
 
 const splashPage = {
   backgroundSize: '100%',
-  height: '95vh',
+  height: '94vh',
   textAlign: 'center'
 }
 
