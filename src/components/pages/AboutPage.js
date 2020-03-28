@@ -12,6 +12,7 @@ import GeodbImg from '../../../dist/images/geodb.png';
 import ReactImg from '../../../dist/images/react.png';
 import PostmanImg from '../../../dist/images/postman.png';
 import AWSImg from '../../../dist/images/aws.png';
+import DjangoImg from '../../../dist/images/django.png';
 
 // import "./pages.css";
 
@@ -157,6 +158,7 @@ return (
       <img src={ReactImg} style={srcImg}></img>
       <img src={AWSImg} style={srcImg}></img>
       <img src={PostmanImg} style={srcImg}></img>
+      <img src={DjangoImg} style={srcImg}></img>
     </div>
   </div>
   </div>
