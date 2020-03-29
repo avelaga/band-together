@@ -55,11 +55,8 @@ export class LocationDetailsCard extends Component {
           <h5>{this.state.city}, {this.state.region}, {this.state.country}, {this.state.area_code}</h5>
           <h5>Elevation of: {this.state.elevation} ft</h5>
         </div>
-        <div>
-            <BandMap />
-        </div>
-        <div style={detailsBio}>
-
+        <div style={map}>
+          <BandMap />
         </div>
       </div>
     );
@@ -68,27 +65,25 @@ export class LocationDetailsCard extends Component {
 
 export default LocationDetailsCard;
 
+const map = {
+  width: '1000px',
+  height: '300px',
+}
+
 const detailsText = {
   color: 'white',
   textAlign: 'left',
   marginLeft: '10px',
   marginTop: '10px',
-  height: '300px',
+  height: '290px',
   width: '680px'
-}
-
-const detailsBio = {
-  color: 'rgb(170, 170, 170)',
-  margin: '10px',
-  width: '670px',
-  textAlign: 'left'
 }
 
 const locDetails = {
   display: 'flex',
   flexWrap: 'wrap',
   minWidth: '1000px',
-  height: '612px',
+  height: '600px',
   backgroundColor: 'black',
   border: 'rgb(53, 53, 53)',
   borderWidth: '1px',

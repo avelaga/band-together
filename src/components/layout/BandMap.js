@@ -9,7 +9,7 @@ export class BandMap extends Component {
             <Map
             google={this.props.google}
             zoom={8}
-            style={mapStyles}
+            containerStyle={mapStyles}
             initialCenter={{ lat: 47.444, lng: -122.176}}
             />
         );
@@ -21,6 +21,6 @@ export class BandMap extends Component {
   })(BandMap);
 
   const mapStyles = {
-    width: '100px',
-    height: '100px',
+    width: '1000px',
+    height: '300px',
   };
