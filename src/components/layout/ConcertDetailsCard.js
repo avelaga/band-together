@@ -5,34 +5,40 @@ export class ConcertDetailsCard extends Component {
   constructor() {
     super();
     this.state = {
-      artist : null,
-      location : null,
-      venue : null,
-      date : null,
-      time : null,
-      concert_id : null,
-      ticket_min : null,
-      ticket_max : null
+      artist: null,
+      location: null,
+      venue: null,
+      date: null,
+      time: null,
+      concert_id: null,
+      ticket_min: null,
+      ticket_max: null
     }
   }
 
   componentDidMount() {
-    let url = "http://192.168.1.170:8000/restapi/concert/" + this.props.id;
+    let ip= "http://192.168.1.170:8000";
+    let concertUrl = ip + "/restapi/concert/" + this.props.id;
     axios
       .get(
-        url
+        concertUrl
       )
       .then(res => {
         console.log("got data");
+        
+        let artistUrl = ip + "/restapi/artist/" + res.data.artist;
+        let locationUrl = ip + "/restapi/location/" + res.data.location;
+        let venueUrl = ip + "/restapi/venue/" + res.data.venue;
+        
         this.setState({
-          artist : res.data.artist,
-          location : res.data.location,
-          venue : res.data.venue,
-          date : res.data.date,
-          time : res.data.time,
-          concert_id : res.data.concert_id,
-          ticket_min : res.data.ticket_min,
-          ticket_max : res.data.ticket_max
+          artist: res.data.artist,
+          location: res.data.location,
+          venue: res.data.venue,
+          date: res.data.date,
+          time: res.data.time,
+          concert_id: res.data.concert_id,
+          ticket_min: res.data.ticket_min,
+          ticket_max: res.data.ticket_max
         });
       })
       .catch(err => {
