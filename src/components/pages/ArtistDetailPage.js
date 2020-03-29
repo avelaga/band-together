@@ -10,16 +10,11 @@ export class ArtistDetailPage extends Component {
   // id = this.props.match.params.id;
 
   componentDidMount() {
-    const request_headers = {
-      headers: {
-        "Access-Control-Allow-Origin": "*"
-      }
-    };
 
     // commit api
     axios
       .get(
-        "http://192.168.1.170:8000/restapi/artist/1", request_headers
+        "http://localhost:8000/restapi/artist/1"
       )
       .then(res => {
           console.log(res);
