@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import BandMap from '../layout/BandMap';
 
 export class LocationDetailsCard extends Component {
+
   render() {
     return (
       <div style={locDetails}>
@@ -14,8 +16,8 @@ export class LocationDetailsCard extends Component {
           <h5>Crime rating of {this.props.crime_rating}</h5>
           <h5>Weather forecast: {this.props.weather}</h5>
         </div>
-        <div className="map-img">
-            <img src={this.props.map} className="details-card-img"></img>
+        <div>
+            <BandMap />
         </div>
         <div style={detailsBio}>
             <h5>{this.props.bio}</h5>
