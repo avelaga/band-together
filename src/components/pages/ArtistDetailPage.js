@@ -6,7 +6,7 @@ export class ArtistDetailPage extends Component {
   render() {
     return (
       <div className="body flex">
-          <ArtistDetailsCard id={this.props.match.params.id} />
+        <ArtistDetailsCard id={this.props.match.params.id} />
       </div>
     );
   }

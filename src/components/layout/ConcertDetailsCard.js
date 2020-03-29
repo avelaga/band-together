@@ -17,7 +17,7 @@ export class ConcertDetailsCard extends Component {
   }
 
   componentDidMount() {
-    let ip= "http://192.168.1.170:8000";
+    let ip = "http://192.168.1.170:8000";
     let concertUrl = ip + "/restapi/concert/" + this.props.id;
     axios
       .get(
@@ -25,11 +25,11 @@ export class ConcertDetailsCard extends Component {
       )
       .then(res => {
         console.log("got data");
-        
+
         let artistUrl = ip + "/restapi/artist/" + res.data.artist;
         let locationUrl = ip + "/restapi/location/" + res.data.location;
         let venueUrl = ip + "/restapi/venue/" + res.data.venue;
-        
+
         this.setState({
           artist: res.data.artist,
           location: res.data.location,
@@ -57,11 +57,10 @@ export class ConcertDetailsCard extends Component {
         <div style={cardText}>
           <h1>{this.state.artist}</h1>
           <h5>{this.state.venue}, {this.state.location}</h5>
-          {/* <h5>{this.props.capacity} capacity</h5> */}
           <h5>{this.state.date}, {this.state.time}</h5>
           <h5>${this.state.ticket_min} - ${this.state.ticket_max}</h5>
           <div className="details-card-stats">
-            {/* <h5><a href={this.props.city_url}>Location Info</a> / <a href={this.props.artist_url}>Artist Info</a></h5> */}
+
           </div>
         </div>
       </div>

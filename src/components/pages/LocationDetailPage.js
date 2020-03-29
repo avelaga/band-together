@@ -6,7 +6,7 @@ export class LocationDetailPage extends Component {
   render() {
     return (
       <div className="body flex">
-        <LocationDetailsCard id={this.props.match.params.id}/>
+        <LocationDetailsCard id={this.props.match.params.id} />
       </div>
     );
   }
