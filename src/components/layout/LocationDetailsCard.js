@@ -58,3 +58,13 @@ const locDetails = {
   margin: '60px',
   borderRadius: '3px'
 }
+
+// class Location(models.Model):
+//     city = models.CharField(max_length=100, null=True)
+//     country = models.CharField(max_length=100, null=True)
+//     population = models.IntegerField(null=True)
+//     timezone = models.CharField(max_length=100, null=True)
+//     region = models.CharField(max_length = 100, null=True)
+//     area_code = models.CharField(max_length=3, null=True)
+//     elevation = models.IntegerField(null=True)
+//     image = models.URLField(null=True)
