@@ -1,25 +1,62 @@
 import React, { Component } from "react";
+import BandMap from '../layout/BandMap';
+const axios = require("axios").default;
 
 export class LocationDetailsCard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      city: null,
+      country: null,
+      population: null,
+      timezone: null,
+      region: null,
+      area_code: null,
+      elevation: null,
+      image: null
+    }
+  }
+
+  componentDidMount() {
+    let url = "http://bandtogetherapi.xyz:8000/restapi/location/" + this.props.id;
+    axios
+      .get(
+        url
+      )
+      .then(res => {
+        this.setState({
+          city: res.data.city,
+          country: res.data.country,
+          population: res.data.population,
+          timezone: res.data.timezone,
+          region: res.data.region,
+          area_code: res.data.area_code,
+          elevation: res.data.elevation,
+          image: res.data.image
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
+    if (!this.state.city)
+      return null;
     return (
       <div style={locDetails}>
         <div className="details-img">
-          <img src={this.props.img} className="details-card-img"></img>
+          <img src={this.state.image} className="details-card-img"></img>
         </div>
         <div style={detailsText}>
-          <h1>{this.props.name}</h1>
-          <h5>Population of {this.props.population}</h5>
-          <h5>Founded in {this.props.founded}</h5>
-          <h5>Crime rating of {this.props.crime_rating}</h5>
-          <h5>Weather forecast: {this.props.weather}</h5>
+          <h1>{this.state.city}</h1>
+          <h5>Population of {this.state.population}</h5>
+          <h5>Timezone: {this.state.timezone}</h5>
+          <h5>{this.state.region}, {this.state.country}, {this.state.area_code}</h5>
+          <h5>Elevation of: {this.state.elevation} ft</h5>
         </div>
-        <div className="map-img">
-            <img src={this.props.map} className="details-card-img"></img>
-        </div>
-        <div style={detailsBio}>
-            <h5>{this.props.bio}</h5>
-            <h5><a href={this.props.food_url}>Food Info</a> / <a href={this.props.hotel_url}>Hotel Info</a> / <a href={this.props.airport_url}>Airport Info</a></h5>
+        <div style={map}>
+          <BandMap />
         </div>
       </div>
     );
@@ -28,27 +65,25 @@ export class LocationDetailsCard extends Component {
 
 export default LocationDetailsCard;
 
+const map = {
+  width: '1000px',
+  height: '300px',
+}
+
 const detailsText = {
   color: 'white',
   textAlign: 'left',
   marginLeft: '10px',
   marginTop: '10px',
-  height: '300px',
+  height: '290px',
   width: '680px'
 }
 
-const detailsBio = {
-  color: 'rgb(170, 170, 170)',
-  margin: '10px',
-  width: '670px',
-  textAlign: 'left'
-}
-
 const locDetails = {
-  display: 'flex',   
+  display: 'flex',
   flexWrap: 'wrap',
   minWidth: '1000px',
-  height: '612px',
+  height: '600px',
   backgroundColor: 'black',
   border: 'rgb(53, 53, 53)',
   borderWidth: '1px',
