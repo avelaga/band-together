@@ -74,6 +74,11 @@ export class ConcertDetailPage extends Component {
 
   render() {
     const id = this.props.match.params.id;
+    if(isNaN(id)){
+      return (
+          <h1> 404: Page Not Found :( - Concert Does Not Exist</h1>
+      );
+    }
     const hStyle = { color: '#676767'}
     this.setInfo(parseInt(id, 10));
     let in_out;
