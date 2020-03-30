@@ -4,7 +4,6 @@ import KISSImg from "../../../dist/images/kiss.jpg"
 import BillieImg from "../../../dist/images/billie_eilish.jpg"
 import PostImg from "../../../dist/images/post_malone.jpg"
 import {Redirect} from 'react-router-dom';
-import ErrorPage from "../../App"
 
 export class ConcertDetailPage extends Component {
   constructor(){

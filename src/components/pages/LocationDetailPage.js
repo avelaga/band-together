@@ -6,6 +6,7 @@ import LosAngelesImg from "../../../dist/images/losangeles.jpeg";
 import austin_map from "../../../dist/images/austin_map.jpg";
 import LA_map from "../../../dist/images/LA_map.jpg";
 import chicago_map from "../../../dist/images/chicago_map.jpg";
+import {Redirect} from 'react-router-dom';
 import "./pages.css";
 
 export class LocationDetailPage extends Component {
@@ -63,9 +64,7 @@ export class LocationDetailPage extends Component {
   render() {
     const id = this.props.match.params.id;
     if(isNaN(id)){
-      return (
-          <h1> 404: Page Not Found :( - Location Does Not Exist</h1>
-      );
+        return <Redirect to="/error"/>
     }
 
     return (
