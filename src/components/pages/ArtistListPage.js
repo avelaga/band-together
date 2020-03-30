@@ -66,7 +66,6 @@ export class ArtistListPage extends Component {
         </div>
         <div className="pagination-menu">
           <Pagination
-            className="override.ui.pagination.menu"
             activePage={this.state.page}
             totalPages={Math.ceil(this.state.count / 10)}
             siblingRange={1}
@@ -79,15 +78,3 @@ export class ArtistListPage extends Component {
 }
 
 export default ArtistListPage;
-
-// value.
-// genre: "australian psych"
-// image: "https://i.scdn.co/image/a7cb9fc6df8b68fdb071156add87284c3c941a04"
-// name: "Tame Impala"
-// num_spotify_followers: 3498979
-// popularity_score: 84
-// spotify_url: "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
-// twitter_url: null
-// url: "http://192.168.1.170:8000/restapi/artist/1"
-// website: null
-// wiki_url: null
