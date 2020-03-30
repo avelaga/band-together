@@ -19,7 +19,7 @@ export class ArtistDetailsCard extends Component {
   }
 
   componentDidMount() {
-    let url = "http://35.173.187.201:8000/restapi/artist/" + this.props.id;
+    let url = "http://bandtogetherapi.xyz:8000/restapi/artist/" + this.props.id;
     axios
       .get(
         url
