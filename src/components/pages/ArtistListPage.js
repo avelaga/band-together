@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ArtistCard from '../layout/ArtistCard.js';
-import { List, Pagination } from "semantic-ui-react";
-// import "semantic-ui-css/semantic.min.css";
+import { Pagination } from "semantic-ui-react";
 const axios = require("axios").default;
 
 export class ArtistListPage extends Component {
@@ -56,7 +55,6 @@ export class ArtistListPage extends Component {
   };
 
   render() {
-    console.log(this.state.page);
     return (
       <div className="body">
         <div className="flex">
