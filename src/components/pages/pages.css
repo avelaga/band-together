@@ -28,4 +28,15 @@ a:visited {
 .pagination-menu {
   justify-content: center;
   display: flex;
+  padding: 30px;
+}
+
+.item {
+  background-color: grey !important;
+  color: white !important;
+}
+
+.active.item {
+  background-color: white !important;
+  color: black !important;
 }

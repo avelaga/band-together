@@ -66,6 +66,7 @@ export class ArtistListPage extends Component {
         </div>
         <div className="pagination-menu">
           <Pagination
+            className="override.ui.pagination.menu"
             activePage={this.state.page}
             totalPages={Math.ceil(this.state.count / 10)}
             siblingRange={1}
