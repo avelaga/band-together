@@ -3,6 +3,8 @@ import ConcertDetailsCard from "../layout/ConcertDetailsCard.js"
 import KISSImg from "../../../dist/images/kiss.jpg"
 import BillieImg from "../../../dist/images/billie_eilish.jpg"
 import PostImg from "../../../dist/images/post_malone.jpg"
+import {Redirect} from 'react-router-dom';
+import ErrorPage from "../../App"
 
 export class ConcertDetailPage extends Component {
   constructor(){
@@ -75,9 +77,7 @@ export class ConcertDetailPage extends Component {
   render() {
     const id = this.props.match.params.id;
     if(isNaN(id)){
-      return (
-          <h1> 404: Page Not Found :( - Concert Does Not Exist</h1>
-      );
+        return <Redirect to="/error"/>
     }
     const hStyle = { color: '#676767'}
     this.setInfo(parseInt(id, 10));
