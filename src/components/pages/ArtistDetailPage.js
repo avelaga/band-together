@@ -41,6 +41,11 @@ export class ArtistDetailPage extends Component {
 
   render() {
     const id = this.props.match.params.id;
+    if(isNaN(id)){
+      return (
+          <h1> 404: Page Not Found :( - Artist Does Not Exist</h1>
+      );
+    }
 
     return (
       <div className="body flex">
