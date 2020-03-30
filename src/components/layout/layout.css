@@ -12,9 +12,21 @@
     border-radius: 3px;
 }
 
+.about-card-img {
+    height: 446px;
+    width: 446px;
+    margin: auto;
+    border-radius: 3px;
+}
+
+
 .card-text {
     color: white;
     padding: 5px;
+}
+
+.about-card-text {
+    color: white;
 }
 
 .card {
@@ -24,6 +36,17 @@
     border-style: solid;
     text-align: center;
     width: 203px;
+    margin: 30px;
+    border-radius: 3px;
+}
+
+.about-card {
+    background-color: black;
+    border: rgb(53, 53, 53);
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    width: 450px;
     margin: 30px;
     border-radius: 3px;
 }

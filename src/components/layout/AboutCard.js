@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 export class AboutCard extends Component {
   render() {
-    return <div className="card">
-      <img src={this.props.img} className="card-img"></img>
-      <div className="card-text">
+    return <div className="about-card">
+      <img src={this.props.img} className="about-card-img"></img>
+      <div className="about-card-text">
         <h1>{this.props.name}</h1>
         <h4><i>{this.props.role}</i></h4>
         <h5>{this.props.bio}</h5>
