@@ -26,7 +26,7 @@ export class ConcertDetailsCard extends Component {
   }
 
   componentDidMount() {
-    let ip = "http://35.173.187.201:8000";
+    let ip = "http://bandtogetherapi.xyz:8000";
     let concertUrl = ip + "/restapi/concert/" + this.props.id;
     // get concert data
     axios
@@ -79,7 +79,7 @@ export class ConcertDetailsCard extends Component {
           <img src={this.state.image} className="details-card-img"></img>
         </div>
         <div style={cardText}>
-          <h1>{this.state.artistName}</h1>
+          <a href={this.state.artist}><h1>{this.state.artistName}</h1></a>
           <h5>{this.state.venueName}, {this.state.venue_address}, {this.state.locationName}, {this.state.postal_code}</h5>
           <h5>{this.state.date}, {this.state.time}</h5>
           { this.state.ticket_min && <h5>${this.state.ticket_min} - ${this.state.ticket_max}</h5> }
