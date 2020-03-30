@@ -147,7 +147,7 @@ return (
       <h1>Data Sources</h1>
     </div>
     <div style={aboutDown}>
-    <a href="https://www.songkick.com"><img src={SpotifyImg} style={srcImg}></img></a>
+    <a href="https://www.spotify.com"><img src={SpotifyImg} style={srcImg}></img></a>
     <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} style={srcImg}></img></a>
     <a href="https://www.en.wikipedia.com"><img src={WikiImg} style={srcImg}></img></a>
     <a href="https://geodb.com"><img src={GeodbImg} style={srcImg}></img></a>
