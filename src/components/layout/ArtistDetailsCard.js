@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import spotifyLogo from "../../../dist/images/spotify.png";
+import twitterLogo from "../../../dist/images/twitter.png";
+import wikiLogo from "../../../dist/images/wikipedia.png";
 const axios = require("axios").default;
 
 export class ArtistDetailsCard extends Component {
@@ -55,8 +57,11 @@ export class ArtistDetailsCard extends Component {
           <h5>Genre: {this.state.genre}</h5>
           <h5>Popularity Score: {this.state.popularity_score}</h5>
           <h5>Spotify Followers: {this.state.num_spotify_followers}</h5>
-          <h5><a href={this.state.spotify_url}>
-            <img src={spotifyLogo} style={spotify}></img></a></h5>
+          {this.state.website && <h5>Website: {this.state.website}</h5>}
+          <h5>Spotify Followers: {this.state.num_spotify_followers}</h5>
+          <a href={this.state.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
+          {this.state.twitter_url && <a href={this.state.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
+          {this.state.wiki_url && <a href={this.state.wiki_url}><img src={wikiLogo} style={logo}></img></a>}
         </div>
       </div>
     );
@@ -83,7 +88,8 @@ const img = {
   marginRight: '10px'
 }
 
-const spotify = {
+const logo = {
   height: '30px',
-  width: '30px'
+  width: '30px',
+  marginRight: '5px'
 }

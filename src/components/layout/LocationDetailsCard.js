@@ -52,7 +52,7 @@ export class LocationDetailsCard extends Component {
           <h1>{this.state.city}</h1>
           <h5>Population of {this.state.population}</h5>
           <h5>Timezone: {this.state.timezone}</h5>
-          <h5>{this.state.city}, {this.state.region}, {this.state.country}, {this.state.area_code}</h5>
+          <h5>{this.state.region}, {this.state.country}, {this.state.area_code}</h5>
           <h5>Elevation of: {this.state.elevation} ft</h5>
         </div>
         <div style={map}>
