@@ -7,10 +7,16 @@ import GavinImg from '../../../dist/images/gavin.jpg';
 import FaezahImg from '../../../dist/images/faezah.jpg';
 import WikiImg from '../../../dist/images/wikipedia.png';
 import TicketmasterImg from '../../../dist/images/ticketmaster.jpg';
-import SongkickImg from '../../../dist/images/songkick.png';
+import SpotifyImg from '../../../dist/images/spotify.png';
+import GeodbImg from '../../../dist/images/geodb.png';
 import ReactImg from '../../../dist/images/react.png';
 import PostmanImg from '../../../dist/images/postman.png';
 import AWSImg from '../../../dist/images/aws.png';
+import DjangoImg from '../../../dist/images/django.png';
+import MochaImg from '../../../dist/images/mocha.png';
+import SeleniumImg from '../../../dist/images/selenium.png';
+import DjRestImg from '../../../dist/images/djrest.png';
+import PostgresImg from '../../../dist/images/postgres.png';
 
 // import "./pages.css";
 
@@ -44,93 +50,59 @@ headers: {
 "PRIVATE-TOKEN": "7pfMsQdxg_6z_8PEMssw"
 }
 };
+var repos = ["https://gitlab.com/api/v4/projects/17041074/", 
+"https://gitlab.com/api/v4/projects/17240838/"];
 
-// commit api
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/repository/contributors",
-request_headers
-)
-.then(res => {
-for (const property in res.data) {
-const current = res.data[property];
-if (current.name === "Abhi Velaga") {
-this.setState({ abhi: this.state.abhi + current.commits });
-} else if (current.name === "Adam Martin") {
-this.setState({ adam: this.state.adam + current.commits });
-} else if (current.name === "Gavin Rodrigue") {
-this.setState({ gavin: this.state.gavin + current.commits });
-} else if (current.name === "Jason Moy") {
-this.setState({ jason: this.state.jason + current.commits });
-} else if (current.name === "Faezah Ali") {
-this.setState({ faezah: this.state.faezah + current.commits });
+//commit api
+for(let repo of repos){
+  repo += "repository/contributors"
+  axios.get(repo, request_headers)
+  .then(res => {
+  for (const property in res.data) {
+  const current = res.data[property];
+  if (current.name === "Abhi Velaga") {
+  this.setState({ abhi: this.state.abhi + current.commits });
+  } else if (current.name === "Adam Martin") {
+  this.setState({ adam: this.state.adam + current.commits });
+  } else if (current.name === "Gavin Rodrigue") {
+  this.setState({ gavin: this.state.gavin + current.commits });
+  } else if (current.name === "Jason Moy") {
+  this.setState({ jason: this.state.jason + current.commits });
+  } else if (current.name === "Faezah Ali") {
+  this.setState({ faezah: this.state.faezah + current.commits });
+  }
+  }
+  })
+  .catch(err => {
+  console.log(err);
+  });
 }
+
+//issue api
+var contributors = ["avelaga", "Adam-Bomb", "faezahali", "gavinhr", "jason.moy42"];
+for(let repo of repos){
+  repo += 'issues_statistics?assignee_username=';
+  for(let contributor of contributors){
+    let api_link = repo + contributor;
+    axios.get(api_link, request_headers)
+    .then(res => {
+      if (contributor == 'avelaga'){
+        this.setState((state) => {return {abhiIssues: state.abhiIssues + res.data.statistics.counts.closed}});
+      } else if (contributor == 'Adam-Bomb'){
+        this.setState((state) => {return {adamIssues: state.adamIssues + res.data.statistics.counts.closed}});
+      } else if (contributor == 'faezahali'){
+        this.setState((state) => {return {faezahIssues: state.faezahIssues + res.data.statistics.counts.closed}});
+      } else if (contributor == 'gavinhr'){
+        this.setState((state) => {return {gavinIssues: state.gavinIssues + res.data.statistics.counts.closed}});
+      } else if (contributor == 'jason.moy42'){
+        this.setState((state) => {return {jasonIssues: state.jasonIssues + res.data.statistics.counts.closed}});
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
 }
-})
-.catch(err => {
-console.log(err);
-});
-
-// issue api
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=avelaga",
-request_headers
-)
-.then(res => {
-this.setState({ abhiIssues: res.data.statistics.counts.closed });
-})
-.catch(err => {
-console.log(err);
-});
-
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=Adam-Bomb",
-request_headers
-)
-.then(res => {
-this.setState({ adamIssues: res.data.statistics.counts.closed });
-})
-.catch(err => {
-console.log(err);
-});
-
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=faezahali",
-request_headers
-)
-.then(res => {
-this.setState({ faezahIssues: res.data.statistics.counts.closed });
-})
-.catch(err => {
-console.log(err);
-});
-
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=gavinhr",
-request_headers
-)
-.then(res => {
-this.setState({ gavinIssues: res.data.statistics.counts.closed });
-})
-.catch(err => {
-console.log(err);
-});
-
-axios
-.get(
-"https://gitlab.com/api/v4/projects/17041074/issues_statistics?assignee_username=jason.moy42",
-request_headers
-)
-.then(res => {
-this.setState({ jasonIssues: res.data.statistics.counts.closed });
-})
-.catch(err => {
-console.log(err);
-});
 }
 
 render() {
@@ -175,9 +147,10 @@ return (
       <h1>Data Sources</h1>
     </div>
     <div style={aboutDown}>
-    <a href="https://www.songkick.com"><img src={SongkickImg} style={srcImg}></img></a>
+    <a href="https://www.spotify.com"><img src={SpotifyImg} style={srcImg}></img></a>
     <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} style={srcImg}></img></a>
     <a href="https://www.en.wikipedia.com"><img src={WikiImg} style={srcImg}></img></a>
+    <a href="https://geodb.com"><img src={GeodbImg} style={srcImg}></img></a>
     </div>
   </div>
 
@@ -189,6 +162,11 @@ return (
       <img src={ReactImg} style={srcImg}></img>
       <img src={AWSImg} style={srcImg}></img>
       <img src={PostmanImg} style={srcImg}></img>
+      <img src={DjangoImg} style={srcImg}></img>
+      <img src={MochaImg} style={srcImg}></img>
+      <img src={SeleniumImg} style={srcImg}></img>
+      <img src={DjRestImg} style={DjRestImgStyle}></img>
+      <img src={PostgresImg} style={srcImg}></img>
     </div>
   </div>
   </div>
@@ -206,6 +184,14 @@ return (
 // local styles
 const srcImg = {
   width: '100px',
+  height: '100px',
+  margin: '10px'
+}
+
+//Logo is wonky non-square size, needed custom style.
+const DjRestImgStyle = {
+  backgroundColor: 'rgb(255,255,255)',
+  width: '226px',
   height: '100px',
   margin: '10px'
 }
