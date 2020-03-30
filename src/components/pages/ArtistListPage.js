@@ -34,11 +34,12 @@ export class ArtistListPage extends Component {
 
   render() {
     return (
-      <div className="body flex">
+      <div className="body">
+        <div className="flex">
         {this.state.results && this.state.results.map((value, index)=> {
           return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/1"} concert_url={"concerts/1"} city_url={"locations/1"} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} />
         })}
-
+        </div>
       </div>
     );
   }

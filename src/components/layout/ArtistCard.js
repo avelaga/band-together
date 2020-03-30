@@ -31,8 +31,8 @@ const height = {
 }
 
 const logo = {
-  height: '30px',
-  width: '30px',
+  height: '20px',
+  width: '20px',
   marginRight: '5px',
   marginBottom: '10px'
 }
