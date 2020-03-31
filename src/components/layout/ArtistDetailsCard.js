@@ -70,9 +70,9 @@ export class ArtistDetailsCard extends Component {
           <h6>Popularity Score: {this.state.popularity_score}</h6>
           <h6>Spotify Followers: {this.state.num_spotify_followers}</h6>
 
-          <h6>Next Concert: <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a> in <a href={"/locations/"+this.state.nextLocationId}><i>{this.state.nextLocationName}</i></a>, {this.state.nextConcertDate}, {this.state.nextConcertTime}</h6>
+          <h6>Next Concert: <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a> in <a href={"/locations/"+this.state.nextLocationId}><i>{this.state.nextLocationName}</i></a></h6>
 
-          {this.state.website && <h6>Website: {this.state.website}</h6>}
+          {this.state.website && <h6><a href={this.state.website}><i>Website</i></a></h6>}
           <a href={this.state.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
           {this.state.twitter_url && <a href={this.state.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
           {this.state.wiki_url && <a href={this.state.wiki_url}><img src={wikiLogo} style={logo}></img></a>}

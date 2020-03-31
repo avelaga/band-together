@@ -11,7 +11,7 @@ export class ArtistCard extends Component {
         <div className="card-text">
           <h2>{this.props.name}</h2>
           <h6>Genre: {this.props.genre}</h6>
-          {this.props.website && <h6>Website: {this.props.website}</h6>}
+          {this.props.website && <h6><a href={this.props.website}><i>Website</i></a></h6>}
           <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
           {this.props.twitter_url && <a href={this.props.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
           {this.props.wiki_url && <a href={this.props.wiki_url}><img src={wikiLogo} style={logo}></img></a>}
