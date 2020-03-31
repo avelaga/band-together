@@ -75,11 +75,8 @@ export class ConcertListPage extends Component {
       <div className="body">
         <div className="flex">
           {this.state.results && this.state.results.map((value, index) => {
-            return <ConcertCard key={index} name={value.artistName} img={this.state.image} city={"Austin, TX"} venue={"Frank C. Erwin, Jr. Special Events Center"} city_url={"/locations/1"} date={"Tuesday, March 10th"} time={"8:00 PM"} concert_url={"concerts/1"} artist_url={"artists/1"} />
+            return <ConcertCard key={index} name={value.artistName} img={value.artistImage} city={value.locationName} city_url={"/locations/"+value.locationId} date={value.date} time={value.time} concert_url={"concerts/1"} artist_url={"artists/"+value.artistId} />
           })}
-          {/* <ConcertCard name={"Post Malone"} img={PostImg} city={"Austin, TX"} venue={"Frank C. Erwin, Jr. Special Events Center"} city_url={"/locations/1"} date={"Tuesday, March 10th"} time={"8:00 PM"} concert_url={"concerts/1"} artist_url={"artists/1"} />
-        <ConcertCard name={"Billie Eilish"} img={BillieImg} city={"Chicago, IL"} venue={"United Center"} city_url={"/locations/2"} date={"Tuesday, March 24th"} time={"7:30 PM"} concert_url={"concerts/2"} artist_url={"artists/2"} />
-        <ConcertCard name={"KISS"} img={KISSImg} city={"Los Angeles, CA"} venue={"STAPLES Center"} city_url={"/locations/3"} date={"Wednesday, March 4th"} time={"7:30 PM"} concert_url={"concerts/3"} artist_url={"artists/3"} /> */}
         </div>
         <div className="pagination-menu">
           <Pagination
@@ -102,12 +99,19 @@ export default ConcertListPage;
 //     "results": [
 //         {
 
+// value.
 // "artist": "http://192.168.1.170:8000/restapi/artist/4",
-//             "location": "http://192.168.1.170:8000/restapi/location/1",
-//             "venue": "http://192.168.1.170:8000/restapi/venue/1",
-//             "date": "2020-08-29",
-//             "time": "18:30:00",
-//             "ticket_min": "39.00",
-//             "ticket_max": "149.00",
-//             "artistName": "The Lumineers",
-//             "locationName": "Denver"
+// "location": "http://192.168.1.170:8000/restapi/location/1",
+// "venue": "http://192.168.1.170:8000/restapi/venue/1",
+// "date": "2020-08-29",
+// "time": "18:30:00",
+// "ticket_min": "39.00",
+// "ticket_max": "149.00",
+// "artistName": "The Lumineers",
+// "locationName": "Denver",
+// "artistId": 4,
+// "locationId": 1,
+// "artistImage": "https://i.scdn.co/image/81bc6a0807ec258fc05f5cdd70fa8c4066bd91db",
+// "venueImage": null
+
+// ASKED ADAM FOR CONCERTID SO THAT CONCERT CARD LINKS TO THAT CONCERT
