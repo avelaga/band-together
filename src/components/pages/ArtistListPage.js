@@ -59,7 +59,7 @@ export class ArtistListPage extends Component {
       <div className="body">
         <div className="flex">
           {this.state.results && this.state.results.map((value, index) => {
-            return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/"+value.id} concert_url={"concerts/1"} city_url={"locations/1"} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} />
+            return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/"+value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} />
           })}
         </div>
         <div className="pagination-menu">
@@ -76,14 +76,3 @@ export class ArtistListPage extends Component {
 }
 
 export default ArtistListPage;
-
-// "id": 1,
-// "name": "Tame Impala",
-// "popularity_score": 84,
-// "genre": "australian psych",
-// "image": "https://i.scdn.co/image/a7cb9fc6df8b68fdb071156add87284c3c941a04",
-// "spotify_url": "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb",
-// "num_spotify_followers": 3498979,
-// "website": null,
-// "twitter_url": null,
-// "wiki_url": null

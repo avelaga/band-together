@@ -63,7 +63,7 @@ export class LocationListPage extends Component {
       <div className="body">
         <div className="flex">
         {this.state.results && this.state.results.map((value, index) => {
-            return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/"+value.id} pop={value.population} />
+            return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/"+value.id} pop={value.population} elevation={value.elevation}/>
           })}
       </div>
       <div className="pagination-menu">
@@ -79,15 +79,4 @@ export class LocationListPage extends Component {
   }
 }
 
-
 export default LocationListPage
-
-// "url": "http://192.168.1.170:8000/restapi/location/1",
-//             "city": "Denver",
-//             "country": "United States of America",
-//             "population": 682545,
-//             "timezone": "America__Denver",
-//             "region": "Colorado",
-//             "area_code": null,
-//             "elevation": 1609,
-//             "image": null

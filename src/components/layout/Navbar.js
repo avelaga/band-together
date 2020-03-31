@@ -40,13 +40,6 @@ const navbarLogo = {
   float: 'left'
 }
 
-// couldnt get this to work here, had to leave it in the css for now
-// const bandNavbar = {
-//   backgroundColor: 'black',
-//   height: '50px',
-//   width: '100%'
-// }
-
 const linksContainer = {
   float: 'right',
   width: '100%',

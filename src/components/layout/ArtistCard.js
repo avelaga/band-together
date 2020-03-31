@@ -10,14 +10,11 @@ export class ArtistCard extends Component {
         <a href={this.props.artist_url}><img src={this.props.img} className="card-img"></img></a>
         <div className="card-text">
           <h2>{this.props.name}</h2>
-          <h5>Genre: {this.props.genre}</h5>
-          {this.props.website && <h5>Website: {this.props.website}</h5>}
+          <h6>Genre: {this.props.genre}</h6>
+          {this.props.website && <h6>Website: {this.props.website}</h6>}
           <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
           {this.props.twitter_url && <a href={this.props.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
           {this.props.wiki_url && <a href={this.props.wiki_url}><img src={wikiLogo} style={logo}></img></a>}
-          <div className="card-stats">
-            {/* <h5><a href={this.props.city_url}>Location Info</a> / <a href={this.props.concert_url}>Concert Info</a> / <a href={this.props.artist_url}>Artist Info</a></h5> */}
-          </div>
         </div>
       </div>
     );

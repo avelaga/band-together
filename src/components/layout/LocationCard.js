@@ -7,11 +7,10 @@ export class LocationCard extends Component {
         <a href={this.props.city_url}><img src={this.props.img} className="card-img"></img></a>
         <div className="card-text">
           <h2>{this.props.city}</h2>
-          {this.props.region}, {this.props.country}, {this.props.area_code}
-          <h5>Population of {this.props.pop}</h5>
-          <div className="card-stats">
-            {/* <h5><a href={this.props.city_url}>Location Info</a></h5> */}
-          </div>
+          <h6>{this.props.region}, {this.props.country}, {this.props.area_code}</h6>
+          <h6>Timezone: {this.props.timezone}</h6>
+          <h6>Population of {this.props.pop}</h6>
+          <h6>Elevation of {this.props.elevation} ft</h6>
         </div>
       </div>
     );
