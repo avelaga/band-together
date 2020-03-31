@@ -75,7 +75,7 @@ export class ConcertListPage extends Component {
       <div className="body">
         <div className="flex">
           {this.state.results && this.state.results.map((value, index) => {
-            return <ConcertCard key={index} name={value.artistName} img={value.artistImage} city={value.locationName} city_url={"/locations/"+value.locationId} date={value.date} time={value.time} concert_url={"concerts/1"} artist_url={"artists/"+value.artistId} />
+            return <ConcertCard key={index} name={value.artistName} img={value.artistImage} city={value.locationName} city_url={"/locations/"+value.locationId} date={value.date} time={value.time} concert_url={"concerts/"+value.id} artist_url={"artists/"+value.artistId} />
           })}
         </div>
         <div className="pagination-menu">

@@ -63,7 +63,7 @@ export class LocationListPage extends Component {
       <div className="body">
         <div className="flex">
         {this.state.results && this.state.results.map((value, index) => {
-            return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/1"} pop={value.population} />
+            return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/"+value.id} pop={value.population} />
           })}
       </div>
       <div className="pagination-menu">
@@ -91,4 +91,3 @@ export default LocationListPage
 //             "area_code": null,
 //             "elevation": 1609,
 //             "image": null
-// WAITING FOR LOCATION ID TO BE ABLE TO LINK IT TO IT'S DETAILS PAGE
