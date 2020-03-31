@@ -9,6 +9,7 @@ import ArtistDetailPage from './components/pages/ArtistDetailPage';
 import ConcertListPage from './components/pages/ConcertListPage';
 import ConcertDetailPage from './components/pages/ConcertDetailPage';
 import ErrorGif from '../dist/images/error.gif';
+import 'semantic-ui-css/semantic.min.css';
 
 const ErrorPage = () => {
   return (
