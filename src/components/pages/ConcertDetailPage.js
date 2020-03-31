@@ -13,7 +13,7 @@ export class ConcertDetailPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://bandtogetherapi.xyz/restapi/artist";
+    let url = "http://bandtogetherapi.xyz/restapi/concert";
     axios
       .get(
         url
