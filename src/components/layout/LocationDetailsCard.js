@@ -16,7 +16,10 @@ export class LocationDetailsCard extends Component {
       nextVenueName: null,
       nextConcertId: null,
       nextArtistName: null,
-      nextArtistId: null
+      nextArtistId: null,
+      bio: null,
+      nextConcertDate: null,
+      nextConcertTime: null
     }
   }
 
@@ -38,7 +41,10 @@ export class LocationDetailsCard extends Component {
           nextVenueName: res.data.nextVenueName,
           nextConcertId: res.data.nextConcertId,
           nextArtistName: res.data.nextArtistName,
-          nextArtistId: res.data.nextArtistId
+          nextArtistId: res.data.nextArtistId,
+          bio: res.data.bio,
+          nextConcertDate: res.data.nextConcertDate,
+          nextConcertTime: res.data.nextConcertTime
         });
       })
       .catch(err => {
@@ -60,7 +66,8 @@ export class LocationDetailsCard extends Component {
           <h6>Timezone: {this.state.timezone}</h6>
           <h6>{this.state.region}, {this.state.country}</h6>
           <h6>Elevation of: {this.state.elevation} ft</h6>
-          <h6>Next Concert: <a href={"/artists/"+this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a></h6>
+          <h6>Next Concert: <a href={"/artists/"+this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a>, {this.state.nextConcertDate}, {this.state.nextConcertTime}</h6>
+          <h6>{this.state.bio}</h6>
         </div>
         <div style={map}>
           <BandMap />

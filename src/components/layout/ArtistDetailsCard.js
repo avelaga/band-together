@@ -19,6 +19,8 @@ export class ArtistDetailsCard extends Component {
       wiki_url: null,
       nextVenueName: null,
       nextConcertId: null,
+      nextConcertDate: null,
+      nextConcertTime: null,
       nextLocationName: null,
       nextLocationId: null
     }
@@ -44,7 +46,9 @@ export class ArtistDetailsCard extends Component {
           nextVenueName: res.data.nextVenueName,
           nextConcertId: res.data.nextConcertId,
           nextLocationName: res.data.nextLocationName,
-          nextLocationId: res.data.nextLocationId
+          nextLocationId: res.data.nextLocationId,
+          nextConcertDate: res.data.nextConcertDate,
+          nextConcertTime: res.data.nextConcertTime
         });
       })
       .catch(err => {
@@ -66,7 +70,7 @@ export class ArtistDetailsCard extends Component {
           <h6>Popularity Score: {this.state.popularity_score}</h6>
           <h6>Spotify Followers: {this.state.num_spotify_followers}</h6>
 
-          <h6>Next Concert: <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a> in <a href={"/locations/"+this.state.nextLocationId}><i>{this.state.nextLocationName}</i></a></h6>
+          <h6>Next Concert: <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a> in <a href={"/locations/"+this.state.nextLocationId}><i>{this.state.nextLocationName}</i></a>, {this.state.nextConcertDate}, {this.state.nextConcertTime}</h6>
 
           {this.state.website && <h6>Website: {this.state.website}</h6>}
           <a href={this.state.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
