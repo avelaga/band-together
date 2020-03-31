@@ -49,14 +49,14 @@ class guiTests(TestCase):
         assert browser.page_source.find("Weather forecast") != -1
 
 
-    def test_artists_details(self):
+    def test_artist_details(self):
         browser.get('http://localhost:8080/artists')
         assert browser.current_url == 'http://localhost:8080/artists'
         assert browser.page_source.find("Post Malone") != -1
         assert browser.page_source.find("Billie Eilish") != -1
         assert browser.page_source.find("Kiss") != -1
 
-    def test_arstist_intsance(self):
+    def test_artist_intsance(self):
         browser.get('http://localhost:8080/artists')
         path = browser.find_element_by_link_text('Artist Info')
         path.click()
