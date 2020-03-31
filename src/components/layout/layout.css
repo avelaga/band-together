@@ -2,7 +2,7 @@
 .band-navbar {
     background-color: black;
     height: 6vh;
-    width: calc(100vw-16px);
+    width: 100%;
 }
 
 .card-img {
