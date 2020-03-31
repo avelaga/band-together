@@ -16,7 +16,11 @@ export class ArtistDetailsCard extends Component {
       num_spotify_followers: null,
       website: null,
       twitter_url: null,
-      wiki_url: null
+      wiki_url: null,
+      nextVenueName: null,
+      nextConcertId: null,
+      nextLocationName: null,
+      nextLocationId: null
     }
   }
 
@@ -36,7 +40,11 @@ export class ArtistDetailsCard extends Component {
           num_spotify_followers: res.data.num_spotify_followers,
           website: res.data.website,
           twitter_url: res.data.twitter_url,
-          wiki_url: res.data.wiki_url
+          wiki_url: res.data.wiki_url,
+          nextVenueName: res.data.nextVenueName,
+          nextConcertId: res.data.nextConcertId,
+          nextLocationName: res.data.nextLocationName,
+          nextLocationId: res.data.nextLocationId
         });
       })
       .catch(err => {
@@ -54,10 +62,13 @@ export class ArtistDetailsCard extends Component {
         </div>
         <div style={bio}>
           <h1>{this.state.name}</h1>
-          <h5>Genre: {this.state.genre}</h5>
-          <h5>Popularity Score: {this.state.popularity_score}</h5>
-          <h5>Spotify Followers: {this.state.num_spotify_followers}</h5>
-          {this.state.website && <h5>Website: {this.state.website}</h5>}
+          <h6>Genre: {this.state.genre}</h6>
+          <h6>Popularity Score: {this.state.popularity_score}</h6>
+          <h6>Spotify Followers: {this.state.num_spotify_followers}</h6>
+
+          <h6>Next Concert: <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a> in <a href={"/locations/"+this.state.nextLocationId}><i>{this.state.nextLocationName}</i></a></h6>
+
+          {this.state.website && <h6>Website: {this.state.website}</h6>}
           <a href={this.state.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
           {this.state.twitter_url && <a href={this.state.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
           {this.state.wiki_url && <a href={this.state.wiki_url}><img src={wikiLogo} style={logo}></img></a>}

@@ -13,7 +13,11 @@ export class LocationDetailsCard extends Component {
       region: null,
       area_code: null,
       elevation: null,
-      image: null
+      image: null,
+      nextVenueName: null,
+      nextConcertId: null,
+      nextArtistName: null,
+      nextArtistId: null
     }
   }
 
@@ -32,7 +36,11 @@ export class LocationDetailsCard extends Component {
           region: res.data.region,
           area_code: res.data.area_code,
           elevation: res.data.elevation,
-          image: res.data.image
+          image: res.data.image,
+          nextVenueName: res.data.nextVenueName,
+          nextConcertId: res.data.nextConcertId,
+          nextArtistName: res.data.nextArtistName,
+          nextArtistId: res.data.nextArtistId
         });
       })
       .catch(err => {
@@ -50,10 +58,11 @@ export class LocationDetailsCard extends Component {
         </div>
         <div style={detailsText}>
           <h1>{this.state.city}</h1>
-          <h5>Population of {this.state.population}</h5>
-          <h5>Timezone: {this.state.timezone}</h5>
-          <h5>{this.state.region}, {this.state.country}, {this.state.area_code}</h5>
-          <h5>Elevation of: {this.state.elevation} ft</h5>
+          <h6>Population of {this.state.population}</h6>
+          <h6>Timezone: {this.state.timezone}</h6>
+          <h6>{this.state.region}, {this.state.country}, {this.state.area_code}</h6>
+          <h6>Elevation of: {this.state.elevation} ft</h6>
+          <h6>Next Concert: <a href={"/artists/"+this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a></h6>
         </div>
         <div style={map}>
           <BandMap />
