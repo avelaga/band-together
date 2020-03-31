@@ -53,6 +53,7 @@ export class ConcertDetailsCard extends Component {
           locationId: res.data.locationId,
           artistImage: res.data.artistImage,
           venueImage: res.data.venueImage,
+          venueName: res.data.venueName
         })
         // get venue data
         axios
@@ -61,7 +62,6 @@ export class ConcertDetailsCard extends Component {
           )
           .then(res => {
             this.setState({
-              venueName: res.data.name,
               venue_address: res.data.venue_address,
               parking_info: res.data.parking_info,
               postal_code: res.data.postal_code,
