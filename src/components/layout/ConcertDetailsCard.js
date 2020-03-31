@@ -89,7 +89,8 @@ export class ConcertDetailsCard extends Component {
         <div style={cardText}>
           <a href={"/artists/"+this.state.artistId}><h1>{this.state.artistName}</h1></a>
           <h6><a href={"/locations/"+this.state.locationId}>{this.state.venueName}, {this.state.venue_address}, {this.state.locationName}, {this.state.postal_code}</a></h6>
-          <h6>{this.state.date}, {this.state.time}</h6>
+          <h6>{this.state.date}</h6>
+          <h6>{this.state.time}</h6>
           { this.state.ticket_min && <h6>${this.state.ticket_min} - ${this.state.ticket_max}</h6> }
           { this.state.parking_info && <h6>Parking Notes: {this.state.parking_info}</h6> }
         </div>
