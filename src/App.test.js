@@ -23,6 +23,7 @@ global.document = jsdom({
 });
 
 import App from "./App";
+import SplashPage from "./components/pages/SplashPage";
 
 let rootContainer;
 
@@ -36,77 +37,102 @@ afterEach(() => {
   rootContainer = null;
 });
 
-describe("Load Pages", function()  {
+describe("Splash Page", function()  {
 
-    it("should load splash page without error", function()  {
-      chai.request('http://localhost:8080').get('/')
-      .end(function(err, res){
-        //expect(res).to.have.status(200);
-        res.should.have.status(200);
-        //done();
-      });
-      });
-
-    it("should load about page without error", function()  {
-      chai.request('http://localhost:8080').get('/about')
-      .end(function(res){
-        res.should.have.status(200);
-      });
+   it("Renders Site Title", () => {
+    act(() => {
+      ReactDOM.render(<SplashPage />, rootContainer);
     });
+    const h1 = rootContainer.querySelector("h1");
+    expect(h1.textContent).to.equal("Band Together");
+  });
 
-    it("should load location list page without error", function()  {
-      chai.request('http://localhost:8080').get('/locations')
-      .end(function(res){
-        res.should.have.status(200);
-      });
+  it("Renders Subtitle", () => {
+    act(() => {
+      ReactDOM.render(<SplashPage />, rootContainer);
     });
+    const p = rootContainer.querySelector("p");
+    expect(p.textContent).to.equal("Find the music you love");
+  });
+//            <p>Find the music you love</p>
 
-    it("should load location detail page without error", function()  {
-      chai.request('http://localhost:8080').get('/locations/:id')
-      .end(function(res){
-        res.should.have.status(200);
-      });
-    });
 
-    it("should load artists list page without error", function()  {
-      chai.request('http://localhost:8080').get('/artists')
-      .end(function(res){
-        res.should.have.status(200);
-      });
-    });
+    // it('should load splash page without error', function(done) {
+    //   chai.request('http://localhost:8080').
+    //     .get('/blobs')
+    //     .end(function(err, res){
+    //       res.should.have.status(200);
+    //       done();
+    //     });
+    // });
+    // it("should load splash page without error", function()  {
+    //   chai.request('http://localhost:8080').get('')
+    //   .end(function(err, res){
+    //     //expect(res).to.have.status(200);
+    //     expect(res).to.have.status(200);        //done();
+    //   });
+    //   });
 
-    it("should load artists detail page without error", function()  {
-      chai.request('http://localhost:8080').get('/artists/:id')
-      .end(function(res){
-        res.should.have.status(200);
-      });
-    });
+    // it("should load about page without error", function()  {
+    //   chai.request('http://localhost:8080').get('/about')
+    //   .end(function(err, res){
+    //     expect(res).to.have.status(200);
+    //   });
+    // });
 
-    it("should load concert list page without error", function()  {
-      chai.request('http://localhost:8080').get('/concerts')
-      .end(function(res){
-        res.should.have.status(200);
-      });
-    });
+    // it("should load location list page without error", function()  {
+    //   chai.request('http://localhost:8080').get('/locations')
+    //   .end(function(err, res){
+    //     //res.should.have.status(200);
+    //     expect(res).to.have.status(200);
 
-    it("should load concerts detail page without error", function()  {
-      chai.request('http://localhost:8080').get('/concerts/:id')
-      .end(function(res){
-        res.should.have.status(200);
-        //done();
-      });
-    });
+    //   });
+    // });
+
+    // it("should load location detail page without error", function()  {
+    //   chai.request('http://localhost:8080').get('/locations/:id')
+    //   .end(function(err, res){
+    //     expect(res).to.have.status(200);
+    //   });
+    // });
+
+    // it("should load artists list page without error", function()  {
+    //   chai.request('http://localhost:8080').get('/artists')
+    //   .end(function(err, res){
+    //     expect(res).to.have.status(200);
+
+    //   });
+    // });
+
+    // it("should load artists detail page without error", function()  {
+    //   chai.request('http://localhost:8080').get('/artists/:id')
+    //   .end(function(err, res){
+    //     expect(res).to.have.status(200);
+
+    //   });
+    // });
+
+    // it("should load concert list page without error", function()  {
+    //   chai.request('http://localhost:8080').get('/concerts')
+    //   .end(function(err, res){
+    //     expect(res).to.have.status(200);
+
+    //   });
+    // });
+
+    // it("should load concerts detail page without error", function()  {
+    //   chai.request('http://localhost:8080').get('/concerts/:id')
+    //   .end(function(err, res){
+    //     expect(res).to.have.status(200);
+
+    //     //done();
+    //   });
+    // });
 
   });
 
 
-  // it("Renders Hello World Title", () => {
-  //   act(() => {
-  //     ReactDOM.render(<App />, rootContainer);
-  //   });
-  //   const h1 = rootContainer.querySelector("h1");
-  //   expect(h1.textContent).to.equal("Hello World");
-  // });
+ 
 
 //});
 
