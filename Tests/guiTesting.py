@@ -76,7 +76,7 @@ class guiTests(TestCase):
         path.click()
         assert browser.page_source.find("capacity") != -1
 
-    def about_page(self):
+    def test_about_page(self):
         browser.get('http://localhost:8080/about')
         assert browser.current_url == 'http://localhost:8080/about'
         assert browser.page_source.find("Repository Stats") != -1
