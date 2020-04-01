@@ -1,6 +1,7 @@
 /* cant figure out how to make this local splash page style because of syntax problems with quotation marks */
 .splash-back {
-  background: url("../../../dist/images/mic.jpeg") no-repeat center center fixed;
+  background: url("../../../dist/images/mic.jpeg") no-repeat center;
+  /* background-size: auto 96vh !important; */
 }
 
 .body {
@@ -38,13 +39,6 @@ a:visited {
   flex-basis: 100%;
   flex: 4;
   text-align: right;
-}
-
-
-@media (max-width: 500px){
-  h1 {
-    font-size: 50px !important;
-  }
 }
 
 /* overriding pagination menu styles */
@@ -91,5 +85,23 @@ a:visited {
     width: 72px;
     height: 72px;
     opacity: 0;
+  }
+}
+
+@media (max-width: 500px){
+  .splash-back {
+    background-size: auto 96vh !important;
+  }
+
+  h1 {
+    font-size: 50px !important;
+  }
+
+  h2 {
+    font-size: 35px !important;
+  }
+
+  h6 {
+    font-size: 20px !important;
   }
 }
