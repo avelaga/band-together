@@ -25,7 +25,7 @@ export class ArtistDetailsCard extends Component {
   }
 
   componentDidMount() {
-    let url = "http://bandtogetherapi.xyz/restapi/artist/" + this.props.id;
+    let url = "http://bandtogetherapi.xyz:8000/restapi/artist/" + this.props.id;
     axios
       .get(
         url

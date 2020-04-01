@@ -16,7 +16,7 @@ export class ConcertListPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://bandtogetherapi.xyz/restapi/concert";
+    let url = "http://bandtogetherapi.xyz:8000/restapi/concert";
     axios
       .get(
         url
@@ -36,7 +36,7 @@ export class ConcertListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "http://bandtogetherapi.xyz/restapi/concert";
+    let url = "http://bandtogetherapi.xyz:8000/restapi/concert";
     axios
       .get(
         url + "?page=" + activePage
