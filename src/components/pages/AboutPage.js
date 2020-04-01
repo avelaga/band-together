@@ -172,7 +172,8 @@ return (
   </div>
   
   <div style={aboutLinks} >
-    <div><h1><a href="https://gitlab.com/Adam-Bomb/band-together" style = {buttonStyle}>GitLab Repo</a></h1></div>
+    <div><h1><a href="https://gitlab.com/Adam-Bomb/band-together" style = {buttonStyle}>Front-End Repo</a></h1></div>
+    <div><h1><a href="https://gitlab.com/Adam-Bomb/bandtogetherapi" style = {buttonStyle}>Back-End Repo</a></h1></div>
 
     <div><h1><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style = {buttonStyle}>Postman API</a></h1></div>
   </div>
@@ -207,7 +208,7 @@ const aboutLinks = {
   display: 'flex',
   paddingBottom: '30px',
   justifyContent: 'space-between',
-  width: '450px',
+  width: '650px',
   margin: 'auto'
 }
 
@@ -215,7 +216,8 @@ const buttonStyle = {
   backgroundColor: 'rgb(0, 119, 255)',
   width: '300px',
   borderRadius: '5px',
-  padding: '7px'
+  padding: '7px',
+  margin: '5px'
 }
 
 const line = {
