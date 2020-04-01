@@ -22,7 +22,7 @@ export class LocationDetailsCard extends Component {
   }
 
   componentDidMount() {
-    let url = "http://bandtogetherapi.xyz:8000/restapi/location/" + this.props.id;
+    let url = "http://bandtogetherapi.xyz/restapi/location/" + this.props.id;
     axios
       .get(
         url
