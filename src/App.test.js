@@ -9,6 +9,7 @@ import ReactDOM from "react-dom";
 import { act } from "react-dom/test-utils";
 import { expect , should} from "chai";
 var jsdom = require("mocha-jsdom");
+const axios = require("axios").default;
 
 
 var chai = require('chai');
@@ -52,7 +53,6 @@ afterEach(() => {
 });
 
 
-
 describe("Splash Page", function()  {
 
 
@@ -78,36 +78,37 @@ describe("Splash Page", function()  {
 
 describe("About Page", function()  {
 
-  // it("Renders Purpose", () => {
+  it("Renders Purpose", () => {
    
-  //     act(() => {
-  //       ReactDOM.render(<AboutPage />, rootContainer);
-  //     });
-  //     const h1 = rootContainer.querySelectorAll("h1");
-  //     expect(h1[0].textContent).to.equal("Our Purpose");
-  //   });
+      act(() => {
+        ReactDOM.render(<AboutPage />, rootContainer);
+      });
+      const h1 = rootContainer.querySelectorAll("h1");
+      expect(h1[0].textContent).to.equal("Our Purpose");
+    });
 
-    // it("Renders About Cards", () => {
-    //   act(() => {
-    //     ReactDOM.render(<AboutPage />, rootContainer);
-    //   });
-    //   const h1 = rootContainer.querySelectorAll("h1");
-    //   expect(h1[1].textContent).to.equal("Adam Martin");
-    //   expect(h1[2].textContent).to.equal("Abhi Velaga");
-    //   expect(h1[3].textContent).to.equal("Jason Moy");
-    //   expect(h1[4].textContent).to.equal("Faezah Ali");
-    //   expect(h1[5].textContent).to.equal("Gavin Rodrigue");
-    // });
+    it("Renders About Cards", () => {
+      act(() => {
+        ReactDOM.render(<AboutPage />, rootContainer);
+      });
+      const h1 = rootContainer.querySelectorAll("h1");
+      expect(h1[1].textContent).to.equal("Adam Martin");
+      expect(h1[2].textContent).to.equal("Abhi Velaga");
+      expect(h1[3].textContent).to.equal("Jason Moy");
+      expect(h1[4].textContent).to.equal("Faezah Ali");
+      expect(h1[5].textContent).to.equal("Gavin Rodrigue");
+    });
   
-    // it("Renders About Card Images Correctly", () => {
-    //   act(() => {
-    //     ReactDOM.render(<AboutPage />, rootContainer);
-    //   });
-    //   const images = document.images;
-    //   expect(images[0].src).to.equal("http://localhost:8080/[object%20Object]");
-    // });
+    it("Renders About Card Images Correctly", () => {
+      act(() => {
+        ReactDOM.render(<AboutPage />, rootContainer);
+      });
+      const images = document.images;
+      //expect(images[0].src).to.equal("http://localhost:8080/[object%20Object]");
+    });
   
 });
+
 
 describe("Artist List Page", function()  {
 
@@ -116,7 +117,7 @@ describe("Artist List Page", function()  {
       ReactDOM.render(<ArtistListPage />, rootContainer);
     });
 
-  it("Artist List Renders", () => {
+  it("Artist List read", () => {
     chai.request('http://localhost:8080').get('/artists')
        .end(function(err, res){
          expect(res).to.have.status(200);
