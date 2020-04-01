@@ -16,13 +16,13 @@
 ## Gitlab Links
 * Front-End gitlab: https://gitlab.com/Adam-Bomb/band-together
 * Front-End Pipelines: https://gitlab.com/Adam-Bomb/band-together/pipelines
-* Front-End SHA: 
+* Front-End SHA: 6393c5ea9f8a9c878e29cc93c507a6816581964d
 * Front-End gitignore: https://gitlab.com/Adam-Bomb/band-together/-/blob/master/.gitignore
 * Back-End gitlab: https://gitlab.com/Adam-Bomb/bandtogetherapi
 * Back-End Pipelines: https://gitlab.com/Adam-Bomb/bandtogetherapi/pipelines
-* Back-End SHA: 
+* Back-End SHA: 611e52743ef724c6d5e952acd01f268ef456f17
 * Back-End gitignore: https://gitlab.com/Adam-Bomb/bandtogetherapi/-/blob/master/.gitignore
 
 ## Website 
-* https://bandtogether.events
+* http://bandtogether.events
 * 
