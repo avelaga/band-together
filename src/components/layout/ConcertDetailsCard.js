@@ -15,6 +15,10 @@ export class ConcertDetailsCard extends Component {
       ticket_max: null,
       artistName: null,
       locationName: null,
+      artistId: null,
+      locationId: null,
+      artistImage: null,
+      venueImage: null,
 
       venueName: null,
       venue_address: null,
@@ -26,7 +30,7 @@ export class ConcertDetailsCard extends Component {
   }
 
   componentDidMount() {
-    let ip = "http://bandtogetherapi.xyz:8000";
+    let ip = "http://bandtogetherapi.xyz";
     let concertUrl = ip + "/restapi/concert/" + this.props.id;
     // get concert data
     axios
@@ -44,7 +48,11 @@ export class ConcertDetailsCard extends Component {
           ticket_min: res.data.ticket_min,
           ticket_max: res.data.ticket_max,
           artistName: res.data.artistName,
-          locationName: res.data.locationName
+          locationName: res.data.locationName,
+          artistId: res.data.artistId,
+          locationId: res.data.locationId,
+          artistImage: res.data.artistImage,
+          venueImage: res.data.venueImage,
         })
         // get venue data
         axios
@@ -76,17 +84,14 @@ export class ConcertDetailsCard extends Component {
     return (
       <div className="details">
         <div className="details-img">
-          <img src={this.state.image} className="details-card-img"></img>
+          <img src={this.state.artistImage} className="details-card-img"></img>
         </div>
         <div style={cardText}>
-          <h1>{this.state.artistName}</h1>
-          <h5>{this.state.venueName}, {this.state.venue_address}, {this.state.locationName}, {this.state.postal_code}</h5>
-          <h5>{this.state.date}, {this.state.time}</h5>
-          <h5>${this.state.ticket_min} - ${this.state.ticket_max}</h5>
-          <h6>Parking Notes: {this.state.parking_info}</h6>
-          <div className="details-card-stats">
-
-          </div>
+          <a href={"/artists/"+this.state.artistId}><h1>{this.state.artistName}</h1></a>
+          <h6><a href={"/locations/"+this.state.locationId}>{this.state.venueName}, {this.state.venue_address}, {this.state.locationName}, {this.state.postal_code}</a></h6>
+          <h6>{this.state.date}, {this.state.time}</h6>
+          { this.state.ticket_min && <h6>${this.state.ticket_min} - ${this.state.ticket_max}</h6> }
+          { this.state.parking_info && <h6>Parking Notes: {this.state.parking_info}</h6> }
         </div>
       </div>
     );
