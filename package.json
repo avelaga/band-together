@@ -57,6 +57,8 @@
     "chai": "^3.5.0",
     "chai-http": "^1.0.0",
     "ignore-styles": "^5.0.1",
+    "jsdom": "16.2.2",
+    "jsdom-global": "3.0.2",
     "mocha": "^7.1.1",
     "mocha-jsdom": "^2.0.0",
     "react-hot-loader": "^4.12.19",
