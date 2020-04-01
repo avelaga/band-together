@@ -17,12 +17,14 @@ export class LocationDetailsCard extends Component {
       nextVenueName: null,
       nextConcertId: null,
       nextArtistName: null,
-      nextArtistId: null
+      nextArtistId: null,
+      lat: null,
+      long: null
     }
   }
 
   componentDidMount() {
-    let url = "http://bandtogetherapi.xyz/restapi/location/" + this.props.id;
+    let url = "http://192.168.1.170:8000/restapi/location/" + this.props.id;
     axios
       .get(
         url
@@ -40,7 +42,11 @@ export class LocationDetailsCard extends Component {
           nextVenueName: res.data.nextVenueName,
           nextConcertId: res.data.nextConcertId,
           nextArtistName: res.data.nextArtistName,
-          nextArtistId: res.data.nextArtistId
+          nextArtistId: res.data.nextArtistId,
+          lat: res.data.lat,
+          long: res.data.lon
+          // lat: 47.444,
+          // long: -122.176
         });
       })
       .catch(err => {
@@ -65,7 +71,7 @@ export class LocationDetailsCard extends Component {
           <h6>Next Concert: <a href={"/artists/"+this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a></h6>
         </div>
         <div style={map}>
-          <BandMap />
+          <BandMap lat={this.state.lat} long={this.state.long}/>
         </div>
       </div>
     );
