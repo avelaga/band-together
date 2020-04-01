@@ -17,6 +17,8 @@ export class LocationDetailsCard extends Component {
       nextConcertId: null,
       nextArtistName: null,
       nextArtistId: null,
+      lat: null,
+      long: null,
       bio: null,
       nextConcertDate: null,
       nextConcertTime: null
@@ -42,6 +44,8 @@ export class LocationDetailsCard extends Component {
           nextConcertId: res.data.nextConcertId,
           nextArtistName: res.data.nextArtistName,
           nextArtistId: res.data.nextArtistId,
+          lat: res.data.lat,
+          long: res.data.lon,
           bio: res.data.bio,
           nextConcertDate: res.data.nextConcertDate,
           nextConcertTime: res.data.nextConcertTime
@@ -70,7 +74,7 @@ export class LocationDetailsCard extends Component {
           <h6>{this.state.bio}</h6>
         </div>
         <div style={map}>
-          <BandMap />
+          <BandMap lat={this.state.lat} long={this.state.long}/>
         </div>
       </div>
     );

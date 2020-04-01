@@ -1,26 +1,31 @@
 import React, { Component } from "react";
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 
 export class BandMap extends Component {
 
-    render() {
-        return (
-            <Map
-            google={this.props.google}
-            zoom={8}
-            containerStyle={mapStyles}
-            initialCenter={{ lat: 47.444, lng: -122.176}}
-            />
-        );
-    }
+  render() {
+    return (
+      <Map
+        google={this.props.google}
+        zoom={8}
+        containerStyle={mapStyles}
+        initialCenter={{ lat: this.props.lat, lng: this.props.long }}
+      >
+        <Marker position={{ 
+          lat: this.props.lat, 
+          lng: this.props.long 
+          }} />
+      </Map>
+    );
+  }
 }
 
-  export default GoogleApiWrapper({
-    apiKey: ''
-  })(BandMap);
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyAgOSWSEKCcFLlHQKPyg4MEWHW1Xo8HiHE'
+})(BandMap);
 
-  const mapStyles = {
-    width: '1000px',
-    height: '300px',
-  };
+const mapStyles = {
+  width: '1000px',
+  height: '300px',
+};
