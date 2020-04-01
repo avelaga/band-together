@@ -31,6 +31,22 @@ a:visited {
   padding: 30px;
 }
 
+.splash-text {
+  color: white;
+  display: flex;
+  flex-direction:  column;
+  flex-basis: 100%;
+  flex: 4;
+  text-align: right;
+}
+
+
+@media (max-width: 500px){
+  h1 {
+    font-size: 50px !important;
+  }
+}
+
 /* overriding pagination menu styles */
 .item {
   background-color: black !important;

@@ -8,7 +8,7 @@ export class SplashPage extends Component {
         <div style={row}>
           <div style={splashText}></div>
           <div style={splashText}></div>
-          <div style={splashText}>
+          <div className="splash-text">
             <h1>Band Together</h1>
             <p>Find the music you love</p>
           </div>
