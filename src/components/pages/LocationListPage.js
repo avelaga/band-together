@@ -61,19 +61,24 @@ export class LocationListPage extends Component {
   render() {
     return (
       <div className="body">
-        <div className="flex">
-        {this.state.results && this.state.results.map((value, index) => {
-            return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/"+value.id} pop={value.population} elevation={value.elevation}/>
-          })}
-      </div>
-      <div className="pagination-menu">
-          <Pagination
-            activePage={this.state.page}
-            totalPages={Math.ceil(this.state.count / 10)}
-            siblingRange={1}
-            onPageChange={this.setPageNum}
-          />
-        </div>
+        {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
+        {this.state.results &&
+          <div>
+            <div className="flex">
+              {this.state.results.map((value, index) => {
+                return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} />
+              })}
+            </div>
+            <div className="pagination-menu">
+              <Pagination
+                activePage={this.state.page}
+                totalPages={Math.ceil(this.state.count / 10)}
+                siblingRange={1}
+                onPageChange={this.setPageNum}
+              />
+            </div>
+          </div>
+        }
       </div>
     );
   }

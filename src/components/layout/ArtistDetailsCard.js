@@ -19,6 +19,8 @@ export class ArtistDetailsCard extends Component {
       wiki_url: null,
       nextVenueName: null,
       nextConcertId: null,
+      nextConcertDate: null,
+      nextConcertTime: null,
       nextLocationName: null,
       nextLocationId: null
     }
@@ -44,7 +46,9 @@ export class ArtistDetailsCard extends Component {
           nextVenueName: res.data.nextVenueName,
           nextConcertId: res.data.nextConcertId,
           nextLocationName: res.data.nextLocationName,
-          nextLocationId: res.data.nextLocationId
+          nextLocationId: res.data.nextLocationId,
+          nextConcertDate: res.data.nextConcertDate,
+          nextConcertTime: res.data.nextConcertTime
         });
       })
       .catch(err => {
@@ -68,7 +72,7 @@ export class ArtistDetailsCard extends Component {
 
           <h6>Next Concert: <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a> in <a href={"/locations/"+this.state.nextLocationId}><i>{this.state.nextLocationName}</i></a></h6>
 
-          {this.state.website && <h6>Website: {this.state.website}</h6>}
+          {this.state.website && <h6><a href={this.state.website}><i>Website</i></a></h6>}
           <a href={this.state.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
           {this.state.twitter_url && <a href={this.state.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
           {this.state.wiki_url && <a href={this.state.wiki_url}><img src={wikiLogo} style={logo}></img></a>}

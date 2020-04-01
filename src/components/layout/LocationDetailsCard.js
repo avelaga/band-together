@@ -11,7 +11,6 @@ export class LocationDetailsCard extends Component {
       population: null,
       timezone: null,
       region: null,
-      area_code: null,
       elevation: null,
       image: null,
       nextVenueName: null,
@@ -19,7 +18,10 @@ export class LocationDetailsCard extends Component {
       nextArtistName: null,
       nextArtistId: null,
       lat: null,
-      long: null
+      long: null,
+      bio: null,
+      nextConcertDate: null,
+      nextConcertTime: null
     }
   }
 
@@ -36,7 +38,6 @@ export class LocationDetailsCard extends Component {
           population: res.data.population,
           timezone: res.data.timezone,
           region: res.data.region,
-          area_code: res.data.area_code,
           elevation: res.data.elevation,
           image: res.data.image,
           nextVenueName: res.data.nextVenueName,
@@ -44,9 +45,10 @@ export class LocationDetailsCard extends Component {
           nextArtistName: res.data.nextArtistName,
           nextArtistId: res.data.nextArtistId,
           lat: res.data.lat,
-          long: res.data.lon
-          // lat: 47.444,
-          // long: -122.176
+          long: res.data.lon,
+          bio: res.data.bio,
+          nextConcertDate: res.data.nextConcertDate,
+          nextConcertTime: res.data.nextConcertTime
         });
       })
       .catch(err => {
@@ -66,9 +68,10 @@ export class LocationDetailsCard extends Component {
           <h1>{this.state.city}</h1>
           <h6>Population of {this.state.population}</h6>
           <h6>Timezone: {this.state.timezone}</h6>
-          <h6>{this.state.region}, {this.state.country}, {this.state.area_code}</h6>
+          <h6>{this.state.region}, {this.state.country}</h6>
           <h6>Elevation of: {this.state.elevation} ft</h6>
-          <h6>Next Concert: <a href={"/artists/"+this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a></h6>
+          <h6>Next Concert: <a href={"/artists/"+this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a>, {this.state.nextConcertDate}, {this.state.nextConcertTime}</h6>
+          <h6>{this.state.bio}</h6>
         </div>
         <div style={map}>
           <BandMap lat={this.state.lat} long={this.state.long}/>
