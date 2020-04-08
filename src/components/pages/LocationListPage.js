@@ -40,7 +40,7 @@ export class LocationListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "http://bandtogetherapi.xyz/restapi/location";
+    let url = "https://bandtogetherapi.xyz/restapi/location";
     axios
       .get(
         url + "?page=" + activePage

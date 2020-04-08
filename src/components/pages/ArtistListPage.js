@@ -36,7 +36,7 @@ export class ArtistListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "http://bandtogetherapi.xyz/restapi/artist";
+    let url = "https://bandtogetherapi.xyz/restapi/artist";
     axios
       .get(
         url + "?page=" + activePage
