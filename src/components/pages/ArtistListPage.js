@@ -16,7 +16,7 @@ export class ArtistListPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://bandtogetherapi.xyz/restapi/artist";
+    let url = "https://bandtogetherapi.xyz/restapi/artist";
     axios
       .get(
         url

@@ -20,7 +20,7 @@ export class LocationListPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://bandtogetherapi.xyz/restapi/location";
+    let url = "https://bandtogetherapi.xyz/restapi/location";
     axios
       .get(
         url
