@@ -20,7 +20,7 @@ export class LocationListPage extends Component {
   }
 
   componentDidMount() {
-    let url = "https://bandtogetherapi.xyz/restapi/location";
+    let url = "http://192.168.1.170:8000/restapi/location";
     axios
       .get(
         url
@@ -40,7 +40,7 @@ export class LocationListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "https://bandtogetherapi.xyz/restapi/location";
+    let url = "http://192.168.1.170:8000/restapi/location";
     axios
       .get(
         url + "?page=" + activePage

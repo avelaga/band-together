@@ -50,8 +50,8 @@ headers: {
 "PRIVATE-TOKEN": "7pfMsQdxg_6z_8PEMssw"
 }
 };
-var repos = ["https://gitlab.com/api/v4/projects/17041074/", 
-"https://gitlab.com/api/v4/projects/17240838/"];
+var repos = ["http://gitlab.com/api/v4/projects/17041074/", 
+"http://gitlab.com/api/v4/projects/17240838/"];
 
 //commit api
 for(let repo of repos){
@@ -147,10 +147,10 @@ return (
       <h1>Data Sources</h1>
     </div>
     <div style={aboutDown}>
-    <a href="https://www.spotify.com"><img src={SpotifyImg} style={srcImg}></img></a>
-    <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} style={srcImg}></img></a>
-    <a href="https://www.en.wikipedia.com"><img src={WikiImg} style={srcImg}></img></a>
-    <a href="https://geodb.com"><img src={GeodbImg} style={srcImg}></img></a>
+    <a href="http://www.spotify.com"><img src={SpotifyImg} style={srcImg}></img></a>
+    <a href="http://www.ticketmaster.com"><img src={TicketmasterImg} style={srcImg}></img></a>
+    <a href="http://www.en.wikipedia.com"><img src={WikiImg} style={srcImg}></img></a>
+    <a href="http://geodb.com"><img src={GeodbImg} style={srcImg}></img></a>
     </div>
   </div>
 
@@ -172,10 +172,10 @@ return (
   </div>
   
   <div style={aboutLinks} >
-    <div><h1><a href="https://gitlab.com/Adam-Bomb/band-together" style = {buttonStyle}>Front-End Repo</a></h1></div>
-    <div><h1><a href="https://gitlab.com/Adam-Bomb/bandtogetherapi" style = {buttonStyle}>Back-End Repo</a></h1></div>
+    <div><h1><a href="http://gitlab.com/Adam-Bomb/band-together" style = {buttonStyle}>Front-End Repo</a></h1></div>
+    <div><h1><a href="http://gitlab.com/Adam-Bomb/bandtogetherapi" style = {buttonStyle}>Back-End Repo</a></h1></div>
 
-    <div><h1><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style = {buttonStyle}>Postman API</a></h1></div>
+    <div><h1><a href="http://documenter.getpostman.com/view/7804306/SzKYQxJR" style = {buttonStyle}>Postman API</a></h1></div>
   </div>
 </div>
 );

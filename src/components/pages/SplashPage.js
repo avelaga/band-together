@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import SearchField from "react-search-field";
 import "./pages.css";
 
 export class SplashPage extends Component {
+  newSearch(value){
+    console.log(value);
+  }
+
   render() {
     return (
       <div style={splashPage} className="splash-back">
@@ -9,14 +14,25 @@ export class SplashPage extends Component {
           <div style={splashText}></div>
           <div style={splashText}></div>
           <div style={splashText}>
-            <h1>Band Together</h1>
-            <p>Find the music you love</p>
+            <div style={textPadding}>
+              <h1>Band Together</h1>
+              <p>Find the music you love</p>
+            </div>
+            <SearchField
+              placeholder="Search..."
+              onEnter={this.newSearch}
+              onSearchClick={this.newSearch}
+            />
           </div>
           <div style={splashText}></div>
         </div>
       </div>
     );
   }
+}
+
+const textPadding = {
+  paddingBottom: '20px'
 }
 
 const splashPage = {
