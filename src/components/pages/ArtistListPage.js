@@ -12,16 +12,17 @@ export class ArtistListPage extends Component {
       next: null,
       prev: null,
       results: null,
-      page: 1
+      page: 1,
+      searchTerm: ''
     }
   }
 
   newSearch(value) {
-    console.log(value);
-    let url = "http://192.168.1.170:8000/restapi/artist/search?query=" + value;
-    // let options = {
-    //   headers: {'query': value}
-    // };
+    this.setState({
+      searchTerm: "query=" + value
+    });
+
+    let url = "http://192.168.1.170:8000/restapi/artist/search?" + "query=" + value;
     axios
       .get(
         url
@@ -34,12 +35,12 @@ export class ArtistListPage extends Component {
           results: res.data.results,
           page: 1
         });
-        console.log(res.data.count);
       })
       .catch(err => {
         console.log(err);
       });
   }
+
 
   componentDidMount() {
     let url = "http://192.168.1.170:8000/restapi/artist";
@@ -62,10 +63,10 @@ export class ArtistListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "http://192.168.1.170:8000/restapi/artist";
+    let url = "http://192.168.1.170:8000/restapi/artist/search?";
     axios
       .get(
-        url + "?page=" + activePage
+        url + "page=" + activePage + "&" + this.state.searchTerm
       )
       .then(res => {
         this.setState({
@@ -91,8 +92,8 @@ export class ArtistListPage extends Component {
             <div className="search-div">
               <SearchField
                 placeholder="Search..."
-                onEnter={(e)=>{this.newSearch(e)}}
-                // onSearchClick={this.newSearch}
+                onEnter={(e) => { this.newSearch(e) }}
+                onSearchClick={(e) => { this.newSearch(e) }}
               />
             </div>
             <div className="flex">
@@ -116,18 +117,3 @@ export class ArtistListPage extends Component {
 }
 
 export default ArtistListPage;
-
-// const searchDiv = {
-//   // float: 'right',
-//   padding: '15px',
-//   width: '100vw',
-//   // display: 'flex',
-//   // flexWrap: 'wrap',
-//   textAlign: 'right'
-// }
-
-// const right = {
-//   display: 'flex',
-//   flexWrap: 'wrap',
-//   alignContent: 'right'
-// }
