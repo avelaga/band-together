@@ -86,7 +86,7 @@ export class ArtistListPage extends Component {
       <div className="body">
 
         {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-        {this.state.results &&
+        {(this.state.results && this.state.count > 0) &&
 
           <div>
             <div className="search-div">
@@ -111,9 +111,28 @@ export class ArtistListPage extends Component {
             </div>
           </div>
         }
+
+        {(this.state.count === 0) &&
+          <div>
+            <div className="search-div">
+              <SearchField
+                placeholder="Search..."
+                onEnter={(e) => { this.newSearch(e) }}
+                onSearchClick={(e) => { this.newSearch(e) }}
+              />
+            </div>
+            <div className="flex" style={noResults}>
+              <h1>No results found</h1>
+            </div>
+          </div>
+        }
       </div>
     );
   }
 }
 
 export default ArtistListPage;
+
+const noResults = {
+  color: 'white'
+}
