@@ -112,6 +112,7 @@ export class ArtistListPage extends Component {
           </div>
         }
 
+        {/* If count = 0, show no results page */}
         {(this.state.count === 0) &&
           <div>
             <div className="search-div">

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import LocationCard from '../layout/LocationCard.js';
 import { Pagination } from "semantic-ui-react";
+import SearchField from "react-search-field";
 const axios = require("axios").default;
 import "./pages.css";
 
@@ -15,8 +16,33 @@ export class LocationListPage extends Component {
       next: null,
       prev: null,
       results: null,
-      page: 1
+      page: 1,
+      searchTerm: ''
     }
+  }
+
+  newSearch(value) {
+    this.setState({
+      searchTerm: "query=" + value
+    });
+
+    let url = "http://192.168.1.170:8000/restapi/location/search?" + "query=" + value;
+    axios
+      .get(
+        url
+      )
+      .then(res => {
+        this.setState({
+          count: res.data.count,
+          next: res.data.next,
+          prev: res.data.previous,
+          results: res.data.results,
+          page: 1
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   componentDidMount() {
@@ -40,10 +66,10 @@ export class LocationListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "http://192.168.1.170:8000/restapi/location";
+    let url = "http://192.168.1.170:8000/restapi/location/search?";
     axios
       .get(
-        url + "?page=" + activePage
+        url + "page=" + activePage + "&" + this.state.searchTerm
       )
       .then(res => {
         this.setState({
@@ -62,8 +88,15 @@ export class LocationListPage extends Component {
     return (
       <div className="body">
         {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-        {this.state.results &&
+        {(this.state.results && this.state.count > 0) &&
           <div>
+            <div className="search-div">
+              <SearchField
+                placeholder="Search..."
+                onEnter={(e) => { this.newSearch(e) }}
+                onSearchClick={(e) => { this.newSearch(e) }}
+              />
+            </div>
             <div className="flex">
               {this.state.results.map((value, index) => {
                 return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} />
@@ -79,9 +112,28 @@ export class LocationListPage extends Component {
             </div>
           </div>
         }
+         {/* If count = 0, show no results page */}
+         {(this.state.count === 0) &&
+          <div>
+            <div className="search-div">
+              <SearchField
+                placeholder="Search..."
+                onEnter={(e) => { this.newSearch(e) }}
+                onSearchClick={(e) => { this.newSearch(e) }}
+              />
+            </div>
+            <div className="flex" style={noResults}>
+              <h1>No results found</h1>
+            </div>
+          </div>
+        }
       </div>
     );
   }
 }
 
 export default LocationListPage
+
+const noResults = {
+  color: 'white'
+}
