@@ -69,12 +69,12 @@ export class Navbar extends Component {
             />
             {this.state.open &&
               <div className="flex">
-                <hr style={line} />
-                <a style={mobileNavbarLink} href="/locations">Locations</a>
-                <a style={mobileNavbarLink} href="/artists">Artists</a>
-                <a style={mobileNavbarLink} href="/concerts">Concerts</a>
-                <a style={mobileNavbarLink} href="/about">About</a>
-                <hr style={line} />
+                <hr style={line} className="appear-first"/>
+                <a style={mobileNavbarLink} className="appear-second" href="/locations">Locations</a>
+                <a style={mobileNavbarLink} className="appear-third" href="/artists">Artists</a>
+                <a style={mobileNavbarLink} className="appear-fourth" href="/concerts">Concerts</a>
+                <a style={mobileNavbarLink} className="appear-fifth" href="/about">About</a>
+                <hr style={line} className="appear-sixth"/>
               </div>
             }
           </div>
