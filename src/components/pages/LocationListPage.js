@@ -62,6 +62,7 @@ export class LocationListPage extends Component {
   render() {
     return (
       <div className="body">
+        <h1 className="title">Locations</h1>
         {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
         {this.state.results &&
           <div>
