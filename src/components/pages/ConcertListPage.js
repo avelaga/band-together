@@ -1,6 +1,7 @@
 import React, { Component, Children } from "react";
 import ConcertCard from '../layout/ConcertCard.js';
 import { Pagination } from "semantic-ui-react";
+import MediaQuery from 'react-responsive'
 const axios = require("axios").default;
 
 export class ConcertListPage extends Component {
@@ -16,7 +17,7 @@ export class ConcertListPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://bandtogetherapi.xyz/restapi/concert";
+    let url = "https://bandtogetherapi.xyz/restapi/concert";
     axios
       .get(
         url
@@ -36,7 +37,7 @@ export class ConcertListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "http://bandtogetherapi.xyz/restapi/concert";
+    let url = "https://bandtogetherapi.xyz/restapi/concert";
     axios
       .get(
         url + "?page=" + activePage
@@ -66,12 +67,28 @@ export class ConcertListPage extends Component {
               })}
             </div>
             <div className="pagination-menu">
-              <Pagination
-                activePage={this.state.page}
-                totalPages={Math.ceil(this.state.count / 10)}
-                siblingRange={1}
-                onPageChange={this.setPageNum}
-              />
+              {/* desktop */}
+              <MediaQuery minDeviceWidth={500}>
+                <Pagination
+                  activePage={this.state.page}
+                  totalPages={Math.ceil(this.state.count / 10)}
+                  siblingRange={1}
+                  onPageChange={this.setPageNum}
+                  
+                />
+              </MediaQuery>
+
+              {/* mobile */}
+              <MediaQuery maxDeviceWidth={500}>
+                <Pagination
+                  activePage={this.state.page}
+                  totalPages={Math.ceil(this.state.count / 10)}
+                  siblingRange={1}
+                  onPageChange={this.setPageNum}
+                  ellipsisItem={null}
+                  boundaryRange={0}
+                />
+              </MediaQuery>
             </div>
           </div>
         }

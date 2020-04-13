@@ -26,7 +26,7 @@ export class LocationDetailsCard extends Component {
   }
 
   componentDidMount() {
-    let url = "http://bandtogetherapi.xyz/restapi/location/" + this.props.id;
+    let url = "https://bandtogetherapi.xyz/restapi/location/" + this.props.id;
     axios
       .get(
         url

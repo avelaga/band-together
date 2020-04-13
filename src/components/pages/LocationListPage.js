@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import LocationCard from '../layout/LocationCard.js';
 import { Pagination } from "semantic-ui-react";
+import MediaQuery from 'react-responsive'
 const axios = require("axios").default;
 import "./pages.css";
 
@@ -20,7 +21,7 @@ export class LocationListPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://bandtogetherapi.xyz/restapi/location";
+    let url = "https://bandtogetherapi.xyz/restapi/location";
     axios
       .get(
         url
@@ -40,7 +41,7 @@ export class LocationListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "http://bandtogetherapi.xyz/restapi/location";
+    let url = "https://bandtogetherapi.xyz/restapi/location";
     axios
       .get(
         url + "?page=" + activePage
@@ -70,12 +71,28 @@ export class LocationListPage extends Component {
               })}
             </div>
             <div className="pagination-menu">
-              <Pagination
-                activePage={this.state.page}
-                totalPages={Math.ceil(this.state.count / 10)}
-                siblingRange={1}
-                onPageChange={this.setPageNum}
-              />
+              {/* desktop */}
+              <MediaQuery minDeviceWidth={500}>
+                <Pagination
+                  activePage={this.state.page}
+                  totalPages={Math.ceil(this.state.count / 10)}
+                  siblingRange={1}
+                  onPageChange={this.setPageNum}
+                  
+                />
+              </MediaQuery>
+
+              {/* mobile */}
+              <MediaQuery maxDeviceWidth={500}>
+                <Pagination
+                  activePage={this.state.page}
+                  totalPages={Math.ceil(this.state.count / 10)}
+                  siblingRange={1}
+                  onPageChange={this.setPageNum}
+                  ellipsisItem={null}
+                  boundaryRange={0}
+                />
+              </MediaQuery>
             </div>
           </div>
         }
