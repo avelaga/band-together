@@ -27,6 +27,7 @@ export class ConcertDetailPage extends Component {
         console.log(err);
       });
   }
+  
   render() {
     const id = this.props.match.params.id;
     if(this.state.count){
