@@ -67,14 +67,6 @@ export class LocationDetailsCard extends Component {
   render() {
     if (!this.state.city)
       return null;
-
-    // function viewMore(e) {
-    //   e.preventDefault();
-    //   this.setState({
-    //     viewMore: !this.state.viewMore
-    //   });
-    // }
-
     return (
       <div>
         {/* desktop */}
@@ -108,7 +100,7 @@ export class LocationDetailsCard extends Component {
               <img src={this.state.image} className="mobile-details-img"></img>
             </div>
 
-            <div style={mobileDetailsText}>
+            <div className="mobile-details-text">
               <h6>Population of {this.state.population}</h6>
               <h6>Timezone: {this.state.timezone}</h6>
               <h6>{this.state.region}, {this.state.country}</h6>
@@ -182,14 +174,6 @@ const detailsText = {
   marginTop: '10px',
   height: '290px',
   width: '680px'
-}
-
-const mobileDetailsText = {
-  color: 'white',
-  textAlign: 'center',
-  width: '90vw',
-  marginTop: '10px',
-  marginBottom: '10px'
 }
 
 const locDetails = {

@@ -120,3 +120,11 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+
+.mobile-details-text {
+    color: white;
+    text-align: center;
+    width: 90vw;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
