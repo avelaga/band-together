@@ -1,4 +1,5 @@
 /* wasnt able to remove this, caused errors */
+
 .band-navbar {
     background-color: black;
     height: 50px;
@@ -45,72 +46,77 @@
     border-radius: 3px;
 }
 
-
 .details-img {
-    float: left;
-    height: 300px;
-    width: 300px;
-}
-
-.details-card-img { 
     height: 300px;
     width: 300px;
     border-radius: 3px;
 }
 
+.mobile-details-img {
+    height: 80vw;
+    width: 80vw;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
 @keyframes appear {
     from {
-      opacity: 0
+        opacity: 0
     }
     to {
-      opacity: 1
+        opacity: 1
     }
-  }
+}
 
-  .appear-first {
+.appear-first {
     animation-name: appear;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-  }
-  
-  .appear-second {
+}
+
+.appear-second {
     animation-name: appear;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
-  }
-  
-  .appear-third {
+}
+
+.appear-third {
     animation-name: appear;
     animation-duration: 2s;
     animation-fill-mode: forwards;
-  }
-  
-  .appear-fourth {
+}
+
+.appear-fourth {
     animation-name: appear;
     animation-duration: 2.5s;
     animation-fill-mode: forwards;
-  }
+}
 
-  .appear-fifth {
+.appear-fifth {
     animation-name: appear;
     animation-duration: 3s;
     animation-fill-mode: forwards;
-  }
+}
 
-  .appear-sixth {
+.appear-sixth {
     animation-name: appear;
     animation-duration: 3.5s;
     animation-fill-mode: forwards;
-  }
+}
 
-  @media (max-width: 500px){
+@media (max-width: 500px) {
     .card {
         width: 83vw;
     }
-
     .card-img {
         height: 83vw;
         width: 83vw;
     }
+}
 
+.truncate {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }

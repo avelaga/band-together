@@ -58,6 +58,7 @@ export class ConcertListPage extends Component {
   render() {
     return (
       <div className="body">
+        <div className="appear-second">
         <h1 className="title">Concerts</h1>
         {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
         {this.state.results &&
@@ -93,6 +94,7 @@ export class ConcertListPage extends Component {
             </div>
           </div>
         }
+        </div>
       </div>
     );
   }

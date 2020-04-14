@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MediaQuery from 'react-responsive'
 import BandMap from '../layout/BandMap';
 const axios = require("axios").default;
 
@@ -21,7 +22,8 @@ export class LocationDetailsCard extends Component {
       long: null,
       bio: null,
       nextConcertDate: null,
-      nextConcertTime: null
+      nextConcertTime: null,
+      viewMore: false
     }
   }
 
@@ -56,36 +58,121 @@ export class LocationDetailsCard extends Component {
       });
   }
 
+  viewMore = (event) => {
+    this.setState({
+      viewMore: !this.state.viewMore
+    });
+  }
+
   render() {
     if (!this.state.city)
       return null;
+
+    // function viewMore(e) {
+    //   e.preventDefault();
+    //   this.setState({
+    //     viewMore: !this.state.viewMore
+    //   });
+    // }
+
     return (
-      <div style={locDetails}>
-        <div className="details-img">
-          <img src={this.state.image} className="details-card-img"></img>
-        </div>
-        <div style={detailsText}>
-          <h1>{this.state.city}</h1>
-          <h6>Population of {this.state.population}</h6>
-          <h6>Timezone: {this.state.timezone}</h6>
-          <h6>{this.state.region}, {this.state.country}</h6>
-          <h6>Elevation of: {this.state.elevation} ft</h6>
-          <h6>Next Concert: <a href={"/artists/"+this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/"+this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a>, {this.state.nextConcertDate}, {this.state.nextConcertTime}</h6>
-          <h6>{this.state.bio}</h6>
-        </div>
-        <div style={map}>
-          <BandMap lat={this.state.lat} long={this.state.long}/>
-        </div>
+      <div>
+        {/* desktop */}
+        <MediaQuery minDeviceWidth={500}>
+          <div style={locDetails}>
+            <div>
+              <img src={this.state.image} className="details-img"></img>
+            </div>
+            <div style={detailsText}>
+              <h1>{this.state.city}</h1>
+              <h6>Population of {this.state.population}</h6>
+              <h6>Timezone: {this.state.timezone}</h6>
+              <h6>{this.state.region}, {this.state.country}</h6>
+              <h6>Elevation of: {this.state.elevation} ft</h6>
+              <h6>Next Concert: <a href={"/artists/" + this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/" + this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a>, {this.state.nextConcertDate}, {this.state.nextConcertTime}</h6>
+              <h6>{this.state.bio}</h6>
+            </div>
+            <div style={map}>
+              <BandMap lat={this.state.lat} long={this.state.long} />
+            </div>
+          </div>
+        </MediaQuery>
+
+        {/* mobile */}
+        <MediaQuery maxDeviceWidth={500}>
+          <div className="flex">
+
+            <h1 className="title">{this.state.city}</h1>
+
+            <div>
+              <img src={this.state.image} className="mobile-details-img"></img>
+            </div>
+
+            <div style={mobileDetailsText}>
+              <h6>Population of {this.state.population}</h6>
+              <h6>Timezone: {this.state.timezone}</h6>
+              <h6>{this.state.region}, {this.state.country}</h6>
+              <h6>Elevation of: {this.state.elevation} ft</h6>
+              <h6>Next Concert: <a href={"/artists/" + this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/" + this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a>, {this.state.nextConcertDate}, {this.state.nextConcertTime}</h6>
+
+              {!this.state.viewMore &&
+                <div>
+                  <div className="truncate"><h6>{this.state.bio}</h6></div>
+                  <div 
+                    style={mobileButtonStyle}
+                    onClick={(e) => { this.viewMore(e) }}
+                  >
+                    View More
+                  </div>
+                </div>
+              }
+
+              {this.state.viewMore &&
+                <div>
+                  <div><h6>{this.state.bio}</h6></div>
+                  <div
+                    style={mobileButtonStyle}
+                    onClick={(e) => { this.viewMore(e) }}
+                  >
+                    View Less
+                  </div>
+                </div>
+              }
+            </div>
+
+            <div style={mobileMap}>
+              <BandMap lat={this.state.lat} long={this.state.long} />
+            </div>
+
+          </div>
+        </MediaQuery>
       </div>
+
     );
   }
 }
 
 export default LocationDetailsCard;
 
+const mobileButtonStyle = {
+  backgroundColor: 'rgb(0, 119, 255)',
+  width: '30vw',
+  borderRadius: '5px',
+  padding: '7px',
+  margin: 'auto',
+  fontSize: '15px',
+  lineHeight: '30px'
+}
+
 const map = {
   width: '1000px',
   height: '300px',
+}
+
+const mobileMap = {
+  width: '90vw',
+  height: '90vw',
+  marginBottom: '20px'
 }
 
 const detailsText = {
@@ -95,6 +182,14 @@ const detailsText = {
   marginTop: '10px',
   height: '290px',
   width: '680px'
+}
+
+const mobileDetailsText = {
+  color: 'white',
+  textAlign: 'center',
+  width: '90vw',
+  marginTop: '10px',
+  marginBottom: '10px'
 }
 
 const locDetails = {

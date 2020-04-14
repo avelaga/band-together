@@ -58,6 +58,7 @@ export class ArtistListPage extends Component {
   render() {
     return (
       <div className="body">
+        <div className="appear-second">
         <h1 className="title">Artists</h1>
         {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
         {this.state.results &&
@@ -94,6 +95,7 @@ export class ArtistListPage extends Component {
             </div>
           </div>
         }
+        </div>
       </div>
     );
   }
