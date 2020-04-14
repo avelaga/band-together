@@ -87,9 +87,11 @@ export class ConcertDetailsCard extends Component {
         {/* desktop */}
         <MediaQuery minDeviceWidth={500}>
           <div className="details">
-            <div>
+
+            <div style={img}>
               <img src={this.state.venueImage ? this.state.venueImage : this.state.artistImage} className="details-img"></img>
             </div>
+
             <div style={cardText}>
               <a href={"/artists/" + this.state.artistId}><h1>{this.state.artistName}</h1></a>
               <h6><a href={"/locations/" + this.state.locationId}>{this.state.venueName}, {this.state.venue_address}, {this.state.locationName}, {this.state.postal_code}</a></h6>
@@ -103,12 +105,15 @@ export class ConcertDetailsCard extends Component {
 
         {/* mobile */}
         <MediaQuery maxDeviceWidth={500}>
-          <div className="details">
+          <div className="flex">
+
+            <a href={"/artists/" + this.state.artistId}><h1 className="title" style={titleMargin}>{this.state.artistName}</h1></a>
+
             <div>
-              <img src={this.state.venueImage ? this.state.venueImage : this.state.artistImage} className="details-img"></img>
+              <img src={this.state.venueImage ? this.state.venueImage : this.state.artistImage} className="mobile-details-img"></img>
             </div>
-            <div style={cardText}>
-              <a href={"/artists/" + this.state.artistId}><h1>{this.state.artistName}</h1></a>
+
+            <div className="mobile-details-text">
               <h6><a href={"/locations/" + this.state.locationId}>{this.state.venueName}, {this.state.venue_address}, {this.state.locationName}, {this.state.postal_code}</a></h6>
               <h6>{this.state.date}</h6>
               <h6>{this.state.time}</h6>
@@ -125,10 +130,23 @@ export class ConcertDetailsCard extends Component {
 export default ConcertDetailsCard;
 
 const cardText = {
+  fontSize: '2px',
   color: 'white',
-  float: 'left',
   textAlign: 'left',
   marginLeft: '10px',
-  width: '680px',
-  overflowWrap: 'normal'
+  marginTop: '10px',
+  height: '300px',
+  width: '990px',
+  marginRight: '10px'
+}
+
+const img = {
+  float: 'left',
+  height: '300px',
+  width: '300px',
+  marginRight: '10px'
+}
+
+const titleMargin = {
+  marginBottom: '20px'
 }
