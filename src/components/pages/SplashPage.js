@@ -4,7 +4,7 @@ import "./pages.css";
 export class SplashPage extends Component {
   render() {
     return (
-      <div style={splashPage} className="splash-back">
+      <div  className="splash-back body">
         <div style={row}>
           <div style={splashText}></div>
           <div style={splashText}></div>
@@ -17,13 +17,6 @@ export class SplashPage extends Component {
       </div>
     );
   }
-}
-
-const splashPage = {
-  backgroundColor: 'black',
-  backgroundSize: '100%',
-  height: '94vh',
-  textAlign: 'center'
 }
 
 const splashText = {

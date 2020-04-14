@@ -109,8 +109,8 @@ const mobileNav = {
 }
 
 const navbarLogo = {
-  width: '5vw',
-  height: '6vh',
+  width: '50px',
+  height: '50px',
   float: 'left'
 }
 

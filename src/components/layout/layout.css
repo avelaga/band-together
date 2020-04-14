@@ -1,7 +1,7 @@
 /* wasnt able to remove this, caused errors */
 .band-navbar {
     background-color: black;
-    height: 6vh;
+    height: 50px;
     width: calc(100vw-16px);
 }
 
