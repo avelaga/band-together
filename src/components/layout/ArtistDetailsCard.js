@@ -66,7 +66,7 @@ export class ArtistDetailsCard extends Component {
         <MediaQuery minDeviceWidth={500}>
           <div className="details">
             <div style={img}>
-              <img src={this.state.image} className="details-card-img"></img>
+              <img src={this.state.image} className="details-img"></img>
             </div>
             <div style={bio}>
               <h1>{this.state.name}</h1>
