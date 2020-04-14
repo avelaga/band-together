@@ -56,6 +56,7 @@ export class Navbar extends Component {
         <MediaQuery maxDeviceWidth={500}>
           <div style={mobileNav}>
             <div><a href="/"><img style={mobileNavbarLogo} src={Logo} /></a></div>
+            <div style={navMenu}>
             <HamburgerMenu
               isOpen={this.state.open}
               menuClicked={this.handleClick.bind(this)}
@@ -67,6 +68,7 @@ export class Navbar extends Component {
               borderRadius={0}
               animationDuration={0.5}
             />
+            </div>
             {this.state.open &&
               <div className="flex">
                 <hr style={line} className="appear-first"/>
@@ -100,12 +102,15 @@ const mobileNavbarLink = {
 }
 
 const mobileNav = {
-  paddingTop: '10px',
-  paddingRight: '5px',
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-between',
   backgroundColor: 'black'
+}
+
+const navMenu = {
+  paddingTop: '10px',
+  paddingRight: '10px',
 }
 
 const navbarLogo = {
@@ -115,8 +120,8 @@ const navbarLogo = {
 }
 
 const mobileNavbarLogo = {
-  width: '50px',
-  height: '50px',
+  width: '60px',
+  height: '60px',
 }
 
 const linksContainer = {
