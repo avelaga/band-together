@@ -91,15 +91,15 @@ export class LocationListPage extends Component {
         <div className="appear-second">
           <h1 className="title">Locations</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-          {this.state.results &&
+          {(this.state.results && this.state.count > 0) &&
             <div>
               <div className="search-div">
-              <SearchField
-                placeholder="Search..."
-                onEnter={(e) => { this.newSearch(e) }}
-                onSearchClick={(e) => { this.newSearch(e) }}
-              />
-            </div>
+                <SearchField
+                  placeholder="Search..."
+                  onEnter={(e) => { this.newSearch(e) }}
+                  onSearchClick={(e) => { this.newSearch(e) }}
+                />
+              </div>
               <div className="flex">
                 {this.state.results.map((value, index) => {
                   return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} />
@@ -133,22 +133,20 @@ export class LocationListPage extends Component {
           }
 
           {/* If count = 0, show no results page */}
-         {(this.state.count === 0) &&
-          <div>
-            <div className="search-div">
-              <SearchField
-                placeholder="Search..."
-                onEnter={(e) => { this.newSearch(e) }}
-                onSearchClick={(e) => { this.newSearch(e) }}
-              />
+          {(this.state.count === 0) &&
+            <div>
+              <div className="search-div">
+                <SearchField
+                  placeholder="Search..."
+                  onEnter={(e) => { this.newSearch(e) }}
+                  onSearchClick={(e) => { this.newSearch(e) }}
+                />
+              </div>
+              <div className="flex" style={noResults}>
+                <h1>No results found</h1>
+              </div>
             </div>
-            <div className="flex" style={noResults}>
-              <h1>No results found</h1>
-            </div>
-          </div>
-        }
-
-        
+          }
         </div>
       </div>
     );
