@@ -8,6 +8,7 @@ export class ConcertCard extends Component {
         <div className="card-text">
           <h2>{this.props.name}</h2>
           <h6>{this.props.city}</h6>
+          <h6>{this.props.venueName}</h6>
           <h6>{this.props.date}, {this.props.time}</h6>
           { this.props.ticket_min && <h6>${this.props.ticket_min} - ${this.props.ticket_max}</h6> }
           <div className="card-stats">
