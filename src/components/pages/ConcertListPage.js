@@ -2,6 +2,7 @@ import React, { Component, Children } from "react";
 import ConcertCard from '../layout/ConcertCard.js';
 import { Pagination } from "semantic-ui-react";
 import SearchField from "react-search-field";
+import MediaQuery from 'react-responsive'
 const axios = require("axios").default;
 
 export class ConcertListPage extends Component {
@@ -83,6 +84,8 @@ export class ConcertListPage extends Component {
   render() {
     return (
       <div className="body">
+        <div className="appear-second">
+        <h1 className="title">Concerts</h1>
         {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
         {(this.state.results && this.state.count > 0) &&
           <div>
@@ -99,12 +102,28 @@ export class ConcertListPage extends Component {
               })}
             </div>
             <div className="pagination-menu">
-              <Pagination
-                activePage={this.state.page}
-                totalPages={Math.ceil(this.state.count / 10)}
-                siblingRange={1}
-                onPageChange={this.setPageNum}
-              />
+              {/* desktop */}
+              <MediaQuery minDeviceWidth={500}>
+                <Pagination
+                  activePage={this.state.page}
+                  totalPages={Math.ceil(this.state.count / 10)}
+                  siblingRange={1}
+                  onPageChange={this.setPageNum}
+                  
+                />
+              </MediaQuery>
+
+              {/* mobile */}
+              <MediaQuery maxDeviceWidth={500}>
+                <Pagination
+                  activePage={this.state.page}
+                  totalPages={Math.ceil(this.state.count / 10)}
+                  siblingRange={1}
+                  onPageChange={this.setPageNum}
+                  ellipsisItem={null}
+                  boundaryRange={0}
+                />
+              </MediaQuery>
             </div>
           </div>
         }
@@ -124,6 +143,7 @@ export class ConcertListPage extends Component {
             </div>
           </div>
         }
+        </div>
       </div>
     );
   }

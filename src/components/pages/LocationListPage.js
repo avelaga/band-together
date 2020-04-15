@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import LocationCard from '../layout/LocationCard.js';
 import { Pagination } from "semantic-ui-react";
 import SearchField from "react-search-field";
+import MediaQuery from 'react-responsive'
 const axios = require("axios").default;
 import "./pages.css";
 
@@ -87,32 +88,51 @@ export class LocationListPage extends Component {
   render() {
     return (
       <div className="body">
-        {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-        {(this.state.results && this.state.count > 0) &&
-          <div>
-            <div className="search-div">
+        <div className="appear-second">
+          <h1 className="title">Locations</h1>
+          {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
+          {this.state.results &&
+            <div>
+              <div className="search-div">
               <SearchField
                 placeholder="Search..."
                 onEnter={(e) => { this.newSearch(e) }}
                 onSearchClick={(e) => { this.newSearch(e) }}
               />
             </div>
-            <div className="flex">
-              {this.state.results.map((value, index) => {
-                return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} />
-              })}
+              <div className="flex">
+                {this.state.results.map((value, index) => {
+                  return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} />
+                })}
+              </div>
+              <div className="pagination-menu">
+                {/* desktop */}
+                <MediaQuery minDeviceWidth={500}>
+                  <Pagination
+                    activePage={this.state.page}
+                    totalPages={Math.ceil(this.state.count / 10)}
+                    siblingRange={1}
+                    onPageChange={this.setPageNum}
+
+                  />
+                </MediaQuery>
+
+                {/* mobile */}
+                <MediaQuery maxDeviceWidth={500}>
+                  <Pagination
+                    activePage={this.state.page}
+                    totalPages={Math.ceil(this.state.count / 10)}
+                    siblingRange={1}
+                    onPageChange={this.setPageNum}
+                    ellipsisItem={null}
+                    boundaryRange={0}
+                  />
+                </MediaQuery>
+              </div>
             </div>
-            <div className="pagination-menu">
-              <Pagination
-                activePage={this.state.page}
-                totalPages={Math.ceil(this.state.count / 10)}
-                siblingRange={1}
-                onPageChange={this.setPageNum}
-              />
-            </div>
-          </div>
-        }
-         {/* If count = 0, show no results page */}
+          }
+
+          {/* If count = 0, show no results page */}
          {(this.state.count === 0) &&
           <div>
             <div className="search-div">
@@ -127,6 +147,9 @@ export class LocationListPage extends Component {
             </div>
           </div>
         }
+
+        
+        </div>
       </div>
     );
   }

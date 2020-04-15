@@ -1,12 +1,12 @@
 /* cant figure out how to make this local splash page style because of syntax problems with quotation marks */
 .splash-back {
-  background: url("../../../dist/images/mic.jpeg") no-repeat center center fixed;
+  background: url("../../../dist/images/mic.jpeg") no-repeat center;
 }
 
 .body {
   background-color: black;
   background-size: 100%;
-  min-height: 94vh;
+  min-height: calc(100vh - 50px);
 }
 
 .flex {
@@ -31,6 +31,15 @@ a:visited {
   padding: 30px;
 }
 
+.splash-text {
+  color: white;
+  display: flex;
+  flex-direction:  column;
+  flex-basis: 100%;
+  flex: 4;
+  text-align: right;
+}
+
 /* overriding pagination menu styles */
 .item {
   background-color: black !important;
@@ -46,8 +55,8 @@ a:visited {
 .lds-ripple {
   display: inline-block;
   position: fixed;
-  bottom: 50vh;
-  right: 50vw;
+  bottom: calc(50vh - 40px);
+  right: calc(50vw - 40px);
   width: 80px;
   height: 80px;
 }
@@ -86,4 +95,75 @@ a:visited {
     height: 72px;
     opacity: 0;
   }
+}
+
+@media (max-width: 500px){
+  .splash-back {
+    /* background-size: auto calc(100vh - 50px) !important; */
+    background: url("../../../dist/images/mic-mobile.jpeg") no-repeat center;
+  }
+
+  h1 {
+    font-size: 50px !important;
+  }
+
+  h2 {
+    font-size: 35px !important;
+  }
+
+  h6 {
+    font-size: 20px !important;
+  }
+}
+
+.title {
+  color: white;
+  text-align: center;
+  line-height: 20px;
+  padding-top: 20px;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
+.appear-first {
+  animation-name: appear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.appear-second {
+  animation-name: appear;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.appear-third {
+  animation-name: appear;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.appear-fourth {
+  animation-name: appear;
+  animation-duration: 2.5s;
+  animation-fill-mode: forwards;
+}
+
+.appear-fifth {
+  animation-name: appear;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.appear-sixth {
+  animation-name: appear;
+  animation-duration: 3.5s;
+  animation-fill-mode: forwards;
 }
