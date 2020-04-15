@@ -139,7 +139,6 @@ describe("Artist Detail Page", function()  {
     chai.request('http://bandtogether.events').get('/artists/1')
        .end(function(err, res) {
          expect(res).to.have.status(200);
-         
    });
   });
 
@@ -263,12 +262,12 @@ describe("Concert Detail Page", function()  {
 
 describe("Location List Page", function()  {
 
-  it("Location List Renders", () => {
-    act(() => {
-      ReactDOM.render(<LocationListPage />, rootContainer);
-    });
+  // it("Location List Renders", () => {
+  //   act(() => {
+  //     ReactDOM.render(<LocationListPage />, rootContainer);
+  //   });
 
-  });
+  // });
 
   it("Location list read", () => {
       chai.request('http://bandtogether.events').get('/locations')
@@ -276,6 +275,42 @@ describe("Location List Page", function()  {
         expect(res).to.have.status(200);
     });
   });
+
+  it("Location ID = 1 Renders Denver", () => {
+    chai.request('http://bandtogether.events').get('/locations/1')
+       .end(function(err, res) {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('name');
+        expect(res.body.name).to.be('Denver');
+        });
+    });
+
+   it("Location ID = 1 Renders Correct ID", () => {
+    chai.request('http://bandtogether.events').get('/locations/1')
+       .end(function(err, res) {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('id');
+        expect(res.body.id).to.be(1);
+        });
+    });
+
+    it("Location ID = 2 Renders Knoxville", () => {
+      chai.request('http://bandtogether.events').get('/loctions/2')
+         .end(function(err, res) {
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('name');
+          expect(res.body.name).to.be('Knoxville');
+          });
+      });
+  
+     it("Location ID = 2 Renders Location ID", () => {
+      chai.request('http://bandtogether.events').get('/locations/2')
+         .end(function(err, res) {
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('id');
+          expect(res.body.id).to.be(2);
+          });
+      });
 
  });
 
