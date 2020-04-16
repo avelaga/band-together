@@ -142,7 +142,7 @@ export class ConcertListPage extends Component {
     });
   };
 
-  ticketSlidersChangeCommitted = (event, newValue) => {
+  onChangeCommitted = (event, newValue) => {
     this.updateState();
   }
 
@@ -198,7 +198,7 @@ export class ConcertListPage extends Component {
                       <Slider
                         value={[this.state.minTicket, this.state.maxTicket]}
                         onChange={this.ticketSlidersChange}
-                        onChangeCommitted={this.ticketSlidersChangeCommitted}
+                        onChangeCommitted={this.onChangeCommitted}
                         valueLabelDisplay="auto"
                         aria-labelledby="range-slider"
                         style={sliderStyle}

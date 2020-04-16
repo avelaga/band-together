@@ -140,14 +140,18 @@ export class LocationListPage extends Component {
     this.setState({
       minElevation: newValue[0],
       maxElevation: newValue[1]
-    }, this.updateState);
+    });
   };
 
   populationSlidersChange = (event, newValue) => {
     this.setState({
       minPopulation: newValue[0],
       maxPopulation: newValue[1]
-    }, this.updateState);
+    });
+  };
+
+  onChangeCommitted = (event, newValue) => {
+    this.updateState();
   };
 
   reset = (event) => {
@@ -203,6 +207,7 @@ export class LocationListPage extends Component {
                       <Slider
                         value={[this.state.minElevation, this.state.maxElevation]}
                         onChange={this.elevationSlidersChange}
+                        onChangeCommitted={this.onChangeCommitted}
                         valueLabelDisplay="auto"
                         aria-labelledby="range-slider"
                         style={sliderStyle}
@@ -217,6 +222,7 @@ export class LocationListPage extends Component {
                       <Slider
                         value={[this.state.minPopulation, this.state.maxPopulation]}
                         onChange={this.populationSlidersChange}
+                        onChangeCommitted={this.onChangeCommitted}
                         valueLabelDisplay="auto"
                         aria-labelledby="range-slider"
                         style={sliderStyle}

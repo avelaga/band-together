@@ -128,14 +128,18 @@ export class ArtistListPage extends Component {
     this.setState({
       minPop: newValue[0],
       maxPop: newValue[1]
-    }, this.updateState);
+    });
+  };
+
+  onChangeCommitted = (event, newValue) => {
+    this.updateState();
   };
 
   followerSlidersChange = (event, newValue) => {
     this.setState({
       minFollowers: newValue[0],
       maxFollowers: newValue[1]
-    }, this.updateState);
+    });
   };
 
   reset = (event) => {
@@ -188,6 +192,7 @@ export class ArtistListPage extends Component {
                       <Slider
                         value={[this.state.minPop, this.state.maxPop]}
                         onChange={this.popularitySlidersChange}
+                        onChangeCommitted={this.onChangeCommitted}
                         valueLabelDisplay="auto"
                         aria-labelledby="range-slider"
                         style={sliderStyle}
@@ -200,6 +205,7 @@ export class ArtistListPage extends Component {
                       <Slider
                         value={[this.state.minFollowers, this.state.maxFollowers]}
                         onChange={this.followerSlidersChange}
+                        onChangeCommitted={this.onChangeCommitted}
                         valueLabelDisplay="auto"
                         aria-labelledby="range-slider"
                         style={sliderStyle}
