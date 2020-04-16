@@ -10,6 +10,7 @@ export class ConcertCard extends Component {
           <h6>{this.props.city}</h6>
           <h6>{this.props.venueName}</h6>
           <h6>{this.props.date}, {this.props.time}</h6>
+          <h6>{this.props.artistGenre}</h6>
           { this.props.ticket_min && <h6>${this.props.ticket_min} - ${this.props.ticket_max}</h6> }
           <div className="card-stats">
           <h6><a href={this.props.location_url}>Location Info</a> / <a href={this.props.artist_url}>Artist Info</a></h6>

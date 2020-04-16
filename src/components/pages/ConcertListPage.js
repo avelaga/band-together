@@ -1,4 +1,4 @@
-import React, { Component, Children } from "react";
+import React, { Component } from "react";
 import ConcertCard from '../layout/ConcertCard.js';
 import { Pagination } from "semantic-ui-react";
 import SearchField from "react-search-field";
@@ -18,7 +18,6 @@ export class ConcertListPage extends Component {
       results: null,
       page: 1,
       searched: false,
-
       query: '',
       sortBy: "date",
       ascending: 1,
@@ -128,13 +127,6 @@ export class ConcertListPage extends Component {
     this.setState({ ascending: -1 }, this.updateState);
   }
 
-  dateSlidersChange = (event, newValue) => {
-    this.setState({
-      minDate: newValue[0],
-      maxDate: newValue[1]
-    }, this.updateState);
-  };
-
   ticketSlidersChange = (event, newValue) => {
     this.setState({
       minTicket: newValue[0],
@@ -170,30 +162,24 @@ export class ConcertListPage extends Component {
       <div className="body">
         <div className="appear-second">
           <h1 className="title">Concerts</h1>
-
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
           {this.state.results &&
-
             <div>
               <div className="search-div flex">
-
-                <DropdownButton id="dropdown-basic-button" title="Sort by" style={margin}>
+                <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right">
                   <Dropdown.Item style={this.state.sortBy === "date" ? activeDropdown : inactiveDropdown} onClick={this.sortDate}>Date</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "venue__name" ? activeDropdown : inactiveDropdown} onClick={this.sortVenue}>Venue</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "location__city" ? activeDropdown : inactiveDropdown} onClick={this.sortLocation}>Location</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "artist__name" ? activeDropdown : inactiveDropdown} onClick={this.sortArtist}>Artist</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "ticket_min" ? activeDropdown : inactiveDropdown} onClick={this.sortTicket}>Ticket Price</Dropdown.Item>
                 </DropdownButton>
-
-                <DropdownButton id="dropdown-basic-button" title="Order by" style={margin}>
+                <DropdownButton id="dropdown-basic-button" title="Order by" className="margin-right">
                   <Dropdown.Item style={this.state.ascending === 1 ? activeDropdown : inactiveDropdown} onClick={this.sortAscending}>Ascending</Dropdown.Item>
                   <Dropdown.Item style={this.state.ascending === -1 ? activeDropdown : inactiveDropdown} onClick={this.sortDescending}>Descending</Dropdown.Item>
                 </DropdownButton>
-
-                <DropdownButton id="dropdown-basic-button" title="Filter by" style={margin}>
-
+                <DropdownButton id="dropdown-basic-button" title="Filter by" className="margin-right">
                   <Dropdown.Item>
-                    <div style={sliderDiv}>
+                    <div className="slider-div">
                       <h6>Ticket Price</h6>
                       <Slider
                         value={[this.state.minTicket, this.state.maxTicket]}
@@ -208,21 +194,18 @@ export class ConcertListPage extends Component {
                     </div>
                   </Dropdown.Item>
                 </DropdownButton>
-
-                <div style={margin}>
+                <div className="margin-right">
                   <SearchField
                     placeholder="Search..."
                     onEnter={(e) => { this.newSearch(e) }}
                     onSearchClick={(e) => { this.newSearch(e) }}
-
                   />
                 </div>
-                <div style={buttonStyle} onClick={this.reset}>Reset</div>
+                <div className="button-style" onClick={this.reset}>Reset</div>
               </div>
-
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&
-                <div className="flex" style={white}>
+                <div className="flex white">
                   <h1>No results found</h1>
                 </div>
               }
@@ -231,7 +214,7 @@ export class ConcertListPage extends Component {
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <ConcertCard key={index} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.id} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} search={this.state.searched} />
+                      return <ConcertCard key={index} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.id} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} artistGenre={value.artistGenre} search={this.state.searched} />
                     })}
                   </div>
                   <div className="pagination-menu">
@@ -242,7 +225,6 @@ export class ConcertListPage extends Component {
                         totalPages={Math.ceil(this.state.count / 10)}
                         siblingRange={1}
                         onPageChange={this.setPageNum}
-
                       />
                     </MediaQuery>
                     {/* mobile */}
@@ -259,7 +241,6 @@ export class ConcertListPage extends Component {
                   </div>
                 </div>
               }
-
             </div>
           }
         </div>
@@ -269,17 +250,6 @@ export class ConcertListPage extends Component {
 }
 
 export default ConcertListPage;
-
-const white = {
-  color: 'white',
-  textAlign: 'center'
-}
-
-const buttonStyle = {
-  backgroundColor: 'rgb(0, 119, 255)',
-  padding: '7px',
-  color: 'white'
-}
 
 const mobileButtonStyle = {
   backgroundColor: 'rgb(0, 119, 255)',
@@ -295,12 +265,6 @@ const sliderStyle = {
   width: '150px'
 }
 
-const sliderDiv = {
-  padding: '10px',
-  color: 'black',
-  textAlign: 'center'
-}
-
 const inactiveDropdown = {
   backgroundColor: 'white',
   color: 'black'
@@ -310,8 +274,4 @@ const activeDropdown = {
   fontWeight: 'bolder',
   backgroundColor: 'white',
   color: 'black'
-}
-
-const margin = {
-  marginRight: '10px'
 }

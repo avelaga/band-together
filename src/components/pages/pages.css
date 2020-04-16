@@ -170,6 +170,23 @@ a:visited {
   animation-fill-mode: forwards;
 }
 
-.dropdown-item:active {
-  background-color: none !important;
+.white {
+  color: white;
+  text-align: center;
+}
+
+.button-style {
+  background-color: rgb(0, 119, 255);
+  padding: 7px;
+  color: white;
+}
+
+.slider-div {
+  padding: 10px;
+  color: black;
+  text-align: center;
+}
+
+.margin-right {
+  margin-right: 10px;
 }

@@ -18,7 +18,6 @@ export class ArtistListPage extends Component {
       results: null,
       page: 1,
       searched: false,
-
       query: '',
       sortBy: "name",
       ascending: 1,
@@ -166,28 +165,23 @@ export class ArtistListPage extends Component {
       <div className="body">
         <div className="appear-second">
           <h1 className="title">Artists</h1>
-
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
           {this.state.results &&
-
             <div>
               <div className="search-div flex">
-
-                <DropdownButton id="dropdown-basic-button" title="Sort by" style={margin}>
+                <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right">
                   <Dropdown.Item style={this.state.sortBy === "name" ? activeDropdown : inactiveDropdown} onClick={this.sortName}>Name</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "genre" ? activeDropdown : inactiveDropdown} onClick={this.sortGenre}>Genre</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "num_spotify_followers" ? activeDropdown : inactiveDropdown} onClick={this.sortFollowers}>Followers</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "popularity_score" ? activeDropdown : inactiveDropdown} onClick={this.sortPopularity}>Popularity</Dropdown.Item>
                 </DropdownButton>
-
-                <DropdownButton id="dropdown-basic-button" title="Order by" style={margin}>
+                <DropdownButton id="dropdown-basic-button" title="Order by" className="margin-right">
                   <Dropdown.Item style={this.state.ascending === 1 ? activeDropdown : inactiveDropdown} onClick={this.sortAscending}>Ascending</Dropdown.Item>
                   <Dropdown.Item style={this.state.ascending === -1 ? activeDropdown : inactiveDropdown} onClick={this.sortDescending}>Descending</Dropdown.Item>
                 </DropdownButton>
-
-                <DropdownButton id="dropdown-basic-button" title="Filter by" style={margin}>
+                <DropdownButton id="dropdown-basic-button" title="Filter by" className="margin-right">
                   <Dropdown.Item >
-                    <div style={sliderDiv}>
+                    <div className="slider-div">
                       <h6>Popularity</h6>
                       <Slider
                         value={[this.state.minPop, this.state.maxPop]}
@@ -200,7 +194,7 @@ export class ArtistListPage extends Component {
                     </div>
                   </Dropdown.Item>
                   <Dropdown.Item>
-                    <div style={sliderDiv}>
+                    <div className="slider-div">
                       <h6>Followers</h6>
                       <Slider
                         value={[this.state.minFollowers, this.state.maxFollowers]}
@@ -215,22 +209,18 @@ export class ArtistListPage extends Component {
                     </div>
                   </Dropdown.Item>
                 </DropdownButton>
-
-                <div style={margin}>
+                <div className="margin-right">
                   <SearchField
                     placeholder="Search..."
                     onEnter={(e) => { this.newSearch(e) }}
                     onSearchClick={(e) => { this.newSearch(e) }}
-
                   />
                 </div>
-                <div style={buttonStyle} onClick={this.reset}>Reset</div>
-
+                <div className="button-style" onClick={this.reset}>Reset</div>
               </div>
-
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&
-                <div className="flex" style={white}>
+                <div className="flex white">
                   <h1>No results found</h1>
                 </div>
               }
@@ -250,7 +240,6 @@ export class ArtistListPage extends Component {
                         totalPages={Math.ceil(this.state.count / 10)}
                         siblingRange={1}
                         onPageChange={this.setPageNum}
-
                       />
                     </MediaQuery>
                     {/* mobile */}
@@ -267,7 +256,6 @@ export class ArtistListPage extends Component {
                   </div>
                 </div>
               }
-
             </div>
           }
         </div>
@@ -277,17 +265,6 @@ export class ArtistListPage extends Component {
 }
 
 export default ArtistListPage;
-
-const white = {
-  color: 'white',
-  textAlign: 'center'
-}
-
-const buttonStyle = {
-  backgroundColor: 'rgb(0, 119, 255)',
-  padding: '7px',
-  color: 'white'
-}
 
 const mobileButtonStyle = {
   backgroundColor: 'rgb(0, 119, 255)',
@@ -303,12 +280,6 @@ const sliderStyle = {
   width: '150px'
 }
 
-const sliderDiv = {
-  padding: '10px',
-  color: 'black',
-  textAlign: 'center'
-}
-
 const inactiveDropdown = {
   backgroundColor: 'white',
   color: 'black'
@@ -318,8 +289,4 @@ const activeDropdown = {
   fontWeight: 'bolder',
   backgroundColor: 'white',
   color: 'black'
-}
-
-const margin = {
-  marginRight: '10px'
 }
