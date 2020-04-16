@@ -4,26 +4,19 @@ import "./pages.css";
 export class SplashPage extends Component {
   render() {
     return (
-      <div style={splashPage} className="splash-back">
-        <div style={row}>
+      <div className="splash-back body">
+        <div style={row} >
           <div style={splashText}></div>
           <div style={splashText}></div>
-          <div style={splashText}>
-            <h1>Band Together</h1>
-            <p>Find the music you love</p>
+          <div className="splash-text">
+            <h1 className="appear-fourth">Band Together</h1>
+            <p className="appear-sixth">Find the music you love</p>
           </div>
           <div style={splashText}></div>
         </div>
       </div>
     );
   }
-}
-
-const splashPage = {
-  backgroundColor: 'black',
-  backgroundSize: '100%',
-  height: '94vh',
-  textAlign: 'center'
 }
 
 const splashText = {
