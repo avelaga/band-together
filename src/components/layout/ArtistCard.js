@@ -13,7 +13,7 @@ export class ArtistCard extends Component {
           <div className="card" style={height}>
             <a href={this.props.artist_url}><img src={this.props.img} className="card-img"></img></a>
             <div className="card-text">
-              <h2>{this.props.name}</h2>
+              <h2>{this.props.search ? <mark>{this.props.name}</mark> : this.props.name}</h2>
               <h6>Genre: {this.props.genre}</h6>
               <h6>{this.props.followers} Spotify followers</h6>
               <h6>Popularity Score: {this.props.popularity}</h6>
