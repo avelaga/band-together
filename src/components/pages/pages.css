@@ -169,3 +169,7 @@ a:visited {
   animation-duration: 3.5s;
   animation-fill-mode: forwards;
 }
+
+.dropdown-item:active {
+  background-color: none !important;
+}

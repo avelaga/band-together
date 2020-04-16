@@ -4,6 +4,8 @@ import { Pagination } from "semantic-ui-react";
 import SearchField from "react-search-field";
 import MediaQuery from 'react-responsive'
 import Slider from '@material-ui/core/Slider';
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
 const axios = require("axios").default;
 
 export class ArtistListPage extends Component {
@@ -166,47 +168,56 @@ export class ArtistListPage extends Component {
 
             <div>
               <div className="search-div flex">
-                <div className="title">sort by: </div>
-                <div style={buttonStyle} onClick={this.sortName}>Name</div>
-                <div style={buttonStyle} onClick={this.sortGenre}>Genre</div>
-                <div style={buttonStyle} onClick={this.sortFollowers}>Followers</div>
-                <div style={buttonStyle} onClick={this.sortPopularity}>Populairty</div>
-                <div style={buttonStyle} onClick={this.sortAscending}>Ascending</div>
-                <div style={buttonStyle} onClick={this.sortDescending}>Descending</div>
 
-                <div className="title">filter by: </div>
+                <DropdownButton id="dropdown-basic-button" title="Sort by" style={margin}>
+                  <Dropdown.Item style={this.state.sortBy === "name" ? activeDropdown : inactiveDropdown} onClick={this.sortName}>Name</Dropdown.Item>
+                  <Dropdown.Item style={this.state.sortBy === "genre" ? activeDropdown : inactiveDropdown} onClick={this.sortGenre}>Genre</Dropdown.Item>
+                  <Dropdown.Item style={this.state.sortBy === "num_spotify_followers" ? activeDropdown : inactiveDropdown} onClick={this.sortFollowers}>Followers</Dropdown.Item>
+                  <Dropdown.Item style={this.state.sortBy === "popularity_score" ? activeDropdown : inactiveDropdown} onClick={this.sortPopularity}>Popularity</Dropdown.Item>
+                </DropdownButton>
 
-                <div style={sliderDiv}>
-                  <h6>Popularity</h6>
-                  <Slider
-                    value={[this.state.minPop, this.state.maxPop]}
-                    onChange={this.popularitySlidersChange}
-                    valueLabelDisplay="auto"
-                    aria-labelledby="range-slider"
-                    style={sliderStyle}
+                <DropdownButton id="dropdown-basic-button" title="Order by" style={margin}>
+                  <Dropdown.Item style={this.state.ascending === 1 ? activeDropdown : inactiveDropdown} onClick={this.sortAscending}>Ascending</Dropdown.Item>
+                  <Dropdown.Item style={this.state.ascending === -1 ? activeDropdown : inactiveDropdown} onClick={this.sortDescending}>Descending</Dropdown.Item>
+                </DropdownButton>
+
+                <DropdownButton id="dropdown-basic-button" title="Filter by" style={margin}>
+                  <Dropdown.Item >
+                    <div style={sliderDiv}>
+                      <h6>Popularity</h6>
+                      <Slider
+                        value={[this.state.minPop, this.state.maxPop]}
+                        onChange={this.popularitySlidersChange}
+                        valueLabelDisplay="auto"
+                        aria-labelledby="range-slider"
+                        style={sliderStyle}
+                      />
+                    </div>
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <div style={sliderDiv}>
+                      <h6>Followers</h6>
+                      <Slider
+                        value={[this.state.minFollowers, this.state.maxFollowers]}
+                        onChange={this.followerSlidersChange}
+                        valueLabelDisplay="auto"
+                        aria-labelledby="range-slider"
+                        style={sliderStyle}
+                        min={0}
+                        max={34000000}
+                      />
+                    </div>
+                  </Dropdown.Item>
+                </DropdownButton>
+
+                <div style={margin}>
+                  <SearchField
+                    placeholder="Search..."
+                    onEnter={(e) => { this.newSearch(e) }}
+                    onSearchClick={(e) => { this.newSearch(e) }}
+                    
                   />
                 </div>
-
-                <div style={sliderDiv}>
-                  <h6>Followers</h6>
-                  <Slider
-                    value={[this.state.minFollowers, this.state.maxFollowers]}
-                    onChange={this.followerSlidersChange}
-                    valueLabelDisplay="auto"
-                    aria-labelledby="range-slider"
-                    style={sliderStyle}
-
-                    min={0}
-                    max={34000000}
-                  />
-                </div>
-
-                <SearchField
-                  placeholder="Search..."
-                  onEnter={(e) => { this.newSearch(e) }}
-                  onSearchClick={(e) => { this.newSearch(e) }}
-                />
-
                 <div style={buttonStyle} onClick={this.reset}>RESET</div>
 
               </div>
@@ -266,9 +277,7 @@ const white = {
 
 const buttonStyle = {
   backgroundColor: 'rgb(0, 119, 255)',
-  borderRadius: '5px',
   padding: '7px',
-  marginRight: '5px',
   color: 'white'
 }
 
@@ -288,6 +297,21 @@ const sliderStyle = {
 
 const sliderDiv = {
   padding: '10px',
-  color: 'white',
+  color: 'black',
   textAlign: 'center'
+}
+
+const inactiveDropdown = {
+  backgroundColor: 'white',
+  color: 'black'
+}
+
+const activeDropdown = {
+  fontWeight: 'bolder',
+  backgroundColor: 'white',
+  color: 'black'
+}
+
+const margin = {
+  marginRight: '10px'
 }
