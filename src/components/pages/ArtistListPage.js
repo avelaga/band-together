@@ -14,7 +14,8 @@ export class ArtistListPage extends Component {
       prev: null,
       results: null,
       page: 1,
-      searchTerm: ''
+      searchTerm: '',
+      searched: false
     }
   }
 
@@ -23,7 +24,7 @@ export class ArtistListPage extends Component {
       searchTerm: "query=" + value
     });
 
-    let url = "http://192.168.1.170:8000/restapi/artist/search?" + "query=" + value;
+    let url = "http://72.182.112.17:8000/restapi/artist/search?" + "query=" + value;
     axios
       .get(
         url
@@ -34,7 +35,8 @@ export class ArtistListPage extends Component {
           next: res.data.next,
           prev: res.data.previous,
           results: res.data.results,
-          page: 1
+          page: 1,
+          searched: true
         });
       })
       .catch(err => {
@@ -44,7 +46,7 @@ export class ArtistListPage extends Component {
 
 
   componentDidMount() {
-    let url = "http://192.168.1.170:8000/restapi/artist";
+    let url = "http://72.182.112.17:8000/restapi/artist";
     axios
       .get(
         url
@@ -64,7 +66,7 @@ export class ArtistListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "http://192.168.1.170:8000/restapi/artist/search?";
+    let url = "http://72.182.112.17:8000/restapi/artist/search?";
     axios
       .get(
         url + "page=" + activePage + "&" + this.state.searchTerm
@@ -100,7 +102,7 @@ export class ArtistListPage extends Component {
             </div>
             <div className="flex">
               {this.state.results.map((value, index) => {
-                return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} />
+                return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} search={this.state.searched} />
               })}
             </div>
             <div className="pagination-menu">

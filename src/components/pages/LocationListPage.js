@@ -18,7 +18,8 @@ export class LocationListPage extends Component {
       prev: null,
       results: null,
       page: 1,
-      searchTerm: ''
+      searchTerm: '',
+      searched: false
     }
   }
 
@@ -27,7 +28,7 @@ export class LocationListPage extends Component {
       searchTerm: "query=" + value
     });
 
-    let url = "http://192.168.1.170:8000/restapi/location/search?" + "query=" + value;
+    let url = "http://72.182.112.17:8000/restapi/location/search?" + "query=" + value;
     axios
       .get(
         url
@@ -38,7 +39,8 @@ export class LocationListPage extends Component {
           next: res.data.next,
           prev: res.data.previous,
           results: res.data.results,
-          page: 1
+          page: 1,
+          searched: true
         });
       })
       .catch(err => {
@@ -47,7 +49,7 @@ export class LocationListPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://192.168.1.170:8000/restapi/location";
+    let url = "http://72.182.112.17:8000/restapi/location";
     axios
       .get(
         url
@@ -67,7 +69,7 @@ export class LocationListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "http://192.168.1.170:8000/restapi/location/search?";
+    let url = "http://72.182.112.17:8000/restapi/location/search?";
     axios
       .get(
         url + "page=" + activePage + "&" + this.state.searchTerm
@@ -102,7 +104,7 @@ export class LocationListPage extends Component {
               </div>
               <div className="flex">
                 {this.state.results.map((value, index) => {
-                  return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} />
+                  return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} search={this.state.searched}/>
                 })}
               </div>
               <div className="pagination-menu">
