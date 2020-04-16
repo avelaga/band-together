@@ -24,7 +24,7 @@ export class ConcertListPage extends Component {
       searchTerm: "query=" + value
     });
 
-    let url = "http://192.168.1.170:8000/restapi/concert/search?" + "query=" + value;
+    let url = "http://72.182.112.17:8000/restapi/concert/search?" + "query=" + value;
     axios
       .get(
         url
@@ -45,7 +45,7 @@ export class ConcertListPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://192.168.1.170:8000/restapi/concert";
+    let url = "http://72.182.112.17:8000/restapi/concert";
     axios
       .get(
         url
@@ -65,7 +65,7 @@ export class ConcertListPage extends Component {
 
   setPageNum = (event, { activePage }) => {
     this.setState({ page: activePage });
-    let url = "http://192.168.1.170:8000/restapi/concert";
+    let url = "http://72.182.112.17:8000/restapi/concert";
     axios
       .get(
         url + "?page=" + activePage

@@ -13,8 +13,8 @@ export class ArtistCard extends Component {
           <div className="card" style={height}>
             <a href={this.props.artist_url}><img src={this.props.img} className="card-img"></img></a>
             <div className="card-text">
-              <h2>{this.props.search ? <mark style={highlight}>{this.props.name}</mark> : this.props.name}</h2>
-              <h6>Genre: {this.props.genre}</h6>
+              <h2>{checkname(this.props.name, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.name}</mark> : this.props.name}</h2>
+              <h6>Genre: {this.props.genreSearch ? <mark style={highlight}>{this.props.genre}</mark> : this.props.genre}</h6>
               <h6>{this.props.followers} Spotify followers</h6>
               <h6>Popularity Score: {this.props.popularity}</h6>
               {this.props.website && <h6><a href={this.props.website}><i>Website</i></a></h6>}
@@ -66,4 +66,12 @@ const logo = {
 
 const highlight = {
   backgroundColor: 'lightBlue'
+}
+
+function checkname(str1, str2, bool){
+  if(!bool){
+    return false;
+  }
+  console.log(str1 + ' ' + str2 + ' ' + str1.includes(str2))
+  return str1.includes(str2);
 }
