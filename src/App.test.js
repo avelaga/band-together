@@ -9,7 +9,8 @@ import { Component } from "react";
 import ReactDOM from "react-dom";
 import { 	renderIntoDocument,
   findRenderedDOMComponentWithClass,
-  scryRenderedComponentsWithType, act } from "react-dom/test-utils";
+  scryRenderedComponentsWithType, 
+  scryRenderedDOMComponentsWithClass ,act } from "react-dom/test-utils";
 //import ReactTestUtils from 'react-dom/test-utils'; // ES6
 var ReactTestUtils = require("react-dom/test-utils"); // ES5 with npm
 import { expect , should} from "chai";
@@ -96,95 +97,25 @@ describe("Splash Page", function()  {
       expect(splashElem.textContent).to.equal("Find the music you love");
     });
     
+});
+
+describe("About Page", function()  {
+  it ('renders About Page', function() {
+    const component = renderIntoDocument(
+      <AboutPage />
+    );
+    const aboutElem = scryRenderedDOMComponentsWithClass(component, 'div');
+    expect("div").to.be.ok;
   });
 
-// describe("About Page", function()  {
-//   it ('renders About Page', function() {
-//     const component = renderIntoDocument(
-//       <AboutPage />
-//     );
-//     console.log(component)
-
-//     const aboutElem = scryRenderedDOMComponentsWithClass(component, 'div');
-
-//     expect("div").to.be.ok;
-//   });
-
-//   it('should render about blurb', () => {
-//     const component = renderIntoDocument(
-//       <AboutPage />
-//     );
-//     const aboutElem = scryRenderedDOMComponentsWithClass(component, 'appear-second');
-//     expect(aboutElem.textContent.length).to.equal(350);
-//   });
-
-//   it('should render About Cards', () => {
-//     const component = renderIntoDocument(
-//       <AboutPage />
-//     );
-//     const aboutElem = findRenderedDOMComponentWithClass(component, 'flex appear-third');
-//     expect(aboutElem.textContent).to.equal("Band Together");
-//   });
-
-//   it('should render Repository Stats', () => {
-//     const component = renderIntoDocument(
-//       <AboutPage />
-//     );
-//     const aboutElem = findRenderedDOMComponentWithClass(component, 'appear-sixth');
-//     expect(aboutElem.textContent).to.equal("Repository Stats");
-//   });
-  
-
-// });
-
-//   // it("Renders Purpose", () => {
-   
-//   //     act(() => {
-//   //       ReactDOM.render(<AboutPage />, rootContainer);
-//   //     });
-//   //     //console.log(rootContainer)
-//   //     const h1 = rootContainer.querySelectorAll("h1");
-//   //     expect(h1[0].textContent).to.equal("Our Purpose");
-      
-//   //   });
-
-//   //   it("Renders About Cards", () => {
-//   //     act(() => {
-//   //       ReactDOM.render(<AboutPage />, rootContainer);
-//   //     });
-//   //     const h1 = rootContainer.querySelectorAll("h1");
-//   //     expect(h1[1].textContent).to.equal("Adam Martin");
-//   //     expect(h1[2].textContent).to.equal("Abhi Velaga");
-//   //     expect(h1[3].textContent).to.equal("Jason Moy");
-//   //     expect(h1[4].textContent).to.equal("Faezah Ali");
-//   //     expect(h1[5].textContent).to.equal("Gavin Rodrigue");
-//   //   });
-
-//     // it("About Page renders", () => {
-//     //   chai.request('http://bandtogether.events').get('/about')
-//     //     .end(function(err, res) {
-//     //       expect(res).to.have.status(200);
-//     //   });
-//     // });
-  
-//     // it("Renders About Card Images Correctly", () => {
-//     //   act(() => {
-//     //     ReactDOM.render(<AboutPage />, rootContainer);
-//     //   });
-//     //   //const images = document.images;
-//     //   const images2 = document.getElementsByTagName('img');
-//     //   var images = Array.from(images2)
-//     //   //console.log(images[0].alt)
-//     //   //expect(images[0].src).to.equal("http://localhost:8080/[object%20Object]");
-//     // });
-
+});
 
 describe("Artist List Page", function()  {
 
   it("Artist List read", () => {
-      chai.request('http://bandtogether.events').get('/artists')
+      chai.request('http://bandtogether.events').get('/artists/1234567')
           .end(function(err, res) {
-           expect(res).to.have(status);
+           expect(res).to.have.status(404);
           });
   });
 
@@ -206,7 +137,6 @@ describe("Artist List Page", function()  {
 
 });
 
-
 describe("Artist Detail Page", function()  {
 
   it("Artist Detail render", () => {
@@ -220,7 +150,6 @@ describe("Artist Detail Page", function()  {
     chai.request('http://bandtogether.events').get('/artists/1')
        .end(function(err, res) {
         expect(res.body).to.be.a('object');
-        //expect(res.body).to.have('name') 
    });
   });
 
@@ -228,8 +157,7 @@ describe("Artist Detail Page", function()  {
     chai.request('http://bandtogether.events').get('/artists/1')
        .end(function(err, res) {
         expect(res.body).to.be.a('object');
-        //expect(res.body).to.have('name');
-        expect(res.body.name).to.be('Tame Impala');
+        expect(res.body.name).to.equal('Tame Impala');
         });
     });
 
@@ -237,15 +165,15 @@ describe("Artist Detail Page", function()  {
     chai.request('http://bandtogether.events').get('/artists/1')
        .end(function(err, res) {
         expect(res.body).to.be.a('object');
-        expect(res.body.id).to.be(1);
+        expect(res.body.id).to.equal(1);
         });
     });
 
-    it("Artist ID = 2 Renders The Lumineers", () => {
-      chai.request('http://bandtogether.events').get('/artists/2')
+    it("Invalid ID is undefined", () => {
+      chai.request('http://bandtogether.events').get('/artists/23452623465')
          .end(function(err, res) {
           expect(res.body).to.be.a('object');
-          expect(res.body.name).to.be('The Lumineers');
+          expect(res.body.name).to.equal(undefined);
           });
       });
   
@@ -260,11 +188,6 @@ describe("Artist Detail Page", function()  {
 });
 
 describe("Concert List Page", function()  {
-  // it("Concert List Page Renders", () => {
-  //   act(() => {
-  //     ReactDOM.render( <ConcertListPage />, rootContainer);
-  //   });
-  // });
 
   it("Concert List read", () => {
         chai.request('http://bandtogether.events').get('/concerts')
@@ -289,7 +212,6 @@ describe("Concert Detail Page", function()  {
     chai.request('http://bandtogether.events').get('/concerts/1')
        .end(function(err, res) {
         expect(res.body).to.be.a('object');
-        //expect(res.body).to.have('name') 
    });
   });
 
@@ -297,7 +219,6 @@ describe("Concert Detail Page", function()  {
     chai.request('http://bandtogether.events').get('/concerts/1')
        .end(function(err, res) {
         expect(res.body).to.be.a('object');
-       // expect(res.body).to.have('name');
         expect(res.body.name).to.equal('Chris Stapleton');
         });
     });
@@ -306,7 +227,6 @@ describe("Concert Detail Page", function()  {
     chai.request('http://bandtogether.events').get('/concerts/1')
        .end(function(err, res) {
         expect(res.body).to.be.a('object');
-        //expect(res.body).to.have('id');
         expect(res.body.id).to.be(1);
         });
     });
@@ -315,7 +235,6 @@ describe("Concert Detail Page", function()  {
       chai.request('http://bandtogether.events').get('/concerts/2')
          .end(function(err, res) {
           expect(res.body).to.be.a('object');
-          //expect(res.body).to.have.property('name');
           expect(res.body.name).to.be('Chris Stapleton');
           });
       });
@@ -324,7 +243,6 @@ describe("Concert Detail Page", function()  {
       chai.request('http://bandtogether.events').get('/concerts/2')
          .end(function(err, res) {
           expect(res.body).to.be.a('object');
-          expect(res.body).to.have.property('id');
           expect(res.body.id).to.be(2);
           });
       });
@@ -333,13 +251,6 @@ describe("Concert Detail Page", function()  {
 
 describe("Location List Page", function()  {
 
-  // it("Location List Renders", () => {
-  //   act(() => {
-  //     ReactDOM.render(<LocationListPage />, rootContainer);
-  //   });
-
-  // });
-
   it("Location list read", () => {
       chai.request('http://bandtogether.events').get('/locations')
       .end(function(err, res){
@@ -347,43 +258,58 @@ describe("Location List Page", function()  {
     });
   });
 
-  it("Location ID = 1 Renders Denver", () => {
-    chai.request('http://bandtogether.events').get('/locations/1')
-       .end(function(err, res) {
-        expect(res.body).to.be.a('object');
-        expect(res.body).to.have.property('name');
-        expect(res.body.name).to.equal('Denver');
-        });
-    });
+  it('should render Location title', () => {
+    const component = renderIntoDocument(
+      <LocationListPage />
+    );
+    const LocationElem = findRenderedDOMComponentWithClass(component, 'appear-second');
+    expect(LocationElem.textContent).to.equal("Locations");
+  });
 
-   it("Location ID = 1 Renders Correct ID", () => {
-    chai.request('http://bandtogether.events').get('/locations/1')
-       .end(function(err, res) {
-        expect(res.body).to.be.a('object');
-        expect(res.body).to.have.property('id');
-        expect(res.body.id).to.equal(1);
-        });
-    });
-
-    it("Location ID = 2 Renders Knoxville", () => {
-      chai.request('http://bandtogether.events').get('/loctions/2')
-         .end(function(err, res) {
-          expect(res.body).to.be.a('object');
-          expect(res.body).to.have.property('name');
-          expect(res.body.name).to.equal('Knoxville');
-          });
-      });
+  it('should render Location Cards', () => {
+    const component = renderIntoDocument(
+      <LocationListPage />
+    );
+    const LocationElem = scryRenderedComponentsWithType(component, LocationCard);
+    expect(LocationElem.length).to.equal(LocationCard.length);
+  });
   
-     it("Location ID = 2 Renders Location ID", () => {
-      chai.request('http://bandtogether.events').get('/locations/2')
-         .end(function(err, res) {
-          expect(res.body).to.be.a('object');
-          expect(res.body).to.have.property('id');
-          expect(res.body.id).to.equal(2);
-          });
-      });
-
  });
 
+ describe("Location Detail Page", function()  {
+    it("Location ID = 1 Renders Denver", () => {
+      chai.request('http://bandtogether.events').get('/locations/1')
+        .end(function(err, res) {
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('name');
+          expect(res.body.name).to.equal('Denver');
+          });
+      });
 
- 
+    it("Location ID = 1 Renders Correct ID", () => {
+      chai.request('http://bandtogether.events').get('/locations/1')
+        .end(function(err, res) {
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('id');
+          expect(res.body.id).to.equal(1);
+          });
+      });
+
+      it("Location ID = 2 Renders Knoxville", () => {
+        chai.request('http://bandtogether.events').get('/loctions/2')
+          .end(function(err, res) {
+            expect(res.body).to.be.a('object');
+            expect(res.body).to.have.property('name');
+            expect(res.body.name).to.equal('Knoxville');
+            });
+        });
+
+      it("Location ID = 2 Renders Location ID", () => {
+        chai.request('http://bandtogether.events').get('/locations/2')
+          .end(function(err, res) {
+            expect(res.body).to.be.a('object');
+            expect(res.body).to.have.property('id');
+            expect(res.body.id).to.equal(2);
+            });
+        });
+  });
