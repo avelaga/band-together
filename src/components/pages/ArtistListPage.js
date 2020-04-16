@@ -18,6 +18,7 @@ export class ArtistListPage extends Component {
       results: null,
       page: 1,
       searched: false,
+
       query: '',
       sortBy: "name",
       ascending: 1,
@@ -46,9 +47,7 @@ export class ArtistListPage extends Component {
   }
 
   newSearch(value) {
-    console.log(value);
     if (value === "") {
-      console.log("it was null");
       this.setState({
         query: value,
         searched: false
@@ -163,6 +162,7 @@ export class ArtistListPage extends Component {
       <div className="body">
         <div className="appear-second">
           <h1 className="title">Artists</h1>
+          
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
           {this.state.results &&
 
@@ -215,12 +215,13 @@ export class ArtistListPage extends Component {
                     placeholder="Search..."
                     onEnter={(e) => { this.newSearch(e) }}
                     onSearchClick={(e) => { this.newSearch(e) }}
-                    
+
                   />
                 </div>
-                <div style={buttonStyle} onClick={this.reset}>RESET</div>
+                <div style={buttonStyle} onClick={this.reset}>Reset</div>
 
               </div>
+
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&
                 <div className="flex" style={white}>
@@ -260,6 +261,7 @@ export class ArtistListPage extends Component {
                   </div>
                 </div>
               }
+
             </div>
           }
         </div>
