@@ -75,9 +75,11 @@ a:visited {
 
 .search-div {
   padding-right: 15px;
+  padding-left: 15px;
   padding-top: 15px;
-  width: calc(100vw-15px);
+  width: calc(100vw-30px);
   text-align: right;
+  justify-content: flex-end;
 }
 
 @keyframes lds-ripple {

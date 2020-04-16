@@ -3,6 +3,7 @@ import ArtistCard from '../layout/ArtistCard.js';
 import { Pagination } from "semantic-ui-react";
 import SearchField from "react-search-field";
 import MediaQuery from 'react-responsive'
+import Slider from '@material-ui/core/Slider';
 const axios = require("axios").default;
 
 export class ArtistListPage extends Component {
@@ -14,7 +15,9 @@ export class ArtistListPage extends Component {
       prev: null,
       results: null,
       page: 1,
-      searchTerm: ''
+      searchTerm: '',
+      popularitySliders: [0, 100],
+      followerSliders: [0, 100]
     }
   }
 
@@ -82,70 +85,121 @@ export class ArtistListPage extends Component {
       });
   };
 
+  popularitySlidersChange = (event, newValue) => {
+
+    // ADAM: popularity slider changes comes here. newValue is int[] of size 2 with format of [min, max]
+    this.setState({
+      popularitySliders: newValue
+    });
+  };
+
+  followerSlidersChange = (event, newValue) => {
+    
+    // ADAM: follower slider changes comes here. newValue is int[] of size 2 with format of [min, max]
+    this.setState({
+      followerSliders: newValue
+    });
+  };
+
+  sortGenre = (event) => {
+    console.log("SORT BY GENRE");
+  }
+
+  sortName = (event) => {
+    console.log("SORT BY NAME");
+  }
+
   render() {
     return (
       <div className="body">
         <div className="appear-second">
-        <h1 className="title">Artists</h1>
-        {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-        {(this.state.results && this.state.count > 0) &&
+          <h1 className="title">Artists</h1>
+          {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
+          {(this.state.results && this.state.count > 0) &&
 
-          <div>
-            <div className="search-div">
-              <SearchField
-                placeholder="Search..."
-                onEnter={(e) => { this.newSearch(e) }}
-                onSearchClick={(e) => { this.newSearch(e) }}
-              />
-            </div>
-            <div className="flex">
-              {this.state.results.map((value, index) => {
-                return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} />
-              })}
-            </div>
-            <div className="pagination-menu">
+            <div>
+              <div className="search-div flex">
 
-              {/* desktop */}
-              <MediaQuery minDeviceWidth={500}>
-                <Pagination
-                  activePage={this.state.page}
-                  totalPages={Math.ceil(this.state.count / 10)}
-                  siblingRange={1}
-                  onPageChange={this.setPageNum}
-                  
+                <div style={buttonStyle} onClick={this.sortGenre}>Genre</div>
+                <div style={buttonStyle} onClick={this.sortName}>Name</div>
+
+                <div style={sliderDiv}>
+                  <h6>Popularity</h6>
+                  <Slider
+                    value={this.state.popularitySliders}
+                    onChange={this.popularitySlidersChange}
+                    valueLabelDisplay="auto"
+                    aria-labelledby="range-slider"
+                    style={sliderStyle}
+                  />
+                </div>
+
+                <div style={sliderDiv}>
+                  <h6>Popularity</h6>
+                  <Slider
+                    value={this.state.followerSliders}
+                    onChange={this.followerSlidersChange}
+                    valueLabelDisplay="auto"
+                    aria-labelledby="range-slider"
+                    style={sliderStyle}
+                  />
+                </div>
+
+                <SearchField
+                  placeholder="Search..."
+                  onEnter={(e) => { this.newSearch(e) }}
+                  onSearchClick={(e) => { this.newSearch(e) }}
                 />
-              </MediaQuery>
 
-              {/* mobile */}
-              <MediaQuery maxDeviceWidth={500}>
-                <Pagination
-                  activePage={this.state.page}
-                  totalPages={Math.ceil(this.state.count / 10)}
-                  siblingRange={1}
-                  onPageChange={this.setPageNum}
-                  ellipsisItem={null}
-                  boundaryRange={0}
+              </div>
+              <div className="flex">
+                {this.state.results.map((value, index) => {
+                  return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} />
+                })}
+              </div>
+              <div className="pagination-menu">
+
+                {/* desktop */}
+                <MediaQuery minDeviceWidth={500}>
+                  <Pagination
+                    activePage={this.state.page}
+                    totalPages={Math.ceil(this.state.count / 10)}
+                    siblingRange={1}
+                    onPageChange={this.setPageNum}
+
+                  />
+                </MediaQuery>
+
+                {/* mobile */}
+                <MediaQuery maxDeviceWidth={500}>
+                  <Pagination
+                    activePage={this.state.page}
+                    totalPages={Math.ceil(this.state.count / 10)}
+                    siblingRange={1}
+                    onPageChange={this.setPageNum}
+                    ellipsisItem={null}
+                    boundaryRange={0}
+                  />
+                </MediaQuery>
+              </div>
+            </div>
+          }
+
+          {/* If count = 0, show no results page */}
+          {(this.state.count === 0) &&
+            <div>
+              <div className="search-div">
+                <SearchField
+                  placeholder="Search..."
+                  onEnter={(e) => { this.newSearch(e) }}
+                  onSearchClick={(e) => { this.newSearch(e) }}
                 />
-              </MediaQuery>
+              </div>
+              <div className="flex" style={white}>
+                <h1>No results found</h1>
+              </div>
             </div>
-          </div>
-        }
-
-        {/* If count = 0, show no results page */}
-        {(this.state.count === 0) &&
-          <div>
-            <div className="search-div">
-              <SearchField
-                placeholder="Search..."
-                onEnter={(e) => { this.newSearch(e) }}
-                onSearchClick={(e) => { this.newSearch(e) }}
-              />
-            </div>
-            <div className="flex" style={noResults}>
-              <h1>No results found</h1>
-            </div>
-          </div>
-        }
+          }
         </div>
       </div>
     );
@@ -154,6 +208,36 @@ export class ArtistListPage extends Component {
 
 export default ArtistListPage;
 
-const noResults = {
+const white = {
+  color: 'white',
+  textAlign: 'center'
+}
+
+const buttonStyle = {
+  backgroundColor: 'rgb(0, 119, 255)',
+  // width: '300px',
+  borderRadius: '5px',
+  padding: '7px',
+  marginRight: '5px',
   color: 'white'
+}
+
+const mobileButtonStyle = {
+  backgroundColor: 'rgb(0, 119, 255)',
+  width: '85vw',
+  borderRadius: '5px',
+  padding: '7px',
+  margin: '5px',
+  fontSize: '30px',
+  lineHeight: '70px'
+}
+
+const sliderStyle = {
+  width: '150px'
+}
+
+const sliderDiv = {
+  padding: '10px',
+  color: 'white',
+  textAlign: 'center'
 }
