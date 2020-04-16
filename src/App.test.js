@@ -47,22 +47,6 @@ import LocationCard from './components/layout/LocationCard.js';
 import { doesNotMatch, AssertionError } from "assert";
 
 
-
-// let rootContainer;
-
-// beforeEach(() => {
-//   rootContainer = document.createElement("div");
-//   document.body.appendChild(rootContainer);
-// });
-
-// afterEach(() => {
-//   document.body.removeChild(rootContainer);
-//   rootContainer = null;
-// });
-
-
-
-
 describe("Splash Page", function()  {
 
     it ('renders Splash Page', function() {
@@ -274,7 +258,7 @@ describe("Location List Page", function()  {
     expect(LocationElem.length).to.equal(LocationCard.length);
   });
   
- });
+});
 
  describe("Location Detail Page", function()  {
     it("Location ID = 1 Renders Denver", () => {
@@ -312,4 +296,4 @@ describe("Location List Page", function()  {
             expect(res.body.id).to.equal(2);
             });
         });
-  });
+});
