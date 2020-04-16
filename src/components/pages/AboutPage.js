@@ -128,9 +128,9 @@ export class AboutPage extends Component {
               <div className="flex appear-third">
                 <AboutCard name={"Adam Martin"} img={AdamImg} commits={this.state.adam} issues={this.state.adamIssues} unit_tests={this.state.adamTests} bio={"I am the kangaroo whisperer"} role={"Full Stack Developer"} />
                 <AboutCard name={"Abhi Velaga"} img={AbhiImg} commits={this.state.abhi} issues={this.state.abhiIssues} unit_tests={this.state.abhiTests} bio={"Man with the minivan"} role={"Front-End Developer"} />
-                <AboutCard name={"Jason Moy"} img={JasonImg} commits={this.state.jason} issues={this.state.jasonIssues} unit_tests={this.state.jasonTests} bio={"Secret asian man"} role={"Full Stack Developer"} />
+                <AboutCard name={"Jason Moy"} img={JasonImg} commits={this.state.jason} issues={this.state.jasonIssues} unit_tests={this.state.jasonTests} bio={"Secret asian man"} role={"Full Stack Developer: Used AWS and Docker to get the db onto Postgres and https working on backend"} />
                 <AboutCard name={"Faezah Ali"} img={FaezahImg} commits={this.state.faezah} issues={this.state.faezahIssues} unit_tests={this.state.faezahTests} bio={"Wrote my page with the flu. The best players play hurt."} role={"Full Stack Developer"} />
-                <AboutCard name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} unit_tests={this.state.gavinTests} bio={"The mustache speaks for itself"} role={"Front-End Developer"} />
+                <AboutCard name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} unit_tests={this.state.gavinTests} bio={"The mustache speaks for itself"} role={"Front-End Developer: Helped with search functionality, used selenium for gui tests and provided customer issues/feedback"} />
               </div>
 
               <hr style={line} />
