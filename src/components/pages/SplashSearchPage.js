@@ -32,7 +32,6 @@ export class SplashSearchPage extends Component {
         url
       )
       .then(res => {
-        console.log(res.data.length);
         this.setState({
           results: res.data,
           count: res.data.length
@@ -43,7 +42,6 @@ export class SplashSearchPage extends Component {
             url
           )
           .then(res => {
-            console.log(res.data.length);
             let newArray = this.state.results.concat(res.data);
             let newCount = this.state.count + res.data.length;
             this.setState({
@@ -56,7 +54,6 @@ export class SplashSearchPage extends Component {
                 url
               )
               .then(res => {
-                console.log(res.data.length);
                 let newArray = this.state.results.concat(res.data);
                 let newCount = this.state.count + res.data.length;
                 this.setState({
