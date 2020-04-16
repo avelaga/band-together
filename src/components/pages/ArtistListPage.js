@@ -17,7 +17,8 @@ export class ArtistListPage extends Component {
       page: 1,
       searchTerm: '',
       popularitySliders: [0, 100],
-      followerSliders: [0, 100]
+      followerSliders: [0, 100],
+      searched: false
     }
   }
 
@@ -37,7 +38,8 @@ export class ArtistListPage extends Component {
           next: res.data.next,
           prev: res.data.previous,
           results: res.data.results,
-          page: 1
+          page: 1,
+          searched: true
         });
       })
       .catch(err => {
@@ -154,7 +156,7 @@ export class ArtistListPage extends Component {
               </div>
               <div className="flex">
                 {this.state.results.map((value, index) => {
-                  return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} />
+                  return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} search={this.state.searched}/>
                 })}
               </div>
               <div className="pagination-menu">

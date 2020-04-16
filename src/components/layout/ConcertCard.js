@@ -6,7 +6,7 @@ export class ConcertCard extends Component {
       <div className="card" style={height}>
         <a href={this.props.concert_url}><img src={this.props.img} className="card-img"></img></a>
         <div className="card-text">
-          <h2>{this.props.name}</h2>
+          <h2>{this.props.search ? <mark style={highlight}>{this.props.name}</mark> : this.props.name}</h2>
           <h6>{this.props.city}</h6>
           <h6>{this.props.venueName}</h6>
           <h6>{this.props.date}, {this.props.time}</h6>
@@ -25,4 +25,8 @@ export default ConcertCard;
 
 const height = {
   maxHeight: '590px'
+}
+
+const highlight = {
+  backgroundColor: 'lightBlue'
 }

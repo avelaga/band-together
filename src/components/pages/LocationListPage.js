@@ -18,7 +18,8 @@ export class LocationListPage extends Component {
       prev: null,
       results: null,
       page: 1,
-      searchTerm: ''
+      searchTerm: '',
+      searched: false
     }
   }
 
@@ -38,7 +39,8 @@ export class LocationListPage extends Component {
           next: res.data.next,
           prev: res.data.previous,
           results: res.data.results,
-          page: 1
+          page: 1,
+          searched: true
         });
       })
       .catch(err => {
@@ -102,7 +104,7 @@ export class LocationListPage extends Component {
               </div>
               <div className="flex">
                 {this.state.results.map((value, index) => {
-                  return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} />
+                  return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} search={this.state.searched}/>
                 })}
               </div>
               <div className="pagination-menu">
