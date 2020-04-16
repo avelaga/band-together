@@ -2,7 +2,10 @@ import React, { Component, Children } from "react";
 import ConcertCard from '../layout/ConcertCard.js';
 import { Pagination } from "semantic-ui-react";
 import SearchField from "react-search-field";
-import MediaQuery from 'react-responsive'
+import MediaQuery from 'react-responsive';
+import Slider from '@material-ui/core/Slider';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 const axios = require("axios").default;
 
 export class ConcertListPage extends Component {
@@ -14,20 +17,67 @@ export class ConcertListPage extends Component {
       prev: null,
       results: null,
       page: 1,
-      searchTerm: '',
-      searched: false
+      searched: false,
+
+      query: '',
+      sortBy: "date",
+      ascending: 1,
+      minDate: "0000-00-00",
+      maxDate: "2099-01-01",
+      city: "",
+      minTicket: 0,
+      maxTicket: 300,
+      default: {
+        count: null,
+        next: null,
+        prev: null,
+        results: null,
+        page: 1,
+        searched: false,
+        query: '',
+        sortBy: "date",
+        ascending: 1,
+        minDate: "0000-00-00",
+        maxDate: "2099-01-01",
+        city: "",
+        minTicket: 0,
+        maxTicket: 300,
+      }
     }
   }
 
   newSearch(value) {
-    this.setState({
-      searchTerm: "query=" + value
-    });
+    if (value === "") {
+      this.setState({
+        query: value,
+        searched: false
+      }, this.updateState);
+    } else {
+      this.setState({
+        query: value,
+        searched: true
+      }, this.updateState);
+    }
+  }
 
-    let url = "http://192.168.1.170:8000/restapi/concert/search?" + "query=" + value;
+  updateState() {
+    let url = "http://192.168.1.170:8000/restapi/concert";
+    let options = {
+      params: {
+        page: this.state.page,
+        query: this.state.query,
+        sortBy: this.state.sortBy,
+        ascending: this.state.ascending,
+        minDate: this.state.minDate,
+        maxDate: this.state.maxDate,
+        city: this.state.city,
+        minTicket: this.state.minTicket,
+        maxTicket: this.state.maxTicket,
+      }
+    };
     axios
       .get(
-        url
+        url, options
       )
       .then(res => {
         this.setState({
@@ -35,8 +85,6 @@ export class ConcertListPage extends Component {
           next: res.data.next,
           prev: res.data.previous,
           results: res.data.results,
-          page: 1,
-          searched: true
         });
       })
       .catch(err => {
@@ -45,106 +93,175 @@ export class ConcertListPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://192.168.1.170:8000/restapi/concert";
-    axios
-      .get(
-        url
-      )
-      .then(res => {
-        this.setState({
-          count: res.data.count,
-          next: res.data.next,
-          prev: res.data.previous,
-          results: res.data.results
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.setState({ page: 1 }, this.updateState);
   }
 
   setPageNum = (event, { activePage }) => {
-    this.setState({ page: activePage });
-    let url = "http://192.168.1.170:8000/restapi/concert";
-    axios
-      .get(
-        url + "?page=" + activePage
-      )
-      .then(res => {
-        this.setState({
-          count: res.data.count,
-          next: res.data.next,
-          prev: res.data.previous,
-          results: res.data.results
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.setState({ page: activePage }, this.updateState);
   };
+
+  sortDate = (event) => {
+    this.setState({ sortBy: "date" }, this.updateState);
+  }
+
+  sortVenue = (event) => {
+    this.setState({ sortBy: "venue__name" }, this.updateState);
+  }
+
+  sortLocation = (event) => {
+    this.setState({ sortBy: "location__city" }, this.updateState);
+  }
+
+  sortArtist = (event) => {
+    this.setState({ sortBy: "artist__name" }, this.updateState);
+  }
+
+  sortTicket = (event) => {
+    this.setState({ sortBy: "ticket_min" }, this.updateState);
+  }
+
+  sortAscending = (event) => {
+    this.setState({ ascending: 1 }, this.updateState);
+  }
+
+  sortDescending = (event) => {
+    this.setState({ ascending: -1 }, this.updateState);
+  }
+
+  dateSlidersChange = (event, newValue) => {
+    this.setState({
+      minDate: newValue[0],
+      maxDate: newValue[1]
+    }, this.updateState);
+  };
+
+  ticketSlidersChange = (event, newValue) => {
+    this.setState({
+      minTicket: newValue[0],
+      maxTicket: newValue[1]
+    });
+  };
+
+  ticketSlidersChangeCommitted = (event, newValue) => {
+    this.updateState();
+  }
+
+  reset = (event) => {
+    this.setState({
+      count: null,
+      next: null,
+      prev: null,
+      results: null,
+      page: 1,
+      searched: false,
+      query: '',
+      sortBy: "date",
+      ascending: 1,
+      minDate: "0000-00-00",
+      maxDate: "2099-01-01",
+      city: "",
+      minTicket: 0,
+      maxTicket: 300
+    }, this.updateState);
+  }
 
   render() {
     return (
       <div className="body">
         <div className="appear-second">
-        <h1 className="title">Concerts</h1>
-        {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-        {(this.state.results && this.state.count > 0) &&
-          <div>
-            <div className="search-div">
-              <SearchField
-                placeholder="Search..."
-                onEnter={(e) => { this.newSearch(e) }}
-                onSearchClick={(e) => { this.newSearch(e) }}
-              />
-            </div>
-            <div className="flex">
-              {this.state.results.map((value, index) => {
-                return <ConcertCard key={index} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.id} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} search={this.state.searched}/>
-              })}
-            </div>
-            <div className="pagination-menu">
-              {/* desktop */}
-              <MediaQuery minDeviceWidth={500}>
-                <Pagination
-                  activePage={this.state.page}
-                  totalPages={Math.ceil(this.state.count / 10)}
-                  siblingRange={1}
-                  onPageChange={this.setPageNum}
-                  
-                />
-              </MediaQuery>
+          <h1 className="title">Concerts</h1>
 
-              {/* mobile */}
-              <MediaQuery maxDeviceWidth={500}>
-                <Pagination
-                  activePage={this.state.page}
-                  totalPages={Math.ceil(this.state.count / 10)}
-                  siblingRange={1}
-                  onPageChange={this.setPageNum}
-                  ellipsisItem={null}
-                  boundaryRange={0}
-                />
-              </MediaQuery>
-            </div>
-          </div>
-        }
+          {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
+          {this.state.results &&
 
-        {/* If count = 0, show no results page */}
-        {(this.state.count === 0) &&
-          <div>
-            <div className="search-div">
-              <SearchField
-                placeholder="Search..."
-                onEnter={(e) => { this.newSearch(e) }}
-                onSearchClick={(e) => { this.newSearch(e) }}
-              />
+            <div>
+              <div className="search-div flex">
+
+                <DropdownButton id="dropdown-basic-button" title="Sort by" style={margin}>
+                  <Dropdown.Item style={this.state.sortBy === "date" ? activeDropdown : inactiveDropdown} onClick={this.sortDate}>Date</Dropdown.Item>
+                  <Dropdown.Item style={this.state.sortBy === "venue__name" ? activeDropdown : inactiveDropdown} onClick={this.sortVenue}>Venue</Dropdown.Item>
+                  <Dropdown.Item style={this.state.sortBy === "location__city" ? activeDropdown : inactiveDropdown} onClick={this.sortLocation}>Location</Dropdown.Item>
+                  <Dropdown.Item style={this.state.sortBy === "artist__name" ? activeDropdown : inactiveDropdown} onClick={this.sortArtist}>Artist</Dropdown.Item>
+                  <Dropdown.Item style={this.state.sortBy === "ticket_min" ? activeDropdown : inactiveDropdown} onClick={this.sortTicket}>Ticket Price</Dropdown.Item>
+                </DropdownButton>
+
+                <DropdownButton id="dropdown-basic-button" title="Order by" style={margin}>
+                  <Dropdown.Item style={this.state.ascending === 1 ? activeDropdown : inactiveDropdown} onClick={this.sortAscending}>Ascending</Dropdown.Item>
+                  <Dropdown.Item style={this.state.ascending === -1 ? activeDropdown : inactiveDropdown} onClick={this.sortDescending}>Descending</Dropdown.Item>
+                </DropdownButton>
+
+                <DropdownButton id="dropdown-basic-button" title="Filter by" style={margin}>
+
+                  <Dropdown.Item>
+                    <div style={sliderDiv}>
+                      <h6>Ticket Price</h6>
+                      <Slider
+                        value={[this.state.minTicket, this.state.maxTicket]}
+                        onChange={this.ticketSlidersChange}
+                        onChangeCommitted={this.ticketSlidersChangeCommitted}
+                        valueLabelDisplay="auto"
+                        aria-labelledby="range-slider"
+                        style={sliderStyle}
+                        min={0}
+                        max={300}
+                      />
+                    </div>
+                  </Dropdown.Item>
+                </DropdownButton>
+
+                <div style={margin}>
+                  <SearchField
+                    placeholder="Search..."
+                    onEnter={(e) => { this.newSearch(e) }}
+                    onSearchClick={(e) => { this.newSearch(e) }}
+
+                  />
+                </div>
+                <div style={buttonStyle} onClick={this.reset}>Reset</div>
+              </div>
+
+              {/* If count = 0, show no results page */}
+              {(this.state.count === 0) &&
+                <div className="flex" style={white}>
+                  <h1>No results found</h1>
+                </div>
+              }
+              {/* If count > 0, show results + pagination menu */}
+              {(this.state.count > 0) &&
+                <div>
+                  <div className="flex">
+                    {this.state.results.map((value, index) => {
+                      return <ConcertCard key={index} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.id} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} search={this.state.searched} />
+                    })}
+                  </div>
+                  <div className="pagination-menu">
+                    {/* desktop */}
+                    <MediaQuery minDeviceWidth={500}>
+                      <Pagination
+                        activePage={this.state.page}
+                        totalPages={Math.ceil(this.state.count / 10)}
+                        siblingRange={1}
+                        onPageChange={this.setPageNum}
+
+                      />
+                    </MediaQuery>
+                    {/* mobile */}
+                    <MediaQuery maxDeviceWidth={500}>
+                      <Pagination
+                        activePage={this.state.page}
+                        totalPages={Math.ceil(this.state.count / 10)}
+                        siblingRange={1}
+                        onPageChange={this.setPageNum}
+                        ellipsisItem={null}
+                        boundaryRange={0}
+                      />
+                    </MediaQuery>
+                  </div>
+                </div>
+              }
+
             </div>
-            <div className="flex" style={noResults}>
-              <h1>No results found</h1>
-            </div>
-          </div>
-        }
+          }
         </div>
       </div>
     );
@@ -153,6 +270,48 @@ export class ConcertListPage extends Component {
 
 export default ConcertListPage;
 
-const noResults = {
+const white = {
+  color: 'white',
+  textAlign: 'center'
+}
+
+const buttonStyle = {
+  backgroundColor: 'rgb(0, 119, 255)',
+  padding: '7px',
   color: 'white'
+}
+
+const mobileButtonStyle = {
+  backgroundColor: 'rgb(0, 119, 255)',
+  width: '85vw',
+  borderRadius: '5px',
+  padding: '7px',
+  margin: '5px',
+  fontSize: '30px',
+  lineHeight: '70px'
+}
+
+const sliderStyle = {
+  width: '150px'
+}
+
+const sliderDiv = {
+  padding: '10px',
+  color: 'black',
+  textAlign: 'center'
+}
+
+const inactiveDropdown = {
+  backgroundColor: 'white',
+  color: 'black'
+}
+
+const activeDropdown = {
+  fontWeight: 'bolder',
+  backgroundColor: 'white',
+  color: 'black'
+}
+
+const margin = {
+  marginRight: '10px'
 }

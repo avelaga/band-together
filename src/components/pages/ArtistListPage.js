@@ -4,8 +4,8 @@ import { Pagination } from "semantic-ui-react";
 import SearchField from "react-search-field";
 import MediaQuery from 'react-responsive'
 import Slider from '@material-ui/core/Slider';
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 const axios = require("axios").default;
 
 export class ArtistListPage extends Component {
@@ -162,7 +162,7 @@ export class ArtistListPage extends Component {
       <div className="body">
         <div className="appear-second">
           <h1 className="title">Artists</h1>
-          
+
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
           {this.state.results &&
 
