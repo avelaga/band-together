@@ -104,7 +104,7 @@ export class LocationListPage extends Component {
               </div>
               <div className="flex">
                 {this.state.results.map((value, index) => {
-                  return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} search={this.state.searched}/>
+                  return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query}/>
                 })}
               </div>
               <div className="pagination-menu">
