@@ -169,17 +169,17 @@ export class ArtistListPage extends Component {
           {this.state.results &&
             <div>
               <div className="search-div flex">
-                <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right">
+                <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "name" ? activeDropdown : inactiveDropdown} onClick={this.sortName}>Name</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "genre" ? activeDropdown : inactiveDropdown} onClick={this.sortGenre}>Genre</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "num_spotify_followers" ? activeDropdown : inactiveDropdown} onClick={this.sortFollowers}>Followers</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "popularity_score" ? activeDropdown : inactiveDropdown} onClick={this.sortPopularity}>Popularity</Dropdown.Item>
                 </DropdownButton>
-                <DropdownButton id="dropdown-basic-button" title="Order by" className="margin-right">
+                <DropdownButton id="dropdown-basic-button" title="Order by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.ascending === 1 ? activeDropdown : inactiveDropdown} onClick={this.sortAscending}>Ascending</Dropdown.Item>
                   <Dropdown.Item style={this.state.ascending === -1 ? activeDropdown : inactiveDropdown} onClick={this.sortDescending}>Descending</Dropdown.Item>
                 </DropdownButton>
-                <DropdownButton id="dropdown-basic-button" title="Filter by" className="margin-right">
+                <DropdownButton id="dropdown-basic-button" title="Filter by" className="margin-right mobile-margin">
                   <Dropdown.Item >
                     <div className="slider-div">
                       <h6>Popularity</h6>
@@ -209,14 +209,14 @@ export class ArtistListPage extends Component {
                     </div>
                   </Dropdown.Item>
                 </DropdownButton>
-                <div className="margin-right">
+                <div className="margin-right mobile-margin">
                   <SearchField
                     placeholder="Search..."
                     onEnter={(e) => { this.newSearch(e) }}
                     onSearchClick={(e) => { this.newSearch(e) }}
                   />
                 </div>
-                <div className="button-style" onClick={this.reset}>Reset</div>
+                <div className="button-style mobile-margin" onClick={this.reset}>Reset</div>
               </div>
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&
@@ -286,7 +286,7 @@ const inactiveDropdown = {
 }
 
 const activeDropdown = {
-  fontWeight: 'bolder',
-  backgroundColor: 'white',
-  color: 'black'
+  fontWeight: '1000',
+  backgroundColor: 'rgb(0, 119, 255)',
+  color: 'white'
 }
