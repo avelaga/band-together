@@ -14,7 +14,7 @@ export class ArtistDetailPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://72.182.112.17:8000/restapi/artist";
+    let url = "http://192.168.1.170:8000/restapi/artist";
     axios
       .get(
         url
