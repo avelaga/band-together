@@ -23,7 +23,8 @@ export class ArtistDetailsCard extends Component {
       nextConcertDate: null,
       nextConcertTime: null,
       nextLocationName: null,
-      nextLocationId: null
+      nextLocationId: null,
+      bio: null
     }
   }
 
@@ -49,7 +50,8 @@ export class ArtistDetailsCard extends Component {
           nextLocationName: res.data.nextLocationName,
           nextLocationId: res.data.nextLocationId,
           nextConcertDate: res.data.nextConcertDate,
-          nextConcertTime: res.data.nextConcertTime
+          nextConcertTime: res.data.nextConcertTime,
+          bio: res.data.bio
         });
       })
       .catch(err => {
@@ -72,6 +74,7 @@ export class ArtistDetailsCard extends Component {
 
             <div style={bio}>
               <h1>{this.state.name}</h1>
+              <h6>{this.state.bio}</h6>
               <h6>Genre: {this.state.genre}</h6>
               <h6>Popularity Score: {this.state.popularity_score}</h6>
               <h6>Spotify Followers: {this.state.num_spotify_followers}</h6>

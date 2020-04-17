@@ -13,8 +13,10 @@ export class ArtistCard extends Component {
           <div className="card" style={height}>
             <a href={this.props.artist_url}><img src={this.props.img} className="card-img"></img></a>
             <div className="card-text">
-              <h2>{this.props.name}</h2>
-              <h6>Genre: {this.props.genre}</h6>
+              <h2>{checkHighlight(this.props.name, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.name}</mark> : this.props.name}</h2>
+              <h6>Genre: {checkHighlight(this.props.genre, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.genre}</mark> : this.props.genre}</h6>
+              <h6>{checkHighlight(this.props.followers.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.followers}</mark> : this.props.followers} Spotify followers</h6>
+              <h6>Popularity Score: {checkHighlight(this.props.popularity.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.popularity}</mark> : this.props.popularity}</h6>
               {this.props.website && <h6><a href={this.props.website}><i>Website</i></a></h6>}
               <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
               {this.props.twitter_url && <a href={this.props.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
@@ -30,6 +32,8 @@ export class ArtistCard extends Component {
             <div className="card-text">
               <h2>{this.props.name}</h2>
               <h6>Genre: {this.props.genre}</h6>
+              <h6>{this.props.followers} Spotify followers</h6>
+              <h6>Popularity Score: {this.props.popularity}</h6>
               {this.props.website && <h6><a href={this.props.website}><i>Website</i></a></h6>}
               <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
               {this.props.twitter_url && <a href={this.props.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
@@ -46,7 +50,7 @@ export class ArtistCard extends Component {
 export default ArtistCard;
 
 const height = {
-  maxHeight: '375px'
+  height: '400px'
 }
 
 const mobileHeight = {
@@ -58,4 +62,19 @@ const logo = {
   width: '20px',
   marginRight: '5px',
   marginBottom: '10px'
+}
+
+const highlight = {
+  backgroundColor: 'lightBlue'
+}
+
+function checkHighlight(str1, str2, bool){
+  if(str1 == undefined || str2 == undefined){
+    return false
+  }
+  if(!bool){
+    return false;
+  }
+
+  return str1.toLowerCase().includes(str2.toLowerCase());
 }
