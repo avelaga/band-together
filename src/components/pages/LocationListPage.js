@@ -27,7 +27,7 @@ export class LocationListPage extends Component {
       minElevation: 0,
       maxElevation: 1620,
       minPopulation: 0,
-      maxPopulation: 560000,
+      maxPopulation: 84000000,
       timezone: "",
       default: {
         count: null,
@@ -44,7 +44,7 @@ export class LocationListPage extends Component {
         minElevation: 0,
         maxElevation: 1620,
         minPopulation: 0,
-        maxPopulation: 560000,
+        maxPopulation: 84000000,
         timezone: "",
       }
     }
@@ -167,7 +167,7 @@ export class LocationListPage extends Component {
       minElevation: 0,
       maxElevation: 1620,
       minPopulation: 0,
-      maxPopulation: 560000,
+      maxPopulation: 84000000,
       timezone: "",
     }, this.updateState);
   }
