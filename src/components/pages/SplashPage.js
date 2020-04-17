@@ -36,7 +36,7 @@ export class SplashPage extends Component {
             <p className="appear-fourth">Find the music you love</p>
             <div className="appear-sixth">
               <SearchField
-                placeholder="Search..."
+                placeholder="Search for an artist, genre, city, etc..."
                 onEnter={(e) => { this.newSearch(e) }}
                 onSearchClick={(e) => { this.newSearch(e) }}
               />
@@ -63,7 +63,6 @@ const row = {
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  width: '100%'
 }
 
 export default SplashPage;

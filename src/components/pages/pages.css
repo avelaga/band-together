@@ -99,38 +99,6 @@ a:visited {
   }
 }
 
-@media (max-width: 500px){
-  .splash-back {
-    background: url("../../../dist/images/mic-mobile.jpeg") no-repeat center;
-  }
-
-  h1 {
-    font-size: 50px !important;
-  }
-
-  h2 {
-    font-size: 35px !important;
-  }
-
-  h6 {
-    font-size: 20px !important;
-  }
-
-  .search-div {
-    /* padding-right: 15px; */
-    /* padding-left: 15px; */
-    /* padding-top: 15px; */
-    /* width: calc(100vw-30px); */
-    /* text-align: right; */
-    justify-content: center;
-    margin: auto;
-  }
-
-  .mobile-margin {
-    margin: 10px;
-  }
-}
-
 .title {
   color: white;
   text-align: center;
@@ -202,4 +170,39 @@ a:visited {
 
 .margin-right {
   margin-right: 10px;
+}
+
+.react-search-field {
+  width: 400px !important;
+}
+
+@media (max-width: 500px){
+  .splash-back {
+    background: url("../../../dist/images/mic-mobile.jpeg") no-repeat center;
+  }
+
+  h1 {
+    font-size: 50px !important;
+  }
+
+  h2 {
+    font-size: 35px !important;
+  }
+
+  h6 {
+    font-size: 20px !important;
+  }
+
+  .search-div {
+    justify-content: center;
+    margin: auto;
+  }
+
+  .mobile-margin {
+    margin: 10px;
+  }
+
+  .react-search-field {
+    width: 300px !important;
+  }
 }
