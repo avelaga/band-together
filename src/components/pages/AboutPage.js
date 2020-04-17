@@ -59,6 +59,7 @@ export class AboutPage extends Component {
       repo += "repository/contributors"
       axios.get(repo, request_headers)
         .then(res => {
+          console.log(res);
           for (const property in res.data) {
             const current = res.data[property];
             if (current.name === "Abhi Velaga") {
@@ -69,7 +70,7 @@ export class AboutPage extends Component {
               this.setState({ gavin: this.state.gavin + current.commits });
             } else if (current.name === "Jason Moy") {
               this.setState({ jason: this.state.jason + current.commits });
-            } else if (current.name === "Faezah Ali") {
+            } else if (current.name === "Faezah Ali" || current.name === "faezahali") {
               this.setState({ faezah: this.state.faezah + current.commits });
             }
           }
