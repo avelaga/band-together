@@ -60,7 +60,7 @@ export class ConcertListPage extends Component {
   }
 
   updateState() {
-    let url = "https://bandtogetherapi.xyz/restapi/concert";
+    let url = "http://192.168.1.170:8000/restapi/concert";
     let options = {
       params: {
         page: this.state.page,
