@@ -36,45 +36,36 @@ class guiTests(TestCase):
     def test_locations_details(self):
         browser.get('http://localhost:8080/locations')
         assert browser.current_url == 'http://localhost:8080/locations'
-        assert browser.page_source.find("Austin, TX") != -1
-        assert browser.page_source.find("Los Angeles, CA") != -1
-        assert browser.page_source.find("Chicago, IL") != -1
+        assert browser.page_source.find("Alpharetta") != -1
+        assert browser.page_source.find("Anaheim") != -1
 
     def test_location_instance(self):
-        browser.get('http://localhost:8080/locations')
-        path = browser.find_element_by_link_text('Location Info')
-        path.click()
+        browser.get('http://localhost:8080/locations/36')
         assert browser.page_source.find("Population") != -1
-        assert browser.page_source.find("Crime rating") != -1
-        assert browser.page_source.find("Weather forecast") != -1
+        assert browser.page_source.find("Timezone") != -1
+        assert browser.page_source.find("Elevation") != -1
 
 
-    def test_artist_details(self):
+    def test_artists_details(self):
         browser.get('http://localhost:8080/artists')
         assert browser.current_url == 'http://localhost:8080/artists'
-        assert browser.page_source.find("Post Malone") != -1
-        assert browser.page_source.find("Billie Eilish") != -1
-        assert browser.page_source.find("Kiss") != -1
+        assert browser.page_source.find("Alabama") != -1
 
-    def test_artist_intsance(self):
-        browser.get('http://localhost:8080/artists')
-        path = browser.find_element_by_link_text('Artist Info')
-        path.click()
-        assert browser.page_source.find("Year started") != -1
-        assert browser.page_source.find("Genre") != -1
+    def test_arstist_intsance(self):
+        browser.get('http://localhost:8080/artists/123')
+        assert browser.current_url == 'http://localhost:8080/artists/123'
+        assert browser.page_source.contains("hip hop")
 
     def test_concert_details(self):
         browser.get('http://localhost:8080/concerts')
         assert browser.current_url == 'http://localhost:8080/concerts'
-        assert browser.page_source.find("Frank C. Erwin, Jr. Special Events Center, Austin, TX") != -1
-        assert browser.page_source.find("United Center, Chicago, IL") != -1
-        assert browser.page_source.find("STAPLES Center, Los Angeles, CA") != -1
+        assert browser.page_source.find("Kevin Gates") != -1
+        assert browser.page_source.find("Kayzo") != -1
+        assert browser.page_source.find("Volbeat") != -1
 
     def test_concert_intsance(self):
-        browser.get('http://localhost:8080/concerts')
-        path = browser.find_element_by_link_text('Concert Info')
-        path.click()
-        assert browser.page_source.find("capacity") != -1
+        browser.get('http://localhost:8080/concerts/307')
+        assert browser.page_source.find("Parking Notes") != -1
 
     def test_about_page(self):
         browser.get('http://localhost:8080/about')
