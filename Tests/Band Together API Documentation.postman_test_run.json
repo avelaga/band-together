@@ -1,18 +1,18 @@
 {
-	"id": "30d00945-6ab6-4889-8744-3938632ed480",
+	"id": "f12ac5e1-c4da-446d-b6c8-a13253011063",
 	"name": "Band Together API Documentation",
-	"timestamp": "2020-04-16T05:19:48.392Z",
+	"timestamp": "2020-04-17T02:40:25.844Z",
 	"collection_id": "3a535499-601b-4d92-be42-68076e3850df",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 29,
+	"totalPass": 27,
 	"totalFail": 0,
 	"results": [
 		{
-			"id": "40b99b91-973e-47d9-9c70-b28c77ee7eb5",
-			"name": "Get Artist Page Results",
-			"url": "bandtogetherapi.xyz/restapi/artist?page=1",
-			"time": 188,
+			"id": "812ab3c6-195c-4946-b4fb-4ea26f1c0d2e",
+			"name": "Artist List Page Results",
+			"url": "bandtogetherapi.xyz/restapi/artist?minPop=0&maxPop=100&minFollowers=0&maxFollowers=99999999&sortBy=name&ascending=1&query=Tame Impala&page=1",
+			"time": 194,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -37,7 +37,7 @@
 				}
 			},
 			"times": [
-				188
+				194
 			],
 			"allTests": [
 				{
@@ -49,9 +49,9 @@
 		},
 		{
 			"id": "70187362-7c43-4418-a556-97781020c49c",
-			"name": "Get Concert Page Results",
-			"url": "bandtogetherapi.xyz/restapi/concert?page=2",
-			"time": 123,
+			"name": "Concert List Page Results",
+			"url": "bandtogetherapi.xyz/restapi/concert?minTicket=0&maxTicket=999999&sortBy=artist__name&ascending=1&query=2 Chainz&page=1",
+			"time": 119,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -76,7 +76,7 @@
 				}
 			},
 			"times": [
-				123
+				119
 			],
 			"allTests": [
 				{
@@ -88,9 +88,9 @@
 		},
 		{
 			"id": "67631298-4d9e-4a5e-b64a-26e3a02a744b",
-			"name": "Get Location Page Results",
-			"url": "bandtogetherapi.xyz/restapi/location?page=3",
-			"time": 59,
+			"name": "Location List Page Results",
+			"url": "bandtogetherapi.xyz/restapi/location?minElevation=-100&maxElevation=999999&sortBy=city&ascending=1&query=Austin&page=1&minPopulation=0&maxPopulation=999999",
+			"time": 71,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -115,7 +115,7 @@
 				}
 			},
 			"times": [
-				59
+				71
 			],
 			"allTests": [
 				{
@@ -129,7 +129,7 @@
 			"id": "241bdd92-5dee-43b5-9e0c-d913f9ca6030",
 			"name": "Searches through location models",
 			"url": "bandtogetherapi.xyz/restapi/location/search?query=Austin&page=1",
-			"time": 65,
+			"time": 67,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -154,7 +154,7 @@
 				}
 			},
 			"times": [
-				65
+				67
 			],
 			"allTests": [
 				{
@@ -168,7 +168,7 @@
 			"id": "ebbef106-4e0a-4942-b62e-0221a2de9895",
 			"name": "Searches through artist models",
 			"url": "bandtogetherapi.xyz/restapi/artist/search?query=Tame Impala&page=1",
-			"time": 59,
+			"time": 69,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -193,7 +193,7 @@
 				}
 			},
 			"times": [
-				59
+				69
 			],
 			"allTests": [
 				{
@@ -207,7 +207,7 @@
 			"id": "18a76c40-2ca3-461b-ae37-9e5c239079e8",
 			"name": "Searches through concert models",
 			"url": "bandtogetherapi.xyz/restapi/concert/search?query=Tame Impala&page=2",
-			"time": 74,
+			"time": 168,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -232,7 +232,7 @@
 				}
 			},
 			"times": [
-				74
+				168
 			],
 			"allTests": [
 				{
@@ -246,7 +246,7 @@
 			"id": "66be8f8e-f13c-4e79-8db2-2e88ba6b7578",
 			"name": "Zero result Search",
 			"url": "bandtogetherapi.xyz/restapi/location/search?query=Xen&page=1",
-			"time": 57,
+			"time": 66,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -271,7 +271,7 @@
 				}
 			},
 			"times": [
-				57
+				66
 			],
 			"allTests": [
 				{
@@ -284,8 +284,8 @@
 		{
 			"id": "05125483-1574-4487-af98-e0be226b6a6a",
 			"name": "Bad Artist Page Request",
-			"url": "bandtogetherapi.xyz/restapi/artist?page=9999",
-			"time": 58,
+			"url": "bandtogetherapi.xyz/restapi/artist?minPop=0&maxPop=100&minFollowers=0&maxFollowers=99999999&sortBy=name&ascending=1&query=Tame Impala&page=9999",
+			"time": 67,
 			"responseCode": {
 				"code": 404,
 				"name": "Not Found"
@@ -305,7 +305,7 @@
 				}
 			},
 			"times": [
-				58
+				67
 			],
 			"allTests": [
 				{
@@ -317,8 +317,8 @@
 		{
 			"id": "5424acf0-0ece-4c37-9adc-1eaa36be0861",
 			"name": "Bad Location Page Request",
-			"url": "bandtogetherapi.xyz/restapi/location?page=9999",
-			"time": 55,
+			"url": "bandtogetherapi.xyz/restapi/location?minElevation=-100&maxElevation=-1000&sortBy=city&ascending=1&query=Austin&page=2&minPopulation=0&maxPopulation=999999",
+			"time": 66,
 			"responseCode": {
 				"code": 404,
 				"name": "Not Found"
@@ -338,7 +338,7 @@
 				}
 			},
 			"times": [
-				55
+				66
 			],
 			"allTests": [
 				{
@@ -350,8 +350,8 @@
 		{
 			"id": "d16ebb93-fc54-4825-a53b-2da84367ebeb",
 			"name": "Bad Concert Page Request",
-			"url": "bandtogetherapi.xyz/restapi/concert?page=5000",
-			"time": 56,
+			"url": "bandtogetherapi.xyz/restapi/concert?minTicket=0&maxTicket=999999&sortBy=artist__name&ascending=1&query=2 Chainz&page=5",
+			"time": 78,
 			"responseCode": {
 				"code": 404,
 				"name": "Not Found"
@@ -371,40 +371,7 @@
 				}
 			},
 			"times": [
-				56
-			],
-			"allTests": [
-				{
-					"Response is not found": true,
-					"Response can be processed": true
-				}
-			]
-		},
-		{
-			"id": "103bc033-0669-4565-b638-754933ace480",
-			"name": "Invalid Page Request Of Valid Search Request",
-			"url": "bandtogetherapi.xyz/restapi/artist/search?query=Tame Impala&page=2",
-			"time": 57,
-			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
-			},
-			"tests": {
-				"Response is not found": true,
-				"Response can be processed": true
-			},
-			"testPassFailCounts": {
-				"Response is not found": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Response can be processed": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				57
+				78
 			],
 			"allTests": [
 				{
@@ -415,11 +382,11 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 851,
+	"totalTime": 965,
 	"collection": {
 		"requests": [
 			{
-				"id": "40b99b91-973e-47d9-9c70-b28c77ee7eb5",
+				"id": "812ab3c6-195c-4946-b4fb-4ea26f1c0d2e",
 				"method": "GET"
 			},
 			{
@@ -456,10 +423,6 @@
 			},
 			{
 				"id": "d16ebb93-fc54-4825-a53b-2da84367ebeb",
-				"method": "GET"
-			},
-			{
-				"id": "103bc033-0669-4565-b638-754933ace480",
 				"method": "GET"
 			}
 		]
