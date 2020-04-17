@@ -69,6 +69,9 @@ const highlight = {
 }
 
 function checkHighlight(str1, str2, bool){
+  if(str1 == undefined || str2 == undefined){
+    return false
+  }
   if(!bool){
     return false;
   }
