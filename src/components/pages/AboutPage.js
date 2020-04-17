@@ -40,7 +40,7 @@ export class AboutPage extends Component {
     jasonIssues: 0,
     abhiTests: 0,
     adamTests: 0,
-    faezahTests: 0,
+    faezahTests: 50,
     jasonTests: 29,
     gavinTests: 8,
   };
