@@ -65,7 +65,7 @@ export class LocationListPage extends Component {
   }
 
   updateState() {
-    let url = "http://192.168.1.170:8000/restapi/location";
+    let url = "http://72.182.112.17:8000/restapi/location";
     let options = {
       params: {
         page: this.state.page,
