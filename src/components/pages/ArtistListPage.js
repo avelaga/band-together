@@ -60,7 +60,7 @@ export class ArtistListPage extends Component {
   }
 
   updateState() {
-    let url = "http://192.168.1.170:8000/restapi/artist";
+    let url = "http://72.182.112.17:8000/restapi/artist";
     let options = {
       params: {
         page: this.state.page,
@@ -229,7 +229,7 @@ export class ArtistListPage extends Component {
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} search={this.state.searched} />
+                      return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched}/>
                     })}
                   </div>
                   <div className="pagination-menu">

@@ -31,7 +31,7 @@ export class ConcertDetailsCard extends Component {
   }
 
   componentDidMount() {
-    let ip = "http://192.168.1.170:8000";
+    let ip = "http://72.182.112.17:8000";
     let concertUrl = ip + "/restapi/concert/" + this.props.id;
     // get concert data
     axios
