@@ -9,8 +9,8 @@ export class LocationCard extends Component {
         <h2>{checkHighlight(this.props.city, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.city}</mark> : this.props.city}</h2>
           <h6>{this.props.region}, {this.props.country}, {this.props.area_code}</h6>
           <h6>Timezone: {checkHighlight(this.props.timezone, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.timezone}</mark> : this.props.timezone}</h6>
-          <h6>Population of {checkHighlight(this.props.pop, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.pop}</mark> : this.props.pop}</h6>
-          <h6>Elevation of {checkHighlight(this.props.elevation, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.elevation}</mark> : this.props.elevation} ft</h6>
+          <h6>Population of {checkHighlight(this.props.pop.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.pop}</mark> : this.props.pop}</h6>
+          <h6>Elevation of {checkHighlight(this.props.elevation.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.elevation}</mark> : this.props.elevation} ft</h6>
         </div>
       </div>
     );
