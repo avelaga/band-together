@@ -11,7 +11,7 @@ export class ConcertCard extends Component {
           <h6>{checkHighlight(this.props.venueName, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.venueName}</mark> : this.props.venueName}</h6>
           <h6>{checkHighlight(this.props.date, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.date}</mark> : this.props.date}, {this.props.time}</h6>
           <h6>{checkHighlight(this.props.artistGenre, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.artistGenre}</mark> : this.props.artistGenre}</h6>
-          { this.props.ticket_min && <h6>${this.props.ticket_min} - ${this.props.ticket_max}</h6> }
+          { this.props.ticket_min && <h6>${checkHighlight(this.props.ticket_min, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.ticket_min}</mark> : this.props.ticket_min} - ${checkHighlight(this.props.ticket_max, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.ticket_max}</mark> : this.props.ticket_max}</h6> }
           <div className="card-stats">
           <h6><a href={this.props.location_url}>Location Info</a> / <a href={this.props.artist_url}>Artist Info</a></h6>
           </div>
