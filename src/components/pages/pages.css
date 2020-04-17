@@ -73,6 +73,15 @@ a:visited {
   animation-delay: -0.5s;
 }
 
+.search-div {
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  width: calc(100vw-30px);
+  text-align: right;
+  justify-content: flex-end;
+}
+
 @keyframes lds-ripple {
   0% {
     top: 36px;
@@ -159,4 +168,25 @@ a:visited {
   animation-name: appear;
   animation-duration: 3.5s;
   animation-fill-mode: forwards;
+}
+
+.white {
+  color: white;
+  text-align: center;
+}
+
+.button-style {
+  background-color: rgb(0, 119, 255);
+  padding: 7px;
+  color: white;
+}
+
+.slider-div {
+  padding: 10px;
+  color: black;
+  text-align: center;
+}
+
+.margin-right {
+  margin-right: 10px;
 }

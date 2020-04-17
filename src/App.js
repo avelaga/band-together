@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import AboutPage from './components/pages/AboutPage';
 import SplashPage from './components/pages/SplashPage';
+import SplashSearchPage from './components/pages/SplashSearchPage';
 import LocationListPage from './components/pages/LocationListPage';
 import LocationDetailPage from './components/pages/LocationDetailPage';
 import ArtistListPage from './components/pages/ArtistListPage';
@@ -47,6 +48,7 @@ function App() {
       <Route exact path='/artists/:id' exact component={ArtistDetailPage} />
       <Route exact path='/concerts' exact component={ConcertListPage} />
       <Route exact path='/concerts/:id' exact component={ConcertDetailPage} />
+      <Route exact path='/search' exact component={SplashSearchPage} />
       <Route component={ErrorPage} />
     </Switch>
   );
