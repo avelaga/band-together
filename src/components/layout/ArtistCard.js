@@ -15,7 +15,7 @@ export class ArtistCard extends Component {
             <div className="card-text">
               <h2>{checkHighlight(this.props.name, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.name}</mark> : this.props.name}</h2>
               <h6>Genre: {checkHighlight(this.props.genre, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.genre}</mark> : this.props.genre}</h6>
-              <h6>{checkHighlight(this.props.followers.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.followers}</mark> : this.props.followers}Spotify followers</h6>
+              <h6>{checkHighlight(this.props.followers.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.followers}</mark> : this.props.followers} Spotify followers</h6>
               <h6>Popularity Score: {checkHighlight(this.props.popularity.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.popularity}</mark> : this.props.popularity}</h6>
               {this.props.website && <h6><a href={this.props.website}><i>Website</i></a></h6>}
               <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
