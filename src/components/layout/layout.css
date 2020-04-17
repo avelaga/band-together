@@ -16,6 +16,7 @@
 .card-text {
     color: white;
     padding: 5px;
+    text-transform: capitalize;
 }
 
 .card {
@@ -31,6 +32,12 @@
 
 .card-stats {
     color: rgb(170, 170, 170);
+}
+
+.card-line {
+    background-color: rgb(53, 53, 53);
+    height: .1;
+    width: 185px;
 }
 
 .details {
@@ -104,16 +111,6 @@
     animation-fill-mode: forwards;
 }
 
-@media (max-width: 500px) {
-    .card {
-        width: 83vw;
-    }
-    .card-img {
-        height: 83vw;
-        width: 83vw;
-    }
-}
-
 .truncate {
     overflow: hidden;
     display: -webkit-box;
@@ -127,4 +124,45 @@
     width: 90vw;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+h6 {
+    line-height: 13px;
+}
+
+.artist-card-height {
+    height: 500px;
+}
+
+.concert-card-height {
+    max-height: 590px;
+}
+
+@media (max-width: 500px) {
+
+    .card {
+        width: 83vw;
+    }
+
+    .card-img {
+        height: 83vw;
+        width: 83vw;
+    }
+
+    .card-line {
+        width: 76vw;
+    }
+
+    h6 {
+        line-height: normal;
+    }
+
+    .artist-card-height {
+         height: auto;
+    }
+
+    .concert-card-height {
+        max-height: none;
+        height: auto;
+    }
 }
