@@ -237,7 +237,6 @@ export class ArtistListPage extends Component {
                   <div className="pagination-menu">
                     {/* desktop */}
                     <MediaQuery minDeviceWidth={500}>
-
                       <Pagination
                         color="primary"
                         size="large"
