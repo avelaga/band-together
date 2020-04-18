@@ -48,6 +48,5 @@ function checkHighlight(str1, str2, bool) {
   if (!bool) {
     return false;
   }
-
   return str1.toLowerCase().includes(str2.toLowerCase());
 }

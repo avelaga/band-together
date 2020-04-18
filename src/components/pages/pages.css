@@ -172,8 +172,17 @@ a:visited {
   margin-right: 10px;
 }
 
-.react-search-field {
+.react-search-field-input {
   width: 400px !important;
+  height: 31px !important;
+}
+
+.react-search-field-button {
+  height: 31px !important;
+}
+
+.react-search-field {
+  height: 32px !important;
 }
 
 @media (max-width: 500px){

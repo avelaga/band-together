@@ -6,6 +6,7 @@ import MediaQuery from 'react-responsive'
 import Slider from '@material-ui/core/Slider';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button'
 const axios = require("axios").default;
 
 export class ArtistListPage extends Component {
@@ -46,6 +47,7 @@ export class ArtistListPage extends Component {
   }
 
   newSearch(value) {
+    console.log(value);
     if (value === "") {
       this.setState({
         query: value,
@@ -216,7 +218,7 @@ export class ArtistListPage extends Component {
                     onSearchClick={(e) => { this.newSearch(e) }}
                   />
                 </div>
-                <div className="button-style mobile-margin" onClick={this.reset}>Reset</div>
+                <Button variant="secondary" onClick={this.reset}>Reset</Button>
               </div>
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&
@@ -229,7 +231,7 @@ export class ArtistListPage extends Component {
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched}/>
+                      return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
                     })}
                   </div>
                   <div className="pagination-menu">
