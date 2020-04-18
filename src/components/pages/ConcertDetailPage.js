@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ConcertDetailsCard from "../layout/ConcertDetailsCard.js"
+import Navbar from '../layout/Navbar';
 import { Redirect } from 'react-router-dom';
 import "./pages.css";
 
@@ -36,10 +37,13 @@ export class ConcertDetailPage extends Component {
       }
     }
     return (
+      <div>
+      <Navbar />
       <div className="body flex">
         <div className="appear-second">
           <ConcertDetailsCard id={this.props.match.params.id} />
         </div>
+      </div>
       </div>
     );
   }

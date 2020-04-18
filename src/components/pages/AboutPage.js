@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import MediaQuery from 'react-responsive'
+import Navbar from '../layout/Navbar';
 import AboutCard from '../layout/AboutCard.js';
 import AbhiImg from '../../../dist/images/abhi.jpg';
 import AdamImg from '../../../dist/images/adam.jpg';
@@ -117,6 +118,7 @@ export class AboutPage extends Component {
         {/* desktop */}
         <MediaQuery minDeviceWidth={500}>
           <div className="body center">
+          <Navbar name={"about"}/>
             {/* <div className="appear-fourth"> */}
               <div style={aboutText}>
               <h1 className="appear-first"><b>Our Purpose</b></h1>
@@ -191,6 +193,7 @@ export class AboutPage extends Component {
         {/* mobile */}
         <MediaQuery maxDeviceWidth={500}>
           <div className="body">
+            <Navbar/>
             {/* <div className="appear-fourth"> */}
               <div style={mobileAboutText}>
                 <h1 className="appear-first"><b>Our Purpose</b></h1>

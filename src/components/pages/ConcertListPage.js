@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ConcertCard from '../layout/ConcertCard.js';
+import Navbar from '../layout/Navbar';
 import Pagination from '@material-ui/lab/Pagination';
 import SearchField from "react-search-field";
 import MediaQuery from 'react-responsive';
@@ -161,6 +162,7 @@ export class ConcertListPage extends Component {
   render() {
     return (
       <div className="body">
+        <Navbar name={"concerts"}/>
         <div className="appear-second">
           <h1 className="title">Concerts</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}

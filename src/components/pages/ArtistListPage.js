@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Navbar from '../layout/Navbar';
 import ArtistCard from '../layout/ArtistCard.js';
 import Pagination from '@material-ui/lab/Pagination';
 import SearchField from "react-search-field";
@@ -165,6 +166,7 @@ export class ArtistListPage extends Component {
   render() {
     return (
       <div className="body">
+        <Navbar name={"artists"}/>
         <div className="appear-second">
           <h1 className="title">Artists</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}

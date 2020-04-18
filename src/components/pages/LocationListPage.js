@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LocationCard from '../layout/LocationCard.js';
+import Navbar from '../layout/Navbar';
 import Pagination from '@material-ui/lab/Pagination';
 import SearchField from "react-search-field";
 import MediaQuery from 'react-responsive';
@@ -176,6 +177,7 @@ export class LocationListPage extends Component {
   render() {
     return (
       <div className="body">
+        <Navbar name={"locations"}/>
         <div className="appear-second">
           <h1 className="title">Locations</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}

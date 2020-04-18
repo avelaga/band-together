@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Navbar from '../layout/Navbar';
 import ArtistCard from '../layout/ArtistCard.js';
 import ConcertCard from '../layout/ConcertCard.js';
 import LocationCard from '../layout/LocationCard.js';
@@ -85,19 +86,20 @@ export class SplashSearchPage extends Component {
   render() {
     return (
       <div className="body">
+        <Navbar />
         <div className="appear-second">
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
           {(this.state.results && this.state.count > 0) &&
             <div>
-
+              <div className="search-div">
+                <SearchField
+                  placeholder="Search for an artist, genre, city, etc..."
+                  onEnter={(e) => { this.newSearch(e) }}
+                  onSearchClick={(e) => { this.newSearch(e) }}
+                />
+              </div>
               <div className="flex">
-                <div className="search-div">
-                  <SearchField
-                    placeholder="Search for an artist, genre, city, etc..."
-                    onEnter={(e) => { this.newSearch(e) }}
-                    onSearchClick={(e) => { this.newSearch(e) }}
-                  />
-                </div>
+
 
                 {this.state.results.map((value, index) => {
                   if (index >= ((this.state.page * 10) - 10) && index < (this.state.page * 10)) {
@@ -152,7 +154,7 @@ export class SplashSearchPage extends Component {
                     onSearchClick={(e) => { this.newSearch(e) }}
                   />
                 </div>
-          <h2>No results found for "{this.state.query}"</h2>
+                <h2>No results found for "{this.state.query}"</h2>
               </div>
             </div>
           }

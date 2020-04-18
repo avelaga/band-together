@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SearchField from "react-search-field";
+import Navbar from '../layout/Navbar';
 import { Redirect } from "react-router-dom";
 import "./pages.css";
 
@@ -27,6 +28,8 @@ export class SplashPage extends Component {
 
     }
     return (
+      <div>
+      <Navbar />
       <div className="splash-back body">
         <div style={row} >
           <div style={splashText}></div>
@@ -44,6 +47,7 @@ export class SplashPage extends Component {
           </div>
           <div style={splashText}></div>
         </div>
+      </div>
       </div>
     );
   }
