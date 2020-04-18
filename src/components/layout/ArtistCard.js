@@ -12,11 +12,11 @@ export class ArtistCard extends Component {
         <a href={this.props.artist_url}><img src={this.props.img} className="card-img"></img></a>
         <div className="card-text">
           <h2>{checkHighlight(this.props.name, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.name}</mark> : this.props.name}</h2>
-          <b>Genre: </b><h6>{checkHighlight(this.props.genre, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.genre}</mark> : this.props.genre}</h6>
+          <div className="attribute">Genre: </div><h6>{checkHighlight(this.props.genre, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.genre}</mark> : this.props.genre}</h6>
           <hr className="card-line" />
-          <b>Spotify Followers: </b><h6>{checkHighlight(this.props.followers.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.followers}</mark> : this.props.followers}</h6>
+          <div className="attribute">Spotify Followers: </div><h6>{checkHighlight(this.props.followers.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.followers}</mark> : this.props.followers}</h6>
           <hr className="card-line" />
-          <b>Popularity Score: </b><h6>{checkHighlight(this.props.popularity.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.popularity}</mark> : this.props.popularity}</h6>
+          <div className="attribute">Popularity Score: </div><h6>{checkHighlight(this.props.popularity.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.popularity}</mark> : this.props.popularity}</h6>
           <hr className="card-line" />
           {this.props.website && <h6><a href={this.props.website}><i>Website</i></a></h6>}
           <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>

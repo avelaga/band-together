@@ -6,6 +6,7 @@ import MediaQuery from 'react-responsive';
 import Slider from '@material-ui/core/Slider';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
 const axios = require("axios").default;
 
 export class ConcertListPage extends Component {
@@ -201,7 +202,7 @@ export class ConcertListPage extends Component {
                     onSearchClick={(e) => { this.newSearch(e) }}
                   />
                 </div>
-                <div className="button-style mobile-margin" onClick={this.reset} >Reset</div>
+                <Button variant="secondary" onClick={this.reset}>Reset</Button>
               </div>
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&

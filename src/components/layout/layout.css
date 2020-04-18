@@ -38,6 +38,7 @@
     background-color: rgb(53, 53, 53);
     height: .1;
     width: 185px;
+    margin: 5px;
 }
 
 .details {
@@ -138,31 +139,37 @@ h6 {
     max-height: 590px;
 }
 
-@media (max-width: 500px) {
+.attribute {
+    font-size: 10px;
+    font-weight: bold;
+}
 
+@media (max-width: 500px) {
     .card {
         width: 83vw;
     }
-
     .card-img {
         height: 83vw;
         width: 83vw;
     }
-
     .card-line {
         width: 76vw;
     }
-
     h6 {
         line-height: normal;
     }
-
     .artist-card-height {
-         height: auto;
+        height: auto;
     }
-
     .concert-card-height {
         max-height: none;
         height: auto;
     }
+    .attribute {
+        font-size: 15px;
+    }
+}
+
+h2 {
+    margin-bottom: 7px;
 }

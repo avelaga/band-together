@@ -9,11 +9,11 @@ export class LocationCard extends Component {
           <h2>{checkHighlight(this.props.city, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.city}</mark> : this.props.city}</h2>
           <h6>{checkHighlight(this.props.region, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.region}</mark> : this.props.region}, USA</h6>
           <hr className="card-line"/>
-          <b>Timezone:</b> <h6>{checkHighlight(this.props.timezone, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.timezone}</mark> : this.props.timezone}</h6>
+          <div className="attribute">Timezone:</div> <h6>{checkHighlight(this.props.timezone, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.timezone}</mark> : this.props.timezone}</h6>
           <hr className="card-line"/>
-          <b>Population: </b><h6>{checkHighlight(this.props.pop.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.pop}</mark> : this.props.pop}</h6>
+          <div className="attribute">Population: </div><h6>{checkHighlight(this.props.pop.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.pop}</mark> : this.props.pop}</h6>
           <hr className="card-line"/>
-          <b>Elevation: </b><h6>{checkHighlight(this.props.elevation.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.elevation}</mark> : this.props.elevation} ft</h6>
+          <div className="attribute">Elevation: </div><h6>{checkHighlight(this.props.elevation.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.elevation}</mark> : this.props.elevation} ft</h6>
         </div>
       </div>
     );

@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import ArtistCard from '../layout/ArtistCard.js';
 import { Pagination } from "semantic-ui-react";
 import SearchField from "react-search-field";
-import MediaQuery from 'react-responsive'
+import MediaQuery from 'react-responsive';
 import Slider from '@material-ui/core/Slider';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 const axios = require("axios").default;
 
 export class ArtistListPage extends Component {

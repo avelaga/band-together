@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import LocationCard from '../layout/LocationCard.js';
 import { Pagination } from "semantic-ui-react";
 import SearchField from "react-search-field";
-import MediaQuery from 'react-responsive'
+import MediaQuery from 'react-responsive';
 import Slider from '@material-ui/core/Slider';
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
 const axios = require("axios").default;
 import "./pages.css";
 
@@ -231,7 +232,7 @@ export class LocationListPage extends Component {
                     onSearchClick={(e) => { this.newSearch(e) }}
                   />
                 </div>
-                <div className="button-style mobile-margin" onClick={this.reset}>Reset</div>
+                <Button variant="secondary" onClick={this.reset}>Reset</Button>
               </div>
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&
