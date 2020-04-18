@@ -215,3 +215,15 @@ a:visited {
     width: 300px !important;
   }
 }
+
+.pagination-menu {
+  color: white !important;
+}
+
+.MuiPaginationItem-textPrimary {
+  color: white !important;
+}
+
+.Mui-selected {
+  background-color: rgb(78, 78, 78) !important;
+}

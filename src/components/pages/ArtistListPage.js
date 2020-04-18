@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ArtistCard from '../layout/ArtistCard.js';
-import { Pagination } from "semantic-ui-react";
+import Pagination from '@material-ui/lab/Pagination';
 import SearchField from "react-search-field";
 import MediaQuery from 'react-responsive';
 import Slider from '@material-ui/core/Slider';
@@ -97,8 +97,8 @@ export class ArtistListPage extends Component {
     this.setState({ page: 1 }, this.updateState);
   }
 
-  setPageNum = (event, { activePage }) => {
-    this.setState({ page: activePage }, this.updateState);
+  setPageNum = (event, page) => {
+    this.setState({ page: page }, this.updateState);
   };
 
   sortName = (event) => {
@@ -237,22 +237,24 @@ export class ArtistListPage extends Component {
                   <div className="pagination-menu">
                     {/* desktop */}
                     <MediaQuery minDeviceWidth={500}>
+
                       <Pagination
-                        activePage={this.state.page}
-                        totalPages={Math.ceil(this.state.count / 10)}
-                        siblingRange={1}
-                        onPageChange={this.setPageNum}
+                        color="primary"
+                        size="large"
+                        page={this.state.page}
+                        count={Math.ceil(this.state.count / 10)}
+                        onChange={this.setPageNum}
                       />
                     </MediaQuery>
                     {/* mobile */}
                     <MediaQuery maxDeviceWidth={500}>
-                      <Pagination
-                        activePage={this.state.page}
-                        totalPages={Math.ceil(this.state.count / 10)}
-                        siblingRange={1}
-                        onPageChange={this.setPageNum}
-                        ellipsisItem={null}
-                        boundaryRange={0}
+                    <Pagination
+                        color="primary"
+                        size="size"
+                        page={this.state.page}
+                        count={Math.ceil(this.state.count / 10)}
+                        onChange={this.setPageNum}
+                        siblingCount={0}
                       />
                     </MediaQuery>
                   </div>
