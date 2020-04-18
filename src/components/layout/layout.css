@@ -40,6 +40,10 @@
     margin: 5px;
 }
 
+.card-button {
+    width: 191;
+}
+
 .details {
     min-width: 1000px;
     height: 303px;
@@ -132,6 +136,7 @@
 .attribute {
     font-size: 10px;
     font-weight: bold;
+    width: 100%;
 }
 
 @media (max-width: 500px) {

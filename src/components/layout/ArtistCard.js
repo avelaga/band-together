@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from 'react-bootstrap/Button';
 import spotifyLogo from "../../../dist/images/spotify.png";
 import twitterLogo from "../../../dist/images/twitter.png";
 import wikiLogo from "../../../dist/images/wikipedia.png";
@@ -18,10 +19,13 @@ export class ArtistCard extends Component {
           <hr className="card-line" />
           <div className="attribute">Popularity Score: </div><h6>{checkHighlight(this.props.popularity.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.popularity}</mark> : this.props.popularity}</h6>
           <hr className="card-line" />
-          {this.props.website && <h6><a href={this.props.website}><i>Website</i></a></h6>}
+
+          {this.props.website && <div className="card-button"><a href={this.props.website}><Button variant="secondary" >Artist Website</Button></a></div>}
+          <div className="flex" style={links}>
           <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
           {this.props.twitter_url && <a href={this.props.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
           {this.props.wiki_url && <a href={this.props.wiki_url}><img src={wikiLogo} style={logo}></img></a>}
+          </div>
         </div>
       </div>
     );
@@ -39,6 +43,10 @@ const logo = {
 
 const highlight = {
   backgroundColor: 'lightBlue'
+}
+
+const links = {
+  marginTop: '8px'
 }
 
 function checkHighlight(str1, str2, bool) {

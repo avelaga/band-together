@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from 'react-bootstrap/Button';
 
 export class ConcertCard extends Component {
   render() {
@@ -18,7 +19,8 @@ export class ConcertCard extends Component {
           {this.props.artistGenre && <div><div className="attribute">Genre: </div><h6>{checkHighlight(this.props.artistGenre, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.artistGenre}</mark> : this.props.artistGenre}</h6><hr className="card-line" /></div>}
           {this.props.ticket_min && <div><div className="attribute">Price: </div><h6>${checkHighlight(this.props.ticket_min, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.ticket_min}</mark> : this.props.ticket_min} - ${checkHighlight(this.props.ticket_max, this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.ticket_max}</mark> : this.props.ticket_max}</h6><hr className="card-line" /></div>}
           <div className="card-stats">
-            <h6><a href={this.props.location_url}>Location Info</a> / <a href={this.props.artist_url}>Artist Info</a></h6>
+            <a href={this.props.location_url} style={buttonSpace}><Button variant="secondary" >Location Info</Button></a>
+            <a href={this.props.artist_url} style={buttonSpace}><Button variant="secondary" >Artist Info</Button></a>
           </div>
         </div>
       </div>
@@ -30,6 +32,10 @@ export default ConcertCard;
 
 const highlight = {
   backgroundColor: 'lightBlue'
+}
+
+const buttonSpace = {
+  margin: '2px'
 }
 
 function checkHighlight(str1, str2, bool) {
