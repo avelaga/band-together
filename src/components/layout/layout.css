@@ -1,5 +1,4 @@
 /* wasnt able to remove this, caused errors */
-
 .band-navbar {
     background-color: black;
     height: 50px;
@@ -123,20 +122,11 @@
     color: white;
     text-align: center;
     width: 90vw;
+    margin-right: 5vw;
+    margin-left: 5vw;
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-h6 {
-    line-height: 13px;
-}
-
-.artist-card-height {
-    height: 500px;
-}
-
-.concert-card-height {
-    max-height: 590px;
+    text-transform: capitalize;
 }
 
 .attribute {
@@ -153,17 +143,7 @@ h6 {
         width: 83vw;
     }
     .card-line {
-        width: 76vw;
-    }
-    h6 {
-        line-height: normal;
-    }
-    .artist-card-height {
-        height: auto;
-    }
-    .concert-card-height {
-        max-height: none;
-        height: auto;
+        width: auto;
     }
     .attribute {
         font-size: 15px;

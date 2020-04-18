@@ -50,6 +50,7 @@ const aboutCard = {
   borderStyle: 'solid',
   textAlign: 'center',
   width: '450px',
+  height: '660px',
   margin: '30px',
   borderRadius: '3px'
 }
@@ -69,7 +70,6 @@ const mobileAboutCard = {
   textAlign: 'center',
   width: '90vw',
   margin: '5vw',
-  // marginBottom:
   borderRadius: '3px'
 }
 
