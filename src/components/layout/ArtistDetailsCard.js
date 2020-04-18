@@ -67,7 +67,7 @@ export class ArtistDetailsCard extends Component {
         {/* desktop */}
         <MediaQuery minDeviceWidth={500}>
           <div className="details">
-            
+
             <div style={img}>
               <img src={this.state.image} className="details-img"></img>
             </div>
@@ -100,7 +100,7 @@ export class ArtistDetailsCard extends Component {
             </div>
 
             <div className="mobile-details-text">
-            <div className="attribute">Genre: </div><h6>{this.state.genre}</h6>
+              <div className="attribute">Genre: </div><h6>{this.state.genre}</h6>
               <hr className="card-line" />
               <div className="attribute">Popularity Score: </div><h6>{this.state.popularity_score}</h6>
               <hr className="card-line" />

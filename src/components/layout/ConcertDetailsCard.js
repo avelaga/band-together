@@ -114,7 +114,7 @@ export class ConcertDetailsCard extends Component {
             </div>
 
             <div className="mobile-details-text">
-            <div className="attribute">Performing At: </div><h6><a href={"/locations/" + this.state.locationId}>{this.state.venueName}, {this.state.venue_address}, {this.state.locationName}, {this.state.postal_code}</a></h6>
+              <div className="attribute">Performing At: </div><h6><a href={"/locations/" + this.state.locationId}>{this.state.venueName}, {this.state.venue_address}, {this.state.locationName}, {this.state.postal_code}</a></h6>
               <hr className="card-line" />
               <div className="attribute">Date: </div><h6>{this.state.date}</h6>
               <hr className="card-line" />

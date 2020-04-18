@@ -177,7 +177,7 @@ export class LocationListPage extends Component {
   render() {
     return (
       <div className="body">
-        <Navbar name={"locations"}/>
+        <Navbar name={"locations"} />
         <div className="appear-second">
           <h1 className="title">Locations</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
@@ -252,7 +252,7 @@ export class LocationListPage extends Component {
                   </div>
                   <div className="pagination-menu">
                     {/* desktop */}
-                   <MediaQuery minDeviceWidth={500}>
+                    <MediaQuery minDeviceWidth={500}>
                       <Pagination
                         color="primary"
                         size="large"
@@ -263,7 +263,7 @@ export class LocationListPage extends Component {
                     </MediaQuery>
                     {/* mobile */}
                     <MediaQuery maxDeviceWidth={500}>
-                    <Pagination
+                      <Pagination
                         color="primary"
                         size="size"
                         page={this.state.page}

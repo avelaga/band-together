@@ -38,12 +38,12 @@ export class ConcertDetailPage extends Component {
     }
     return (
       <div>
-      <Navbar />
-      <div className="body flex">
-        <div className="appear-second">
-          <ConcertDetailsCard id={this.props.match.params.id} />
+        <Navbar />
+        <div className="body flex">
+          <div className="appear-second">
+            <ConcertDetailsCard id={this.props.match.params.id} />
+          </div>
         </div>
-      </div>
       </div>
     );
   }

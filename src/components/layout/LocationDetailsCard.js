@@ -102,7 +102,7 @@ export class LocationDetailsCard extends Component {
             </div>
 
             <div className="mobile-details-text">
-            <div className="attribute">Population:</div><h6>{this.state.population}</h6>
+              <div className="attribute">Population:</div><h6>{this.state.population}</h6>
               <hr className="card-line" />
               <div className="attribute">Timezone: </div><h6>{this.state.timezone}</h6>
               <hr className="card-line" />

@@ -166,7 +166,7 @@ export class ArtistListPage extends Component {
   render() {
     return (
       <div className="body">
-        <Navbar name={"artists"}/>
+        <Navbar name={"artists"} />
         <div className="appear-second">
           <h1 className="title">Artists</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
@@ -249,7 +249,7 @@ export class ArtistListPage extends Component {
                     </MediaQuery>
                     {/* mobile */}
                     <MediaQuery maxDeviceWidth={500}>
-                    <Pagination
+                      <Pagination
                         color="primary"
                         size="size"
                         page={this.state.page}

@@ -38,12 +38,12 @@ export class LocationDetailPage extends Component {
 
     return (
       <div>
-      <Navbar />
-      <div className="body flex">
-        <div className="appear-second">
-          <LocationDetailsCard id={this.props.match.params.id} />
+        <Navbar />
+        <div className="body flex">
+          <div className="appear-second">
+            <LocationDetailsCard id={this.props.match.params.id} />
+          </div>
         </div>
-      </div>
       </div>
     );
   }

@@ -19,12 +19,11 @@ export class ArtistCard extends Component {
           <hr className="card-line" />
           <div className="attribute">Popularity Score: </div><h6>{checkHighlight(this.props.popularity.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.popularity}</mark> : this.props.popularity}</h6>
           <hr className="card-line" />
-
           {this.props.website && <div className="card-button"><a href={this.props.website}><Button variant="secondary" >Artist Website</Button></a></div>}
           <div className="flex" style={links}>
-          <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
-          {this.props.twitter_url && <a href={this.props.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
-          {this.props.wiki_url && <a href={this.props.wiki_url}><img src={wikiLogo} style={logo}></img></a>}
+            <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
+            {this.props.twitter_url && <a href={this.props.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
+            {this.props.wiki_url && <a href={this.props.wiki_url}><img src={wikiLogo} style={logo}></img></a>}
           </div>
         </div>
       </div>

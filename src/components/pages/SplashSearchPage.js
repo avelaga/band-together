@@ -3,7 +3,7 @@ import Navbar from '../layout/Navbar';
 import ArtistCard from '../layout/ArtistCard.js';
 import ConcertCard from '../layout/ConcertCard.js';
 import LocationCard from '../layout/LocationCard.js';
-import { Pagination } from "semantic-ui-react";
+import Pagination from '@material-ui/lab/Pagination';
 import SearchField from "react-search-field";
 import MediaQuery from 'react-responsive'
 const axios = require("axios").default;
@@ -79,8 +79,8 @@ export class SplashSearchPage extends Component {
       });
   }
 
-  setPageNum = (event, { activePage }) => {
-    this.setState({ page: activePage });
+  setPageNum = (event, page) => {
+    this.setState({ page: page });
   };
 
   render() {
@@ -120,23 +120,23 @@ export class SplashSearchPage extends Component {
                 {/* desktop */}
                 <MediaQuery minDeviceWidth={500}>
                   <Pagination
-                    activePage={this.state.page}
-                    totalPages={Math.ceil(this.state.count / 10)}
-                    siblingRange={1}
-                    onPageChange={this.setPageNum}
-
+                    color="primary"
+                    size="large"
+                    page={this.state.page}
+                    count={Math.ceil(this.state.count / 10)}
+                    onChange={this.setPageNum}
                   />
                 </MediaQuery>
 
                 {/* mobile */}
                 <MediaQuery maxDeviceWidth={500}>
                   <Pagination
-                    activePage={this.state.page}
-                    totalPages={Math.ceil(this.state.count / 10)}
-                    siblingRange={1}
-                    onPageChange={this.setPageNum}
-                    ellipsisItem={null}
-                    boundaryRange={0}
+                    color="primary"
+                    size="size"
+                    page={this.state.page}
+                    count={Math.ceil(this.state.count / 10)}
+                    onChange={this.setPageNum}
+                    siblingCount={0}
                   />
                 </MediaQuery>
               </div>
