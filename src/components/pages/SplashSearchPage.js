@@ -13,8 +13,8 @@ export class SplashSearchPage extends Component {
     super();
     this.state = {
       searchTerm: '',
-      count: 0,
-      results: [],
+      count: null,
+      results: null,
       page: 1,
       searched: false,
       query: ' '
@@ -29,7 +29,9 @@ export class SplashSearchPage extends Component {
     this.setState({
       searchTerm: "query=" + value,
       searched: true,
-      query: value
+      query: value,
+      count: null,
+      results: null
     });
     let url = "https://bandtogetherapi.xyz/restapi/artist/search?" + "query=" + value;
     axios
@@ -88,8 +90,8 @@ export class SplashSearchPage extends Component {
       <div className="body">
         <Navbar />
         <div className="appear-second">
-          {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-          {(this.state.results && this.state.count > 0) &&
+        {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
+        {(this.state.count > 0) &&
             <div>
               <div className="search-div">
                 <SearchField
@@ -154,7 +156,7 @@ export class SplashSearchPage extends Component {
                     onSearchClick={(e) => { this.newSearch(e) }}
                   />
                 </div>
-                <h2>No results found for "{this.state.query}"</h2>
+                <h2 style={noResultsText}>No results found for "{this.state.query}"</h2>
               </div>
             </div>
           }
@@ -170,4 +172,8 @@ const noResults = {
   color: 'white',
   padding: '10px',
   textAlign: 'center'
+}
+
+const noResultsText = {
+  width: '100vw'
 }
