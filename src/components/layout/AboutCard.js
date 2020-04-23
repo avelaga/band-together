@@ -10,10 +10,10 @@ export class AboutCard extends Component {
         <MediaQuery minDeviceWidth={500}>
           <div style={aboutCard}>
             <img src={this.props.img} style={aboutCardImg}></img>
-            <div className="card-text">
+            <div style={aboutText}>
               <h1>{this.props.name}</h1>
-              <h4><i>{this.props.role}</i></h4>
-              <h5>{this.props.bio}</h5>
+              <div style={role}>{this.props.role}</div>
+              <div style={bio}>{this.props.bio}</div>
               <div className="card-stats">
                 <h5>{this.props.commits} commits / {this.props.issues} issues / {this.props.unit_tests} unit tests</h5>
               </div>
@@ -27,8 +27,8 @@ export class AboutCard extends Component {
             <img src={this.props.img} style={mobileAboutCardImg}></img>
             <div className="card-text">
               <h1>{this.props.name}</h1>
-              <div style={role}>{this.props.role}</div>
-              <div style={bio}>{this.props.bio}</div>
+              <div style={mobileRole}>{this.props.role}</div>
+              <div style={mobileBio}>{this.props.bio}</div>
               <div className="card-stats">
                 <h5>{this.props.commits} commits / {this.props.issues} issues / {this.props.unit_tests} unit tests</h5>
               </div>
@@ -43,6 +43,21 @@ export class AboutCard extends Component {
 
 export default AboutCard;
 
+const role = {
+  fontWeight: '400',
+  fontStyle: 'italic',
+  fontSize: '20px',
+  paddingBottom: '5px'
+}
+
+const aboutText = {
+  color: 'white',
+  padding: '5px',
+  textTransform: 'capitalize',
+  fontSize: '15px',
+  lineHeight: '23px'
+}
+
 const aboutCard = {
   backgroundColor: 'black',
   border: 'rgb(53, 53, 53)',
@@ -50,7 +65,7 @@ const aboutCard = {
   borderStyle: 'solid',
   textAlign: 'center',
   width: '450px',
-  height: '660px',
+  height: '650px',
   margin: '30px',
   borderRadius: '3px'
 }
@@ -80,13 +95,18 @@ const mobileAboutCardImg = {
   borderRadius: '3px',
 }
 
-const role = {
+const mobileRole = {
   fontSize: '25px',
   lineHeight: '25px',
   fontStyle: 'italic'
 }
 
-const bio = {
+const mobileBio = {
   fontSize: '20px',
   lineHeight: '40px'
+}
+
+const bio = {
+  fontSize: '15px',
+  paddingBottom: '5px'
 }
