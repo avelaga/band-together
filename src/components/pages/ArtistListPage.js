@@ -14,6 +14,7 @@ export class ArtistListPage extends Component {
   constructor() {
     super();
     this.state = {
+      compareList: [],
       count: null,
       next: null,
       prev: null,
@@ -43,7 +44,8 @@ export class ArtistListPage extends Component {
         minPop: 0,
         maxPop: 100,
         genre: ''
-      }
+      },
+
     }
   }
 
@@ -163,8 +165,23 @@ export class ArtistListPage extends Component {
     }, this.updateState);
   }
 
-  callback(arg){
-    console.log(arg);
+  callback = (arg) => {
+    if (!this.state.compareList.includes(arg)) { // add
+      this.setState({
+        compareList: this.state.compareList.concat(arg)
+      }, this.printCompare);
+    } else { // remove
+      const index = this.state.compareList.indexOf(arg);
+      let newArr = this.state.compareList;
+      newArr.splice(index, 1);
+      this.setState({
+        compareList: newArr
+      }, this.printCompare);
+    }
+  }
+
+  printCompare() {
+    console.log(this.state.compareList);
   }
 
   render() {
@@ -237,7 +254,7 @@ export class ArtistListPage extends Component {
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <ArtistCard key={index} compare={this.callback} id={value.id} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
+                      return <ArtistCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
                     })}
                   </div>
                   <div className="pagination-menu">

@@ -6,7 +6,6 @@ import wikiLogo from "../../../dist/images/wikipedia.png";
 
 export class ArtistCard extends Component {
 
-
   render() {
     return (
       <div className="card artist-card-height">
@@ -21,6 +20,7 @@ export class ArtistCard extends Component {
           <hr className="card-line" />
           {this.props.website && <div className="card-button"><a href={this.props.website}><Button variant="secondary" >Artist Website</Button></a></div>}
           <div className="card-button"><Button variant="secondary" onClick={() => {this.props.compare(this.props.id)}}>Compare</Button></div>
+          {this.props.compareSelected && <div>SELECTED</div>}
           <div className="flex" style={links}>
             <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
             {this.props.twitter_url && <a href={this.props.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
