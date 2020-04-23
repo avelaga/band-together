@@ -184,6 +184,10 @@ export class ArtistListPage extends Component {
     console.log(this.state.compareList);
   }
 
+  showCompare = () => {
+    console.log("gonna show compare");
+  }
+
   render() {
     return (
       <div className="body">
@@ -194,6 +198,7 @@ export class ArtistListPage extends Component {
           {this.state.results &&
             <div>
               <div className="search-div flex">
+              <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Compare</Button>
                 <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "name" ? activeDropdown : inactiveDropdown} onClick={this.sortName}>Name</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "genre" ? activeDropdown : inactiveDropdown} onClick={this.sortGenre}>Genre</Dropdown.Item>
