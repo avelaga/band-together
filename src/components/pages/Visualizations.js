@@ -19,7 +19,7 @@ export class Visualizations extends Component{
             <div className="Ticket-vis" style={whiteText}>
                 <h1>Average Ticket Prices</h1>
                 <br />
-                <Scatterplot data={avgTicketPrice} xAttr="price" yAttr="priceCount" xMax={1000} yMax={200} xLabel="Average Ticket Price" yLabel="Number of Concerts" />
+                <Scatterplot data={avgTicketPrice} xAttr="price" yAttr="priceCount" xMax={1000} yMax={250} xLabel="Average Ticket Price" yLabel="Number of Concerts" />
             </div>
             <br />
             <div className="Genre-vis" style={whiteText}>
