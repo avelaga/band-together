@@ -3,6 +3,8 @@ import "./pages.css"
 import numArtistsPerGenre from '../extras/genreData.json';
 import numConcertsPerState from '../extras/stateData.json';
 import avgTicketPrice from '../extras/ticketData.json';
+import numEndangeredPerState from '../extras/endangeredData.json';
+
 import BarChart from '../extras/BarChart';
 import Scatterplot from '../extras/ScatterChart';
 import PieChart from '../extras/PieChart';
@@ -16,6 +18,9 @@ export class Visualizations extends Component{
     render (){
         return (
         <div className="body">
+
+            <h1 style={grayText}> Band Together Visualizations</h1>
+
             <div className="Ticket-vis" style={whiteText}>
                 <h1>Average Ticket Prices</h1>
                 <br />
@@ -27,9 +32,16 @@ export class Visualizations extends Component{
                 <PieChart data={numArtistsPerGenre}/>
             </div>
             <br />
-            <div className="Concerts-Vis" style={whiteTextUnalign}>
+            <div className="Concerts-Vis" style={whiteText}>
                 <h1>Concerts per State</h1>
                 <BarChart data={numConcertsPerState} xAttr="state" yAttr="numConcerts"/>
+            </div>
+
+            <h1 style={grayText}> Customer Visualizations</h1>
+
+            <div className="Endangered-Vis" style={whiteText}>
+                <h1>Endangered Plants per State</h1>
+                <BarChart data={numEndangeredPerState} xAttr="state" yAttr="Endangered"/>
             </div>
         </div>
     );
@@ -39,15 +51,17 @@ export class Visualizations extends Component{
 
 const whiteText = {
     color: 'white',
-    width: '80vw',
+    width: '100vw',
     margin: 'auto',
     justifyContent: 'center',
     textAlign: 'center'
   }
 
-const whiteTextUnalign = {
-    color: 'white',
-    width: '80vw',
+const grayText = {
+    color: 'gray',
+    width: '100vw',
+    margin: 'auto',
+    justifyContent: 'center',
     textAlign: 'center'
 }
 
