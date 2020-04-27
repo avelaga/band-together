@@ -48,7 +48,7 @@ class PieChart extends React.Component {
       .data(data)
       .enter()
       .append('g')
-      .attr('transform', (d, i) => 'translate(' + (width - 100) + ',' + (i * 20 + 20) + ')')
+      .attr('transform', (d, i) => 'translate(' + (width - 150) + ',' + (i * 20 + 20) + ')')
       .attr('class', 'legend')
       .style('fill', 'white');
     legend

@@ -19,7 +19,7 @@ class BarChart extends Component {
     createBarChart(){
         const margin = { top: 50, right: 20, bottom: 100, left: 60};
         const height = 600 - margin.top - margin.bottom;
-        const width = 1400 - margin.left - margin.right;
+        const width = 1400 - margin.left - margin.right - 150;
 
         const svg = d3
             .select(this.refs.barChart)
@@ -60,6 +60,7 @@ class BarChart extends Component {
             .attr('width', x.bandwidth())
             .attr('height', d => height - y(d[this.props.yAttr]))
             .attr('fill', '#2bc4ad');
+
     }
 
     render(){
