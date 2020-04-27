@@ -15,21 +15,40 @@ export class Visualizations extends Component{
 
     render (){
         return (
-        <div className='body'>
-            <h1>Average Ticket Price Visualization</h1>
+        <div className="body">
+            <div className="Ticket-vis" style={whiteText}>
+                <h1>Average Ticket Prices</h1>
+                <br />
+                <Scatterplot data={avgTicketPrice} xAttr="price" yAttr="priceCount" xMax={1000} yMax={200} xLabel="Average Ticket Price" yLabel="Number of Concerts" />
+            </div>
             <br />
-            <Scatterplot data={avgTicketPrice} xAttr="price" yAttr="priceCount" xMax={1000} yMax={200} xLabel="Average Ticket Price" yLabel="Number of Concerts" />
+            <div className="Genre-vis" style={whiteText}>
+                <h1>Artists per Genre</h1>
+                <PieChart data={numArtistsPerGenre}/>
+            </div>
             <br />
-            <h1>Artist Genre Count</h1>
-            <PieChart data={numArtistsPerGenre}/>
-            <br />
-            <h1>Concerts per State</h1>
-            <BarChart data={numConcertsPerState} xAttr="state" yAttr="numConcerts"/>
-
+            <div className="Concerts-Vis" style={whiteTextUnalign}>
+                <h1>Concerts per State</h1>
+                <BarChart data={numConcertsPerState} xAttr="state" yAttr="numConcerts"/>
+            </div>
         </div>
     );
     }
 
+}
+
+const whiteText = {
+    color: 'white',
+    width: '80vw',
+    margin: 'auto',
+    justifyContent: 'center',
+    textAlign: 'center'
+  }
+
+const whiteTextUnalign = {
+    color: 'white',
+    width: '80vw',
+    textAlign: 'center'
 }
 
 export default Visualizations;
