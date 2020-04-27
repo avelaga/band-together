@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LocationDetailsCard from "../layout/LocationDetailsCard.js";
+import Navbar from '../layout/Navbar';
 import { Redirect } from 'react-router-dom';
 import "./pages.css";
 
@@ -36,9 +37,12 @@ export class LocationDetailPage extends Component {
     }
 
     return (
-      <div className="body flex">
-        <div className="appear-second">
-          <LocationDetailsCard id={this.props.match.params.id} />
+      <div>
+        <Navbar />
+        <div className="body flex">
+          <div className="appear-second">
+            <LocationDetailsCard id={this.props.match.params.id} />
+          </div>
         </div>
       </div>
     );

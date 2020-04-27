@@ -35,16 +35,19 @@ export class Navbar extends Component {
                 <img style={navbarLogo} src={Logo} />
               </a>
               <div style={linksContainer}>
-                <a style={navbarLink} href="/about">
+                <a style={this.props.name === "visualizations" ? activeLink : inactiveLink} href="/visualizations">
+                  Visualizations
+              </a>
+                <a style={this.props.name === "about" ? activeLink : inactiveLink} href="/about">
                   About
               </a>
-                <a style={navbarLink} href="/concerts">
+                <a style={this.props.name === "concerts" ? activeLink : inactiveLink} href="/concerts">
                   Concerts
               </a>
-                <a style={navbarLink} href="/artists">
+                <a style={this.props.name === "artists" ? activeLink : inactiveLink} href="/artists">
                   Artists
               </a>
-                <a style={navbarLink} href="/locations">
+                <a style={this.props.name === "locations" ? activeLink : inactiveLink} href="/locations">
                   Locations
               </a>
               </div>
@@ -57,26 +60,26 @@ export class Navbar extends Component {
           <div style={mobileNav}>
             <div><a href="/"><img style={mobileNavbarLogo} src={Logo} /></a></div>
             <div style={navMenu}>
-            <HamburgerMenu
-              isOpen={this.state.open}
-              menuClicked={this.handleClick.bind(this)}
-              width={40}
-              height={40}
-              strokeWidth={2}
-              rotate={0}
-              color='white'
-              borderRadius={0}
-              animationDuration={0.5}
-            />
+              <HamburgerMenu
+                isOpen={this.state.open}
+                menuClicked={this.handleClick.bind(this)}
+                width={40}
+                height={40}
+                strokeWidth={2}
+                rotate={0}
+                color='white'
+                borderRadius={0}
+                animationDuration={0.5}
+              />
             </div>
             {this.state.open &&
               <div className="flex">
-                <hr style={line} className="appear-first"/>
+                <hr style={line} className="appear-first" />
                 <a style={mobileNavbarLink} className="appear-second" href="/locations">Locations</a>
                 <a style={mobileNavbarLink} className="appear-third" href="/artists">Artists</a>
                 <a style={mobileNavbarLink} className="appear-fourth" href="/concerts">Concerts</a>
                 <a style={mobileNavbarLink} className="appear-fifth" href="/about">About</a>
-                <hr style={line} className="appear-sixth"/>
+                <hr style={line} className="appear-sixth" />
               </div>
             }
           </div>
@@ -129,7 +132,14 @@ const linksContainer = {
   width: '100%',
 }
 
-const navbarLink = {
+const activeLink = {
+  color: 'grey',
+  fontSize: '2em',
+  paddingLeft: '1em',
+  float: 'right'
+}
+
+const inactiveLink = {
   color: '#ffffff',
   fontSize: '2em',
   paddingLeft: '1em',

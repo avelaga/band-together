@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SearchField from "react-search-field";
+import Navbar from '../layout/Navbar';
 import { Redirect } from "react-router-dom";
 import "./pages.css";
 
@@ -7,7 +8,8 @@ export class SplashPage extends Component {
   constructor() {
     super();
     this.state = {
-    searchTerm: null }
+      searchTerm: null
+    }
   }
 
   newSearch(searchTerm) {
@@ -22,24 +24,29 @@ export class SplashPage extends Component {
       return <Redirect to={{
         pathname: '/search',
         state: { searchTerm: this.state.searchTerm }
-    }} />
-      
+      }} />
+
     }
     return (
-      <div className="splash-back body">
-        <div style={row} >
-          <div style={splashText}></div>
-          <div style={splashText}></div>
-          <div className="splash-text">
-            <h1 className="appear-fourth">Band Together</h1>
-            <p className="appear-sixth">Find the music you love</p>
-            <SearchField
-              placeholder="Search..."
-              onEnter={(e) => { this.newSearch(e) }}
-              onSearchClick={(e) => { this.newSearch(e) }}
-            />
+      <div>
+        <Navbar />
+        <div className="splash-back body">
+          <div style={row} >
+            <div style={splashText}></div>
+            <div style={splashText}></div>
+            <div className="splash-text">
+              <h1 className="appear-second">Band Together</h1>
+              <p className="appear-fourth">Find the music you love</p>
+              <div className="appear-sixth">
+                <SearchField
+                  placeholder="Search for an artist, genre, city, etc..."
+                  onEnter={(e) => { this.newSearch(e) }}
+                  onSearchClick={(e) => { this.newSearch(e) }}
+                />
+              </div>
+            </div>
+            <div style={splashText}></div>
           </div>
-          <div style={splashText}></div>
         </div>
       </div>
     );
@@ -60,7 +67,6 @@ const row = {
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  width: '100%'
 }
 
 export default SplashPage;

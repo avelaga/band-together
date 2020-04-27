@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import Navbar from '../layout/Navbar';
 import ArtistCard from '../layout/ArtistCard.js';
-import { Pagination } from "semantic-ui-react";
+import Pagination from '@material-ui/lab/Pagination';
 import SearchField from "react-search-field";
-import MediaQuery from 'react-responsive'
+import MediaQuery from 'react-responsive';
 import Slider from '@material-ui/core/Slider';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
 const axios = require("axios").default;
 
 export class ArtistListPage extends Component {
@@ -46,6 +48,7 @@ export class ArtistListPage extends Component {
   }
 
   newSearch(value) {
+    console.log(value);
     if (value === "") {
       this.setState({
         query: value,
@@ -95,8 +98,8 @@ export class ArtistListPage extends Component {
     this.setState({ page: 1 }, this.updateState);
   }
 
-  setPageNum = (event, { activePage }) => {
-    this.setState({ page: activePage }, this.updateState);
+  setPageNum = (event, page) => {
+    this.setState({ page: page }, this.updateState);
   };
 
   sortName = (event) => {
@@ -163,23 +166,24 @@ export class ArtistListPage extends Component {
   render() {
     return (
       <div className="body">
+        <Navbar name={"artists"} />
         <div className="appear-second">
           <h1 className="title">Artists</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
           {this.state.results &&
             <div>
               <div className="search-div flex">
-                <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right">
+                <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "name" ? activeDropdown : inactiveDropdown} onClick={this.sortName}>Name</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "genre" ? activeDropdown : inactiveDropdown} onClick={this.sortGenre}>Genre</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "num_spotify_followers" ? activeDropdown : inactiveDropdown} onClick={this.sortFollowers}>Followers</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "popularity_score" ? activeDropdown : inactiveDropdown} onClick={this.sortPopularity}>Popularity</Dropdown.Item>
                 </DropdownButton>
-                <DropdownButton id="dropdown-basic-button" title="Order by" className="margin-right">
+                <DropdownButton id="dropdown-basic-button" title="Order by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.ascending === 1 ? activeDropdown : inactiveDropdown} onClick={this.sortAscending}>Ascending</Dropdown.Item>
                   <Dropdown.Item style={this.state.ascending === -1 ? activeDropdown : inactiveDropdown} onClick={this.sortDescending}>Descending</Dropdown.Item>
                 </DropdownButton>
-                <DropdownButton id="dropdown-basic-button" title="Filter by" className="margin-right">
+                <DropdownButton id="dropdown-basic-button" title="Filter by" className="margin-right mobile-margin">
                   <Dropdown.Item >
                     <div className="slider-div">
                       <h6>Popularity</h6>
@@ -209,14 +213,14 @@ export class ArtistListPage extends Component {
                     </div>
                   </Dropdown.Item>
                 </DropdownButton>
-                <div className="margin-right">
+                <div className="margin-right mobile-margin">
                   <SearchField
                     placeholder="Search..."
                     onEnter={(e) => { this.newSearch(e) }}
                     onSearchClick={(e) => { this.newSearch(e) }}
                   />
                 </div>
-                <div className="button-style" onClick={this.reset}>Reset</div>
+                <Button variant="secondary" onClick={this.reset}>Reset</Button>
               </div>
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&
@@ -229,28 +233,29 @@ export class ArtistListPage extends Component {
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched}/>
+                      return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
                     })}
                   </div>
                   <div className="pagination-menu">
                     {/* desktop */}
                     <MediaQuery minDeviceWidth={500}>
                       <Pagination
-                        activePage={this.state.page}
-                        totalPages={Math.ceil(this.state.count / 10)}
-                        siblingRange={1}
-                        onPageChange={this.setPageNum}
+                        color="primary"
+                        size="large"
+                        page={this.state.page}
+                        count={Math.ceil(this.state.count / 10)}
+                        onChange={this.setPageNum}
                       />
                     </MediaQuery>
                     {/* mobile */}
                     <MediaQuery maxDeviceWidth={500}>
                       <Pagination
-                        activePage={this.state.page}
-                        totalPages={Math.ceil(this.state.count / 10)}
-                        siblingRange={1}
-                        onPageChange={this.setPageNum}
-                        ellipsisItem={null}
-                        boundaryRange={0}
+                        color="primary"
+                        size="size"
+                        page={this.state.page}
+                        count={Math.ceil(this.state.count / 10)}
+                        onChange={this.setPageNum}
+                        siblingCount={0}
                       />
                     </MediaQuery>
                   </div>
@@ -286,7 +291,7 @@ const inactiveDropdown = {
 }
 
 const activeDropdown = {
-  fontWeight: 'bolder',
-  backgroundColor: 'white',
-  color: 'black'
+  fontWeight: '1000',
+  backgroundColor: 'rgb(0, 119, 255)',
+  color: 'white'
 }
