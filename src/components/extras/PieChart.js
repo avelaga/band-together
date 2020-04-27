@@ -13,7 +13,7 @@ class PieChart extends React.Component {
 
   createPieChart() {
     const margin = 40;
-    const height = 450;
+    const height = 500;
     const width = 700;
     const radius = Math.min(width, height) / 2 - margin;
 
