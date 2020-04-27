@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import "./pages.css"
 import numArtistsPerGenre from '../extras/genreData.json';
 import numConcertsPerState from '../extras/stateData.json';
@@ -8,33 +8,32 @@ import Scatterplot from '../extras/ScatterChart';
 import PieChart from '../extras/PieChart';
 import Navbar from '../layout/Navbar';
 
-export class Visualizations extends Component{
-
-    constructor(){
+export class Visualizations extends Component {
+    constructor() {
         super();
     }
 
-    render (){
+    render() {
         return (
-        <div className="body">
-            <Navbar name={"visualizations"} />
-            <div className="Ticket-vis" style={whiteText}>
-                <h1>Average Ticket Prices</h1>
+            <div className="body">
+                <Navbar name={"visualizations"} />
+                <div className="Ticket-vis" style={whiteText}>
+                    <h1>Average Ticket Prices</h1>
+                    <br />
+                    <Scatterplot data={avgTicketPrice} xAttr="price" yAttr="priceCount" xMax={1000} yMax={250} xLabel="Average Ticket Price" yLabel="Number of Concerts" />
+                </div>
                 <br />
-                <Scatterplot data={avgTicketPrice} xAttr="price" yAttr="priceCount" xMax={1000} yMax={250} xLabel="Average Ticket Price" yLabel="Number of Concerts" />
+                <div className="Genre-vis" style={whiteText}>
+                    <h1>Artists per Genre</h1>
+                    <PieChart data={numArtistsPerGenre} />
+                </div>
+                <br />
+                <div className="Concerts-Vis" style={whiteText}>
+                    <h1>Concerts per State</h1>
+                    <BarChart data={numConcertsPerState} xAttr="state" yAttr="numConcerts" />
+                </div>
             </div>
-            <br />
-            <div className="Genre-vis" style={whiteText}>
-                <h1>Artists per Genre</h1>
-                <PieChart data={numArtistsPerGenre}/>
-            </div>
-            <br />
-            <div className="Concerts-Vis" style={whiteText}>
-                <h1>Concerts per State</h1>
-                <BarChart data={numConcertsPerState} xAttr="state" yAttr="numConcerts"/>
-            </div>
-        </div>
-    );
+        );
     }
 
 }
@@ -45,12 +44,6 @@ const whiteText = {
     margin: 'auto',
     justifyContent: 'center',
     textAlign: 'center'
-  }
-
-// const whiteTextUnalign = {
-//     color: 'white',
-//     width: '80vw',
-//     textAlign: 'center'
-// }
+}
 
 export default Visualizations;
