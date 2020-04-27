@@ -41,7 +41,7 @@ export class Visualizations extends Component{
                 <BarChart data={numConcertsPerState} xAttr="state" yAttr="numConcerts"/>
             </div>
 
-            <h1 style={grayText}> Customer Visualizations</h1>
+            <h1 style={grayText}> Developer Visualizations</h1>
 
             <div className="Genre-vis" style={whiteText}>
                 <h1>Number of Animals in each status</h1>
