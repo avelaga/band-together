@@ -79,6 +79,7 @@ export class Navbar extends Component {
                 <a style={mobileNavbarLink} className="appear-third" href="/artists">Artists</a>
                 <a style={mobileNavbarLink} className="appear-fourth" href="/concerts">Concerts</a>
                 <a style={mobileNavbarLink} className="appear-fifth" href="/about">About</a>
+                <a style={mobileNavbarLink} className="appear-fifth" href="/visualizations">Visualizations</a>
                 <hr style={line} className="appear-sixth" />
               </div>
             }
