@@ -20,7 +20,7 @@ class PieChart extends React.Component {
     const rawSvg = d3
       .select(this.refs.pieChart)
       .append('svg')
-      .attr('width', width)
+      .attr('width', width+200)
       .attr('height', height);
     const svg = rawSvg
       .append('g')

@@ -45,6 +45,14 @@ const whiteText = {
     margin: 'auto',
     justifyContent: 'center',
     textAlign: 'center'
+  }
+
+const whiteTextUnalign = {
+    color: 'white',
+    width: '80vw',
+    margin: 'auto',
+    justifyContent: 'center',
+    textAlign: 'center'
 }
 
 export default Visualizations;
