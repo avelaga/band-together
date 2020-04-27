@@ -35,6 +35,9 @@ export class Navbar extends Component {
                 <img style={navbarLogo} src={Logo} />
               </a>
               <div style={linksContainer}>
+              <a style={navbarLink} href="/sisualizations">
+                  Visualizations
+              </a>
                 <a style={navbarLink} href="/about">
                   About
               </a>
@@ -57,26 +60,26 @@ export class Navbar extends Component {
           <div style={mobileNav}>
             <div><a href="/"><img style={mobileNavbarLogo} src={Logo} /></a></div>
             <div style={navMenu}>
-            <HamburgerMenu
-              isOpen={this.state.open}
-              menuClicked={this.handleClick.bind(this)}
-              width={40}
-              height={40}
-              strokeWidth={2}
-              rotate={0}
-              color='white'
-              borderRadius={0}
-              animationDuration={0.5}
-            />
+              <HamburgerMenu
+                isOpen={this.state.open}
+                menuClicked={this.handleClick.bind(this)}
+                width={40}
+                height={40}
+                strokeWidth={2}
+                rotate={0}
+                color='white'
+                borderRadius={0}
+                animationDuration={0.5}
+              />
             </div>
             {this.state.open &&
               <div className="flex">
-                <hr style={line} className="appear-first"/>
+                <hr style={line} className="appear-first" />
                 <a style={mobileNavbarLink} className="appear-second" href="/locations">Locations</a>
                 <a style={mobileNavbarLink} className="appear-third" href="/artists">Artists</a>
                 <a style={mobileNavbarLink} className="appear-fourth" href="/concerts">Concerts</a>
                 <a style={mobileNavbarLink} className="appear-fifth" href="/about">About</a>
-                <hr style={line} className="appear-sixth"/>
+                <hr style={line} className="appear-sixth" />
               </div>
             }
           </div>
