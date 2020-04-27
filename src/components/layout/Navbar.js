@@ -35,6 +35,9 @@ export class Navbar extends Component {
                 <img style={navbarLogo} src={Logo} />
               </a>
               <div style={linksContainer}>
+              <a style={navbarLink} href="/visualizations">
+                  Visualizations
+              </a>
                 <a style={navbarLink} href="/about">
                   About
               </a>

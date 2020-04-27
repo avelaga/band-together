@@ -9,6 +9,8 @@ import ArtistListPage from './components/pages/ArtistListPage';
 import ArtistDetailPage from './components/pages/ArtistDetailPage';
 import ConcertListPage from './components/pages/ConcertListPage';
 import ConcertDetailPage from './components/pages/ConcertDetailPage';
+import Visualizations from './components/pages/Visualizations';
+
 import ErrorGif from '../dist/images/error.gif';
 import 'semantic-ui-css/semantic.min.css';
 
@@ -49,6 +51,7 @@ function App() {
       <Route exact path='/concerts' exact component={ConcertListPage} />
       <Route exact path='/concerts/:id' exact component={ConcertDetailPage} />
       <Route exact path='/search' exact component={SplashSearchPage} />
+      <Route exact path='/visualizations' exact component={Visualizations} />
       <Route component={ErrorPage} />
     </Switch>
   );

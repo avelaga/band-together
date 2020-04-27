@@ -3,11 +3,15 @@ import "./pages.css"
 import numArtistsPerGenre from '../extras/genreData.json';
 import numConcertsPerState from '../extras/stateData.json';
 import avgTicketPrice from '../extras/ticketData.json';
+
 import numEndangeredPerState from '../extras/endangeredData.json';
+import animalStatus from '../extras/animalData.json';
 
 import BarChart from '../extras/BarChart';
+import StackedBarChart from '../extras/StackedBarChart';
 import Scatterplot from '../extras/ScatterChart';
 import PieChart from '../extras/PieChart';
+
 
 export class Visualizations extends Component{
 
@@ -39,10 +43,20 @@ export class Visualizations extends Component{
 
             <h1 style={grayText}> Customer Visualizations</h1>
 
+            <div className="Genre-vis" style={whiteText}>
+                <h1>Number of Animals in each status</h1>
+                <PieChart data={animalStatus}/>
+            </div>
+
             <div className="Endangered-Vis" style={whiteText}>
                 <h1>Endangered Plants per State</h1>
                 <BarChart data={numEndangeredPerState} xAttr="state" yAttr="Endangered"/>
             </div>
+            <div className="EndangeredPlant-Vis" style={whiteText}>
+                <h1>Status by Growth Type</h1>
+                <div id="stackedBarChart"></div>
+                <StackedBarChart />
+            </div>
         </div>
     );
     }
@@ -56,6 +70,7 @@ const whiteText = {
     justifyContent: 'center',
     textAlign: 'center'
   }
+
 
 const grayText = {
     color: 'gray',
