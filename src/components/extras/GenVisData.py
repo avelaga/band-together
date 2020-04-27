@@ -3,18 +3,13 @@ import json
 
 def generateData():
     baseurl = 'https://bandtogetherapi.xyz/restapi/'
-
-    genreData = {}
-    stateData = []
-    ticketPriceData = []
     getGenreData(baseurl)
     getStateData(baseurl)
     getTicketData(baseurl)
 
 
 def getGenreData(baseUrl):
-    url = baseUrl + "artist/search?query="
-
+    url = baseUrl + "artist/search"
     response = requests.get(url)
     dataList = json.loads(response.text)
 
@@ -29,25 +24,66 @@ def getGenreData(baseUrl):
 
     with open('genreData.json', 'w') as out:
         out.write('[\n')
-        for genreKey, genreVal in genreDataDict.items():
-            out.write('{\n"genre": "' + genreKey + '",\n"numArtists": ' + str(genreVal) + '\n},\n')
+        for i, genre in enumerate(genreDataDict.items()):
+            if i == len(genreDataDict.items()) - 1:
+                out.write('{\n"genre": "' + str(genre[0]) + '",\n"numArtists": ' + str(genre[1]) + '\n}\n')
+            else:
+                out.write('{\n"genre": "' + str(genre[0]) + '",\n"numArtists": ' + str(genre[1]) + '\n},\n')
         out.write(']')
 
-def getStateData(baseUrl):
-  url = baseUrl + "location/search?query="
-  #headers = {'Accept':'application/json'}
 
-  response = requests.get(url)
-  with open('stateData.json', 'wb') as out:
-    out.write(response.content)
+def getStateData(baseUrl):
+    url = baseUrl + "concert/search"
+    response = requests.get(url)
+    dataList = json.loads(response.text)
+
+    stateDataDict = {}
+
+    for item in dataList:
+        state = item['region']
+        try:
+            stateDataDict[state] += 1
+        except KeyError:
+            stateDataDict[state] = 1
+
+    with open('stateData.json', 'w') as out:
+        out.write('[\n')
+        for i, state in enumerate(stateDataDict.items()):
+            if i == len(stateDataDict.items()) - 1:
+                out.write('{\n"state": "' + str(state[0]) + '",\n"numConcerts": ' + str(state[1]) + '\n}\n')
+            else:
+                out.write('{\n"state": "' + str(state[0]) + '",\n"numConcerts": ' + str(state[1]) + '\n},\n')
+        out.write(']')
+
 
 def getTicketData(baseUrl):
-  url = baseUrl + "concert/search?query="
-  #headers = {'Accept':'application/json'}
+    url = baseUrl + "concert/search"
+    response = requests.get(url)
+    dataList = json.loads(response.text)
 
-  response = requests.get(url)
-  with open('ticketData.json', 'wb') as out:
-    out.write(response.content)
+    ticketPricesDict = {}
+
+    for item in dataList:
+        try:
+            minPrice = float(item['ticket_min'])
+            maxPrice = float(item['ticket_max'])
+            avg_price = (minPrice + maxPrice) // 2
+            try:
+                ticketPricesDict[avg_price] += 1
+            except KeyError:
+                ticketPricesDict[avg_price] = 1
+        except TypeError:
+            pass
+
+
+    with open('ticketData.json', 'w') as out:
+        out.write('[\n')
+        for i, price in enumerate(ticketPricesDict.items()):
+            if i == len(ticketPricesDict.items()) - 1:
+                out.write('{\n"price": "' + str(price[0]) + '",\n"priceCount": ' + str(price[1]) + '\n}\n')
+            else:
+                out.write('{\n"price": "' + str(price[0]) + '",\n"priceCount": ' + str(price[1]) + '\n},\n')
+        out.write(']')
 
 
 if __name__ == "__main__":
