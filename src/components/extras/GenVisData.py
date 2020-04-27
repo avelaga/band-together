@@ -23,13 +23,14 @@ def getGenreData(baseUrl):
             genreDataDict[genre] = 1
 
     with open('genreData.json', 'w') as out:
-        out.write('[\n')
-        for i, genre in enumerate(genreDataDict.items()):
-            if i == len(genreDataDict.items()) - 1:
-                out.write('{\n"genre": "' + str(genre[0]) + '",\n"numArtists": ' + str(genre[1]) + '\n}\n')
-            else:
-                out.write('{\n"genre": "' + str(genre[0]) + '",\n"numArtists": ' + str(genre[1]) + '\n},\n')
-        out.write(']')
+        out.write("{\n")
+        for i, datum in enumerate(genreDataDict.items()):
+            if datum[1] > 5:
+                if i == len(genreDataDict.items()) - 1:
+                    out.write('"' + datum[0] + '": ' + str(datum[1]) + "\n")
+                else:
+                    out.write('"' + datum[0] + '": ' + str(datum[1]) + ",\n")
+        out.write("}")
 
 
 def getStateData(baseUrl):
@@ -67,7 +68,7 @@ def getTicketData(baseUrl):
         try:
             minPrice = float(item['ticket_min'])
             maxPrice = float(item['ticket_max'])
-            avg_price = ((minPrice + maxPrice) // 2) // 10 * 10
+            avg_price = ((minPrice + maxPrice) // 2) // 25 * 25
             try:
                 ticketPricesDict[avg_price] += 1
             except KeyError:

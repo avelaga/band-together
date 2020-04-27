@@ -27,6 +27,7 @@ class BarChart extends Component {
             .attr('width', width + margin.left + margin.right)
             .attr('height', height + margin.top + margin.bottom)
             .append('g')
+            .style('color', 'white')
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
         const x = d3
