@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import MediaQuery from 'react-responsive'
+import MediaQuery from 'react-responsive';
+import Button from 'react-bootstrap/Button';
 import BandMap from '../layout/BandMap';
 const axios = require("axios").default;
 
@@ -101,36 +102,33 @@ export class LocationDetailsCard extends Component {
             </div>
 
             <div className="mobile-details-text">
-              <h6>Population of {this.state.population}</h6>
-              <h6>Timezone: {this.state.timezone}</h6>
-              <h6>{this.state.region}, {this.state.country}</h6>
-              <h6>Elevation of: {this.state.elevation} ft</h6>
-              <h6>Next Concert: <a href={"/artists/" + this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/" + this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a>, {this.state.nextConcertDate}, {this.state.nextConcertTime}</h6>
-
+              <div className="attribute">Population:</div><h6>{this.state.population}</h6>
+              <hr className="card-line" />
+              <div className="attribute">Timezone: </div><h6>{this.state.timezone}</h6>
+              <hr className="card-line" />
+              <div className="attribute">Location: </div><h6>{this.state.region}, USA</h6>
+              <hr className="card-line" />
+              <div className="attribute">Elevation: </div><h6>{this.state.elevation} ft</h6>
+              <hr className="card-line" />
+              <div className="attribute">Next Concert: </div><h6> <a href={"/artists/" + this.state.nextArtistId}><i>{this.state.nextArtistName}</i></a> at <a href={"/concerts/" + this.state.nextConcertId}><i>{this.state.nextVenueName}</i></a>, {this.state.nextConcertDate}, {this.state.nextConcertTime}</h6>
+              <hr className="card-line" />
+              <div className="attribute">Bio: </div>
               {!this.state.viewMore &&
                 <div>
                   <div className="truncate"><h6>{this.state.bio}</h6></div>
-                  <div 
-                    style={mobileButtonStyle}
-                    onClick={(e) => { this.viewMore(e) }}
-                  >
-                    View More
-                  </div>
+                  <Button variant="secondary" onClick={(e) => { this.viewMore(e) }}>View More</Button>
                 </div>
               }
 
               {this.state.viewMore &&
                 <div>
                   <div><h6>{this.state.bio}</h6></div>
-                  <div
-                    style={mobileButtonStyle}
-                    onClick={(e) => { this.viewMore(e) }}
-                  >
-                    View Less
-                  </div>
+                  <Button variant="secondary" onClick={(e) => { this.viewMore(e) }}>View Less</Button>
                 </div>
               }
             </div>
+
+            <hr className="card-line" />
 
             <div style={mobileMap}>
               <BandMap lat={this.state.lat} long={this.state.long} />
@@ -173,7 +171,8 @@ const detailsText = {
   marginLeft: '10px',
   marginTop: '10px',
   height: '290px',
-  width: '680px'
+  width: '680px',
+  overflow: 'auto'
 }
 
 const locDetails = {

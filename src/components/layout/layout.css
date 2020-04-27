@@ -1,5 +1,4 @@
 /* wasnt able to remove this, caused errors */
-
 .band-navbar {
     background-color: black;
     height: 50px;
@@ -16,6 +15,7 @@
 .card-text {
     color: white;
     padding: 5px;
+    text-transform: capitalize;
 }
 
 .card {
@@ -31,6 +31,17 @@
 
 .card-stats {
     color: rgb(170, 170, 170);
+}
+
+.card-line {
+    background-color: rgb(53, 53, 53);
+    height: .1;
+    width: 185px;
+    margin: 5px;
+}
+
+.card-button {
+    width: 191;
 }
 
 .details {
@@ -104,16 +115,6 @@
     animation-fill-mode: forwards;
 }
 
-@media (max-width: 500px) {
-    .card {
-        width: 83vw;
-    }
-    .card-img {
-        height: 83vw;
-        width: 83vw;
-    }
-}
-
 .truncate {
     overflow: hidden;
     display: -webkit-box;
@@ -125,6 +126,35 @@
     color: white;
     text-align: center;
     width: 90vw;
+    margin-right: 5vw;
+    margin-left: 5vw;
     margin-top: 10px;
     margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.attribute {
+    font-size: 10px;
+    font-weight: bold;
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    .card {
+        width: 83vw;
+    }
+    .card-img {
+        height: 83vw;
+        width: 83vw;
+    }
+    .card-line {
+        width: auto;
+    }
+    .attribute {
+        font-size: 15px;
+    }
+}
+
+h2 {
+    margin-bottom: 7px;
 }

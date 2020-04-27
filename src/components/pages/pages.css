@@ -1,12 +1,14 @@
 /* cant figure out how to make this local splash page style because of syntax problems with quotation marks */
 .splash-back {
   background: url("../../../dist/images/mic.jpeg") no-repeat center;
+  min-height: calc(100vh - 50px) !important;
 }
 
 .body {
   background-color: black;
   background-size: 100%;
-  min-height: calc(100vh - 50px);
+  /* min-height: calc(100vh - 50px); */
+  min-height: 100vh;
 }
 
 .flex {
@@ -99,25 +101,6 @@ a:visited {
   }
 }
 
-@media (max-width: 500px){
-  .splash-back {
-    /* background-size: auto calc(100vh - 50px) !important; */
-    background: url("../../../dist/images/mic-mobile.jpeg") no-repeat center;
-  }
-
-  h1 {
-    font-size: 50px !important;
-  }
-
-  h2 {
-    font-size: 35px !important;
-  }
-
-  h6 {
-    font-size: 20px !important;
-  }
-}
-
 .title {
   color: white;
   text-align: center;
@@ -189,4 +172,60 @@ a:visited {
 
 .margin-right {
   margin-right: 10px;
+}
+
+.react-search-field-input {
+  width: 250px !important;
+  height: 31px !important;
+}
+
+.react-search-field-button {
+  height: 31px !important;
+}
+
+.react-search-field {
+  height: 32px !important;
+}
+
+@media (max-width: 500px){
+  .splash-back {
+    background: url("../../../dist/images/mic-mobile.jpeg") no-repeat center;
+  }
+
+  h1 {
+    font-size: 50px !important;
+  }
+
+  h2 {
+    font-size: 35px !important;
+  }
+
+  h6 {
+    font-size: 20px !important;
+  }
+
+  .search-div {
+    justify-content: center;
+    margin: auto;
+  }
+
+  .mobile-margin {
+    margin-bottom: 10px;
+  }
+
+  .react-search-field {
+    width: 300px !important;
+  }
+}
+
+.pagination-menu {
+  color: white !important;
+}
+
+.MuiPaginationItem-textPrimary {
+  color: white !important;
+}
+
+.Mui-selected {
+  background-color: rgb(78, 78, 78) !important;
 }

@@ -114,11 +114,14 @@ export class ConcertDetailsCard extends Component {
             </div>
 
             <div className="mobile-details-text">
-              <h6><a href={"/locations/" + this.state.locationId}>{this.state.venueName}, {this.state.venue_address}, {this.state.locationName}, {this.state.postal_code}</a></h6>
-              <h6>{this.state.date}</h6>
-              <h6>{this.state.time}</h6>
-              {this.state.ticket_min && <h6>${this.state.ticket_min} - ${this.state.ticket_max}</h6>}
-              {this.state.parking_info && <h6>Parking Notes: {this.state.parking_info}</h6>}
+              <div className="attribute">Performing At: </div><h6><a href={"/locations/" + this.state.locationId}>{this.state.venueName}, {this.state.venue_address}, {this.state.locationName}, {this.state.postal_code}</a></h6>
+              <hr className="card-line" />
+              <div className="attribute">Date: </div><h6>{this.state.date}</h6>
+              <hr className="card-line" />
+              <div className="attribute">Time: </div><h6>{this.state.time}</h6>
+              <hr className="card-line" />
+              {this.state.ticket_min && <div><div className="attribute">Price: </div><h6>${this.state.ticket_min} - ${this.state.ticket_max}</h6><hr className="card-line" /></div>}
+              {this.state.parking_info && <div><div className="attribute">Parking Notes:</div><h6>{this.state.parking_info}</h6></div>}
             </div>
           </div>
         </MediaQuery>
