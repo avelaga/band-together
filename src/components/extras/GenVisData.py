@@ -3,9 +3,9 @@ import json
 
 def generateData():
     baseurl = 'https://bandtogetherapi.xyz/restapi/'
-    #getGenreData(baseurl)
+    getGenreData(baseurl)
     getStateData(baseurl)
-    #getTicketData(baseurl)
+    getTicketData(baseurl)
 
 
 def getGenreData(baseUrl):
@@ -24,14 +24,13 @@ def getGenreData(baseUrl):
 
     with open('genreData.json', 'w') as out:
         out.write("{\n")
-        first = True
+        miscCount = 0
         for i, datum in enumerate(genreDataDict.items()):
             if datum[1] > 5:
-                if first:
-                    out.write('\n"' + datum[0] + '": ' + str(datum[1]) + "")
-                    first = False
-                else:
-                    out.write(', "' + datum[0] + '": ' + str(datum[1]) + "")
+                out.write('\n"' + datum[0] + '": ' + str(datum[1]) + ", ")
+            else:
+                miscCount += 1
+        out.write('"Misc": ' + str(miscCount))
         out.write("}")
 
 
@@ -52,7 +51,6 @@ def getStateData(baseUrl):
     with open('stateData.json', 'w') as out:
         out.write('[\n')
         for i, state in enumerate(reversed(sorted(stateDataDict.items(), key=lambda kv: (kv[1], kv[0])))):
-            print(i, state)
             if i == len(stateDataDict.items()) - 1:
                 out.write('{\n"state": "' + str(state[0]) + '",\n"numConcerts": ' + str(state[1]) + '\n}\n')
             else:
