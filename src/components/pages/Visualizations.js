@@ -18,7 +18,7 @@ export class Visualizations extends Component{
         <div className='body'>
             <h1>Average Ticket Price Visualization</h1>
             <br />
-            <Scatterplot data={avgTicketPrice} xAttr="price" yAttr="priceCount" xMax={2500} yMax={200} xLabel="Price" yLabel="Number of Concerts" />
+            <Scatterplot data={avgTicketPrice} xAttr="price" yAttr="priceCount" xMax={1000} yMax={200} xLabel="Average Ticket Price" yLabel="Number of Concerts" />
             <br />
             <h1>Artist Genre Count</h1>
             <PieChart data={numArtistsPerGenre}/>

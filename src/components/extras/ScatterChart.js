@@ -65,7 +65,7 @@ class Scatterplot extends React.Component {
       .append('circle')
       .attr('cx', d => x(d[this.props.xAttr]))
       .attr('cy', d => y(d[this.props.yAttr]))
-      .attr('r', 2)
+      .attr('r', 3)
       .style('fill', '#2bc4ad');
   }
 

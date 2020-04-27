@@ -176,14 +176,6 @@
 "priceCount": 3
 },
 {
-"price": "2160.0",
-"priceCount": 1
-},
-{
-"price": "2140.0",
-"priceCount": 1
-},
-{
 "price": "300.0",
 "priceCount": 9
 },
@@ -202,10 +194,6 @@
 {
 "price": "440.0",
 "priceCount": 2
-},
-{
-"price": "0.0",
-"priceCount": 11
 },
 {
 "price": "710.0",
@@ -268,11 +256,6 @@
 "priceCount": 1
 },
 {
-"price": "1500.0",
-"priceCount": 1
-},
-{
 "price": "770.0",
 "priceCount": 1
-}
-]
+}]

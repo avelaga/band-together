@@ -1,39 +1,59 @@
 [
 {
-"state": "New York",
-"numConcerts": 22
+"state": "Texas",
+"numConcerts": 259
+},
+{
+"state": "California",
+"numConcerts": 250
+},
+{
+"state": "Florida",
+"numConcerts": 173
+},
+{
+"state": "Nevada",
+"numConcerts": 168
+},
+{
+"state": "Georgia",
+"numConcerts": 157
+},
+{
+"state": "Ohio",
+"numConcerts": 140
 },
 {
 "state": "Pennsylvania",
 "numConcerts": 137
 },
 {
-"state": "Minnesota",
-"numConcerts": 12
-},
-{
 "state": "Illinois",
-"numConcerts": 189
+"numConcerts": 124
 },
 {
 "state": "Tennessee",
-"numConcerts": 161
+"numConcerts": 117
+},
+{
+"state": "Michigan",
+"numConcerts": 117
+},
+{
+"state": "Indiana",
+"numConcerts": 105
 },
 {
 "state": "Washington",
 "numConcerts": 101
 },
 {
-"state": "Wisconsin",
-"numConcerts": 45
-},
-{
 "state": "Connecticut",
 "numConcerts": 97
 },
 {
-"state": "Georgia",
-"numConcerts": 157
+"state": "North Carolina",
+"numConcerts": 92
 },
 {
 "state": "Colorado",
@@ -44,28 +64,64 @@
 "numConcerts": 55
 },
 {
-"state": "Texas",
-"numConcerts": 194
+"state": "Idaho",
+"numConcerts": 49
 },
 {
-"state": "Florida",
-"numConcerts": 208
-},
-{
-"state": "North Carolina",
-"numConcerts": 92
-},
-{
-"state": "Michigan",
-"numConcerts": 117
+"state": "Wisconsin",
+"numConcerts": 45
 },
 {
 "state": "Oklahoma",
 "numConcerts": 42
 },
 {
-"state": "California",
-"numConcerts": 215
+"state": "Virginia",
+"numConcerts": 41
+},
+{
+"state": "Maryland",
+"numConcerts": 41
+},
+{
+"state": "Alabama",
+"numConcerts": 31
+},
+{
+"state": "Louisiana",
+"numConcerts": 30
+},
+{
+"state": "New Mexico",
+"numConcerts": 24
+},
+{
+"state": "Kentucky",
+"numConcerts": 24
+},
+{
+"state": "New York",
+"numConcerts": 22
+},
+{
+"state": "Mississippi",
+"numConcerts": 20
+},
+{
+"state": "Nebraska",
+"numConcerts": 19
+},
+{
+"state": "Arizona",
+"numConcerts": 19
+},
+{
+"state": "Arkansas",
+"numConcerts": 15
+},
+{
+"state": "Iowa",
+"numConcerts": 14
 },
 {
 "state": "South Dakota",
@@ -76,76 +132,20 @@
 "numConcerts": 13
 },
 {
-"state": "Mississippi",
-"numConcerts": 20
-},
-{
-"state": "Indiana",
-"numConcerts": 105
-},
-{
-"state": "Alabama",
-"numConcerts": 31
-},
-{
-"state": "Nevada",
-"numConcerts": 168
-},
-{
-"state": "Ohio",
-"numConcerts": 96
-},
-{
-"state": "New Mexico",
-"numConcerts": 24
+"state": "Minnesota",
+"numConcerts": 12
 },
 {
 "state": "Montana",
 "numConcerts": 7
 },
 {
-"state": "Louisiana",
-"numConcerts": 30
-},
-{
-"state": "Kentucky",
-"numConcerts": 24
-},
-{
-"state": "Arkansas",
-"numConcerts": 15
-},
-{
-"state": "Idaho",
-"numConcerts": 49
-},
-{
-"state": "Virginia",
-"numConcerts": 41
-},
-{
-"state": "Iowa",
-"numConcerts": 14
-},
-{
-"state": "Arizona",
-"numConcerts": 19
-},
-{
-"state": "Maryland",
-"numConcerts": 41
-},
-{
-"state": "Nebraska",
-"numConcerts": 19
+"state": "Hawaii",
+"numConcerts": 5
 },
 {
 "state": "Kansas",
 "numConcerts": 3
-},
-{
-"state": "Hawaii",
-"numConcerts": 5
 },
 {
 "state": "Missouri",
