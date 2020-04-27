@@ -67,7 +67,7 @@ def getTicketData(baseUrl):
         try:
             minPrice = float(item['ticket_min'])
             maxPrice = float(item['ticket_max'])
-            avg_price = (minPrice + maxPrice) // 2
+            avg_price = ((minPrice + maxPrice) // 2) // 10 * 10
             try:
                 ticketPricesDict[avg_price] += 1
             except KeyError:
