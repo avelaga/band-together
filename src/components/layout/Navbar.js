@@ -35,19 +35,19 @@ export class Navbar extends Component {
                 <img style={navbarLogo} src={Logo} />
               </a>
               <div style={linksContainer}>
-              <a style={navbarLink} href="/sisualizations">
+                <a style={this.props.name === "visualizations" ? activeLink : inactiveLink} href="/visualizations">
                   Visualizations
               </a>
-                <a style={navbarLink} href="/about">
+                <a style={this.props.name === "about" ? activeLink : inactiveLink} href="/about">
                   About
               </a>
-                <a style={navbarLink} href="/concerts">
+                <a style={this.props.name === "concerts" ? activeLink : inactiveLink} href="/concerts">
                   Concerts
               </a>
-                <a style={navbarLink} href="/artists">
+                <a style={this.props.name === "artists" ? activeLink : inactiveLink} href="/artists">
                   Artists
               </a>
-                <a style={navbarLink} href="/locations">
+                <a style={this.props.name === "locations" ? activeLink : inactiveLink} href="/locations">
                   Locations
               </a>
               </div>
@@ -132,7 +132,14 @@ const linksContainer = {
   width: '100%',
 }
 
-const navbarLink = {
+const activeLink = {
+  color: 'grey',
+  fontSize: '2em',
+  paddingLeft: '1em',
+  float: 'right'
+}
+
+const inactiveLink = {
   color: '#ffffff',
   fontSize: '2em',
   paddingLeft: '1em',

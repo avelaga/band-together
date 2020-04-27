@@ -6,6 +6,7 @@ import avgTicketPrice from '../extras/ticketData.json';
 import BarChart from '../extras/BarChart';
 import Scatterplot from '../extras/ScatterChart';
 import PieChart from '../extras/PieChart';
+import Navbar from '../layout/Navbar';
 
 export class Visualizations extends Component{
 
@@ -16,6 +17,7 @@ export class Visualizations extends Component{
     render (){
         return (
         <div className="body">
+            <Navbar name={"visualizations"} />
             <div className="Ticket-vis" style={whiteText}>
                 <h1>Average Ticket Prices</h1>
                 <br />
@@ -27,7 +29,7 @@ export class Visualizations extends Component{
                 <PieChart data={numArtistsPerGenre}/>
             </div>
             <br />
-            <div className="Concerts-Vis" style={whiteTextUnalign}>
+            <div className="Concerts-Vis" style={whiteText}>
                 <h1>Concerts per State</h1>
                 <BarChart data={numConcertsPerState} xAttr="state" yAttr="numConcerts"/>
             </div>
@@ -45,10 +47,10 @@ const whiteText = {
     textAlign: 'center'
   }
 
-const whiteTextUnalign = {
-    color: 'white',
-    width: '80vw',
-    textAlign: 'center'
-}
+// const whiteTextUnalign = {
+//     color: 'white',
+//     width: '80vw',
+//     textAlign: 'center'
+// }
 
 export default Visualizations;

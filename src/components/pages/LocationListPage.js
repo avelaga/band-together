@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import LocationCard from '../layout/LocationCard.js';
-import { Pagination } from "semantic-ui-react";
+import Navbar from '../layout/Navbar';
+import Pagination from '@material-ui/lab/Pagination';
 import SearchField from "react-search-field";
-import MediaQuery from 'react-responsive'
+import MediaQuery from 'react-responsive';
 import Slider from '@material-ui/core/Slider';
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
 const axios = require("axios").default;
 import "./pages.css";
 
@@ -101,8 +103,8 @@ export class LocationListPage extends Component {
     this.setState({ page: 1 }, this.updateState);
   }
 
-  setPageNum = (event, { activePage }) => {
-    this.setState({ page: activePage }, this.updateState);
+  setPageNum = (event, page) => {
+    this.setState({ page: page }, this.updateState);
   };
 
   sortCity = (event) => {
@@ -175,24 +177,25 @@ export class LocationListPage extends Component {
   render() {
     return (
       <div className="body">
+        <Navbar name={"locations"} />
         <div className="appear-second">
           <h1 className="title">Locations</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
           {this.state.results &&
             <div>
               <div className="search-div flex">
-                <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right">
+                <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "city" ? activeDropdown : inactiveDropdown} onClick={this.sortCity}>City</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "region" ? activeDropdown : inactiveDropdown} onClick={this.sortRegion}>Region</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "elevation" ? activeDropdown : inactiveDropdown} onClick={this.sortElevation}>Elevation</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "population" ? activeDropdown : inactiveDropdown} onClick={this.sortPopulation}>Population</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "timezone" ? activeDropdown : inactiveDropdown} onClick={this.sortTimezone}>Timezone</Dropdown.Item>
                 </DropdownButton>
-                <DropdownButton id="dropdown-basic-button" title="Order by" className="margin-right">
+                <DropdownButton id="dropdown-basic-button" title="Order by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.ascending === 1 ? activeDropdown : inactiveDropdown} onClick={this.sortAscending}>Ascending</Dropdown.Item>
                   <Dropdown.Item style={this.state.ascending === -1 ? activeDropdown : inactiveDropdown} onClick={this.sortDescending}>Descending</Dropdown.Item>
                 </DropdownButton>
-                <DropdownButton id="dropdown-basic-button" title="Filter by" className="margin-right">
+                <DropdownButton id="dropdown-basic-button" title="Filter by" className="margin-right mobile-margin">
                   <Dropdown.Item >
                     <div className="slider-div">
                       <h6>Elevation</h6>
@@ -224,14 +227,14 @@ export class LocationListPage extends Component {
                     </div>
                   </Dropdown.Item>
                 </DropdownButton>
-                <div className="margin-right">
+                <div className="margin-right mobile-margin">
                   <SearchField
                     placeholder="Search..."
                     onEnter={(e) => { this.newSearch(e) }}
                     onSearchClick={(e) => { this.newSearch(e) }}
                   />
                 </div>
-                <div className="button-style" onClick={this.reset}>Reset</div>
+                <Button variant="secondary" onClick={this.reset}>Reset</Button>
               </div>
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&
@@ -251,21 +254,22 @@ export class LocationListPage extends Component {
                     {/* desktop */}
                     <MediaQuery minDeviceWidth={500}>
                       <Pagination
-                        activePage={this.state.page}
-                        totalPages={Math.ceil(this.state.count / 10)}
-                        siblingRange={1}
-                        onPageChange={this.setPageNum}
+                        color="primary"
+                        size="large"
+                        page={this.state.page}
+                        count={Math.ceil(this.state.count / 10)}
+                        onChange={this.setPageNum}
                       />
                     </MediaQuery>
                     {/* mobile */}
                     <MediaQuery maxDeviceWidth={500}>
                       <Pagination
-                        activePage={this.state.page}
-                        totalPages={Math.ceil(this.state.count / 10)}
-                        siblingRange={1}
-                        onPageChange={this.setPageNum}
-                        ellipsisItem={null}
-                        boundaryRange={0}
+                        color="primary"
+                        size="size"
+                        page={this.state.page}
+                        count={Math.ceil(this.state.count / 10)}
+                        onChange={this.setPageNum}
+                        siblingCount={0}
                       />
                     </MediaQuery>
                   </div>
@@ -301,7 +305,7 @@ const inactiveDropdown = {
 }
 
 const activeDropdown = {
-  fontWeight: 'bolder',
-  backgroundColor: 'white',
-  color: 'black'
+  fontWeight: '1000',
+  backgroundColor: 'rgb(0, 119, 255)',
+  color: 'white'
 }
