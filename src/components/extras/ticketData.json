@@ -1,287 +1,111 @@
 [
 {
-"price": "59.0",
-"priceCount": 32
+"price": "50.0",
+"priceCount": 215
 },
 {
 "price": "100.0",
-"priceCount": 10
+"priceCount": 72
 },
 {
-"price": "62.0",
-"priceCount": 30
+"price": "60.0",
+"priceCount": 218
 },
 {
-"price": "57.0",
-"priceCount": 22
+"price": "90.0",
+"priceCount": 124
 },
 {
-"price": "54.0",
-"priceCount": 30
+"price": "70.0",
+"priceCount": 139
 },
 {
-"price": "56.0",
-"priceCount": 18
+"price": "160.0",
+"priceCount": 36
 },
 {
-"price": "51.0",
-"priceCount": 17
-},
-{
-"price": "58.0",
-"priceCount": 7
-},
-{
-"price": "94.0",
-"priceCount": 23
-},
-{
-"price": "72.0",
-"priceCount": 16
-},
-{
-"price": "169.0",
-"priceCount": 10
-},
-{
-"price": "71.0",
-"priceCount": 5
-},
-{
-"price": "77.0",
-"priceCount": 29
-},
-{
-"price": "517.0",
-"priceCount": 6
-},
-{
-"price": "74.0",
+"price": "510.0",
 "priceCount": 21
 },
 {
-"price": "63.0",
-"priceCount": 19
+"price": "130.0",
+"priceCount": 38
 },
 {
-"price": "64.0",
-"priceCount": 32
+"price": "150.0",
+"priceCount": 38
 },
 {
-"price": "67.0",
-"priceCount": 23
-},
-{
-"price": "139.0",
-"priceCount": 11
-},
-{
-"price": "154.0",
-"priceCount": 9
-},
-{
-"price": "79.0",
-"priceCount": 21
-},
-{
-"price": "75.0",
-"priceCount": 13
-},
-{
-"price": "137.0",
-"priceCount": 12
-},
-{
-"price": "99.0",
-"priceCount": 25
-},
-{
-"price": "69.0",
-"priceCount": 42
-},
-{
-"price": "142.0",
-"priceCount": 6
-},
-{
-"price": "155.0",
-"priceCount": 15
-},
-{
-"price": "265.0",
-"priceCount": 2
+"price": "140.0",
+"priceCount": 36
 },
 {
 "price": "260.0",
-"priceCount": 4
+"priceCount": 32
 },
 {
 "price": "270.0",
-"priceCount": 6
+"priceCount": 31
 },
 {
-"price": "258.0",
-"priceCount": 1
-},
-{
-"price": "111.0",
+"price": "250.0",
 "priceCount": 7
-},
-{
-"price": "248.0",
-"priceCount": 2
-},
-{
-"price": "114.0",
-"priceCount": 18
-},
-{
-"price": "525.0",
-"priceCount": 1
-},
-{
-"price": "266.0",
-"priceCount": 4
 },
 {
 "price": "110.0",
-"priceCount": 4
+"priceCount": 75
 },
 {
-"price": "106.0",
-"priceCount": 5
-},
-{
-"price": "170.0",
-"priceCount": 1
-},
-{
-"price": "97.0",
-"priceCount": 18
-},
-{
-"price": "73.0",
+"price": "240.0",
 "priceCount": 10
-},
-{
-"price": "218.0",
-"priceCount": 2
-},
-{
-"price": "158.0",
-"priceCount": 3
-},
-{
-"price": "82.0",
-"priceCount": 25
-},
-{
-"price": "191.0",
-"priceCount": 3
-},
-{
-"price": "204.0",
-"priceCount": 2
-},
-{
-"price": "424.0",
-"priceCount": 1
-},
-{
-"price": "528.0",
-"priceCount": 1
-},
-{
-"price": "522.0",
-"priceCount": 2
-},
-{
-"price": "524.0",
-"priceCount": 2
 },
 {
 "price": "520.0",
-"priceCount": 2
-},
-{
-"price": "526.0",
-"priceCount": 2
-},
-{
-"price": "189.0",
-"priceCount": 17
-},
-{
-"price": "519.0",
-"priceCount": 9
-},
-{
-"price": "514.0",
-"priceCount": 2
-},
-{
-"price": "216.0",
-"priceCount": 7
-},
-{
-"price": "396.0",
-"priceCount": 1
-},
-{
-"price": "516.0",
-"priceCount": 2
-},
-{
-"price": "50.0",
-"priceCount": 18
-},
-{
-"price": "46.0",
-"priceCount": 16
-},
-{
-"price": "76.0",
-"priceCount": 8
-},
-{
-"price": "196.0",
-"priceCount": 1
-},
-{
-"price": "224.0",
-"priceCount": 6
-},
-{
-"price": "81.0",
-"priceCount": 11
-},
-{
-"price": "179.0",
-"priceCount": 7
-},
-{
-"price": "96.0",
 "priceCount": 10
 },
 {
-"price": "104.0",
-"priceCount": 20
+"price": "170.0",
+"priceCount": 21
 },
 {
-"price": "156.0",
-"priceCount": 2
+"price": "210.0",
+"priceCount": 40
 },
 {
-"price": "87.0",
-"priceCount": 17
+"price": "80.0",
+"priceCount": 144
 },
 {
-"price": "349.0",
+"price": "190.0",
+"priceCount": 18
+},
+{
+"price": "200.0",
+"priceCount": 19
+},
+{
+"price": "420.0",
 "priceCount": 1
 },
 {
-"price": "52.0",
-"priceCount": 30
+"price": "180.0",
+"priceCount": 32
+},
+{
+"price": "390.0",
+"priceCount": 7
+},
+{
+"price": "40.0",
+"priceCount": 198
+},
+{
+"price": "220.0",
+"priceCount": 19
+},
+{
+"price": "340.0",
+"priceCount": 1
 },
 {
 "price": "620.0",
@@ -292,427 +116,63 @@
 "priceCount": 1
 },
 {
-"price": "209.0",
-"priceCount": 2
+"price": "120.0",
+"priceCount": 47
 },
 {
-"price": "222.0",
-"priceCount": 5
+"price": "30.0",
+"priceCount": 176
 },
 {
-"price": "92.0",
-"priceCount": 12
+"price": "20.0",
+"priceCount": 137
 },
 {
-"price": "122.0",
-"priceCount": 5
-},
-{
-"price": "117.0",
-"priceCount": 4
-},
-{
-"price": "102.0",
-"priceCount": 7
-},
-{
-"price": "85.0",
-"priceCount": 14
-},
-{
-"price": "217.0",
-"priceCount": 10
-},
-{
-"price": "78.0",
-"priceCount": 10
-},
-{
-"price": "187.0",
-"priceCount": 7
-},
-{
-"price": "264.0",
-"priceCount": 11
-},
-{
-"price": "31.0",
-"priceCount": 11
-},
-{
-"price": "127.0",
-"priceCount": 13
-},
-{
-"price": "26.0",
-"priceCount": 5
-},
-{
-"price": "38.0",
-"priceCount": 9
-},
-{
-"price": "199.0",
-"priceCount": 3
-},
-{
-"price": "89.0",
-"priceCount": 15
-},
-{
-"price": "252.0",
-"priceCount": 1
-},
-{
-"price": "125.0",
-"priceCount": 9
-},
-{
-"price": "118.0",
-"priceCount": 3
-},
-{
-"price": "261.0",
-"priceCount": 2
-},
-{
-"price": "215.0",
-"priceCount": 7
-},
-{
-"price": "223.0",
-"priceCount": 2
-},
-{
-"price": "61.0",
-"priceCount": 15
-},
-{
-"price": "105.0",
-"priceCount": 7
-},
-{
-"price": "112.0",
-"priceCount": 10
-},
-{
-"price": "279.0",
-"priceCount": 4
-},
-{
-"price": "98.0",
-"priceCount": 6
-},
-{
-"price": "192.0",
-"priceCount": 2
-},
-{
-"price": "144.0",
-"priceCount": 11
-},
-{
-"price": "93.0",
-"priceCount": 11
-},
-{
-"price": "55.0",
-"priceCount": 30
-},
-{
-"price": "119.0",
-"priceCount": 13
-},
-{
-"price": "84.0",
-"priceCount": 22
-},
-{
-"price": "90.0",
+"price": "380.0",
 "priceCount": 8
 },
 {
-"price": "249.0",
-"priceCount": 4
-},
-{
-"price": "389.0",
-"priceCount": 2
-},
-{
-"price": "274.0",
-"priceCount": 11
-},
-{
-"price": "250.0",
-"priceCount": 3
-},
-{
-"price": "40.0",
-"priceCount": 14
-},
-{
-"price": "439.0",
-"priceCount": 3
-},
-{
-"price": "159.0",
-"priceCount": 4
-},
-{
-"price": "207.0",
-"priceCount": 1
-},
-{
-"price": "394.0",
-"priceCount": 1
-},
-{
-"price": "247.0",
-"priceCount": 1
-},
-{
-"price": "113.0",
-"priceCount": 5
-},
-{
-"price": "80.0",
-"priceCount": 16
-},
-{
-"price": "83.0",
-"priceCount": 5
-},
-{
-"price": "149.0",
-"priceCount": 5
-},
-{
-"price": "166.0",
-"priceCount": 3
-},
-{
-"price": "134.0",
-"priceCount": 4
-},
-{
-"price": "60.0",
-"priceCount": 22
-},
-{
-"price": "66.0",
-"priceCount": 8
-},
-{
-"price": "109.0",
-"priceCount": 10
-},
-{
-"price": "49.0",
-"priceCount": 28
-},
-{
-"price": "124.0",
+"price": "430.0",
 "priceCount": 6
 },
 {
-"price": "129.0",
-"priceCount": 5
-},
-{
-"price": "240.0",
-"priceCount": 2
-},
-{
-"price": "145.0",
-"priceCount": 4
-},
-{
-"price": "121.0",
-"priceCount": 2
-},
-{
-"price": "34.0",
-"priceCount": 10
-},
-{
-"price": "43.0",
+"price": "280.0",
 "priceCount": 9
 },
 {
-"price": "101.0",
-"priceCount": 5
+"price": "530.0",
+"priceCount": 1
 },
 {
-"price": "108.0",
-"priceCount": 3
+"price": "450.0",
+"priceCount": 1
 },
 {
-"price": "48.0",
-"priceCount": 16
+"price": "610.0",
+"priceCount": 2
 },
 {
-"price": "37.0",
-"priceCount": 23
-},
-{
-"price": "95.0",
+"price": "370.0",
 "priceCount": 7
 },
 {
-"price": "275.0",
-"priceCount": 3
-},
-{
-"price": "273.0",
-"priceCount": 2
-},
-{
-"price": "281.0",
-"priceCount": 2
-},
-{
-"price": "68.0",
-"priceCount": 7
-},
-{
-"price": "140.0",
-"priceCount": 3
-},
-{
-"price": "147.0",
-"priceCount": 3
-},
-{
-"price": "86.0",
-"priceCount": 13
-},
-{
-"price": "384.0",
+"price": "360.0",
 "priceCount": 1
 },
 {
-"price": "88.0",
-"priceCount": 6
-},
-{
-"price": "157.0",
-"priceCount": 2
-},
-{
-"price": "534.0",
+"price": "560.0",
 "priceCount": 1
 },
 {
-"price": "451.0",
-"priceCount": 1
-},
-{
-"price": "436.0",
-"priceCount": 2
-},
-{
-"price": "32.0",
-"priceCount": 24
-},
-{
-"price": "35.0",
-"priceCount": 32
-},
-{
-"price": "29.0",
-"priceCount": 22
-},
-{
-"price": "39.0",
-"priceCount": 26
-},
-{
-"price": "271.0",
-"priceCount": 3
-},
-{
-"price": "208.0",
-"priceCount": 6
-},
-{
-"price": "619.0",
-"priceCount": 1
-},
-{
-"price": "615.0",
-"priceCount": 1
-},
-{
-"price": "123.0",
-"priceCount": 2
-},
-{
-"price": "53.0",
-"priceCount": 11
-},
-{
-"price": "372.0",
-"priceCount": 1
-},
-{
-"price": "366.0",
-"priceCount": 1
-},
-{
-"price": "513.0",
-"priceCount": 1
-},
-{
-"price": "561.0",
-"priceCount": 1
-},
-{
-"price": "210.0",
-"priceCount": 3
-},
-{
-"price": "174.0",
-"priceCount": 5
-},
-{
-"price": "24.0",
-"priceCount": 4
-},
-{
-"price": "25.0",
-"priceCount": 44
-},
-{
-"price": "44.0",
-"priceCount": 23
-},
-{
-"price": "162.0",
-"priceCount": 5
-},
-{
-"price": "231.0",
-"priceCount": 1
-},
-{
-"price": "115.0",
+"price": "230.0",
 "priceCount": 9
 },
 {
-"price": "132.0",
-"priceCount": 1
+"price": "410.0",
+"priceCount": 5
 },
 {
-"price": "414.0",
-"priceCount": 1
-},
-{
-"price": "399.0",
-"priceCount": 2
-},
-{
-"price": "409.0",
+"price": "400.0",
 "priceCount": 3
 },
 {
@@ -720,551 +180,91 @@
 "priceCount": 1
 },
 {
-"price": "417.0",
+"price": "2140.0",
 "priceCount": 1
 },
 {
-"price": "419.0",
-"priceCount": 1
-},
-{
-"price": "2149.0",
-"priceCount": 1
-},
-{
-"price": "412.0",
-"priceCount": 1
-},
-{
-"price": "438.0",
-"priceCount": 1
-},
-{
-"price": "304.0",
-"priceCount": 2
-},
-{
-"price": "186.0",
-"priceCount": 3
-},
-{
-"price": "213.0",
-"priceCount": 2
-},
-{
-"price": "303.0",
-"priceCount": 3
-},
-{
-"price": "194.0",
-"priceCount": 4
-},
-{
-"price": "45.0",
-"priceCount": 25
-},
-{
-"price": "27.0",
-"priceCount": 16
-},
-{
-"price": "65.0",
-"priceCount": 20
-},
-{
-"price": "33.0",
-"priceCount": 12
-},
-{
-"price": "20.0",
-"priceCount": 11
-},
-{
-"price": "30.0",
-"priceCount": 18
-},
-{
-"price": "276.0",
-"priceCount": 1
-},
-{
-"price": "268.0",
-"priceCount": 2
-},
-{
-"price": "177.0",
-"priceCount": 2
-},
-{
-"price": "183.0",
-"priceCount": 1
-},
-{
-"price": "282.0",
-"priceCount": 3
-},
-{
-"price": "116.0",
-"priceCount": 2
-},
-{
-"price": "285.0",
-"priceCount": 1
-},
-{
-"price": "263.0",
-"priceCount": 3
-},
-{
-"price": "262.0",
-"priceCount": 3
-},
-{
-"price": "211.0",
-"priceCount": 2
-},
-{
-"price": "397.0",
-"priceCount": 1
-},
-{
-"price": "47.0",
-"priceCount": 25
-},
-{
-"price": "28.0",
-"priceCount": 18
-},
-{
-"price": "309.0",
-"priceCount": 4
-},
-{
-"price": "324.0",
-"priceCount": 2
-},
-{
-"price": "326.0",
-"priceCount": 2
-},
-{
-"price": "327.0",
-"priceCount": 1
-},
-{
-"price": "36.0",
-"priceCount": 11
-},
-{
-"price": "164.0",
+"price": "300.0",
 "priceCount": 9
 },
 {
-"price": "383.0",
-"priceCount": 2
+"price": "320.0",
+"priceCount": 5
 },
 {
-"price": "376.0",
+"price": "330.0",
 "priceCount": 1
 },
 {
-"price": "377.0",
-"priceCount": 1
+"price": "580.0",
+"priceCount": 4
 },
 {
-"price": "331.0",
-"priceCount": 1
-},
-{
-"price": "586.0",
-"priceCount": 2
-},
-{
-"price": "138.0",
-"priceCount": 2
-},
-{
-"price": "415.0",
-"priceCount": 1
-},
-{
-"price": "214.0",
-"priceCount": 2
-},
-{
-"price": "136.0",
-"priceCount": 1
-},
-{
-"price": "131.0",
-"priceCount": 2
-},
-{
-"price": "286.0",
-"priceCount": 2
-},
-{
-"price": "41.0",
-"priceCount": 14
-},
-{
-"price": "42.0",
-"priceCount": 28
-},
-{
-"price": "446.0",
+"price": "440.0",
 "priceCount": 2
 },
 {
 "price": "0.0",
-"priceCount": 10
-},
-{
-"price": "269.0",
-"priceCount": 1
-},
-{
-"price": "175.0",
-"priceCount": 1
-},
-{
-"price": "288.0",
-"priceCount": 1
-},
-{
-"price": "178.0",
-"priceCount": 1
-},
-{
-"price": "126.0",
-"priceCount": 3
-},
-{
-"price": "188.0",
-"priceCount": 1
-},
-{
-"price": "195.0",
-"priceCount": 1
-},
-{
-"price": "171.0",
-"priceCount": 2
-},
-{
-"price": "371.0",
-"priceCount": 4
-},
-{
-"price": "153.0",
-"priceCount": 1
-},
-{
-"price": "714.0",
-"priceCount": 1
-},
-{
-"price": "647.0",
-"priceCount": 1
-},
-{
-"price": "589.0",
-"priceCount": 2
-},
-{
-"price": "812.0",
-"priceCount": 1
-},
-{
-"price": "739.0",
-"priceCount": 1
-},
-{
-"price": "635.0",
-"priceCount": 1
-},
-{
-"price": "674.0",
-"priceCount": 1
-},
-{
-"price": "762.0",
-"priceCount": 1
-},
-{
-"price": "395.0",
-"priceCount": 1
-},
-{
-"price": "143.0",
-"priceCount": 3
-},
-{
-"price": "728.0",
-"priceCount": 1
-},
-{
-"price": "295.0",
-"priceCount": 1
-},
-{
-"price": "236.0",
-"priceCount": 2
-},
-{
-"price": "200.0",
-"priceCount": 7
-},
-{
-"price": "292.0",
-"priceCount": 1
-},
-{
-"price": "237.0",
-"priceCount": 2
-},
-{
-"price": "180.0",
-"priceCount": 1
-},
-{
-"price": "226.0",
-"priceCount": 2
-},
-{
-"price": "212.0",
-"priceCount": 1
-},
-{
-"price": "22.0",
 "priceCount": 11
 },
 {
-"price": "19.0",
+"price": "710.0",
+"priceCount": 1
+},
+{
+"price": "640.0",
+"priceCount": 2
+},
+{
+"price": "810.0",
+"priceCount": 2
+},
+{
+"price": "730.0",
+"priceCount": 1
+},
+{
+"price": "630.0",
+"priceCount": 4
+},
+{
+"price": "670.0",
+"priceCount": 1
+},
+{
+"price": "760.0",
+"priceCount": 1
+},
+{
+"price": "720.0",
+"priceCount": 1
+},
+{
+"price": "290.0",
 "priceCount": 5
 },
 {
-"price": "219.0",
-"priceCount": 4
+"price": "10.0",
+"priceCount": 21
 },
 {
 "price": "310.0",
 "priceCount": 2
 },
 {
-"price": "387.0",
-"priceCount": 3
-},
-{
-"price": "130.0",
-"priceCount": 1
-},
-{
-"price": "232.0",
-"priceCount": 2
-},
-{
-"price": "193.0",
-"priceCount": 2
-},
-{
-"price": "161.0",
-"priceCount": 6
-},
-{
-"price": "128.0",
-"priceCount": 2
-},
-{
-"price": "91.0",
-"priceCount": 4
-},
-{
-"price": "393.0",
-"priceCount": 1
-},
-{
-"price": "70.0",
-"priceCount": 6
-},
-{
-"price": "23.0",
-"priceCount": 4
-},
-{
-"price": "491.0",
+"price": "490.0",
 "priceCount": 9
 },
 {
-"price": "297.0",
-"priceCount": 2
-},
-{
-"price": "253.0",
-"priceCount": 1
-},
-{
-"price": "221.0",
-"priceCount": 1
-},
-{
-"price": "811.0",
-"priceCount": 1
-},
-{
-"price": "631.0",
-"priceCount": 1
-},
-{
-"price": "544.0",
-"priceCount": 1
-},
-{
-"price": "792.0",
-"priceCount": 2
-},
-{
-"price": "634.0",
-"priceCount": 2
-},
-{
-"price": "507.0",
-"priceCount": 1
-},
-{
-"price": "165.0",
-"priceCount": 1
-},
-{
-"price": "141.0",
-"priceCount": 1
-},
-{
-"price": "294.0",
-"priceCount": 1
-},
-{
-"price": "238.0",
-"priceCount": 1
-},
-{
-"price": "152.0",
-"priceCount": 1
-},
-{
-"price": "133.0",
-"priceCount": 3
-},
-{
-"price": "202.0",
-"priceCount": 1
-},
-{
-"price": "103.0",
-"priceCount": 3
-},
-{
-"price": "18.0",
-"priceCount": 5
-},
-{
-"price": "160.0",
-"priceCount": 1
-},
-{
-"price": "150.0",
-"priceCount": 1
-},
-{
-"price": "643.0",
-"priceCount": 1
-},
-{
-"price": "181.0",
-"priceCount": 1
-},
-{
-"price": "515.0",
-"priceCount": 1
-},
-{
-"price": "227.0",
-"priceCount": 2
-},
-{
-"price": "259.0",
-"priceCount": 1
-},
-{
-"price": "173.0",
-"priceCount": 2
-},
-{
-"price": "243.0",
-"priceCount": 1
-},
-{
-"price": "10.0",
-"priceCount": 3
-},
-{
-"price": "107.0",
-"priceCount": 2
-},
-{
-"price": "15.0",
-"priceCount": 4
-},
-{
-"price": "12.0",
-"priceCount": 1
-},
-{
-"price": "8.0",
-"priceCount": 1
-},
-{
-"price": "234.0",
-"priceCount": 1
-},
-{
-"price": "272.0",
-"priceCount": 1
-},
-{
-"price": "135.0",
-"priceCount": 1
-},
-{
-"price": "228.0",
-"priceCount": 1
-},
-{
 "price": "540.0",
-"priceCount": 1
-},
-{
-"price": "163.0",
-"priceCount": 1
-},
-{
-"price": "21.0",
 "priceCount": 2
 },
 {
-"price": "17.0",
-"priceCount": 1
-},
-{
-"price": "16.0",
+"price": "790.0",
 "priceCount": 2
 },
 {
-"price": "197.0",
-"priceCount": 2
-},
-{
-"price": "185.0",
+"price": "500.0",
 "priceCount": 1
 },
 {
@@ -1272,7 +272,7 @@
 "priceCount": 1
 },
 {
-"price": "774.0",
+"price": "770.0",
 "priceCount": 1
 }
 ]
