@@ -27,8 +27,8 @@ export class Visualizations extends Component{
                 <PieChart data={numArtistsPerGenre}/>
             </div>
             <br />
-            <div className="Concerts-Vis" style={whiteTextUnalign}>
-                <h1>Concerts per State</h1>
+            <div className="Concerts-Vis">
+                <h1 style={whiteTextUnalign}>Concerts per State</h1>
                 <BarChart data={numConcertsPerState} xAttr="state" yAttr="numConcerts"/>
             </div>
         </div>
@@ -48,6 +48,8 @@ const whiteText = {
 const whiteTextUnalign = {
     color: 'white',
     width: '80vw',
+    margin: 'auto',
+    justifyContent: 'center',
     textAlign: 'center'
 }
 
