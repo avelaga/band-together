@@ -35,6 +35,9 @@ export class Navbar extends Component {
                 <img style={navbarLogo} src={Logo} />
               </a>
               <div style={linksContainer}>
+                <a style={this.props.name === "visualizations" ? activeLink : inactiveLink} href="/visualizations">
+                  Visualizations
+              </a>
                 <a style={this.props.name === "about" ? activeLink : inactiveLink} href="/about">
                   About
               </a>
@@ -76,6 +79,7 @@ export class Navbar extends Component {
                 <a style={mobileNavbarLink} className="appear-third" href="/artists">Artists</a>
                 <a style={mobileNavbarLink} className="appear-fourth" href="/concerts">Concerts</a>
                 <a style={mobileNavbarLink} className="appear-fifth" href="/about">About</a>
+                <a style={mobileNavbarLink} className="appear-fifth" href="/visualizations">Visualizations</a>
                 <hr style={line} className="appear-sixth" />
               </div>
             }

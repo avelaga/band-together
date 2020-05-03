@@ -186,7 +186,7 @@ export class LocationListPage extends Component {
               <div className="search-div flex">
                 <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "city" ? activeDropdown : inactiveDropdown} onClick={this.sortCity}>City</Dropdown.Item>
-                  <Dropdown.Item style={this.state.sortBy === "region" ? activeDropdown : inactiveDropdown} onClick={this.sortRegion}>Region</Dropdown.Item>
+                  <Dropdown.Item style={this.state.sortBy === "region" ? activeDropdown : inactiveDropdown} onClick={this.sortRegion}>State</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "elevation" ? activeDropdown : inactiveDropdown} onClick={this.sortElevation}>Elevation</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "population" ? activeDropdown : inactiveDropdown} onClick={this.sortPopulation}>Population</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "timezone" ? activeDropdown : inactiveDropdown} onClick={this.sortTimezone}>Timezone</Dropdown.Item>
