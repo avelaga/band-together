@@ -141,6 +141,8 @@ export class ConcertListPage extends Component {
 
   reset = (event) => {
     this.setState({
+      compareList: [],
+      compareOpen: false,
       count: null,
       next: null,
       prev: null,
@@ -195,7 +197,12 @@ export class ConcertListPage extends Component {
           {(this.state.results && !this.state.compareOpen) &&
             <div>
               <div className="search-div flex">
-              <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Compare</Button>
+                {(this.state.compareList.length >= 2) &&
+                  <Button variant="primary" onClick={this.showCompare} className="margin-right mobile-margin">Compare</Button>
+                }
+                {(this.state.compareList.length < 2) &&
+                  <Button variant="secondary" onClick={this.showCompare} disabled={true} className="margin-right mobile-margin">Compare</Button>
+                }
                 <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "date" ? activeDropdown : inactiveDropdown} onClick={this.sortDate}>Date</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "venue__name" ? activeDropdown : inactiveDropdown} onClick={this.sortVenue}>Venue</Dropdown.Item>

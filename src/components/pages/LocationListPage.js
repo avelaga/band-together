@@ -157,6 +157,8 @@ export class LocationListPage extends Component {
 
   reset = (event) => {
     this.setState({
+      compareList: [],
+      compareOpen: false,
       count: null,
       next: null,
       prev: null,
@@ -213,7 +215,12 @@ export class LocationListPage extends Component {
           {(this.state.results && !this.state.compareOpen) &&
             <div>
               <div className="search-div flex">
-              <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Compare</Button>
+                {(this.state.compareList.length >= 2) &&
+                  <Button variant="primary" onClick={this.showCompare} className="margin-right mobile-margin">Compare</Button>
+                }
+                {(this.state.compareList.length < 2) &&
+                  <Button variant="secondary" onClick={this.showCompare} disabled={true} className="margin-right mobile-margin">Compare</Button>
+                }
                 <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "city" ? activeDropdown : inactiveDropdown} onClick={this.sortCity}>City</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "region" ? activeDropdown : inactiveDropdown} onClick={this.sortRegion}>State</Dropdown.Item>
