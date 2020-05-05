@@ -172,20 +172,42 @@ export class ArtistListPage extends Component {
 
   callback = (arg) => {
     if (!this.state.compareIdList.includes(arg)) { // add
-    this.state.results.map((value, index) => {
-      if (value.id === arg) {
-        this.setState({
-          compareList: this.state.compareList.concat(this.state.results[index]),
-          compareIdList: this.state.compareIdList.concat(arg)
-        }, this.printCompare);
-      }
-    })
-  }
+      this.state.results.map((value, index) => {
+        if (value.id === arg) {
+          this.setState({
+            compareList: this.state.compareList.concat(this.state.results[index]),
+            compareIdList: this.state.compareIdList.concat(arg)
+          }, this.printCompare);
+        }
+      })
+    }
+
+    else { // remove
+      let objIndex = 0;
+
+      this.state.compareList.map((value, index) => {
+        if (value.id === arg) {
+          objIndex = index;
+        }
+      })
+      let newObjArr = this.state.compareList;
+      newObjArr.splice(objIndex, 1);
+
+      const idIndex = this.state.compareIdList.indexOf(arg);
+      let newIdArr = this.state.compareIdList;
+      newIdArr.splice(idIndex, 1);
+
+      this.setState({
+        compareIdList: newIdArr,
+        compareList: newObjArr
+      }, this.printCompare);
+    }
 
     // if (!this.state.compareList.includes(arg)) { // add
     //   this.setState({
     //     compareList: this.state.compareList.concat(arg)
     //   }, this.printCompare);
+
     // } else { // remove
     //   const index = this.state.compareList.indexOf(arg);
     //   let newArr = this.state.compareList;
@@ -340,7 +362,7 @@ export class ArtistListPage extends Component {
 
                 {this.state.compareList.map((value, index) => {
                   // if (this.state.compareList.includes(value.id)) {
-                    return <ArtistCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
+                  return <ArtistCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
                   // }
                 })}
 
