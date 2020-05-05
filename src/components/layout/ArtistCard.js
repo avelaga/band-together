@@ -19,8 +19,8 @@ export class ArtistCard extends Component {
           <div className="attribute">Popularity Score: </div><h6>{checkHighlight(this.props.popularity.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.popularity}</mark> : this.props.popularity}</h6>
           <hr className="card-line" />
           {this.props.website && <div className="card-button"><a href={this.props.website}><Button variant="secondary" >Artist Website</Button></a></div>}
-          {!this.props.compareSelected && <div className="card-button"><Button variant="secondary" onClick={() => {this.props.compare(this.props.id)}}>Compare</Button></div>}
-          {this.props.compareSelected && <div className="card-button"><Button variant="primary" onClick={() => {this.props.compare(this.props.id)}}>Compare</Button></div>}
+          {!this.props.compareSelected && <div className="card-button compare"><Button variant="secondary" onClick={() => {this.props.compare(this.props.id)}}>Compare</Button></div>}
+          {this.props.compareSelected && <div className="card-button compare"><Button variant="primary" onClick={() => {this.props.compare(this.props.id)}}>Compare</Button></div>}
           <div className="flex" style={links}>
             <a href={this.props.spotify_url}><img src={spotifyLogo} style={logo}></img></a>
             {this.props.twitter_url && <a href={this.props.twitter_url}><img src={twitterLogo} style={logo}></img></a>}
