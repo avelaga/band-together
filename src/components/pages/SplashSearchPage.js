@@ -33,7 +33,7 @@ export class SplashSearchPage extends Component {
       count: null,
       results: null
     });
-    let url = "https://bandtogetherapi.xyz/restapi/artist/search?" + "query=" + value;
+    let url = "http://192.168.1.170:8000/restapi/artist/search?" + "query=" + value;
     axios
       .get(
         url
@@ -43,7 +43,7 @@ export class SplashSearchPage extends Component {
           results: res.data,
           count: res.data.length
         });
-        url = "https://bandtogetherapi.xyz/restapi/concert/search?" + "query=" + value;
+        url = "http://192.168.1.170:8000/restapi/concert/search?" + "query=" + value;
         axios
           .get(
             url
@@ -55,7 +55,7 @@ export class SplashSearchPage extends Component {
               results: newArray,
               count: newCount
             });
-            url = "https://bandtogetherapi.xyz/restapi/location/search?" + "query=" + value;
+            url = "http://192.168.1.170:8000/restapi/location/search?" + "query=" + value;
             axios
               .get(
                 url

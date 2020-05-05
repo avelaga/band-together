@@ -15,6 +15,7 @@ export class ArtistListPage extends Component {
     super();
     this.state = {
       compareList: [],
+      compareOpen: false,
       count: null,
       next: null,
       prev: null,
@@ -65,7 +66,7 @@ export class ArtistListPage extends Component {
   }
 
   updateState() {
-    let url = "https://bandtogetherapi.xyz/restapi/artist";
+    let url = "http://192.168.1.170:8000/restapi/artist";
     let options = {
       params: {
         page: this.state.page,
@@ -182,10 +183,14 @@ export class ArtistListPage extends Component {
 
   printCompare() {
     console.log(this.state.compareList);
+    console.log(this.state.compareOpen);
   }
 
   showCompare = () => {
     console.log("gonna show compare");
+    this.setState({
+      compareOpen: !this.state.compareOpen
+    })
   }
 
   render() {
@@ -195,10 +200,11 @@ export class ArtistListPage extends Component {
         <div className="appear-second">
           <h1 className="title">Artists</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-          {this.state.results &&
+
+          {(this.state.results && !this.state.compareOpen) &&
             <div>
               <div className="search-div flex">
-              <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Compare</Button>
+                <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Compare</Button>
                 <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "name" ? activeDropdown : inactiveDropdown} onClick={this.sortName}>Name</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "genre" ? activeDropdown : inactiveDropdown} onClick={this.sortGenre}>Genre</Dropdown.Item>
@@ -248,14 +254,17 @@ export class ArtistListPage extends Component {
                 </div>
                 <Button variant="secondary" onClick={this.reset}>Reset</Button>
               </div>
+
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&
                 <div className="flex white">
                   <h1>No results found</h1>
                 </div>
               }
+
               {/* If count > 0, show results + pagination menu */}
               {(this.state.count > 0) &&
+
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
@@ -286,9 +295,31 @@ export class ArtistListPage extends Component {
                     </MediaQuery>
                   </div>
                 </div>
+
               }
+
+
             </div>
           }
+
+
+          {/* show compare options  */}
+          {(this.state.results && this.state.compareOpen) &&
+            <div>
+              <div className="search-div flex">
+                <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Close</Button>
+              </div>
+              <div className="flex">
+                {this.state.results.map((value, index) => {
+                  if (this.state.compareList.includes(value.id)) {
+                    return <ArtistCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
+                  }
+                })}
+              </div>
+            </div>
+          }
+
+
         </div>
       </div>
     );
