@@ -14,6 +14,8 @@ export class ConcertListPage extends Component {
   constructor() {
     super();
     this.state = {
+      compareList: [],
+      compareOpen: false,
       count: null,
       next: null,
       prev: null,
@@ -156,6 +158,33 @@ export class ConcertListPage extends Component {
     }, this.updateState);
   }
 
+  callback = (arg) => {
+    if (!this.state.compareList.includes(arg)) { // add
+      this.setState({
+        compareList: this.state.compareList.concat(arg)
+      }, this.printCompare);
+    } else { // remove
+      const index = this.state.compareList.indexOf(arg);
+      let newArr = this.state.compareList;
+      newArr.splice(index, 1);
+      this.setState({
+        compareList: newArr
+      }, this.printCompare);
+    }
+  }
+
+  printCompare() {
+    console.log(this.state.compareList);
+    console.log(this.state.compareOpen);
+  }
+
+  showCompare = () => {
+    console.log("gonna show compare");
+    this.setState({
+      compareOpen: !this.state.compareOpen
+    })
+  }
+
   render() {
     return (
       <div className="body">
@@ -163,9 +192,10 @@ export class ConcertListPage extends Component {
         <div className="appear-second">
           <h1 className="title">Concerts</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-          {this.state.results &&
+          {(this.state.results && !this.state.compareOpen) &&
             <div>
               <div className="search-div flex">
+              <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Compare</Button>
                 <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "date" ? activeDropdown : inactiveDropdown} onClick={this.sortDate}>Date</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "venue__name" ? activeDropdown : inactiveDropdown} onClick={this.sortVenue}>Venue</Dropdown.Item>
@@ -214,7 +244,7 @@ export class ConcertListPage extends Component {
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <ConcertCard key={index} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} region={value.region} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.locationId} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} artistGenre={value.artistGenre} searched={this.state.searched} query={this.state.query} />
+                      return <ConcertCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} region={value.region} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.locationId} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} artistGenre={value.artistGenre} searched={this.state.searched} query={this.state.query} />
                     })}
                   </div>
                   <div className="pagination-menu">
@@ -244,6 +274,24 @@ export class ConcertListPage extends Component {
               }
             </div>
           }
+
+          {/* show compare options  */}
+          {(this.state.results && this.state.compareOpen) &&
+            <div>
+              <div className="search-div flex">
+                <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Close</Button>
+              </div>
+              <div className="flex">
+                {this.state.results.map((value, index) => {
+                  if (this.state.compareList.includes(value.id)) {
+                    return <ConcertCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} region={value.region} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.locationId} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} artistGenre={value.artistGenre} searched={this.state.searched} query={this.state.query} />
+                  }
+                })}
+              </div>
+            </div>
+          }
+
+
         </div>
       </div>
     );
