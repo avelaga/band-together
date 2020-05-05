@@ -15,6 +15,8 @@ export class LocationListPage extends Component {
   constructor() {
     super();
     this.state = {
+      compareList: [],
+      compareOpen: false,
       count: null,
       next: null,
       prev: null,
@@ -174,6 +176,33 @@ export class LocationListPage extends Component {
     }, this.updateState);
   }
 
+  callback = (arg) => {
+    if (!this.state.compareList.includes(arg)) { // add
+      this.setState({
+        compareList: this.state.compareList.concat(arg)
+      }, this.printCompare);
+    } else { // remove
+      const index = this.state.compareList.indexOf(arg);
+      let newArr = this.state.compareList;
+      newArr.splice(index, 1);
+      this.setState({
+        compareList: newArr
+      }, this.printCompare);
+    }
+  }
+
+  printCompare() {
+    console.log(this.state.compareList);
+    console.log(this.state.compareOpen);
+  }
+
+  showCompare = () => {
+    console.log("gonna show compare");
+    this.setState({
+      compareOpen: !this.state.compareOpen
+    })
+  }
+
   render() {
     return (
       <div className="body">
@@ -181,9 +210,10 @@ export class LocationListPage extends Component {
         <div className="appear-second">
           <h1 className="title">Locations</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-          {this.state.results &&
+          {(this.state.results && !this.state.compareOpen) &&
             <div>
               <div className="search-div flex">
+              <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Compare</Button>
                 <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "city" ? activeDropdown : inactiveDropdown} onClick={this.sortCity}>City</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "region" ? activeDropdown : inactiveDropdown} onClick={this.sortRegion}>State</Dropdown.Item>
@@ -247,7 +277,7 @@ export class LocationListPage extends Component {
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query} />
+                      return <LocationCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query} />
                     })}
                   </div>
                   <div className="pagination-menu">
@@ -277,6 +307,25 @@ export class LocationListPage extends Component {
               }
             </div>
           }
+
+
+          {/* show compare options  */}
+          {(this.state.results && this.state.compareOpen) &&
+            <div>
+              <div className="search-div flex">
+                <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Close</Button>
+              </div>
+              <div className="flex">
+                {this.state.results.map((value, index) => {
+                  if (this.state.compareList.includes(value.id)) {
+                    return <LocationCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query} />
+                  }
+                })}
+              </div>
+            </div>
+          }
+
+
         </div>
       </div>
     );
