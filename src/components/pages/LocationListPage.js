@@ -187,7 +187,7 @@ export class LocationListPage extends Component {
           this.setState({
             compareList: this.state.compareList.concat(this.state.results[index]),
             compareIdList: this.state.compareIdList.concat(arg)
-          }, this.printCompare);
+          });
         }
       })
     }
@@ -200,25 +200,17 @@ export class LocationListPage extends Component {
       })
       let newObjArr = this.state.compareList;
       newObjArr.splice(objIndex, 1);
-
       const idIndex = this.state.compareIdList.indexOf(arg);
       let newIdArr = this.state.compareIdList;
       newIdArr.splice(idIndex, 1);
-
       this.setState({
         compareIdList: newIdArr,
         compareList: newObjArr
-      }, this.printCompare);
+      });
     }
   }
 
-  printCompare() {
-    console.log(this.state.compareList);
-    console.log(this.state.compareOpen);
-  }
-
   showCompare = () => {
-    console.log("gonna show compare");
     this.setState({
       compareOpen: !this.state.compareOpen
     })
@@ -355,16 +347,6 @@ export class LocationListPage extends Component {
 }
 
 export default LocationListPage
-
-const mobileButtonStyle = {
-  backgroundColor: 'rgb(0, 119, 255)',
-  width: '85vw',
-  borderRadius: '5px',
-  padding: '7px',
-  margin: '5px',
-  fontSize: '30px',
-  lineHeight: '70px'
-}
 
 const sliderStyle = {
   width: '150px'

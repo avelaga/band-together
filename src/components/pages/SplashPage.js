@@ -13,7 +13,6 @@ export class SplashPage extends Component {
   }
 
   newSearch(searchTerm) {
-    console.log(searchTerm);
     this.setState({
       searchTerm: searchTerm
     });
