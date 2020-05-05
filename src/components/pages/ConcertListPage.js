@@ -15,6 +15,7 @@ export class ConcertListPage extends Component {
     super();
     this.state = {
       compareList: [],
+      compareIdList: [],
       compareOpen: false,
       count: null,
       next: null,
@@ -142,6 +143,7 @@ export class ConcertListPage extends Component {
   reset = (event) => {
     this.setState({
       compareList: [],
+      compareIdList: [],
       compareOpen: false,
       count: null,
       next: null,
@@ -161,16 +163,33 @@ export class ConcertListPage extends Component {
   }
 
   callback = (arg) => {
-    if (!this.state.compareList.includes(arg)) { // add
+    if (!this.state.compareIdList.includes(arg)) { // add
+      this.state.results.map((value, index) => {
+        if (value.id === arg) {
+          this.setState({
+            compareList: this.state.compareList.concat(this.state.results[index]),
+            compareIdList: this.state.compareIdList.concat(arg)
+          }, this.printCompare);
+        }
+      })
+    }
+    else { // remove
+      let objIndex = 0;
+      this.state.compareList.map((value, index) => {
+        if (value.id === arg) {
+          objIndex = index;
+        }
+      })
+      let newObjArr = this.state.compareList;
+      newObjArr.splice(objIndex, 1);
+
+      const idIndex = this.state.compareIdList.indexOf(arg);
+      let newIdArr = this.state.compareIdList;
+      newIdArr.splice(idIndex, 1);
+
       this.setState({
-        compareList: this.state.compareList.concat(arg)
-      }, this.printCompare);
-    } else { // remove
-      const index = this.state.compareList.indexOf(arg);
-      let newArr = this.state.compareList;
-      newArr.splice(index, 1);
-      this.setState({
-        compareList: newArr
+        compareIdList: newIdArr,
+        compareList: newObjArr
       }, this.printCompare);
     }
   }
@@ -251,7 +270,7 @@ export class ConcertListPage extends Component {
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <ConcertCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} region={value.region} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.locationId} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} artistGenre={value.artistGenre} searched={this.state.searched} query={this.state.query} />
+                      return <ConcertCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} region={value.region} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.locationId} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} artistGenre={value.artistGenre} searched={this.state.searched} query={this.state.query} />
                     })}
                   </div>
                   <div className="pagination-menu">
@@ -289,16 +308,12 @@ export class ConcertListPage extends Component {
                 <Button variant="secondary" onClick={this.showCompare} className="margin-right mobile-margin">Close</Button>
               </div>
               <div className="flex">
-                {this.state.results.map((value, index) => {
-                  if (this.state.compareList.includes(value.id)) {
-                    return <ConcertCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} region={value.region} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.locationId} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} artistGenre={value.artistGenre} searched={this.state.searched} query={this.state.query} />
-                  }
+                {this.state.compareList.map((value, index) => {
+                  return <ConcertCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} name={value.artistName} img={value.venueImage ? value.venueImage : value.artistImage} city={value.locationName} region={value.region} date={value.date} time={value.time} ticket_min={value.ticket_min} ticket_max={value.ticket_max} location_url={"locations/" + value.locationId} artist_url={"artists/" + value.artistId} concert_url={"concerts/" + value.id} venueName={value.venueName} artistGenre={value.artistGenre} searched={this.state.searched} query={this.state.query} />
                 })}
               </div>
             </div>
           }
-
-
         </div>
       </div>
     );

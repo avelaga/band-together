@@ -181,10 +181,8 @@ export class ArtistListPage extends Component {
         }
       })
     }
-
     else { // remove
       let objIndex = 0;
-
       this.state.compareList.map((value, index) => {
         if (value.id === arg) {
           objIndex = index;
@@ -202,20 +200,6 @@ export class ArtistListPage extends Component {
         compareList: newObjArr
       }, this.printCompare);
     }
-
-    // if (!this.state.compareList.includes(arg)) { // add
-    //   this.setState({
-    //     compareList: this.state.compareList.concat(arg)
-    //   }, this.printCompare);
-
-    // } else { // remove
-    //   const index = this.state.compareList.indexOf(arg);
-    //   let newArr = this.state.compareList;
-    //   newArr.splice(index, 1);
-    //   this.setState({
-    //     compareList: newArr
-    //   }, this.printCompare);
-    // }
   }
 
   printCompare() {
@@ -241,14 +225,12 @@ export class ArtistListPage extends Component {
           {(this.state.results && !this.state.compareOpen) &&
             <div>
               <div className="search-div flex">
-
                 {(this.state.compareList.length >= 2) &&
                   <Button variant="primary" onClick={this.showCompare} className="margin-right mobile-margin">Compare</Button>
                 }
                 {(this.state.compareList.length < 2) &&
                   <Button variant="secondary" onClick={this.showCompare} disabled={true} className="margin-right mobile-margin">Compare</Button>
                 }
-
                 <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "name" ? activeDropdown : inactiveDropdown} onClick={this.sortName}>Name</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "genre" ? activeDropdown : inactiveDropdown} onClick={this.sortGenre}>Genre</Dropdown.Item>
@@ -339,13 +321,9 @@ export class ArtistListPage extends Component {
                     </MediaQuery>
                   </div>
                 </div>
-
               }
-
-
             </div>
           }
-
 
           {/* show compare options  */}
           {(this.state.results && this.state.compareOpen) &&
@@ -354,24 +332,12 @@ export class ArtistListPage extends Component {
                 <Button variant="secondary" onClick={this.showCompare} className="margin-right mobile-margin">Close</Button>
               </div>
               <div className="flex">
-                {/* {this.state.results.map((value, index) => {
-                  if (this.state.compareList.includes(value.id)) {
-                    return <ArtistCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
-                  }
-                })} */}
-
                 {this.state.compareList.map((value, index) => {
-                  // if (this.state.compareList.includes(value.id)) {
                   return <ArtistCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
-                  // }
                 })}
-
-
               </div>
             </div>
           }
-
-
         </div>
       </div>
     );

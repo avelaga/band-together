@@ -16,6 +16,7 @@ export class LocationListPage extends Component {
     super();
     this.state = {
       compareList: [],
+      compareIdList: [],
       compareOpen: false,
       count: null,
       next: null,
@@ -158,6 +159,7 @@ export class LocationListPage extends Component {
   reset = (event) => {
     this.setState({
       compareList: [],
+      compareIdList: [],
       compareOpen: false,
       count: null,
       next: null,
@@ -179,16 +181,33 @@ export class LocationListPage extends Component {
   }
 
   callback = (arg) => {
-    if (!this.state.compareList.includes(arg)) { // add
+    if (!this.state.compareIdList.includes(arg)) { // add
+      this.state.results.map((value, index) => {
+        if (value.id === arg) {
+          this.setState({
+            compareList: this.state.compareList.concat(this.state.results[index]),
+            compareIdList: this.state.compareIdList.concat(arg)
+          }, this.printCompare);
+        }
+      })
+    }
+    else { // remove
+      let objIndex = 0;
+      this.state.compareList.map((value, index) => {
+        if (value.id === arg) {
+          objIndex = index;
+        }
+      })
+      let newObjArr = this.state.compareList;
+      newObjArr.splice(objIndex, 1);
+
+      const idIndex = this.state.compareIdList.indexOf(arg);
+      let newIdArr = this.state.compareIdList;
+      newIdArr.splice(idIndex, 1);
+
       this.setState({
-        compareList: this.state.compareList.concat(arg)
-      }, this.printCompare);
-    } else { // remove
-      const index = this.state.compareList.indexOf(arg);
-      let newArr = this.state.compareList;
-      newArr.splice(index, 1);
-      this.setState({
-        compareList: newArr
+        compareIdList: newIdArr,
+        compareList: newObjArr
       }, this.printCompare);
     }
   }
@@ -284,7 +303,7 @@ export class LocationListPage extends Component {
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <LocationCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query} />
+                      return <LocationCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query} />
                     })}
                   </div>
                   <div className="pagination-menu">
@@ -315,7 +334,6 @@ export class LocationListPage extends Component {
             </div>
           }
 
-
           {/* show compare options  */}
           {(this.state.results && this.state.compareOpen) &&
             <div>
@@ -323,16 +341,13 @@ export class LocationListPage extends Component {
                 <Button variant="secondary" onClick={this.showCompare} className="margin-right mobile-margin">Close</Button>
               </div>
               <div className="flex">
-                {this.state.results.map((value, index) => {
-                  if (this.state.compareList.includes(value.id)) {
-                    return <LocationCard key={index} compare={this.callback} compareSelected={this.state.compareList.includes(value.id)} id={value.id} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query} />
-                  }
+                {this.state.compareList.map((value, index) => {
+                  return <LocationCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query} />
+
                 })}
               </div>
             </div>
           }
-
-
         </div>
       </div>
     );
