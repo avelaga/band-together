@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ArtistDetailsCard from "../layout/ArtistDetailsCard.js";
+import Navbar from '../layout/Navbar';
 import { Redirect } from 'react-router-dom';
 import "./pages.css";
 
@@ -31,16 +32,18 @@ export class ArtistDetailPage extends Component {
 
   render() {
     const id = this.props.match.params.id;
-    console.log(this.state.count);
     if (this.state.count) {
       if (isNaN(id || id > this.state.count)) {
         return <Redirect to="/error" />
       }
     }
     return (
-      <div className="body flex">
-        <div className="appear-second">
-          <ArtistDetailsCard id={this.props.match.params.id} />
+      <div>
+        <Navbar />
+        <div className="body flex">
+          <div className="appear-second">
+            <ArtistDetailsCard id={this.props.match.params.id} />
+          </div>
         </div>
       </div>
     );

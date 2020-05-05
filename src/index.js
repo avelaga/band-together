@@ -8,7 +8,6 @@ import Navbar from './components/layout/Navbar';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Navbar />
     <App />
   </BrowserRouter>,
   document.getElementById('app'));

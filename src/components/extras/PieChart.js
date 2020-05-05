@@ -13,14 +13,14 @@ class PieChart extends React.Component {
 
   createPieChart() {
     const margin = 40;
-    const height = 450;
+    const height = 500;
     const width = 700;
     const radius = Math.min(width, height) / 2 - margin;
 
     const rawSvg = d3
       .select(this.refs.pieChart)
       .append('svg')
-      .attr('width', width)
+      .attr('width', width+200)
       .attr('height', height);
     const svg = rawSvg
       .append('g')

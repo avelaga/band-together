@@ -1,5 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import MediaQuery from 'react-responsive'
+import Navbar from '../layout/Navbar';
 import AboutCard from '../layout/AboutCard.js';
 import AbhiImg from '../../../dist/images/abhi.jpg';
 import AdamImg from '../../../dist/images/adam.jpg';
@@ -18,8 +19,7 @@ import MochaImg from '../../../dist/images/mocha.png';
 import SeleniumImg from '../../../dist/images/selenium.png';
 import DjRestImg from '../../../dist/images/djrest.png';
 import PostgresImg from '../../../dist/images/postgres.png';
-
-// import "./pages.css";
+import "./pages.css";
 
 const axios = require("axios").default;
 
@@ -40,7 +40,7 @@ export class AboutPage extends Component {
     jasonIssues: 0,
     abhiTests: 0,
     adamTests: 0,
-    faezahTests: 0,
+    faezahTests: 50,
     jasonTests: 29,
     gavinTests: 8,
   };
@@ -59,6 +59,7 @@ export class AboutPage extends Component {
       repo += "repository/contributors"
       axios.get(repo, request_headers)
         .then(res => {
+          console.log(res);
           for (const property in res.data) {
             const current = res.data[property];
             if (current.name === "Abhi Velaga") {
@@ -69,7 +70,7 @@ export class AboutPage extends Component {
               this.setState({ gavin: this.state.gavin + current.commits });
             } else if (current.name === "Jason Moy") {
               this.setState({ jason: this.state.jason + current.commits });
-            } else if (current.name === "Faezah Ali") {
+            } else if (current.name === "Faezah Ali" || current.name === "faezahali") {
               this.setState({ faezah: this.state.faezah + current.commits });
             }
           }
@@ -116,154 +117,148 @@ export class AboutPage extends Component {
         {/* desktop */}
         <MediaQuery minDeviceWidth={500}>
           <div className="body center">
-            {/* <div className="appear-fourth"> */}
-              <div style={aboutText}>
+            <Navbar name={"about"} />
+            <div style={aboutText}>
               <h1 className="appear-first"><b>Our Purpose</b></h1>
-                <div className="appear-second">
-                  Concerts are huge these days, but finding concerts from bands or artists you like can be a real headache. We're aiming to make the process as simple
-                  and pain-free as possible so you can spend more time planning and enjoying the live music, and less time trying to scour the internet for all the
-                  information you need.
+              <div className="appear-second">
+                Concerts are huge these days, but finding concerts from bands or artists you like can be a real headache. We're aiming to make the process as simple
+                and pain-free as possible so you can spend more time planning and enjoying the live music, and less time trying to scour the internet for all the
+                information you need.
             </div>
-              </div>
-              <div className="flex appear-third">
-                <AboutCard name={"Adam Martin"} img={AdamImg} commits={this.state.adam} issues={this.state.adamIssues} unit_tests={this.state.adamTests} bio={"I am the kangaroo whisperer"} role={"Full Stack Developer: built designed and implemented RestAPI"} />
-                <AboutCard name={"Abhi Velaga"} img={AbhiImg} commits={this.state.abhi} issues={this.state.abhiIssues} unit_tests={this.state.abhiTests} bio={"Man with the minivan"} role={"Front-End Developer: I built the front end filtering, sorting, and searching functionality and UI"} />
-                <AboutCard name={"Jason Moy"} img={JasonImg} commits={this.state.jason} issues={this.state.jasonIssues} unit_tests={this.state.jasonTests} bio={"Secret asian man"} role={"Full Stack Developer: Used AWS and Docker to get the db onto Postgres and https working on backend"} />
-                <AboutCard name={"Faezah Ali"} img={FaezahImg} commits={this.state.faezah} issues={this.state.faezahIssues} unit_tests={this.state.faezahTests} bio={"Wrote my page with the flu. The best players play hurt."} role={"Full Stack Developer:  I used Mocha and Chai to write tests for the frontend and unittest to write tests for the backend. As well as PlantUML to update the UML diagram"} />
-                <AboutCard name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} unit_tests={this.state.gavinTests} bio={"The mustache speaks for itself"} role={"Front-End Developer: Worked on search functionality, customer issues/feedback and gui tests with Selenium"} />
-              </div>
+            </div>
+            <div className="flex appear-third">
+              <AboutCard name={"Adam Martin"} img={AdamImg} commits={this.state.adam} issues={this.state.adamIssues} unit_tests={this.state.adamTests} bio={"I am the kangaroo whisperer"} role={"Full Stack Developer: built designed and implemented RestAPI"} />
+              <AboutCard name={"Abhi Velaga"} img={AbhiImg} commits={this.state.abhi} issues={this.state.abhiIssues} unit_tests={this.state.abhiTests} bio={"Man with the minivan"} role={"Front-End Developer: I built the front end filtering, sorting, and searching functionality and UI"} />
+              <AboutCard name={"Jason Moy"} img={JasonImg} commits={this.state.jason} issues={this.state.jasonIssues} unit_tests={this.state.jasonTests} bio={"Secret asian man"} role={"Full Stack Developer: Used AWS and Docker to get the db onto Postgres and https working on backend"} />
+              <AboutCard name={"Faezah Ali"} img={FaezahImg} commits={this.state.faezah} issues={this.state.faezahIssues} unit_tests={this.state.faezahTests} bio={"Wrote my page with the flu. The best players play hurt."} role={"Full Stack Developer:  I used Mocha and Chai to write tests for the frontend and unittest to write tests for the backend. As well as PlantUML to update the UML diagram"} />
+              <AboutCard name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} unit_tests={this.state.gavinTests} bio={"The mustache speaks for itself"} role={"Front-End Developer: Worked on search functionality, customer issues/feedback and gui tests with Selenium"} />
+            </div>
 
-              <hr style={line} />
+            <hr style={line} />
 
-              <div className="flex">
+            <div className="flex">
 
-                <div style={aboutStats}>
-                  <div style={aboutTop}>
-                    <h1>Repository Stats</h1>
-                  </div>
-                  <div style={aboutDown}>
-                    <h3>{repo_commits} Commits</h3>
-                    <h3>{repo_issues} Issues</h3>
-                    < h3>{repo_unit_tests} Unit Tests</h3>
-                  </div>
+              <div style={aboutStats}>
+                <div style={aboutTop}>
+                  <h1>Repository Stats</h1>
                 </div>
-
-                <div style={aboutStats}>
-                  <div style={aboutTop}>
-                    <h1>Data Sources</h1>
-                  </div>
-                  <div style={aboutDown}>
-                    <a href="https://www.spotify.com"><img src={SpotifyImg} style={srcImg}></img></a>
-                    <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} style={srcImg}></img></a>
-                    <a href="https://www.en.wikipedia.com"><img src={WikiImg} style={srcImg}></img></a>
-                    <a href="https://geodb.com"><img src={GeodbImg} style={srcImg}></img></a>
-                  </div>
-                </div>
-
-                <div style={aboutStats}>
-                  <div style={aboutTop}>
-                    <h1>Tools</h1>
-                  </div>
-                  <div style={aboutDown}>
-                    <img src={ReactImg} style={srcImg}></img>
-                    <img src={AWSImg} style={srcImg}></img>
-                    <img src={PostmanImg} style={srcImg}></img>
-                    <img src={DjangoImg} style={srcImg}></img>
-                    <img src={MochaImg} style={srcImg}></img>
-                    <img src={SeleniumImg} style={srcImg}></img>
-                    <img src={DjRestImg} style={DjRestImgStyle}></img>
-                    <img src={PostgresImg} style={srcImg}></img>
-                  </div>
+                <div style={aboutDown}>
+                  <h3>{repo_commits} Commits</h3>
+                  <h3>{repo_issues} Issues</h3>
+                  < h3>{repo_unit_tests} Unit Tests</h3>
                 </div>
               </div>
 
-              <div style={aboutLinks} >
-                <div><h1><a href="https://gitlab.com/Adam-Bomb/band-together" style={buttonStyle}>Front-End Repo</a></h1></div>
-                <div><h1><a href="https://gitlab.com/Adam-Bomb/bandtogetherapi" style={buttonStyle}>Back-End Repo</a></h1></div>
+              <div style={aboutStats}>
+                <div style={aboutTop}>
+                  <h1>Data Sources</h1>
+                </div>
+                <div style={aboutDown}>
+                  <a href="https://www.spotify.com"><img src={SpotifyImg} style={srcImg}></img></a>
+                  <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} style={srcImg}></img></a>
+                  <a href="https://www.en.wikipedia.com"><img src={WikiImg} style={srcImg}></img></a>
+                  <a href="https://geodb.com"><img src={GeodbImg} style={srcImg}></img></a>
+                </div>
+              </div>
 
-                <div><h1><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style={buttonStyle}>Postman API</a></h1></div>
+              <div style={aboutStats}>
+                <div style={aboutTop}>
+                  <h1>Tools</h1>
+                </div>
+                <div style={aboutDown}>
+                  <img src={ReactImg} style={srcImg}></img>
+                  <img src={AWSImg} style={srcImg}></img>
+                  <img src={PostmanImg} style={srcImg}></img>
+                  <img src={DjangoImg} style={srcImg}></img>
+                  <img src={MochaImg} style={srcImg}></img>
+                  <img src={SeleniumImg} style={srcImg}></img>
+                  <img src={DjRestImg} style={DjRestImgStyle}></img>
+                  <img src={PostgresImg} style={srcImg}></img>
+                </div>
               </div>
             </div>
-          {/* </div> */}
+
+            <div style={aboutLinks} >
+              <div><h1><a href="https://gitlab.com/Adam-Bomb/band-together" style={buttonStyle}>Front-End Repo</a></h1></div>
+              <div><h1><a href="https://gitlab.com/Adam-Bomb/bandtogetherapi" style={buttonStyle}>Back-End Repo</a></h1></div>
+
+              <div><h1><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style={buttonStyle}>Postman API</a></h1></div>
+            </div>
+          </div>
         </MediaQuery>
 
         {/* mobile */}
         <MediaQuery maxDeviceWidth={500}>
           <div className="body">
-            {/* <div className="appear-fourth"> */}
-              <div style={mobileAboutText}>
-                <h1 className="appear-first"><b>Our Purpose</b></h1>
-                <div className="appear-second">
-                  Concerts are huge these days, but finding concerts from bands or artists you like can be a real headache. We're aiming to make the process as simple
-                  and pain-free as possible so you can spend more time planning and enjoying the live music, and less time trying to scour the internet for all the
-                  information you need.
-              </div>
-              </div>
-              <div className="flex appear-third">
-                <AboutCard style={pad} name={"Adam Martin"} img={AdamImg} commits={this.state.adam} issues={this.state.adamIssues} unit_tests={this.state.adamTests} bio={"I am the kangaroo whisperer"} role={"Full Stack Developer"} />
-                <AboutCard name={"Abhi Velaga"} img={AbhiImg} commits={this.state.abhi} issues={this.state.abhiIssues} unit_tests={this.state.abhiTests} bio={"Man with the minivan"} role={"Front-End Developer"} />
-                <AboutCard name={"Jason Moy"} img={JasonImg} commits={this.state.jason} issues={this.state.jasonIssues} unit_tests={this.state.jasonTests} bio={"Secret asian man"} role={"Full Stack Developer"} />
-                <AboutCard name={"Faezah Ali"} img={FaezahImg} commits={this.state.faezah} issues={this.state.faezahIssues} unit_tests={this.state.faezahTests} bio={"Wrote my page with the flu. The best players play hurt."} role={"Full Stack Developer"} />
-                <AboutCard name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} unit_tests={this.state.gavinTests} bio={"The mustache speaks for itself"} role={"Front-End Developer"} />
-              </div>
-
-              <div className="flex">
-
-                <div style={aboutStats}>
-                  <div style={aboutTop}>
-                    <h1>Repository Stats</h1>
-                  </div>
-                  <div style={aboutDown}>
-                    <h3>{repo_commits} Commits</h3>
-                    <h3>{repo_issues} Issues</h3>
-                    < h3>{repo_unit_tests} Unit Tests</h3>
-                  </div>
-                </div>
-
-                <div style={aboutStats}>
-                  <div style={aboutTop}>
-                    <h1>Data Sources</h1>
-                  </div>
-                  <div style={aboutDown}>
-                    <a href="https://www.spotify.com"><img src={SpotifyImg} style={srcImg}></img></a>
-                    <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} style={srcImg}></img></a>
-                    <a href="https://www.en.wikipedia.com"><img src={WikiImg} style={srcImg}></img></a>
-                    <a href="https://geodb.com"><img src={GeodbImg} style={srcImg}></img></a>
-                  </div>
-                </div>
-
-                <div style={aboutStats}>
-                  <div style={aboutTop}>
-                    <h1>Tools</h1>
-                  </div>
-                  <div style={aboutDown}>
-                    <img src={ReactImg} style={srcImg}></img>
-                    <img src={AWSImg} style={srcImg}></img>
-                    <img src={PostmanImg} style={srcImg}></img>
-                    <img src={DjangoImg} style={srcImg}></img>
-                    <img src={MochaImg} style={srcImg}></img>
-                    <img src={SeleniumImg} style={srcImg}></img>
-                    <img src={DjRestImg} style={DjRestImgStyle}></img>
-                    <img src={PostgresImg} style={srcImg}></img>
-                  </div>
-                </div>
-              </div>
-
-              <div style={mobileAboutLinks} className="flex">
-                <div><a href="https://gitlab.com/Adam-Bomb/band-together" style={mobileButtonStyle}>Front-End Repo</a></div>
-                <div><a href="https://gitlab.com/Adam-Bomb/bandtogetherapi" style={mobileButtonStyle}>Back-End Repo</a></div>
-                <div><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style={mobileButtonStyle}>Postman API</a></div>
+            <Navbar />
+            <div style={mobileAboutText}>
+              <h1 className="appear-first"><b>Our Purpose</b></h1>
+              <div className="appear-second">
+                Concerts are huge these days, but finding concerts from bands or artists you like can be a real headache. We're aiming to make the process as simple
+                and pain-free as possible so you can spend more time planning and enjoying the live music, and less time trying to scour the internet for all the
+                information you need.
               </div>
             </div>
-          {/* </div> */}
+            <div className="flex appear-third">
+              <AboutCard name={"Adam Martin"} img={AdamImg} commits={this.state.adam} issues={this.state.adamIssues} unit_tests={this.state.adamTests} bio={"I am the kangaroo whisperer"} role={"Full Stack Developer: built designed and implemented RestAPI"} />
+              <AboutCard name={"Abhi Velaga"} img={AbhiImg} commits={this.state.abhi} issues={this.state.abhiIssues} unit_tests={this.state.abhiTests} bio={"Man with the minivan"} role={"Front-End Developer: I built the front end filtering, sorting, and searching functionality and UI"} />
+              <AboutCard name={"Jason Moy"} img={JasonImg} commits={this.state.jason} issues={this.state.jasonIssues} unit_tests={this.state.jasonTests} bio={"Secret asian man"} role={"Full Stack Developer: Used AWS and Docker to get the db onto Postgres and https working on backend"} />
+              <AboutCard name={"Faezah Ali"} img={FaezahImg} commits={this.state.faezah} issues={this.state.faezahIssues} unit_tests={this.state.faezahTests} bio={"Wrote my page with the flu. The best players play hurt."} role={"Full Stack Developer:  I used Mocha and Chai to write tests for the frontend and unittest to write tests for the backend. As well as PlantUML to update the UML diagram"} />
+              <AboutCard name={"Gavin Rodrigue"} img={GavinImg} commits={this.state.gavin} issues={this.state.gavinIssues} unit_tests={this.state.gavinTests} bio={"The mustache speaks for itself"} role={"Front-End Developer: Worked on search functionality, customer issues/feedback and gui tests with Selenium"} />
+            </div>
+
+            <div className="flex">
+
+              <div style={aboutStats}>
+                <div style={aboutTop}>
+                  <h1>Repository Stats</h1>
+                </div>
+                <div style={aboutDown}>
+                  <h3>{repo_commits} Commits</h3>
+                  <h3>{repo_issues} Issues</h3>
+                  < h3>{repo_unit_tests} Unit Tests</h3>
+                </div>
+              </div>
+
+              <div style={aboutStats}>
+                <div style={aboutTop}>
+                  <h1>Data Sources</h1>
+                </div>
+                <div style={aboutDown}>
+                  <a href="https://www.spotify.com"><img src={SpotifyImg} style={srcImg}></img></a>
+                  <a href="https://www.ticketmaster.com"><img src={TicketmasterImg} style={srcImg}></img></a>
+                  <a href="https://www.en.wikipedia.com"><img src={WikiImg} style={srcImg}></img></a>
+                  <a href="https://geodb.com"><img src={GeodbImg} style={srcImg}></img></a>
+                </div>
+              </div>
+
+              <div style={aboutStats}>
+                <div style={aboutTop}>
+                  <h1>Tools</h1>
+                </div>
+                <div style={aboutDown}>
+                  <img src={ReactImg} style={srcImg}></img>
+                  <img src={AWSImg} style={srcImg}></img>
+                  <img src={PostmanImg} style={srcImg}></img>
+                  <img src={DjangoImg} style={srcImg}></img>
+                  <img src={MochaImg} style={srcImg}></img>
+                  <img src={SeleniumImg} style={srcImg}></img>
+                  <img src={DjRestImg} style={DjRestImgStyle}></img>
+                  <img src={PostgresImg} style={srcImg}></img>
+                </div>
+              </div>
+            </div>
+
+            <div style={mobileAboutLinks} className="flex">
+              <div><a href="https://gitlab.com/Adam-Bomb/band-together" style={mobileButtonStyle}>Front-End Repo</a></div>
+              <div><a href="https://gitlab.com/Adam-Bomb/bandtogetherapi" style={mobileButtonStyle}>Back-End Repo</a></div>
+              <div><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style={mobileButtonStyle}>Postman API</a></div>
+            </div>
+          </div>
         </MediaQuery>
       </div>
     );
   }
-}
-
-const pad = {
-  margin: '20px'
 }
 
 // local styles

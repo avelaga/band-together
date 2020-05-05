@@ -19,7 +19,7 @@ class BarChart extends Component {
     createBarChart(){
         const margin = { top: 50, right: 20, bottom: 100, left: 60};
         const height = 600 - margin.top - margin.bottom;
-        const width = 1400 - margin.left - margin.right - 150;
+        const width = 1200 - margin.left - margin.right;
 
         const svg = d3
             .select(this.refs.barChart)
