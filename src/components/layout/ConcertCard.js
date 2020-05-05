@@ -21,6 +21,8 @@ export class ConcertCard extends Component {
             <a href={this.props.location_url} style={buttonSpace}><Button variant="secondary" >Location Info</Button></a>
             <a href={this.props.artist_url} style={buttonSpace}><Button variant="secondary" >Artist Info</Button></a>
           </div>
+          {!this.props.compareSelected && <div className="card-button compare"><Button variant="secondary" onClick={() => {this.props.compare(this.props.id)}}>Compare</Button></div>}
+          {this.props.compareSelected && <div className="card-button compare"><Button variant="primary" onClick={() => {this.props.compare(this.props.id)}}>Compare</Button></div>}
         </div>
       </div>
     );

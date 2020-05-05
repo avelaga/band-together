@@ -15,6 +15,9 @@ export class LocationListPage extends Component {
   constructor() {
     super();
     this.state = {
+      compareList: [],
+      compareIdList: [],
+      compareOpen: false,
       count: null,
       next: null,
       prev: null,
@@ -155,6 +158,9 @@ export class LocationListPage extends Component {
 
   reset = (event) => {
     this.setState({
+      compareList: [],
+      compareIdList: [],
+      compareOpen: false,
       count: null,
       next: null,
       prev: null,
@@ -174,6 +180,42 @@ export class LocationListPage extends Component {
     }, this.updateState);
   }
 
+  callback = (arg) => {
+    if (!this.state.compareIdList.includes(arg)) { // add
+      this.state.results.map((value, index) => {
+        if (value.id === arg) {
+          this.setState({
+            compareList: this.state.compareList.concat(this.state.results[index]),
+            compareIdList: this.state.compareIdList.concat(arg)
+          });
+        }
+      })
+    }
+    else { // remove
+      let objIndex = 0;
+      this.state.compareList.map((value, index) => {
+        if (value.id === arg) {
+          objIndex = index;
+        }
+      })
+      let newObjArr = this.state.compareList;
+      newObjArr.splice(objIndex, 1);
+      const idIndex = this.state.compareIdList.indexOf(arg);
+      let newIdArr = this.state.compareIdList;
+      newIdArr.splice(idIndex, 1);
+      this.setState({
+        compareIdList: newIdArr,
+        compareList: newObjArr
+      });
+    }
+  }
+
+  showCompare = () => {
+    this.setState({
+      compareOpen: !this.state.compareOpen
+    })
+  }
+
   render() {
     return (
       <div className="body">
@@ -181,9 +223,15 @@ export class LocationListPage extends Component {
         <div className="appear-second">
           <h1 className="title">Locations</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-          {this.state.results &&
+          {(this.state.results && !this.state.compareOpen) &&
             <div>
               <div className="search-div flex">
+                {(this.state.compareList.length >= 2) &&
+                  <Button variant="primary" onClick={this.showCompare} className="margin-right mobile-margin">Compare</Button>
+                }
+                {(this.state.compareList.length < 2) &&
+                  <Button variant="secondary" onClick={this.showCompare} disabled={true} className="margin-right mobile-margin">Compare</Button>
+                }
                 <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "city" ? activeDropdown : inactiveDropdown} onClick={this.sortCity}>City</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "region" ? activeDropdown : inactiveDropdown} onClick={this.sortRegion}>State</Dropdown.Item>
@@ -247,7 +295,7 @@ export class LocationListPage extends Component {
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <LocationCard key={index} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query} />
+                      return <LocationCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query} />
                     })}
                   </div>
                   <div className="pagination-menu">
@@ -277,6 +325,21 @@ export class LocationListPage extends Component {
               }
             </div>
           }
+
+          {/* show compare options  */}
+          {(this.state.results && this.state.compareOpen) &&
+            <div>
+              <div className="search-div flex">
+                <Button variant="secondary" onClick={this.showCompare} className="margin-right mobile-margin">Close</Button>
+              </div>
+              <div className="flex">
+                {this.state.compareList.map((value, index) => {
+                  return <LocationCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} city={value.city} country={value.country} timezone={value.timezone} region={value.region} area_code={value.area_code} img={value.image} city_url={"/locations/" + value.id} pop={value.population} elevation={value.elevation} searched={this.state.searched} query={this.state.query} />
+
+                })}
+              </div>
+            </div>
+          }
         </div>
       </div>
     );
@@ -284,16 +347,6 @@ export class LocationListPage extends Component {
 }
 
 export default LocationListPage
-
-const mobileButtonStyle = {
-  backgroundColor: 'rgb(0, 119, 255)',
-  width: '85vw',
-  borderRadius: '5px',
-  padding: '7px',
-  margin: '5px',
-  fontSize: '30px',
-  lineHeight: '70px'
-}
 
 const sliderStyle = {
   width: '150px'

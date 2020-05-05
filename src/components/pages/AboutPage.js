@@ -118,7 +118,6 @@ export class AboutPage extends Component {
         <MediaQuery minDeviceWidth={500}>
           <div className="body center">
             <Navbar name={"about"} />
-            {/* <div className="appear-fourth"> */}
             <div style={aboutText}>
               <h1 className="appear-first"><b>Our Purpose</b></h1>
               <div className="appear-second">
@@ -186,14 +185,12 @@ export class AboutPage extends Component {
               <div><h1><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style={buttonStyle}>Postman API</a></h1></div>
             </div>
           </div>
-          {/* </div> */}
         </MediaQuery>
 
         {/* mobile */}
         <MediaQuery maxDeviceWidth={500}>
           <div className="body">
             <Navbar />
-            {/* <div className="appear-fourth"> */}
             <div style={mobileAboutText}>
               <h1 className="appear-first"><b>Our Purpose</b></h1>
               <div className="appear-second">
@@ -258,15 +255,10 @@ export class AboutPage extends Component {
               <div><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style={mobileButtonStyle}>Postman API</a></div>
             </div>
           </div>
-          {/* </div> */}
         </MediaQuery>
       </div>
     );
   }
-}
-
-const pad = {
-  margin: '20px'
 }
 
 // local styles

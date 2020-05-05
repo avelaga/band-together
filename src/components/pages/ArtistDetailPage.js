@@ -32,7 +32,6 @@ export class ArtistDetailPage extends Component {
 
   render() {
     const id = this.props.match.params.id;
-    console.log(this.state.count);
     if (this.state.count) {
       if (isNaN(id || id > this.state.count)) {
         return <Redirect to="/error" />

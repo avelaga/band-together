@@ -14,6 +14,9 @@ export class ArtistListPage extends Component {
   constructor() {
     super();
     this.state = {
+      compareList: [],
+      compareIdList: [],
+      compareOpen: false,
       count: null,
       next: null,
       prev: null,
@@ -43,12 +46,11 @@ export class ArtistListPage extends Component {
         minPop: 0,
         maxPop: 100,
         genre: ''
-      }
+      },
     }
   }
 
   newSearch(value) {
-    console.log(value);
     if (value === "") {
       this.setState({
         query: value,
@@ -146,6 +148,9 @@ export class ArtistListPage extends Component {
 
   reset = (event) => {
     this.setState({
+      compareList: [],
+      compareIdList: [],
+      compareOpen: false,
       count: null,
       next: null,
       prev: null,
@@ -163,6 +168,42 @@ export class ArtistListPage extends Component {
     }, this.updateState);
   }
 
+  callback = (arg) => {
+    if (!this.state.compareIdList.includes(arg)) { // add
+      this.state.results.map((value, index) => {
+        if (value.id === arg) {
+          this.setState({
+            compareList: this.state.compareList.concat(this.state.results[index]),
+            compareIdList: this.state.compareIdList.concat(arg)
+          });
+        }
+      })
+    }
+    else { // remove
+      let objIndex = 0;
+      this.state.compareList.map((value, index) => {
+        if (value.id === arg) {
+          objIndex = index;
+        }
+      })
+      let newObjArr = this.state.compareList;
+      newObjArr.splice(objIndex, 1);
+      const idIndex = this.state.compareIdList.indexOf(arg);
+      let newIdArr = this.state.compareIdList;
+      newIdArr.splice(idIndex, 1);
+      this.setState({
+        compareIdList: newIdArr,
+        compareList: newObjArr
+      });
+    }
+  }
+
+  showCompare = () => {
+    this.setState({
+      compareOpen: !this.state.compareOpen
+    })
+  }
+
   render() {
     return (
       <div className="body">
@@ -170,9 +211,16 @@ export class ArtistListPage extends Component {
         <div className="appear-second">
           <h1 className="title">Artists</h1>
           {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-          {this.state.results &&
+
+          {(this.state.results && !this.state.compareOpen) &&
             <div>
               <div className="search-div flex">
+                {(this.state.compareList.length >= 2) &&
+                  <Button variant="primary" onClick={this.showCompare} className="margin-right mobile-margin">Compare</Button>
+                }
+                {(this.state.compareList.length < 2) &&
+                  <Button variant="secondary" onClick={this.showCompare} disabled={true} className="margin-right mobile-margin">Compare</Button>
+                }
                 <DropdownButton id="dropdown-basic-button" title="Sort by" className="margin-right mobile-margin">
                   <Dropdown.Item style={this.state.sortBy === "name" ? activeDropdown : inactiveDropdown} onClick={this.sortName}>Name</Dropdown.Item>
                   <Dropdown.Item style={this.state.sortBy === "genre" ? activeDropdown : inactiveDropdown} onClick={this.sortGenre}>Genre</Dropdown.Item>
@@ -222,18 +270,21 @@ export class ArtistListPage extends Component {
                 </div>
                 <Button variant="secondary" onClick={this.reset}>Reset</Button>
               </div>
+
               {/* If count = 0, show no results page */}
               {(this.state.count === 0) &&
                 <div className="flex white">
                   <h1>No results found</h1>
                 </div>
               }
+
               {/* If count > 0, show results + pagination menu */}
               {(this.state.count > 0) &&
+
                 <div>
                   <div className="flex">
                     {this.state.results.map((value, index) => {
-                      return <ArtistCard key={index} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
+                      return <ArtistCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
                     })}
                   </div>
                   <div className="pagination-menu">
@@ -263,6 +314,20 @@ export class ArtistListPage extends Component {
               }
             </div>
           }
+
+          {/* show compare options  */}
+          {(this.state.results && this.state.compareOpen) &&
+            <div>
+              <div className="search-div flex">
+                <Button variant="secondary" onClick={this.showCompare} className="margin-right mobile-margin">Close</Button>
+              </div>
+              <div className="flex">
+                {this.state.compareList.map((value, index) => {
+                  return <ArtistCard key={index} compare={this.callback} compareSelected={this.state.compareIdList.includes(value.id)} id={value.id} name={value.name} genre={value.genre} img={value.image} artist_url={"artists/" + value.id} spotify_url={value.spotify_url} twitter_url={value.twitter_url} wiki_url={value.wiki_url} website={value.website} followers={value.num_spotify_followers} popularity={value.popularity_score} query={this.state.query} searched={this.state.searched} />
+                })}
+              </div>
+            </div>
+          }
         </div>
       </div>
     );
@@ -270,16 +335,6 @@ export class ArtistListPage extends Component {
 }
 
 export default ArtistListPage;
-
-const mobileButtonStyle = {
-  backgroundColor: 'rgb(0, 119, 255)',
-  width: '85vw',
-  borderRadius: '5px',
-  padding: '7px',
-  margin: '5px',
-  fontSize: '30px',
-  lineHeight: '70px'
-}
 
 const sliderStyle = {
   width: '150px'
