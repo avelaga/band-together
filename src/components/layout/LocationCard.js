@@ -15,8 +15,8 @@ export class LocationCard extends Component {
           <div className="attribute">Population: </div><h6>{checkHighlight(this.props.pop.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.pop}</mark> : this.props.pop}</h6>
           <hr className="card-line" />
           <div className="attribute">Elevation: </div><h6>{checkHighlight(this.props.elevation.toString(), this.props.query, this.props.searched) ? <mark style={highlight}>{this.props.elevation}</mark> : this.props.elevation} ft</h6>
-          <div className="card-button"><Button variant="secondary" onClick={() => {this.props.compare(this.props.id)}}>Compare</Button></div>
-          {this.props.compareSelected && <div>SELECTED</div>}
+          {!this.props.compareSelected && <div className="card-button"><Button variant="secondary" onClick={() => {this.props.compare(this.props.id)}}>Compare</Button></div>}
+          {this.props.compareSelected && <div className="card-button"><Button variant="primary" onClick={() => {this.props.compare(this.props.id)}}>Compare</Button></div>}
         </div>
       </div>
     );

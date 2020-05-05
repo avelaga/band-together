@@ -279,7 +279,7 @@ export class ConcertListPage extends Component {
           {(this.state.results && this.state.compareOpen) &&
             <div>
               <div className="search-div flex">
-                <Button variant="secondary" onClick={this.showCompare} disabled={this.state.compareList.length < 2} className="margin-right mobile-margin">Close</Button>
+                <Button variant="secondary" onClick={this.showCompare} className="margin-right mobile-margin">Close</Button>
               </div>
               <div className="flex">
                 {this.state.results.map((value, index) => {
