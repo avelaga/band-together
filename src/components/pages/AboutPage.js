@@ -179,9 +179,9 @@ export class AboutPage extends Component {
             </div>
 
             <div style={aboutLinks} >
+              <div><h1><a href="https://youtu.be/LxO97MtGCp0" style={buttonStyle}>Video Presentation</a></h1></div>
               <div><h1><a href="https://gitlab.com/Adam-Bomb/band-together" style={buttonStyle}>Front-End Repo</a></h1></div>
               <div><h1><a href="https://gitlab.com/Adam-Bomb/bandtogetherapi" style={buttonStyle}>Back-End Repo</a></h1></div>
-
               <div><h1><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style={buttonStyle}>Postman API</a></h1></div>
             </div>
           </div>
@@ -250,6 +250,7 @@ export class AboutPage extends Component {
             </div>
 
             <div style={mobileAboutLinks} className="flex">
+              <div><a href="https://youtu.be/LxO97MtGCp0" style={mobileButtonStyle}>Video Presentation</a></div>
               <div><a href="https://gitlab.com/Adam-Bomb/band-together" style={mobileButtonStyle}>Front-End Repo</a></div>
               <div><a href="https://gitlab.com/Adam-Bomb/bandtogetherapi" style={mobileButtonStyle}>Back-End Repo</a></div>
               <div><a href="https://documenter.getpostman.com/view/7804306/SzKYQxJR" style={mobileButtonStyle}>Postman API</a></div>
@@ -296,7 +297,7 @@ const aboutLinks = {
   display: 'flex',
   paddingBottom: '30px',
   justifyContent: 'space-between',
-  width: '650px',
+  width: '950px',
   margin: 'auto'
 }
 
