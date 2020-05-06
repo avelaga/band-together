@@ -23,7 +23,6 @@ export class Visualizations extends Component {
             <div className="body">
                 <Navbar name={"visualizations"} />
                 <h1 style={heading}> Band Together Visualizations</h1>
-
                 <div className="Ticket-vis" style={whiteText}>
                     <h2>Average Ticket Prices</h2>
                     <br />
@@ -39,14 +38,11 @@ export class Visualizations extends Component {
                     <h2>Concerts per State</h2>
                     <BarChart data={numConcertsPerState} xAttr="state" yAttr="numConcerts" />
                 </div>
-
                 <h1 style={heading}> Developer Visualizations</h1>
-
                 <div className="Genre-vis" style={whiteText}>
                     <h2>Number of Animals in each status</h2>
                     <PieChart data={animalStatus} />
                 </div>
-
                 <div className="Endangered-Vis" style={whiteText}>
                     <h2>Endangered Plants per State</h2>
                     <BarChart data={numEndangeredPerState} xAttr="state" yAttr="Endangered" />
@@ -56,11 +52,10 @@ export class Visualizations extends Component {
                     <div id="stackedBarChart"></div>
                     <StackedBarChart />
                 </div>
-                <div style={pad}/>
+                <div style={pad} />
             </div>
         );
     }
-
 }
 
 const whiteText = {

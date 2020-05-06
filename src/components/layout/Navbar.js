@@ -86,7 +86,6 @@ export class Navbar extends Component {
           </div>
         </MediaQuery>
       </div>
-
     );
   }
 }
