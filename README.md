@@ -7,9 +7,9 @@
 * Available urls are listed in App.js in React Router
 
 ## Members
-* Adam Martin - amm9726 - Adam-Bomb | Estimated time: 5h Spent Time: 5h - Project Leader
-* Abhi Velaga - asv583  - avelaga   | Estimated time: 10h Spent Time: 10h
-* Faezah Ali  - fa9828  - faezahali | Estimated time: 15h Spent Time: 21h
+* Adam Martin - amm9726 - Adam-Bomb | Estimated time: 5h Spent Time: 5h
+* Abhi Velaga - asv583  - avelaga   | Estimated time: 10h Spent Time: 10h - Project Leader
+* Faezah Ali  - fa9828  - faezahali | Estimated time: 2h Spent Time: 2h
 * Gavin Rodrigue - ghr329 - gavinhr | Estimated time: 3h Spent Time: 1h
 * Jason Moy - jcm5945 - jason.moy42 | Estimated time: 4h Spent Time: 6h
 
