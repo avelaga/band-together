@@ -94,13 +94,10 @@ export class LocationDetailsCard extends Component {
         {/* mobile */}
         <MediaQuery maxDeviceWidth={500}>
           <div className="flex">
-
             <h1 className="title">{this.state.city}</h1>
-
             <div>
               <img src={this.state.image} className="mobile-details-img"></img>
             </div>
-
             <div className="mobile-details-text">
               <div className="attribute">Population:</div><h6>{this.state.population}</h6>
               <hr className="card-line" />
@@ -119,7 +116,6 @@ export class LocationDetailsCard extends Component {
                   <Button variant="secondary" onClick={(e) => { this.viewMore(e) }}>View More</Button>
                 </div>
               }
-
               {this.state.viewMore &&
                 <div>
                   <div><h6>{this.state.bio}</h6></div>
@@ -127,32 +123,18 @@ export class LocationDetailsCard extends Component {
                 </div>
               }
             </div>
-
             <hr className="card-line" />
-
             <div style={mobileMap}>
               <BandMap lat={this.state.lat} long={this.state.long} />
             </div>
-
           </div>
         </MediaQuery>
       </div>
-
     );
   }
 }
 
 export default LocationDetailsCard;
-
-const mobileButtonStyle = {
-  backgroundColor: 'rgb(0, 119, 255)',
-  width: '30vw',
-  borderRadius: '5px',
-  padding: '7px',
-  margin: 'auto',
-  fontSize: '15px',
-  lineHeight: '30px'
-}
 
 const map = {
   width: '1000px',

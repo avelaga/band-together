@@ -90,8 +90,8 @@ export class SplashSearchPage extends Component {
       <div className="body">
         <Navbar />
         <div className="appear-second">
-        {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
-        {(this.state.count > 0) &&
+          {!this.state.results && <div className="lds-ripple"><div></div><div></div></div>}
+          {(this.state.count > 0) &&
             <div>
               <div className="search-div">
                 <SearchField
@@ -101,8 +101,6 @@ export class SplashSearchPage extends Component {
                 />
               </div>
               <div className="flex">
-
-
                 {this.state.results.map((value, index) => {
                   if (index >= ((this.state.page * 10) - 10) && index < (this.state.page * 10)) {
                     if (value.object_type === "Artist") {

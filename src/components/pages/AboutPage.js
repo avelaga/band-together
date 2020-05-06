@@ -261,7 +261,6 @@ export class AboutPage extends Component {
   }
 }
 
-// local styles
 const srcImg = {
   width: '100px',
   height: '100px',

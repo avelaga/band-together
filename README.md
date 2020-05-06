@@ -28,3 +28,6 @@
 
 ## Backend
 * https://bandtogetherapi.xyz
+
+## Presentation
+* https://youtu.be/LxO97MtGCp0
